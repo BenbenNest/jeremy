@@ -32,3 +32,6 @@ local.properties
 # Misc
 .DS_Store
 git
+
+app/
+.gitignore
