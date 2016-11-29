@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">library</string>
+    <string name="common_load_error">网络出问题了\n点击屏幕重新加载</string>
+
+</resources>

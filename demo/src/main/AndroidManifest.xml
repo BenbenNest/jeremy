@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.jeremy.demo">
+
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.RECORD_VIDEO" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.hardware.sensor.accelerometer" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- <meta-data android:name="UMENG_CHANNEL" android:value="wandoujia" /> -->
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}" />
+
+        <activity android:name=".activity.SplashActivity">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN"
+                    android:screenOrientation="portrait" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AnnotationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ViewInjectActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SenserActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.HttpsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ThreadActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".activity.WakeUpAppActivity" />
+        <activity android:name=".algorithm.AlgorithmListActivity" />
+        <activity android:name=".algorithm.MonkeyNumberOffActivity" />
+        <activity android:name=".algorithm.CardOrderActivity" />
+        <activity android:name=".activity.CameraMonitorActivity" />
+        <activity android:name=".algorithm.StringAlgorithmActivity" />
+        <activity android:name=".algorithm.NumAlgorithmActivity" />
+        <activity
+            android:name=".algorithm.BinaryTreeActivity"
+            android:label="@string/title_activity_binary_tree"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.CustomViewActivity" />
+        <activity android:name=".activity.PieChartActivity" />
+        <activity android:name=".algorithm.LinkListActivity"></activity>
+    </application>
+
+</manifest>

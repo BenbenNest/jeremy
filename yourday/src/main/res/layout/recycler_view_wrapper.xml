@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.jeremy.yourday.widgit.MySwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.bartoszlipinski.recyclerviewheader2.RecyclerViewHeader
+            android:id="@+id/recycler_view_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:visibility="gone"></com.bartoszlipinski.recyclerviewheader2.RecyclerViewHeader>
+
+    </com.jeremy.yourday.widgit.MySwipeRefreshLayout>
+
+    <ViewStub
+        android:id="@+id/error_view_stub"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout="@layout/common_error_layout"
+        android:visibility="gone" />
+
+    <ViewStub
+        android:id="@+id/empty_view_stub"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout="@layout/common_nodata_layout"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/loading_layout"
+        layout="@layout/common_loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+</merge>

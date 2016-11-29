@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="C_99">#999999</color>
+    <color name="C_F2">#f2f2f2</color>
+    <color name="C_FA">#fafafa</color>
+
+    <!--recyclerview-->
+    <color name="C_MySwipeRefreshColor">#dd2920</color>
+
+</resources>
