@@ -6,6 +6,7 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.WindowManager;
 
 import java.lang.reflect.Method;
@@ -79,6 +80,33 @@ public class ScreenUtil {
             w = 1280;
         }
         return w;
+    }
+
+    public static float getScreenDensity(Context context) {
+        try {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            WindowManager windowManager = (WindowManager) context
+                    .getSystemService(Context.WINDOW_SERVICE);
+            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+            return displayMetrics.density;
+        } catch (Throwable e) {
+            e.printStackTrace();
+            return 1.0f;
+        }
+    }
+
+    public static float dip2pxFloat(Context context, float dp) {
+        try {
+            DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+            return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, metrics);
+        } catch (Throwable e) {
+            e.printStackTrace();
+            return 0.0f;
+        }
+    }
+
+    public static int dip2px(Context context, float dp) {
+        return (int) (dip2pxFloat(context, dp) + 0.5f);
     }
 
     public static String getSubscriberId(Context ctx) {

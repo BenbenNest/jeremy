@@ -32,6 +32,15 @@ public class FunctionListModel {
     private void initData() {
         FunctionData data;
 
+        data = new FunctionData("APP检测更新自动升级", packageName + "CheckUpdateActivity", "APP检测更新自动升级", 0);
+        list.add(data);
+
+        data = new FunctionData("WebView中长按图片保存", packageName + "WebViewSavePicFromLongClickActivity", "WebView中长按图片保存", 0);
+        list.add(data);
+
+        data = new FunctionData("心形气泡点赞效果", packageName + "BubbleHeartActivity", "心形气泡点赞效果", 0);
+        list.add(data);
+
         data = new FunctionData("饼状图", packageName + "PieChartActivity", "饼状图", 0);
         list.add(data);
 

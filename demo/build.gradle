@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
-apply plugin: 'com.tencent.tinker.patch'
+//apply plugin: 'com.tencent.tinker.patch'
 
 android {
     compileSdkVersion 23
@@ -51,7 +51,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     apt 'com.jakewharton:butterknife-compiler:8.2.1'
     //可选，用于生成application类
-    provided('com.tencent.tinker:tinker-android-anno:1.7.5')
+//    provided('com.tencent.tinker:tinker-android-anno:1.7.5')
     //tinker的核心库
-    compile('com.tencent.tinker:tinker-android-lib:1.7.5')
+//    compile('com.tencent.tinker:tinker-android-lib:1.7.5')
 }
