@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_spring_back"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jeremy.demo.activity.SpringBackActivity">
+
+    <com.jeremy.library.widget.SpringBackLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/C_99"
+            android:gravity="center"
+            android:text="SpringBack Test" />
+
+    </com.jeremy.library.widget.SpringBackLayout>
+
+</RelativeLayout>

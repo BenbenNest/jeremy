@@ -32,6 +32,9 @@ public class FunctionListModel {
     private void initData() {
         FunctionData data;
 
+        data = new FunctionData("回弹效果", packageName + "SpringBackActivity", "回弹效果", 0);
+        list.add(data);
+
         data = new FunctionData("APP检测更新自动升级", packageName + "CheckUpdateActivity", "APP检测更新自动升级", 0);
         list.add(data);
 

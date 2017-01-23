@@ -36,11 +36,9 @@ public class SpringBackLayout extends LinearLayout {
                 break;
             case MotionEvent.ACTION_MOVE:
                 yMove = y;
-                if ((yMove - yDown) > 0) {
-                    mMove = yMove - yDown;
-                    i += mMove;
-                    layout(getLeft(), getTop() + mMove, getRight(), getBottom() + mMove);
-                }
+                mMove = yMove - yDown;
+                i += mMove/2;
+                layout(getLeft(), getTop() + mMove/2, getRight(), getBottom() + mMove/2);
                 break;
             case MotionEvent.ACTION_UP:
                 layout(getLeft(), getTop() - i, getRight(), getBottom() - i);
