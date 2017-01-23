@@ -72,7 +72,6 @@ public class CheckUpdateActivity extends AppCompatActivity {
             }
         }
     };
-    ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
