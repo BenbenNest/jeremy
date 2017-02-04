@@ -24,7 +24,7 @@ import android.widget.RelativeLayout;
 
 import com.jeremy.demo.R;
 import com.jeremy.demo.widget.HeartImageView;
-import com.jeremy.library.util.ScreenUtil;
+import com.jeremy.library.utils.ScreenUtil;
 
 import java.util.Random;
 

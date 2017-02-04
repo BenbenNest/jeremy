@@ -24,7 +24,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 
 import com.jeremy.demo.R;
-import com.jeremy.library.util.ScreenUtil;
+import com.jeremy.library.utils.ScreenUtil;
 
 import java.util.Random;
 

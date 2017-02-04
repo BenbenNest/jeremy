@@ -2,4 +2,14 @@
     <string name="app_name">library</string>
     <string name="common_load_error">网络出问题了\n点击屏幕重新加载</string>
 
+    <!-- WebView图片操作 -->
+    <string name="webview_image_tip">提示</string>
+    <string name="webview_image_save">保存图片到相册</string>
+    <string name="webview_image_save_ok">确认</string>
+    <string name="webview_image_save_cancel">取消</string>
+
+    <!-- 图片下载 -->
+    <string name="image_down_success">保存成功</string>
+    <string name="image_down_fail">保存失败</string>
+
 </resources>

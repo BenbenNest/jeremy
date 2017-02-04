@@ -1,4 +1,4 @@
-package com.jeremy.library.util;
+package com.jeremy.library.utils;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;

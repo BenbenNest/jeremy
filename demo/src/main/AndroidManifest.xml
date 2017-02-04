@@ -77,9 +77,10 @@
         <activity android:name=".activity.PieChartActivity" />
         <activity android:name=".algorithm.LinkListActivity" />
         <activity android:name=".activity.BubbleHeartActivity" />
-        <activity android:name=".activity.WebViewSavePicFromLongClickActivity" />
+        <activity android:name=".activity.WebViewActivity" />
         <activity android:name=".activity.CheckUpdateActivity" />
-        <activity android:name=".activity.SpringBackActivity"></activity>
+        <activity android:name=".activity.SpringBackActivity" />
+        <activity android:name=".activity.VideoFullScreenActivity"></activity>
     </application>
 
 </manifest>

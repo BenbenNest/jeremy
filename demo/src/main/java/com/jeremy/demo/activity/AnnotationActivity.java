@@ -32,4 +32,17 @@ public class AnnotationActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
     }
+
+
+
+
+//    /**
+//     * 获取直播状态
+//     * @param id
+//     * @return
+//     */
+//    @GET("/api/1/content/{id}")
+//    Call<BaseModel> getLiveState(@Path("id") String id);
+
+
 }

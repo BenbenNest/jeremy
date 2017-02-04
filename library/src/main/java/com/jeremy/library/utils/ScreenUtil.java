@@ -1,4 +1,4 @@
-package com.jeremy.library.util;
+package com.jeremy.library.utils;
 
 import android.app.Activity;
 import android.content.Context;

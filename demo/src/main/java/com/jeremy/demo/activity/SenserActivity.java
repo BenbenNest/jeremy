@@ -13,7 +13,7 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import com.jeremy.demo.R;
-import com.jeremy.library.util.ScreenUtil;
+import com.jeremy.library.utils.ScreenUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

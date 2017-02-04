@@ -19,7 +19,7 @@ import com.jeremy.demo.mvp.bean.FunctionData;
 import com.jeremy.demo.mvp.presenter.FunctionListPresenter;
 import com.jeremy.demo.mvp.view.FunctionListView;
 import com.jeremy.library.recycler_view.CommonRecyclerView;
-import com.jeremy.library.util.DateUtil;
+import com.jeremy.library.utils.DateUtil;
 
 import java.io.InputStream;
 import java.io.ObjectInputStream;

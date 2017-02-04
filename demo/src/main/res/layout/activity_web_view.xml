@@ -4,12 +4,12 @@
     android:id="@+id/activity_web_view_save_pic_from_long_click"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.jeremy.demo.activity.WebViewSavePicFromLongClickActivity">
+    tools:context="com.jeremy.demo.activity.WebViewActivity">
 
-    <WebView
+    <com.jeremy.library.widget.MyWebView
         android:id="@+id/webview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></WebView>
+        android:layout_height="match_parent" />
 
 
 </RelativeLayout>

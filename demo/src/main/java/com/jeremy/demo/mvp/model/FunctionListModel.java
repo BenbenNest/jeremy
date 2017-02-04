@@ -32,13 +32,16 @@ public class FunctionListModel {
     private void initData() {
         FunctionData data;
 
+        data = new FunctionData("WebView视频全屏", packageName + "VideoFullScreenActivity", "WebView视频全屏", 0);
+        list.add(data);
+
         data = new FunctionData("回弹效果", packageName + "SpringBackActivity", "回弹效果", 0);
         list.add(data);
 
         data = new FunctionData("APP检测更新自动升级", packageName + "CheckUpdateActivity", "APP检测更新自动升级", 0);
         list.add(data);
 
-        data = new FunctionData("WebView中长按图片保存", packageName + "WebViewSavePicFromLongClickActivity", "WebView中长按图片保存", 0);
+        data = new FunctionData("WebView中长按图片保存", packageName + "WebViewActivity", "WebView中长按图片保存", 0);
         list.add(data);
 
         data = new FunctionData("心形气泡点赞效果", packageName + "BubbleHeartActivity", "心形气泡点赞效果", 0);
