@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp"
+    android:paddingBottom="15dp"
+    android:background="#ffffff"
+    >
+    <TextView
+        android:id="@+id/channel_video_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="15dp"
+        android:text="我在现场"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/channel_video_title"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:drawableRight="@drawable/ic_actionbar_back"
+        />
+
+    <com.jeremy.lychee.widget.GlideControl.GlideImageView
+        android:id="@+id/live_thumbnail"
+        android:layout_width="match_parent"
+        android:layout_height="185dp"
+        android:layout_below="@id/channel_video_title"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:background="#DDDDDD" />
+    <TextView
+        android:id="@+id/next_vedio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/live_thumbnail"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="16dp"
+        android:text="接下来《国宝揭秘》"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/next_vedio"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:text="查看节目单"
+        />
+
+</RelativeLayout>

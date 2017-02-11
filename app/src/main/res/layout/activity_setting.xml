@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/setting_gray_color"
+    android:orientation="vertical"
+    tools:context="com.jeremy.lychee.activity.user.SettingsActivity">
+
+    <include layout="@layout/toolbar" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="16dp"
+        android:background="#d9d9d9" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/bottombar_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:text="@string/settings_use_mobile_net"
+            android:textColor="#333"
+            android:textSize="16dp" />
+
+        <com.jeremy.lychee.widget.MaterialCheckBox
+            android:id="@+id/mobile_net_enable_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:duplicateParentState="true"
+            android:minWidth="57dp" />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:background="#d9d9d9" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/bottombar_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:text="@string/settings_use_mobile_push"
+            android:textColor="#333"
+            android:textSize="16dp" />
+
+        <com.jeremy.lychee.widget.MaterialCheckBox
+            android:id="@+id/mobile_push_enable_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:duplicateParentState="true"
+            android:minWidth="57dp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginBottom="16dp"
+        android:background="#d9d9d9" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#d9d9d9" />
+
+    <include
+        android:id="@+id/settings_item_about"
+        layout="@layout/layout_settings_item_navi" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:background="#d9d9d9" />
+
+    <include
+        android:id="@+id/settings_item_complain"
+        layout="@layout/layout_settings_item_navi" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:background="#d9d9d9" />
+
+    <FrameLayout
+        android:id="@+id/settings_item_upgrade"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/bottombar_bg"
+        android:foreground="@drawable/live_mine_item_bg_sl"
+        android:onClick="checkVersionUpdate"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:singleLine="true"
+            android:text="@string/settings_item_upgrade_title"
+            android:textColor="#333"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/settings_item_upgrade_version_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:singleLine="true"
+            android:textColor="#999999"
+            android:textSize="16dp" />
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#d9d9d9" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/bottombar_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:text="是否用测试地址"
+            android:textColor="#333"
+            android:textSize="16dp" />
+
+        <com.jeremy.lychee.widget.MaterialCheckBox
+            android:id="@+id/is_test_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:duplicateParentState="true"
+            android:minWidth="57dp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#d9d9d9" />
+
+
+    <FrameLayout
+        android:id="@+id/settings_item_exit"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/bottombar_bg"
+        android:foreground="@drawable/live_mine_item_bg_sl"
+        android:onClick="onClickExit">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#d9d9d9" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/login_out_txt"
+            android:textColor="#333"
+            android:textSize="16dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_gravity="bottom"
+            android:background="#d9d9d9" />
+    </FrameLayout>
+
+</LinearLayout>

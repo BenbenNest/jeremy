@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@drawable/ordered_layout_bg_selector">
+
+        <ImageView
+            android:id="@+id/channel_icon"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            android:scaleType="fitCenter" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/channel_icon">
+
+            <TextView
+                android:id="@+id/channel_name_chn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#333333"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/channel_name_eng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/channel_name_chn"
+                android:textColor="#333333"
+                android:textSize="11dp" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/sub_channel_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:drawablePadding="10dp"
+            android:drawableRight="@mipmap/ic_channel_more"
+            android:textColor="#666666"
+            android:textSize="14dp" />
+    </RelativeLayout>
+
+    <com.jeremy.lychee.customview.NoScrollGridView
+        android:id="@+id/sub_grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="2" />
+</merge>

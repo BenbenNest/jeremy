@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/settings_item_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:ellipsize="end"
+    android:fadingEdge="horizontal"
+    android:gravity="center_vertical"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+
+    android:singleLine="true"
+    android:duplicateParentState="true"
+    android:textSize="16dp"
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    android:textColor="#333" />

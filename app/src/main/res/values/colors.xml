@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black_a54">#8A000000</color>
+    <color name="news_header_text_color">#ffffff</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="transparent_cover">#25000000</color>
+    <color name="transparent_cover_bg">#40000000</color>
+
+    <!--<color name="colorPrimary">#ffffff</color>-->
+    <!--<color name="colorPrimaryDark">#000000</color>-->
+    <color name="colorPrimary">#ff2C1883</color>
+    <color name="colorPrimaryDark">#ff301B91</color>
+
+    <color name="single_line_color">#e1e1e1</color>
+    <color name="single_line_color_wemedia">#dee0e0</color>
+
+
+    <color name="userhome_column_title">#666666</color>
+    <color name="userhome_column_title_selected">#ff1a4c</color>
+    <color name="userhome_column_sub">#999999</color>
+    <color name="userhome_column_comment">#333333</color>
+    <color name="userhome_column_link_bg">#ebebeb</color>
+    <color name="wemedia_list_article_title">#262525</color>
+
+    <color name="wemedia_list_album_name">#262525</color>
+    <color name="wemedia_list_channel_name">#5f7fa6</color>
+    <color name="wemedia_album_list_item_title">#666666</color>
+    <color name="wemedia_album_list_item_sub">#999999</color>
+    <color name="discovery_column_book">#666666</color>
+    <color name="dialog_share_text_color">#979797</color>
+    <color name="base_red_color">#e03d35</color>
+    <color name="user_tab_indicator">#464B4D</color>
+    <color name="user_tab_title_text">#999999</color>
+    <color name="user_tab_title_text_selected">@color/livechannel_name_color</color>
+
+    <color name="white">#FFFFFF</color><!--白色 -->
+    <color name="yellow">#FFFF00</color><!--黄色 -->
+    <color name="gold">#FFD700</color><!--金色 -->
+    <color name="orange">#FFA500</color><!--橙色 -->
+    <color name="red">#FF0000</color><!--红色 -->
+    <color name="gray">#808080</color><!--灰色 -->
+    <color name="grey">#808080</color><!--灰色 -->
+    <color name="green">#008000</color><!--绿色 -->
+    <color name="blue">#0000FF</color><!--蓝色 -->
+    <color name="black">#000000</color>
+
+    <color name="white_bg">#fafafa</color>
+    <color name="white_pressed">#f0fafafa</color>
+
+    <color name="user_white_bg">#fafafa</color>
+
+    <color name="setting_gray_color">#FFF2F2F2</color>
+    <color name="search_item_bg">#f7f7f7</color>
+    <color name="list_divider">#e6e6e6</color>
+
+    <color name="setting_checkbox_checked_ball_color">#ff1a4c</color>
+    <color name="setting_checkbox_disable_color">#d9d9d9</color>
+    <color name="setting_checkbox_checked_line_color">#ff1a4c</color>
+    <color name="user_mine_item_pressed">#edeef0</color>
+
+    <color name="toolbar_divider">#cecece</color>
+    <color name="bottombar_bg">#fafafa</color>
+    <color name="bottombar_text">#999999</color>
+    <!--comment-->
+    <color name="no_cmt_hint_color">#434242</color>
+    <color name="gray_text">#9c9c9c</color>
+    <color name="praise_color">#999999</color>
+    <color name="praised_color">#999999</color>
+    <color name="cmt_tab_title_color">#ff5a00</color>
+    <color name="comment_content_text_color">#FF474747</color>
+    <color name="white_press">#f0f0f0</color>
+    <color name="load_fail">#bebaba</color>
+    <!--sendcmt-->
+    <color name="translucent">#60000000</color>
+    <color name="translucent_white">#f0ffffff</color>
+    <color name="send_divider">#df2b26</color>
+    <color name="black_text">#333333</color>
+    <color name="exceed_num_text">#FF9573</color>
+    <!--ImageNewsActivity-->
+    <color name="image_news_bg">#191919</color>
+    <color name="image_news_text_layout_bg">#c0191919</color>
+    <color name="image_news_text_color">#cccccc</color>
+
+    <color name="dialog_btn_cancel_bg">#ffffff</color>
+    <color name="dialog_btn_cancel_bg_p">#f0f0f0</color>
+
+    <color name="news_page_bg">#f2f2f2</color>
+    <color name="news_time_text_color">#999999</color>
+    <color name="news_item_text_color">#333333</color>
+    <color name="channels_item_text_color">#333333</color>
+    <color name="image_default_color">#ebebeb</color>
+    <color name="news_image_default_color">#f8f8f8</color>
+
+
+    <color name="create_channel_submit">#999999</color>
+    <color name="create_channel_submit_a">#DD2920</color>
+
+    <color name="swipe_refresh_color">#dd2920</color>
+
+    <color name="city_list">#fafafa</color>
+    <color name="city_list_p">#e7e7e7</color>
+
+    <!--ToolBar color-->
+    <color name="toolbar_color">#f7f9fa</color>
+    <color name="toolbar_color_for_live_list">#191919</color>
+    <color name="toolbar_title">#323233</color>
+    <color name="statusbar_color">@color/toolbar_title</color>
+    <!--直播加载更多-->
+    <color name="live_list_spread_more_btn_a">#E6E6E6</color>
+    <color name="live_list_spread_more_btn">#f2f2f5</color>
+
+    <!-- Live Mine Fragment-->
+    <color name="live_mine_tab_checked_color">#ff1a4c</color>
+    <color name="live_mine_tab_uncheck_color">#333333</color>
+    <color name="tabbar_divider_color">#cccccc</color>
+    <color name="live_mine_image_bg">#f2f2f2</color>
+    <color name="live_mine_image_tag_bg">#cc000000</color>
+    <color name="live_mine_duration">#dedede</color>
+    <color name="live_mine_login_txt_color">#bdbdbd</color>
+    <color name="transparent_pressed">#10000000</color>
+    <color name="gray_ripple">#9c9c9c</color>
+
+    <color name="news_pop_win_bg">#a29b98</color>
+    <color name="live_column_titlte">#333333</color>
+    <color name="live_column_titlte_selected">#ff1a4c</color>
+    <color name="live_column_title_underline">#d1d1d1</color>
+    <color name="live_column_title_background">#0000</color>
+
+    <!--phone num  login  register find pwd-->
+    <color name="input_line_color_n">#d5d5d5</color>
+    <color name="input_line_color_s">#de2b26</color>
+    <color name="tel_txt_bg">#ebebeb</color>
+    <color name="tel_txt_color">#929292</color>
+    <color name="auth_code_bg">#ebebeb</color>
+    <color name="live_item_bg">#DBDFE1</color>
+    <color name="livechannel_name_color">#FF3644</color>
+
+    <!-- video public state font color -->
+    <color name="public_ng">#EF7B7B</color>
+    <color name="public_checking">#FD7E23</color>
+    <color name="live_hot_bg">#F7F9FA</color>
+    <color name="shuidi_lanmu_unclick">#444444</color>
+
+
+    <color name="appBackground">#ffF6F6EF</color>
+
+    <color name="colorAccent">#ff388E3C</color>
+
+    <color name="common_android_tag_bg">#ff388E3C</color>
+    <color name="common_ios_tag_bg">#ff0377BC</color>
+    <color name="common_js_tag_bg">#ffEF6C02</color>
+    <color name="common_github_tag_bg">#ff000000</color>
+    <color name="common_title_tv">#ff000000</color>
+    <color name="common_item_via">#ffA8A8A8</color>
+
+    <color name="item_card_background">#ffF6F6EF</color>
+    <color name="item_selectable_pressed">#ff9475CD</color>
+
+    <!-- Picture Activity -->
+    <color name="picture_background">#ff000000</color>
+
+    <!-- item -->
+    <color name="item_date">#ffA8A8A8</color>
+    <color name="item_title_tv">#ff000000</color>
+    <color name="item_tag_tv">#ffFFFFFF</color>
+
+
+    <!-- item technology -->
+    <color name="daily_technology_tv">#ff000000</color>
+
+    <!-- item video -->
+    <color name="video_cover_color">#4d000000</color>
+
+    <!-- About -->
+    <color name="about_title">#ff000000</color>
+    <color name="about_sign">#ff666666</color>
+    <color name="about_content">#ff414141</color>
+</resources>

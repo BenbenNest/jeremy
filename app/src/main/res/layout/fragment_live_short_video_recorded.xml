@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2f2f2">
+
+    <include
+        android:id="@+id/short_video_recorded_toolbar"
+        layout="@layout/toolbar" />
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/short_video_recorded_toolbar">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="57dp"
+            android:layout_height="50dp"
+            android:layout_alignTop="@+id/title_edit"
+            android:layout_marginLeft="26dp"
+            android:gravity="center_vertical"
+            android:text="标题"
+            android:textColor="#333333"
+            android:textSize="16dp" />
+
+        <EditText
+            android:id="@+id/title_edit"
+            style="@style/transmit_editor_item"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginRight="26dp"
+            android:layout_toRightOf="@id/title"
+            android:background="@null"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text=""
+            android:maxLength="20"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/title_underline"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@+id/title_edit"
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="13dp"
+            android:background="@color/toolbar_divider" />
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="57dp"
+            android:layout_height="50dp"
+            android:layout_alignTop="@+id/desc_edit"
+            android:layout_below="@id/title_underline"
+            android:layout_marginLeft="26dp"
+            android:gravity="center_vertical"
+            android:text="简介"
+            android:textColor="#333333"
+            android:textSize="16dp" />
+
+        <EditText
+            android:id="@+id/desc_edit"
+            style="@style/transmit_editor_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_underline"
+            android:layout_marginRight="26dp"
+            android:layout_toRightOf="@id/desc"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:minHeight="50dp"
+            android:text=""
+            android:textColorHint="@color/gray_text"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/desc_underline"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@+id/desc_edit"
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="13dp"
+            android:background="@color/toolbar_divider" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

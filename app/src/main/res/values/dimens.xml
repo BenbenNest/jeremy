@@ -1,0 +1,148 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_title_bar_height">45dp</dimen>
+    <dimen name="news_header_height">240dp</dimen>
+    <dimen name="news_header_margin">12dp</dimen>
+    <dimen name="news_list_time_height">13dp</dimen>
+    <dimen name="news_list_time_margin">8dp</dimen>
+    <dimen name="news_list_load_more_view_height">45dp</dimen>
+    <dimen name="common_header_height">45dp</dimen>
+    <dimen name="news_net_error_layout_height">100dp</dimen>
+    <dimen name="news_list_spacing">7dp</dimen>
+    <dimen name="news_list_padding">10dp</dimen>
+    <dimen name="news_loading_margin">15dp</dimen>
+    <dimen name="news_mode_height">185dp</dimen>
+    <dimen name="news_search_bar_height">36dp</dimen>
+
+    <dimen name="margin_xxsmall">2dp</dimen>
+    <dimen name="margin_xsmall">4dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_medium">12dp</dimen>
+    <dimen name="margin_large">16dp</dimen>
+
+    <dimen name="padding_xsmall">4dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">10dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+
+    <!-- common -->
+    <dimen name="refresh_bar_start_offset">-8dp</dimen>
+
+    <!-- dialog -->
+    <dimen name="dialog_margin_xl">60dp</dimen>
+    <dimen name="dialog_margin_l">24dp</dimen>
+    <dimen name="dialog_margin_m">24dp</dimen>
+
+    <dimen name="main_tab_diff">8dp</dimen>
+    <dimen name="main_tab_diff_neg">-8dp</dimen>
+
+    <dimen name="bottomBarSize">44dp</dimen>
+    <dimen name="bottomBardrawablePadding">5dp</dimen>
+    <dimen name="bottomBarPaddingRight">16dp</dimen>
+    <dimen name="bottomBarTvPaddingRight">25dp</dimen>
+    <!--comment-->
+    <dimen name="net_err_margin">28dp</dimen>
+    <dimen name="bottom_action_bar_height">48dp</dimen>
+    <dimen name="pop_width">48dp</dimen>
+    <dimen name="pop_height">96dp</dimen>
+    <dimen name="comment_avatar_size">18dp</dimen>
+    <!--ImageNewsActivity-->
+    <dimen name="image_news_menu_text_size">16dp</dimen>
+    <dimen name="image_news_text_layout_padding">15dp</dimen>
+    <dimen name="image_news_title">16sp</dimen>
+    <dimen name="image_news_summary">13sp</dimen>
+
+    <!-- user view-->
+    <dimen name="user_name_l">18dp</dimen>
+    <dimen name="user_name_m">16dp</dimen>
+
+    <!-- media channle list -->
+    <dimen name="section_title">13dp</dimen>
+    <dimen name="create_my_channel">16dp</dimen>
+    <dimen name="channle_title">16dp</dimen>
+    <dimen name="channel_sub_title">12dp</dimen>
+
+    <!-- channel first choose -->
+    <dimen name="chooser_grid_top_bottom_margin">150dp</dimen>
+    <dimen name="chooser_grid_right_left_margin">25dp</dimen>
+
+    <dimen name="news_font_size_level_0">13sp</dimen>
+    <dimen name="news_font_size_level_1">15sp</dimen>
+    <dimen name="news_font_size_level_2">17sp</dimen>
+    <dimen name="news_font_size_level_3">19sp</dimen>
+    <dimen name="news_font_size_level_4">21sp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+    <!-- Live Mine Fragment -->
+    <dimen name="live_mine_tab_height">42dp</dimen>
+
+    <!-- OldNewsDetailActivity -->
+    <dimen name="FloatingActionButtonMargin">0dp</dimen>
+    <dimen name="line_spacing_news_title">4dp</dimen>
+    <dimen name="line_spacing_news_content">2dp</dimen>
+    <dimen name="line_spacing_feed_title">4dp</dimen>
+    <dimen name="news_detail_vedio_container">200dp</dimen>
+
+
+    <!-- news font size level -->
+    <dimen name="news_title_font_size_level_1">13dp</dimen>
+    <dimen name="news_title_font_size_level_2">15dp</dimen>
+    <dimen name="news_title_font_size_level_3">17dp</dimen>
+    <dimen name="news_title_font_size_level_4">19dp</dimen>
+    <dimen name="news_title_font_size_level_5">21dp</dimen>
+    <dimen name="news_time_font_size_level_1">11dp</dimen>
+    <dimen name="news_time_font_size_level_2">11dp</dimen>
+    <dimen name="news_time_font_size_level_3">11dp</dimen>
+    <dimen name="news_time_font_size_level_4">13dp</dimen>
+    <dimen name="news_time_font_size_level_5">13dp</dimen>
+    <dimen name="news_time_content_size_level_1">11dp</dimen>
+    <dimen name="news_content_font_size_level_2">11dp</dimen>
+    <dimen name="news_content_font_size_level_3">14dp</dimen>
+    <dimen name="news_content_font_size_level_4">14dp</dimen>
+    <dimen name="news_content_font_size_level_5">14dp</dimen>
+
+    <dimen name="toolbar_height">48dp</dimen>
+    <!--phone num login register find pwd-->
+    <dimen name="input_height">48dp</dimen>
+    <dimen name="bottom_bar_icon_size_h">23dp</dimen>
+    <dimen name="bottom_bar_icon_size_v">23dp</dimen>
+    <dimen name="bottom_bar_font_size">10dp</dimen>
+    <dimen name="wemedia_list_item_space">12dp</dimen>
+    <dimen name="wemedia_article_item_padding_outer">13dp</dimen>
+    <dimen name="wemedia_article_item_padding_inner">7dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+
+    <!-- item -->
+    <dimen name="item_title_tv">15sp</dimen>
+    <dimen name="item_date_tv">12sp</dimen>
+    <dimen name="item_tag_tv">12sp</dimen>
+    <dimen name="item_content_padding">9dp</dimen>
+    <dimen name="item_via_tv">12sp</dimen>
+
+    <!-- item data -->
+    <dimen name="data_type_tv">12sp</dimen>
+    <dimen name="data_border_padding_infra_spans">8dp</dimen>
+    <dimen name="data_border_divider_height">8dp</dimen>
+
+    <!-- card item -->
+    <dimen name="card_item_title_tv">15sp</dimen>
+    <dimen name="card_item_content_padding">12dp</dimen>
+    <dimen name="card_category_padding_top_bottom">15dp</dimen>
+    <dimen name="card_item_divider">0.6dp</dimen>
+
+    <dimen name="welfare_border_padding_infra_spans">3dp</dimen>
+    <dimen name="welfare_border_divider_height">6dp</dimen>
+
+    <dimen name="card_corner_radius">2dp</dimen>
+    <dimen name="card_elevation">3dp</dimen>
+
+    <dimen name="about_title">15sp</dimen>
+    <dimen name="about_sign">14sp</dimen>
+    <dimen name="about_content">13sp</dimen>
+</resources>

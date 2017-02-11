@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/setting_gray_color"
+    android:orientation="vertical"
+    tools:context="com.jeremy.lychee.activity.user.SettingsActivity">
+
+    <include layout="@layout/toolbar" />
+
+    <com.jeremy.lychee.customview.PullGridRecyclerView
+        android:id="@+id/hot_channel_recycler_view"
+        android:background="@color/user_white_bg"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none" />
+
+</LinearLayout>

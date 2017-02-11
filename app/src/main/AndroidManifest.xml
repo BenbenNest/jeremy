@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.jeremy.lychee">
+
+    <uses-sdk tools:overrideLibrary="net.grandcentrix.tray" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.RECORD_VIDEO" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- for QDAS -->
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <application
+        android:name=".base.ContentApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.jeremy.lychee.net.CustomGlideModule"
+            android:value="GlideModule" />
+        <meta-data
+            android:name="com.jeremy.lychee.widget.GlideControl.CustomImageSizeGlideModule"
+            android:value="GlideModule" />
+
+        <activity
+            android:name=".activity.SplashActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN"
+                    android:screenOrientation="portrait" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.HomeActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppWindowTranslucentStatusTheme" />
+        <activity
+            android:name=".activity.function.FunctionListActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:launchMode="standard"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.function.CurtainActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:launchMode="standard"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.function.BarrageActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:launchMode="standard"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.function.NewsDetailActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:launchMode="standard"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.function.BookReaderActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:launchMode="standard"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.function.WaveViewActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:launchMode="standard"
+            android:screenOrientation="portrait" />
+
+        <!-- 用这个Activity专门处理本App调起的情况 -->
+        <activity
+            android:name=".activity.function.WakedByH5Activity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="data"
+                    android:scheme="sharetest" />
+            </intent-filter>
+        </activity>
+
+        <!-- 用于weixin回调 -->
+        <activity
+            android:name=".share.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoTitleBarNoAnimTranslucentTheme" />
+
+        <activity-alias
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:targetActivity=".share.wxapi.WXEntryActivity" />
+
+        <!-- 用于weibo回调 -->
+        <activity
+            android:name=".share.weibo.WeiboEntryActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoTitleBarNoAnimTranslucentTheme">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- QDAS -->
+        <service android:name="com.qihoo.sdk.report.network.NetworkService" />
+        <service android:name="com.qihoo.sdk.report.network.SurvivalService" />
+
+        <provider
+            android:name="com.qihoo.sdk.report.common.MultiprocessSharedPreferences"
+            android:authorities="com.jeremy.lychee.a0a080f42e6f13b3a2df133f073095dd"
+            android:exported="false"
+            android:multiprocess="false" />
+
+        <!-- *   如下是需要加载的360推送配置项  * -->
+
+
+        <!-- push channel 通道号 -->
+        <meta-data
+            android:name="QHOPENSDK_APPID"
+            android:value="41002" />
+        <meta-data
+            android:name="QHOPENSDK_PRODUCT"
+            android:value="newsreader_mt" />
+        <!-- location -->
+        <!-- <service android:name="com.amap.api.location.APSService" /> -->
+
+
+        <!-- <meta-data -->
+        <!-- android:name="com.amap.api.v2.apikey" -->
+        <!-- android:value="f5b7660b37c22e46dbfd04eb35d71fcd" /> -->
+        <!-- QDAS -->
+        <meta-data
+            android:name="DC_APPKEY"
+            android:value="a0a080f42e6f13b3a2df133f073095dd" />
+
+        <receiver
+            android:name=".push.TPayloadReceiver"
+            android:process=":push">
+            <intent-filter>
+                <action android:name="com.qihoo.kd.pushsdk.msg" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.qihoo.kd.push.WakeUpPushReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".service.MyAIDLService">
+            <intent-filter>
+                <action android:name="MinusService" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.qihoo.kd.push.KDPushService"
+            android:process=":push" />
+        <!-- 拉取push message 详情Service -->
+        <service android:name=".push.RetrievePushService" />
+
+        <meta-data
+            android:name="com.qihoo.lbs.KEY"
+            android:value="5deb7a0983a1a2378ea0" />
+
+        <activity android:name=".activity.function.AnnotationActivity" />
+        <activity android:name=".activity.function.DynamicLayoutActivity" />
+        <activity android:name=".activity.function.MultiThreadDownloadActivity" />
+        <activity android:name=".activity.function.AIDLActivity" />
+    </application>
+
+</manifest>

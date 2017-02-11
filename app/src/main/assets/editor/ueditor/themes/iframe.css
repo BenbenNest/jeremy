@@ -1,0 +1,55 @@
+@charset "UTF-8";
+@font-face{
+	font-family: "fzLantingHei";
+	src: url(../../../font/FZLTHJW.TTF) format('truetype');
+	font-weight: 300
+}
+body,html{
+	height: 100%;
+	margin:0;
+	padding:0;
+	-webkit-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: rgba(255,255,255,0);
+}
+
+body{
+	margin:0 16px;
+	font-family:'fzLantingHei'
+}
+/* 说明，下面的样式需要加到详情页，如有更改，需要同步修改到mod-article.css */
+.view hr{
+    border: none;
+    border-bottom:1px solid #eee;
+    margin:30px 0;
+}
+.view *{
+	word-break:break-all;
+}
+.view blockquote{
+	margin:0;
+	padding:0;
+	border-left: 3px solid #666;
+    margin-left: -16px;
+    padding-left: 13px;
+    margin-bottom: 15px
+
+}
+.view p{
+	line-height: 1.6;
+	margin: 0 0 15px 0;
+}
+.view li p{
+	margin-bottom: 5px
+}
+.view .list-paddingleft-2{
+	padding-left: 24px;
+ }
+ .view pre{
+ 	width: auto;
+ }
+.view li.list-dot{
+	background-image: url(http://p7.qhimg.com/t0167591dfca171645f.gif);
+	background-size: 9px 9px;
+	background-position: 3px 6px;
+	background-repeat: no-repeat;
+}

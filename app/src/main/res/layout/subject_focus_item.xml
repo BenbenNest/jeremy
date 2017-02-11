@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="12dp"
+    android:background="#F7F9FA">
+
+    <FrameLayout
+        android:id="@+id/play_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/time">
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/player_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.jeremy.lychee.widget.GlideControl.GlideImageView
+                android:id="@+id/video_img"
+                android:background="@color/live_item_bg"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_aspectRatio="178%"
+                app:layout_widthPercent="100%" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/nav_actionbar_bg"
+                android:layout_alignParentTop="true"/>
+            <ImageView
+                android:id="@+id/subject_focus_play_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/play_bg"
+                android:layout_alignBottom="@+id/video_img"/>
+
+            <ImageView
+                android:id="@+id/video_img_paly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/live_pd_icon_movie_play" />
+
+            <TextView
+                android:id="@+id/video_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignBottom="@id/video_img"
+                android:layout_marginBottom="12dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="xxxxxxxxx"
+                android:includeFontPadding="false"
+                android:textColor="#FFFFFF"
+                android:textSize="15dp" />
+
+            <com.jeremy.lychee.videoplayer.VideoPlayerView
+                android:id="@+id/player_view"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_aspectRatio="178%"
+                android:visibility="gone"
+                app:layout_widthPercent="100%"/>
+
+        </android.support.percent.PercentRelativeLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/comment_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/play_frame"
+        android:orientation="vertical"
+       >
+
+        <TextView
+            android:id="@+id/subject_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="8dp"
+            android:includeFontPadding="false"
+            android:text="相关话题"
+            android:maxLines="2"
+            android:textColor="#333333"
+            android:textSize="15dp" />
+        <TextView
+            android:id="@+id/subject_zhaiyao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="8dp"
+            android:text="测试数据"
+            android:includeFontPadding="false"
+            android:textColor="#999"
+            android:maxLines="3"
+            android:textSize="13dp" />
+        <TextView
+            android:id="@+id/subject_relate_topic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="9dp"
+            android:text="相关话题"
+            android:includeFontPadding="false"
+            android:textColor="#666"
+            android:textSize="15dp" />
+        <com.jeremy.lychee.widget.FlowLayout
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/topic_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

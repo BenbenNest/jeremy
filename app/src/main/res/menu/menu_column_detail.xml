@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/book_button"
+        android:title="订阅"
+        android:textSize="18sp"
+        android:orderInCategory="1"
+        app:showAsAction="always"
+        />
+
+</menu>

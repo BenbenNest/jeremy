@@ -1,0 +1,157 @@
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="235dp"
+        android:theme="@style/ActivityTheme">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.jeremy.lychee.widget.GlideControl.GlideImageView
+                    android:id="@+id/channel_bg_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/topic_head_backimage" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/news_top_image_layer">
+
+                    <com.jeremy.lychee.customview.user.EditChannelIcon
+                        android:id="@+id/channel_icon"
+                        android:layout_width="57dp"
+                        android:layout_height="57dp"
+                        android:layout_gravity="center_horizontal|top"
+                        android:layout_marginTop="70dp" />
+
+                    <TextView
+                        android:id="@+id/channel_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|top"
+                        android:layout_marginTop="130dp"
+                        android:textAppearance="@style/ColumnToolbarExpandedTitle"
+                        android:text="Channel Name" />
+
+                    <TextView
+                        android:id="@+id/channel_describe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:layout_marginRight="50dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="160dp"
+                        android:gravity="center_horizontal"
+                        android:textColor="#edeef0"
+                        android:textAppearance="@style/TextShadow"
+                        android:maxLines="2"
+                        android:lineSpacingExtra="4dp"
+                        android:ellipsize="end"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/change_bg"
+                        style="@style/ActionButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|bottom"
+                        android:text="更换背景"
+                        android:textSize="13dp"
+                        android:textColor="#fafafa"/>
+
+                </FrameLayout>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/edit_channel_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/toolbar_height"
+                android:minHeight="@dimen/toolbar_height"
+                app:navigationIcon="@drawable/ic_actionbar_white_back"
+                app:title="编辑直播号"
+                app:titleTextColor="@color/white"/>
+
+        </FrameLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/news_page_bg"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <EditText
+            android:id="@+id/channel_name_editor"
+            style="@style/MediaChannelEditItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="输入频道名"
+            android:singleLine="true" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/toolbar_divider" />
+
+        <EditText
+            android:id="@+id/channel_describe_editor"
+            style="@style/MediaChannelEditItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="频道描述"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/toolbar_divider" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/MediaChannelEditItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="公开频道" />
+
+            <com.jeremy.lychee.widget.MaterialCheckBox
+                android:id="@+id/public_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:clickable="false"
+                android:focusable="false" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_delete_channel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/background_media_channel_del_btn"
+            android:text="删除此频道"
+            android:textColor="#666666"
+            android:textSize="16dp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:layout_marginTop="8dp"
+    android:paddingLeft="10dp">
+
+    <RelativeLayout
+        android:id="@+id/img_layout"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:background="#d8d8d8"
+        android:padding="0.5dp"
+        app:layout_aspectRatio="178%">
+
+        <com.jeremy.lychee.widget.GlideControl.GlideImageView
+            android:id="@+id/live_hot_normal_item_video_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/live_hot_normal_item_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/live_hot_normal_item_video_img"
+            android:layout_alignRight="@+id/live_hot_normal_item_video_img"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/news_type_bg"
+            android:drawablePadding="4dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:paddingTop="2dp"
+            android:textColor="#d8d8d8"
+            android:textSize="11dp" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/live_hot_normal_item__video_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/img_layout"
+        android:ellipsize="end"
+
+        android:includeFontPadding="false"
+        android:maxLines="3"
+        android:textColor="#444444"
+        android:textSize="17dp" />
+
+    <!--<ImageView-->
+    <!--android:id="@+id/del_img"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/title_txt"-->
+    <!--android:layout_toLeftOf="@+id/img_layout"-->
+    <!--android:paddingBottom="4dp"-->
+    <!--android:paddingLeft="6dp"-->
+    <!--android:paddingRight="6dp"-->
+    <!--android:paddingTop="4dp"-->
+    <!--android:src="@mipmap/ic_news_del" />-->
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/live_hot_normal_item__video_title"
+        android:layout_marginTop="4dp"
+        android:layout_toLeftOf="@+id/img_layout"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/live_hot_normal_item_source"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:singleLine="true"
+            android:textColor="#b6b6b6"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/live_hot_normal_item_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:includeFontPadding="false"
+            android:singleLine="true"
+            android:drawableLeft="@drawable/live_icon_comment"
+            android:textColor="#b6b6b6"
+            android:textSize="12dp" />
+
+    </LinearLayout>
+</android.support.percent.PercentRelativeLayout>

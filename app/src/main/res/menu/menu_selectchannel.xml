@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <item
+        android:id="@+id/menu_edit_channel"
+        android:title="编辑"
+        android:orderInCategory="0"
+        app:actionLayout="@layout/menu_editchannel_layout"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_editover"
+        android:title="完成"
+        android:orderInCategory="1"
+        app:actionLayout="@layout/menu_editchannelover_layout"
+        app:showAsAction="always"/>
+</menu>

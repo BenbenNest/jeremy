@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/transmit_channel_checkbox_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="3dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:scaleType="fitCenter"
+        android:background="@drawable/transmit_channel_item_selector"
+        android:src="@mipmap/wenz_icon_wxuanz_default" />
+
+    <TextView
+        android:id="@+id/transmit_channel_name"
+        android:layout_width="wrap_content"
+        android:minWidth="250dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center_vertical"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/transmit_channel_checkbox_icon"
+        android:textColor="@color/praise_color"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textSize="15dp" />
+</RelativeLayout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/title_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="72dp"
+        android:src="@mipmap/img_title" />
+
+    <!--<RelativeLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/more_btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:text="@string/more"
+                android:textColor="#999999"
+                android:textSize="17dp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="32dp"
+                android:background="#cccccc" />
+
+            <Button
+                android:id="@+id/confirm_btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:text="@string/selected_done"
+                android:textColor="#999999"
+                android:textSize="17dp" />
+        </LinearLayout>
+
+    </RelativeLayout>-->
+
+    <TextView
+        android:id="@+id/confirm_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:background="@drawable/confirm_btn_bg_selector"
+        android:text="@string/selected_done"
+        android:textColor="#999999"
+        android:textSize="17dp" />
+
+    <View
+        android:id="@+id/div"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/confirm_btn"
+        android:layout_marginTop="20dp"
+        android:background="#cccccc" />
+
+
+    <com.jeremy.lychee.customview.news.ChannelFirstChooseView
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/div"
+        android:layout_below="@+id/title_img"
+        android:layout_centerInParent="true"
+        android:gravity="center" />
+
+    <fragment
+        android:id="@+id/lunbo_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.jeremy.lychee.fragment.LunboFragment"/>
+</RelativeLayout>

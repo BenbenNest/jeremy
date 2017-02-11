@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp"
+    android:paddingBottom="15dp"
+    android:background="#ffffff"
+    >
+    <com.jeremy.lychee.widget.GlideControl.GlideImageView
+        android:id="@+id/live_thumbnail_one"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/channel_video_title"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:background="#DDDDDD" />
+
+    <TextView
+        android:id="@+id/vedio_title_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/live_thumbnail_one"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="16dp"
+        android:lineSpacingExtra="@dimen/line_spacing_news_title"
+        />
+
+    <com.jeremy.lychee.widget.GlideControl.GlideImageView
+        android:id="@+id/live_thumbnail_two"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_toRightOf="@id/live_thumbnail_one"
+        android:layout_alignTop="@id/live_thumbnail_one"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="#DDDDDD" />
+
+    <TextView
+        android:id="@+id/vedio_title_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/live_thumbnail_two"
+        android:layout_toRightOf="@id/vedio_title_one"
+        android:layout_alignLeft="@id/live_thumbnail_two"
+        android:layout_marginTop="10dp"
+        android:lineSpacingExtra="@dimen/line_spacing_news_title"
+        />
+
+    <com.jeremy.lychee.widget.GlideControl.GlideImageView
+        android:id="@+id/live_thumbnail_three"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/vedio_title_one"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="10dp"
+        android:background="#DDDDDD" />
+
+    <TextView
+        android:id="@+id/vedio_title_three"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/live_thumbnail_three"
+        android:layout_alignLeft="@id/live_thumbnail_three"
+        android:layout_marginTop="10dp"
+        android:lineSpacingExtra="@dimen/line_spacing_news_title"
+        />
+
+    <com.jeremy.lychee.widget.GlideControl.GlideImageView
+        android:id="@+id/live_thumbnail_four"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_toRightOf="@id/live_thumbnail_three"
+        android:layout_alignTop="@id/live_thumbnail_three"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="#DDDDDD" />
+
+    <TextView
+        android:id="@+id/vedio_title_four"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/live_thumbnail_three"
+        android:layout_toRightOf="@id/vedio_title_three"
+        android:layout_alignLeft="@id/live_thumbnail_four"
+        android:layout_marginTop="10dp"
+        android:lineSpacingExtra="@dimen/line_spacing_news_title"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/vedio_title_four"
+        android:text="加载更多"
+        android:id="@+id/load_more"
+        android:background="#4343"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/line_spacing_news_title"
+        />
+</RelativeLayout>

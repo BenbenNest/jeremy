@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f7f7f7"
+    android:orientation="vertical">
+
+    <include android:id="@+id/search_toolbar"
+        layout="@layout/toolbar"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/search_toolbar"
+        android:background="#cecece" />
+
+    <ProgressBar
+        android:id="@+id/web_load_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/search_toolbar"
+        android:indeterminate="false"
+        android:indeterminateOnly="false" />
+
+    <EditText
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@+id/search_toolbar"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/search_bottom_border"
+        android:drawableLeft="@drawable/ic_actionbar_search"
+        android:drawablePadding="10dp"
+        android:hint="请输入关键字"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:singleLine="true" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:layout_below="@+id/searchView">
+
+        <LinearLayout
+            android:id="@+id/layout_search_hot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/history_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/clear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="1px"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#d9d9d9" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/search_item_selecter"
+                    android:drawableTop="#d9d9d9"
+                    android:gravity="center"
+                    android:text="清除历史记录"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="大家都在搜"
+                android:textColor="#969696" />
+
+            <GridView
+                android:id="@+id/search_hot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="#DCDCDC"
+                android:gravity="center"
+                android:horizontalSpacing="1px"
+                android:listSelector="@null"
+                android:numColumns="2"
+                android:padding="-1px"
+                android:scrollbars="none"
+                android:stretchMode="columnWidth"
+                android:overScrollMode="never"
+                android:verticalSpacing="1px"></GridView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <ListView
+        android:id="@+id/search_suggest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/searchView"
+        android:divider="#f3f3f3"
+        android:dividerHeight="1px"
+        android:scrollbars="none"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/searchView">
+
+        <com.jeremy.lychee.customview.news.NewsDetailWebView
+            android:id="@+id/search_web_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <include
+            android:id="@+id/web_net_error"
+            layout="@layout/web_net_error"
+            android:visibility="gone"/>
+    </FrameLayout>
+
+</RelativeLayout>

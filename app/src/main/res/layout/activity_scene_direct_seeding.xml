@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/comment_area"
+        android:layout_below="@+id/search_detail_toolbar"
+        android:orientation="vertical">
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/player_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <com.jeremy.lychee.videoplayer.VideoPlayerView
+                android:id="@+id/player_view"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_aspectRatio="178%"
+                app:layout_widthPercent="100%" />
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/search_detail_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <include
+        android:id="@+id/search_detail_toolbar"
+        layout="@layout/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="0dp" />
+
+
+    <ProgressBar
+        android:id="@+id/web_load_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/search_detail_toolbar"
+        android:indeterminate="false"
+        android:indeterminateOnly="false" />
+
+
+    <LinearLayout
+        android:id="@+id/comment_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#f7f9fa"
+        android:orientation="horizontal"
+        android:paddingBottom="6dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="6dp">
+
+        <EditText
+            android:id="@+id/et_comment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/live_bg_pinglun"
+            android:hint="我也说两句"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/btn_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:background="@drawable/live_pd_icon_share"
+            android:textColor="@drawable/sl_channel_name_text_color" />
+    </LinearLayout>
+</RelativeLayout>

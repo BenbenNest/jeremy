@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>53岁杨紫琼与70岁老公看法网决赛</title>
+    <meta name="Description" content="2016年6月5日，杨紫琼与70岁老公看法网决赛，亲密耳语恩爱羡煞旁人。">
+    <meta name="Keywords" content="决赛,杨紫琼,法网,老公,Getty,视觉中国,耳语,图片,Rindoff,Hekimian,">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+    <link href="../css/common.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="../js/libs/zepto.js"></script>
+    <script type="text/javascript" src="../js/libs/fastclick.js"></script>
+    <script type="text/javascript" src="../js/libs/touch.js"></script>
+    <script type="text/javascript" src="../js/libs/selector.js"></script>
+    <script type="text/javascript" src="../js/libs/ejs.js"></script>
+    <script type="text/javascript" src="../js/utils.js"></script>
+    <script type="text/javascript" src="../js/libs/rem.js"></script>
+    <script>window.$wap=!1</script>
+    <script id="grayBar-tmpl" type="text/html">
+        <div
+                class="grayBar">
+            {%if(typeof transmit_num != 'undefined'){%}
+            <a class="grayBar-rt native-call" data-native="news.recommend" href="javascript:;">
+                {%if (transmit_num>=2){%}<span class="grayBar-txt">
+                {%tagData.forEach(function(item,i){ %}{%=item.name%}{%if(i==0){%}、{%}%}{%})%}{%if(transmit_num>2){%}等{%}%}{%=transmit_num%}个自频道转推过</span>
+                {%} else if(transmit_num == 1){ %}
+                <span class="grayBar-txt">自频道{%=tagData[0].name%}转推过</span>
+                {%}%}
+                <span class="banner-arr-rt"></span>
+            </a> {%}%}
+        </div></script>
+    <script id="article-tmpl" type="text/html">
+        <section
+                class="article part clearfix" data-name="正文">
+            {% if(typeof title != 'undefined'){ %}
+            <h1>{%=title%}</h1> {% } %} {% if(typeof source != 'undefined'){ %}
+            <div class="article-info">
+                {% if(typeof(media)!="undefined" && typeof(media.name)!="undefined") { %}
+                <cite class="source native-call media-call" data-param1="{%=JSON.stringify(media)%}"
+                      data-native="news.media">{%if (typeof(media.icon)!="undefined") {%}<img
+                        class="media-icon" src="{%=media.icon%}">{%}%}{%=media.name%}</cite>{% }else
+                {
+                %} {% if(typeof(source)!="undefined") { %}
+                <cite class="source media-call native-call" data-param1="" data-native="news.media">{%=source%}</cite>
+                {% } %} {% } %} {% if(typeof(time)!="undefined") { %}
+                <time>{%=time%}</time>
+                {%}%}
+            </div>
+            {%} %} {% if(typeof(summary)!="undefined") { %}
+            <div class="sx-summary">{%=summary%}</div>
+            {%}%}
+            <div id="video"></div>
+            {% //正文内容 %} {% var contentLen = content.length, openTag = false, imgNum = 2 %} {%
+            content.forEach(function(d, i){ %} {% /* 对于文本和图片实现自动分块处理 */ %} {% if (openTag && d.type
+            != 'txt' && d.type != 'img') { %} {% openTag = false; %}
+            </div>
+            {% } else if (!openTag && (d.type == 'txt' || d.type == 'img')) { %} {% openTag = true;
+            %}
+            <div class="block mod">
+                {% } %} {% if(d.type == 'txt' && d.value){ -%} {% if(d.noPTag){ %} {%-d.value%} {%
+                }else{ %}
+                <p class="{%=d.cssClass%}">{%-d.value%}</p>
+                {% } %} {% } else if(d.type == 'img'){ -%}
+                <div class="photo-mod">
+                    <div class="photo-wrap" style="width:{%=d.width%}px;height:{%=d.height%}px;">
+                        <img data-native="news.showFullImage" data-param1="{%=d.originalValue%}"
+                             {%if
+                             (imgNum>= 0){ %} class="photo native-call" src="{%=d.value%}"
+                        data-src="{%=d.value%}" {% imgNum--;}else{ %} class="photo lazy native-call"
+                        data-src="{%=d.value%}" {%} %} width="{%=d.width%}" height="{%=d.height%}"/>
+                    </div>
+                    {% if(d.title) { %}
+                    <div class="photo-desc {% if(d.descAlignCenter) { %}center{% } %}">{%= d.title
+                        %}
+                    </div>
+                    {% } %}
+                </div>
+                {% } else if(d.type == 'html'){ -%}
+                <style>
+                    {
+                    %=d.css%
+                    }
+                </style>
+                {%-d.value%} {% } -%} {% if (i === contentLen - 1 && openTag && (d.type == 'txt' ||
+                d.type == 'img')) { %} {% openTag = false; %}
+            </div>
+            {% } %} {% }); %} {% if(typeof tags == 'object'){ %}
+            <div class="article-topic">{%tags.forEach(function(item,i){ %}<a
+                    class="native-call art-topic" data-native="related.clkTopic"
+                    data-param1="{%=item%}">{%=item%}</a>{%})%}
+            </div>
+            {% } %}
+
+        </section></script>
+    <script id="album-tmpl" type="text/html">{%if (!window.$wap && name) {%}
+    <div class="album-p"><a href="javascript:;" class="native-call" data-native="news.showAlbum"
+                            data-param1="{%=JSON.stringify(window.albumData)%}">所属专辑：{%=name%}</a>
+    </div>
+    {%} %}</script>
+    <script id="mod-gallery-tmpl" type="text/html">
+        <div
+                class="gallery mod">
+            {% items.forEach(function(item){ %}
+            <div class="gallery-wrap">
+                <div class="cont gallery relative" data-itemperpage="{%=item.itemPerPage%}"
+                     data-trans-url="{%=item.zm%}" data-allqimg="{%=item.allqimg%}">
+                    {%if (!window.$wap){ %} {% item.items.forEach(function(url, i){ %} {%if(i == 0){
+                    %}
+                    <a href="javascript:;" class="native-call relative block"
+                       data-param1="{%=item.originalPhotos[i]%}" data-param2="{%=item.data%}"
+                       data-native="photo.showFullImage" {%if (i!=0) { %}style="display:none" {% }
+                       %}
+                       data-mfp-src="{%=item.originalPhotos[i]%}">
+                        <img class="lazy" data-src="{%=url%}" width="100%" height=""/>
+                        <span class="pages">{%=item.allqimg%}/P</span>
+            <span class="galleryflag"><span>
+                    </a>
+
+                    {%}%}
+
+                    {% }); %}
+
+                    {% }else{ %}
+                    {% item.items.forEach(function(url, i){ %}
+
+                    <a href="javascript:;" title="{%=item.title%}"
+                       class="relative block"
+                       {%if (i!=0) { %}style="display:none" {% } %}
+
+                       data-mfp-src="{%=item.originalPhotos[i]%}">
+                        <img class="lazy" data-src="{%=url%}" width="100%" height=""/>
+                        <span class="pages">{%=item.allqimg%}/P</span>
+            <span class="galleryflag"><span>
+                    </a>
+
+                    {% }); %}
+                    {% } %}
+                </div>
+                {% if(item.title) { %}
+                <h3>图片：{%=item.title%}</h3>
+                {% } %}
+            </div>
+            {% }); %}
+        </div></script>
+    <script id="mod-video-tmpl" type="text/html">
+        <div
+                class="video mod">
+            {% items.forEach(function(item,i){ console.log(originData)%}
+            <div class="photo">
+                <a href="javascript:;"
+                   class="native-call"
+                   data-native="video.play"
+                   data-param1="{%=JSON.stringify(originData.items[i])%}"
+                   style="width:100%; height:{%=h%}px;">
+                    <img class="snapshot" src="{%=item.imgurl%}" width="100%" height="{%=h%}"/>
+                    <span class="play"></span>
+                </a>
+            </div>
+            {% if(item.title) { %}
+            <h4>视频：{%=item.title%}</h4> {% } %} {% }); %}
+        </div></script>
+    <script id="recommend-video-tmpl" type="text/html">
+        <section
+                class="recommend-video part" data-name="相关">
+            <h2 class="title">相关新闻</h2>
+            <ul class="articles-list">
+                {% relateds.forEach(function(item,i){ %}
+                <li class="native-call flex" data-native="related.viewRelatedVideo"
+                    data-param1="{%=JSON.stringify(item)%}" data-index="{%=i%}">
+                    {% if(window.$wap) { %}
+                    <a href="{%=item.link%}" class="mr10">
+                        <img class="photo lazy" data-src="{%=item.img%}" width="{%=item.width%}"
+                             height="{%=item.height%}"/>
+                    </a>
+                    <a class="title-link flex-item" href="{%=item.link%}">
+                        <div class="row2">{%=item.title%}</div>
+                        <p class="time-tips">
+                            {% if (typeof item.elapse == 'string') { %}
+                            <i>{%=item.elapse%}</i> {% } %}
+                        </p>
+                    </a>
+                    {% } else { %}
+                    <img class="photo lazy" data-src="{%=item.img%}" width="{%=item.width%}"
+                         height="{%=item.height%}"/>
+                    <a class="flex-item txts" href="javascript:;">
+                        <div class="title-link row2">{%=item.title%}</div>
+                        <p class="time-tips">
+                            {% if (typeof item.elapse == 'string') { %}
+                            <i>{%=item.elapse%}</i> {% } %}
+                        </p>
+                    </a>
+                    {% } %}
+                </li>
+                {% }); %}
+            </ul>
+        </section></script>
+    <script id="hot-articles-tmpl" type="text/html">
+        <section
+                class="hot-articles part" data-name="热门推荐">
+
+            <ul class="articles-list">
+                {%if (typeof hotNewsList!= "undefined"){ %} {% hotNewsList.forEach(function(item,i){
+                %}
+                <li class="native-call flex" data-native="related.viewHotArticel"
+                    data-param1="{%=JSON.stringify(item)%}">
+                    <div class="hot-img">
+                        <a {% if(window.$wap) { %} href="{%=item.link%}" {% } else { %}
+                           href="javascript:;" {% } %}>
+                            <img class="photo lazy" data-src="{%=item.img%}" width="{%=item.width%}"
+                                 height="{%=item.height%}"/>
+                        </a>
+                    </div>
+                    <a class="flex-item txts" {% if(window.$wap) { %} href="{%=item.link%}" {% }
+                       else {
+                       %} href="javascript:;" {% } %}>
+                        <div class="title-link row2">{%=item.title%}</div>
+                        <p>
+                            {% if (typeof item.elapse == 'string') { %}
+                            <i>{%=item.elapse%}</i> {% } %}
+                        </p>
+                    </a>
+                </li>
+                {% }); %} {%}%}
+            </ul>
+            {% if (typeof hotNewsList!= "undefined" && !hotNewsList.length && !$wap){ // 请求成功但无数据 %}
+            <div id="no-hotList" class="no-hotlist">暂无热门推荐，去看看精彩点评吧</div>
+            {%}%}
+
+        </section></script>
+    <script id="comments-tmpl" type="text/html">
+        <section
+                class="comments part {% if(typeof more != 'undefined' && !window.$wap) { %} has-more {% } %}"
+                data-name="评论">
+
+            <ul class="comment-list">
+                {% if(typeof comments != "undefined" && comments.length > 0){ //有评论%} {%
+                comments.forEach(function(item){ %} {% if(!item.text || item.text.length == 0)
+                return;
+                %}
+                <li>
+                    <a class="native-call" href="javascript:;" data-native="news.commUser"
+                       data-param1="{%=item.uid%}">
+                        {% if(item.avatarUrl) {%}
+                        <img class="avatar" src="{%=item.avatarUrl%}"/>
+                        {% } else { %}
+                            <span class="avatar"><span>
+                            {% } %}
+                    </a>
+                    <div class="info-text">
+                        <div class="info">
+                            <a class="thumbup native-call" href="javascript:;"
+                               data-native="news.likeThisComment" data-param1="{%=item.cid%}">
+                                <i></i>
+                            </a>
+                            <a class="thumbup-active" style="display:none;" href="javascript:;">
+                                <i></i>
+                            </a>
+                            <span class="liked">{%=item.liked%}</span>
+                            <span class="username">{%=item.username%}</span>
+                        </div>
+                        <div class="text">
+                            {%=item.text%}
+                        </div>
+                        <div class="time">
+                            {%=item.time%}
+                        </div>
+                    </div>
+                    {% }); %}
+                </li>
+            </ul>
+            {% } else if(typeof comments != "undefined" && comments.length == 0){ //没有评论%} {%
+            if(!window.$wap) { %}
+            <div class="no-comments native-call" data-native="news.comment">
+                还没评论呢，你来吧
+            </div>
+            {% } %} {% } %} {% if(typeof more != 'undefined' && !window.$wap){ %}
+            <a class="more-comments native-call" data-native="news.showComments"
+               href="javascript:;">{%=more%}</a> {% } else if(typeof more == 'undefined') { //
+            如果无评论，将查看更多隐藏%}
+            <a class="more-comments native-call" style="display:none"
+               data-native="news.showComments"
+               href="javascript:;">
+                {%if(!window.$wap){ //app %}
+                查看更多评论
+                {%}else{ %}
+                查看更多评论,请下载北京时间客户端...
+                {%} %}
+            </a> {% } else if(typeof more != 'undefined' && window.$wap){ %}
+            <a class="more-comments js-sx-download" href="javascript:;">
+                查看更多评论,请下载北京时间客户端...
+            </a> {%} %}
+            <div id="comment-err" class="native-call tab-tips" data-param1="comment-reload"
+                 data-native="news.loadComment" {%if(typeof status!="undefined" &&
+                 status=="dataErrer"
+                 ){%}style="display:block" {%}%}>数据加载失败，点击重新加载
+            </div>
+            <div id="comment-tips" class="tab-tips">没有更多评论了</div>
+
+        </section></script>
+
+    <script>
+    function test(){
+
+    alert("test");
+  var people = ['geddy', 'neil', 'alex'],
+      html = ejs.render('<%= people.join(", "); %>', {people: people});
+
+      alert(html);
+  // With jQuery:
+  <!--$('#output').html(html);-->
+  // Vanilla JS:
+  <!--document.getElementById('output').innerHTML = html;-->
+
+}
+
+
+
+    </script>
+
+</head>
+<body>
+
+<div id="output"></div>
+
+
+<div class="wrapper" data-done="true">
+    <a onclick="test()">
+        <div style="width:80px;
+            margin:0px auto;
+            padding:10px;
+            text-align:center;
+            border:2px solid #202020;">
+            <img id="droid" src="android_normal.png"><br>
+            Click me!
+        </div>
+    </a>
+    <div id="sx-graybar"></div>
+    <div id="sx-article">
+        <section class="article part clearfix" data-name="正文">
+
+            <h1>53岁杨紫琼与70岁老公看法网决赛</h1>
+            <div class="article-info">
+
+                <cite class="source media-call native-call" data-param1="" data-native="news.media">国际在线</cite>
+
+                <time>06-06 17:42</time>
+
+            </div>
+
+            <div class="sx-summary" style="font-size: 1.0574999999999999em;">
+                2016年6月5日，杨紫琼与70岁老公看法网决赛，亲密耳语恩爱羡煞旁人。
+            </div>
+
+            <div id="video">
+                <div class="video mod">
+
+                    <div class="photo">
+                        <a href="javascript:;" class="native-call" data-native="video.play"
+                           data-param1="{&quot;video_id&quot;:761993,&quot;customSort&quot;:0,&quot;id&quot;:&quot;761993&quot;,&quot;url&quot;:&quot;http://play2.kandian.360.cn/vod_xinwen/vod-media/835242_2147172_20160606154519.m3u8&quot;,&quot;imgurl&quot;:&quot;http://p3.qhimg.com/dmfd/431_242_70/t019dcb9f7f26a36bc2.jpg?size=400x400&quot;,&quot;title&quot;:&quot;法网决赛：杨紫琼与70岁老公亲密耳语 小李露迷之微笑&quot;,&quot;src&quot;:&quot;BTV生产平台&quot;,&quot;video&quot;:{&quot;0&quot;:{&quot;stream_vbt&quot;:&quot;流畅&quot;,&quot;stream_type&quot;:3,&quot;stream_url&quot;:&quot;http://play2.kandian.360.cn/vod_xinwen/vod-media/835242_2147171_20160606154519.m3u8&quot;,&quot;stream_rate&quot;:&quot;500&quot;},&quot;1&quot;:{&quot;stream_vbt&quot;:&quot;标清&quot;,&quot;stream_type&quot;:3,&quot;stream_url&quot;:&quot;http://play2.kandian.360.cn/vod_xinwen/vod-media/835242_2147172_20160606154519.m3u8&quot;,&quot;stream_rate&quot;:&quot;800&quot;},&quot;2&quot;:{&quot;stream_vbt&quot;:&quot;高清&quot;,&quot;stream_type&quot;:3,&quot;stream_url&quot;:&quot;http://play2.kandian.360.cn/vod_xinwen/vod-media/835242_2147173_20160606154519.m3u8&quot;,&quot;stream_rate&quot;:&quot;1000&quot;}},&quot;type&quot;:&quot;3&quot;,&quot;tag&quot;:&quot;&quot;}"
+                           style="width:100%; height:173px;">
+                            <img class="snapshot"
+                                 src="http://p3.qhimg.com/dmfd/431_242_70/t019dcb9f7f26a36bc2.jpg?size=400x400"
+                                 width="100%" height="173">
+                            <span class="play"></span>
+                        </a>
+                    </div>
+
+                    <h4>视频：法网决赛：杨紫琼与70岁老公亲密耳语 小李露迷之微笑</h4>
+                </div>
+            </div>
+
+            <div class="block mod">
+                <div class="photo-mod">
+                    <div class="photo-wrap" style="width:undefinedpx;height:undefinedpx;">
+                        <img data-native="news.showFullImage"
+                             data-param1="http://p33.qhimg.com/dmfd/__90/t01134d4f8599628d6e.webp?zoom_out=80"
+                             class="photo native-call"
+                             src="http://p33.qhimg.com/dmfd/__90/t01134d4f8599628d6e.webp?zoom_out=80"
+                             data-src="http://p33.qhimg.com/dmfd/__90/t01134d4f8599628d6e.webp?zoom_out=80"
+                             width="undefined" height="undefined">
+                    </div>
+
+                </div>
+                <p class="normal" style="font-size: 1.125em;">
+                    2016年6月5日，杨紫琼与70岁老公看法网决赛，亲密耳语恩爱羡煞旁人。</p>
+                <div class="photo-mod">
+                    <div class="photo-wrap" style="width:undefinedpx;height:undefinedpx;">
+                        <img data-native="news.showFullImage"
+                             data-param1="http://p34.qhimg.com/dmfd/__90/t0154a7aaa83b46a14c.webp?zoom_out=80"
+                             class="photo native-call"
+                             src="http://p34.qhimg.com/dmfd/__90/t0154a7aaa83b46a14c.webp?zoom_out=80"
+                             data-src="http://p34.qhimg.com/dmfd/__90/t0154a7aaa83b46a14c.webp?zoom_out=80"
+                             width="undefined" height="undefined">
+                    </div>
+
+                </div>
+                <div class="photo-mod">
+                    <div class="photo-wrap" style="width:undefinedpx;height:undefinedpx;">
+                        <img data-native="news.showFullImage"
+                             data-param1="http://p34.qhimg.com/dmfd/__90/t016c5e84a6cd7d247a.webp?zoom_out=80"
+                             class="photo native-call"
+                             src="http://p34.qhimg.com/dmfd/__90/t016c5e84a6cd7d247a.webp?zoom_out=80"
+                             data-src="http://p34.qhimg.com/dmfd/__90/t016c5e84a6cd7d247a.webp?zoom_out=80"
+                             width="undefined" height="undefined">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="article-topic"><a class="native-call art-topic"
+                                          data-native="related.clkTopic" data-param1="决赛">决赛</a><a
+                    class="native-call art-topic" data-native="related.clkTopic" data-param1="杨紫琼">杨紫琼</a><a
+                    class="native-call art-topic" data-native="related.clkTopic"
+                    data-param1="法网">法网</a><a class="native-call art-topic"
+                                              data-native="related.clkTopic" data-param1="老公">老公</a><a
+                    class="native-call art-topic" data-native="related.clkTopic"
+                    data-param1="Getty">Getty</a><a class="native-call art-topic"
+                                                    data-native="related.clkTopic"
+                                                    data-param1="视觉中国">视觉中国</a><a
+                    class="native-call art-topic" data-native="related.clkTopic"
+                    data-param1="耳语">耳语</a><a class="native-call art-topic"
+                                              data-native="related.clkTopic" data-param1="图片">图片</a><a
+                    class="native-call art-topic" data-native="related.clkTopic"
+                    data-param1="Rindoff">Rindoff</a><a class="native-call art-topic"
+                                                        data-native="related.clkTopic"
+                                                        data-param1="Hekimian">Hekimian</a>
+            </div>
+
+
+        </section>
+    </div>
+    <div id="sx-album"></div>
+    <div id="sx-videoRec"></div>
+    <div id="sx-tab">
+        <div class="flex"><a href="javascript:;" class="native-call flex-item active"
+                             data-param1="hot" data-native="news.tab"><em>热门推荐</em></a> <a
+                href="javascript:;" class="native-call flex-item" data-param1="comment"
+                data-native="news.tab"><em>评论 <span
+                class="js-num tab-num">(<i>0</i>)</span></em></a></div>
+    </div>
+    <div id="sx-hot" class="sx-tabitem"></div>
+    <div id="sx-comments" class="sx-tabitem"></div>
+</div>
+<script type="text/javascript" src="../js/nativeApi.js"></script>
+<script type="text/javascript" src="../js/contentRender.js"></script>
+
+</body>
+</html>

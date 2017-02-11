@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#f2f2f2"
+
+                android:orientation="vertical">
+
+    <com.jeremy.lychee.widget.slidingtab.CustomSlidingTabLayout
+        android:id="@+id/live_page_tab_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/toolbar_color"
+        app:tabLayoutIndicatorColor="#edeff2"
+        app:tabTextDefaultColor="#323333"
+        app:tabTextSelectedColor="#ff3644"
+        app:tabTextSelectedPadding="0dp"/>
+
+    <View
+        android:id="@+id/split_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/single_line_color"
+        android:layout_below="@id/live_page_tab_layout"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/split_line"/>
+</RelativeLayout>

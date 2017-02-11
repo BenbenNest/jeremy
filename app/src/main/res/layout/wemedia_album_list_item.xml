@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_user_menu_item"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/split_line"
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/single_line_color"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="15dp">
+
+        <RelativeLayout
+            android:id="@+id/sub_column_item_column_panel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- 专辑暂时无icon -->
+            <ImageView
+                android:id="@+id/album_icon"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:scaleType="fitXY"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="38dp"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@+id/album_icon"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/album_name"
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/wemedia_album_list_item_title"
+                        android:textSize="16dp" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/article_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="2dp"
+                            android:textColor="@color/wemedia_album_list_item_sub"
+                            android:textSize="@dimen/channel_sub_title" />
+
+                        <!-- 暂时不显示读者数 -->
+                        <TextView
+                            android:id="@+id/reader_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/wemedia_album_list_item_sub"
+                            android:textSize="@dimen/channel_sub_title"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_create_new_album"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="创建新专辑"
+                    android:textColor="@color/wemedia_album_list_item_title"
+                    android:textSize="@dimen/create_my_channel"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="10dp"
+            android:background="@color/single_line_color" />
+    </LinearLayout>
+</LinearLayout>

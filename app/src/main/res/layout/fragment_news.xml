@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/content_frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/channel_strip"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="#fcfcfc">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="#d8d8d8"
+            android:visibility="gone" />
+
+        <com.jeremy.lychee.customview.live.PagerSlidingTabStrip
+            android:id="@+id/tab_strip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="45dp"
+            app:pstsStartOffset="20dp" />
+
+        <ImageView
+            android:id="@+id/logo_img"
+            android:layout_width="85dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/channel_cover_left"
+            android:paddingRight="44dp"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_logo_in_toolbar" />
+
+        <ImageButton
+            android:id="@+id/channel_add_img"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="1dp"
+            android:background="@drawable/morechannel_selecter" />
+
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/channel_strip" />
+
+    <ViewStub
+        android:id="@+id/viewStub"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/channel_strip"
+        android:layout="@layout/error_and_loading_layout" />
+</RelativeLayout>
+
+
+

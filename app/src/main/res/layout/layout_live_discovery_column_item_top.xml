@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="7dp"
+    android:paddingLeft="7dp"
+    android:paddingRight="7dp"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/live_thumbnail_one_img_layout"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="90dp"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:paddingRight="8dp"-->
+    <!--app:layout_aspectRatio="178%"-->
+    <!--app:layout_widthPercent="50%">-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/live_discovery_column_item_img"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:background="#DDDDDD" />-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:src="@drawable/living_pd_play_small" />-->
+    <!--</RelativeLayout>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/live_discovery_column_item_title"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignRight="@+id/live_thumbnail_one_img_layout"-->
+    <!--android:layout_below="@id/live_thumbnail_one_img_layout"-->
+    <!--android:layout_marginRight="8dp"-->
+    <!--android:layout_marginTop="12dp"-->
+    <!--android:gravity="left"-->
+    <!--android:maxLength="20"-->
+    <!--android:text="eeeee"-->
+    <!--android:textColor="#333"-->
+    <!--android:textSize="15dp" />-->
+
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/live_thumbnail_oneview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.jeremy.lychee.widget.GlideControl.GlideImageView
+            android:id="@+id/live_discovery_column_item_img"
+            android:background="#dddd"
+            app:layout_aspectRatio="178%"
+            app:layout_widthPercent="100%" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/living_pd_play_big" />
+    </android.support.percent.PercentRelativeLayout>
+
+    <TextView
+        android:id="@+id/live_discovery_column_item_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="10dp"
+        android:gravity="left"
+        android:maxLines="1"
+        android:text="eeeee"
+        android:textColor="#333"
+        android:textSize="15dp" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#e6e6e6"/>
+
+
+</LinearLayout>

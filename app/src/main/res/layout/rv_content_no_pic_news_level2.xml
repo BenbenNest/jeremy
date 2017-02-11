@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/itemview"
+    android:layout_width="match_parent"
+    android:layout_height="165dp"
+    android:paddingLeft="7dp"
+    android:background="@drawable/news_card_bg">
+
+    <TextView
+        android:id="@+id/title"
+        android:paddingRight="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/news_item_text_color"
+        android:lineSpacingExtra="@dimen/line_spacing_news_title"
+        android:textSize="@dimen/news_title_font_size_level_3" />
+
+    <TextView
+        android:id="@+id/content_txt"
+        android:paddingRight="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="12dp"
+        android:ellipsize="end"
+        android:lineSpacingExtra="@dimen/line_spacing_news_content"
+        android:maxLines="4"
+        android:textColor="#999999"
+        android:textSize="@dimen/news_content_font_size_level_3" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="15dp"
+        android:textColor="@color/news_time_text_color"
+        android:textSize="@dimen/news_time_font_size_level_3" />
+
+    <ImageView
+        android:id="@+id/del_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:paddingBottom="12dp"
+        android:paddingLeft="7dp"
+        android:paddingRight="2dp"
+        android:paddingTop="10dp"
+        android:src="@mipmap/ic_news_del" />
+</RelativeLayout>

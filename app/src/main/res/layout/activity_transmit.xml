@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    >
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/transmit_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:minHeight="@dimen/toolbar_height"
+        android:background="?attr/colorPrimary"
+        >
+    </android.support.v7.widget.Toolbar>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:id="@+id/underline"
+        android:layout_below="@id/transmit_toolbar"
+        android:background="@color/toolbar_divider" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/underline"
+        >
+        <EditText
+            android:id="@+id/transmit_editor"
+            style="@style/transmit_editor_item"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#FAFAFA"
+            android:cursorVisible="true"
+            android:gravity="top"
+            android:hint="我来说点什么"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            android:textColor="#333333"
+            android:maxLength="140"
+            android:textColorHint="@color/gray_text"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@id/transmit_editor"
+            android:background="#E6E6E6" />
+        <TextView
+            android:id="@+id/num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/line"
+            android:textColor="#999999"
+            android:textSize="12dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="12dp"
+            android:text="0/140"
+            />
+
+        <TextView
+            android:id="@+id/trans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/line"
+            android:text="同时转推到我的专辑"
+            android:textColor="#999999"
+            android:textSize="12dp" />
+
+        <com.jeremy.lychee.customview.user.AlbumSelectRecyclerView
+            android:id="@+id/transmit_selecter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp"
+            android:background="#FFFFFF"
+            android:layout_below="@id/trans"
+            android:overScrollMode="never"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp" />
+    </RelativeLayout>
+    <include
+        android:id="@+id/loading_layout"
+        layout="@layout/common_loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/underline"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/error_layout"
+        layout="@layout/common_error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/underline"
+        android:visibility="gone" />
+
+
+</RelativeLayout>

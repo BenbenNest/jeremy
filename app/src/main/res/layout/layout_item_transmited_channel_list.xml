@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_user_menu_item"
+    android:id="@+id/clickable"
+    >
+    <com.jeremy.lychee.widget.GlideControl.GlideImageView
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:id="@+id/channel_icon"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:src="@drawable/default_avatar"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_toRightOf="@id/channel_icon"
+        android:layout_marginLeft="19dp"
+        android:layout_alignBottom="@id/channel_icon"
+        >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/article_num"
+                android:text=""
+                android:textSize="12dp"
+                android:textColor="#999999"
+                android:layout_alignParentBottom="true"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/reader_num"
+                android:text=""
+                android:textSize="12dp"
+                android:textColor="#999999"
+                android:layout_toRightOf="@id/article_num"
+                android:layout_marginLeft="20dp"
+                android:layout_alignParentBottom="true"
+                />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/channel_name"
+                    android:text=""
+                    android:textColor="#666666"
+                    android:textSize="13dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_above="@id/article_num"
+                />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#E1E1E1"
+        android:layout_below="@id/channel_icon"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="parallax_img_scale" format="float" type="string">1.0</item>
+</resources>

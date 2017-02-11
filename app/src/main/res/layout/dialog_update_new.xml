@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_dialog_update" >
+
+        <RelativeLayout
+            android:layout_width="230dp"
+            android:layout_height="235dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="170dp" >
+
+            <TextView
+                android:id="@+id/tv_update_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="发现新版本"
+                android:textColor="#464646"
+                android:textSize="17dp" />
+
+            <View
+                android:id="@+id/view_update_line_one"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/tv_update_title"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="#e2dcd2" />
+
+            <View
+                android:id="@+id/view_update_line_two"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/view_update_line_one"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="2dp"
+                android:background="#e2dcd2" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/view_update_line_two"
+                android:scrollbars="none"
+                android:layout_marginTop="14dp" >
+
+                <TextView
+                    android:id="@+id/tv_dialog_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:lineSpacingExtra="10dp"
+                    android:paddingBottom="2dp"
+                    android:paddingTop="2dp"
+                    android:textColor="#464646"
+                    android:textSize="14dp" />
+            </ScrollView>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/btn_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="80dp"
+            android:background="@drawable/selector_update_btn" />
+
+        <TextView
+            android:id="@+id/tv_not_now"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="14dp"
+            android:gravity="center"
+            android:text="以后再说"
+            android:textColor="#505050"
+            android:textSize="14dp"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+</RelativeLayout>

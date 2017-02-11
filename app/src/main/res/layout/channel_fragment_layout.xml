@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.jeremy.lychee.widget.MySwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.jeremy.lychee.widget.UltimateRecyclerView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/ultimate_recycler_view"
+            app:recyclerviewClipToPadding="true"
+            app:recyclerviewScrollbars="vertical"
+            app:recyclerviewEmptyView="@layout/empty_view"
+            app:recyclerviewDefaultSwipeColor="@array/google_colors"
+            android:background="@color/news_page_bg"/>
+    </com.jeremy.lychee.widget.MySwipeRefreshLayout>
+
+    <include
+        android:id="@+id/error_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/news_net_error_layout_height"
+        layout="@layout/network_error_layout"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/common_loading_layout"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/common_error_layout"
+        android:visibility="gone" />
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
+
+
+</RelativeLayout>

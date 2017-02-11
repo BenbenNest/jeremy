@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ic_actionbar_white_back"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="5dp">
+
+    <com.jeremy.lychee.widget.GlideControl.GlideImageView
+        android:id="@+id/channel_icon"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:scaleType="fitXY"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/ic_add_channel_btn" />
+
+    <TextView
+        android:id="@+id/channel_name"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textColor="#333333"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:fadingEdge="horizontal"
+        android:layout_below="@id/channel_icon"
+        android:textSize="@dimen/section_title"
+        android:layout_marginTop="10dp"/>
+</RelativeLayout>

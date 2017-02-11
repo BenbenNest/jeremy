@@ -1,0 +1,37 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <com.qihoo.lianxian.widget.dragdropgrid.MovableGridView
+        android:id="@+id/gv_dragable_channels"
+        style="@style/style_channels_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#D6D6D6" />
+
+    <TextView
+        android:id="@+id/tv_more_channels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="点击添加兴趣频道"
+        android:textColor="#636363"
+        android:textSize="12dp" />
+
+    <com.qihoo.lianxian.widget.dragdropgrid.MovableGridView
+        android:id="@+id/gv_more_channels"
+        style="@style/style_channels_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp" />
+
+</merge>

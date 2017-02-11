@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.jeremy.lychee.widget.GlideControl.GlideParallaxView
+        android:id="@+id/focus_news_img"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/news_image_default_color"
+        android:scaleType="center"
+        app:layout_widthPercent="100%"
+        app:layout_aspectRatio="150%" />
+
+    <TextView
+        android:id="@+id/title_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/focus_news_img"
+        android:background="@drawable/news_top_image_layer"
+        android:ellipsize="end"
+        android:gravity="bottom"
+        android:lineSpacingExtra="4dp"
+        android:maxLines="2"
+        android:paddingBottom="@dimen/news_header_margin"
+        android:paddingLeft="@dimen/news_header_margin"
+        android:paddingRight="@dimen/news_header_margin"
+        android:textColor="@color/news_header_text_color"
+        android:textSize="22dp"
+        android:textStyle="bold" />
+</android.support.percent.PercentRelativeLayout>

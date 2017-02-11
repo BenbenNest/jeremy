@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.jeremy.lychee.activity.user.PublishActivity">
+
+    <include layout="@layout/toolbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/rec_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="@string/publish_rec"
+                android:padding="16dp"
+                android:singleLine="true" />
+
+            <View
+                android:id="@+id/options_lay_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/tabbar_divider_color" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="@string/publish_to" />
+
+            <com.jeremy.lychee.customview.user.PublishChannelsLayout
+                android:id="@+id/channels_lay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@drawable/sl_publish_add_bg"
+                android:drawableLeft="@drawable/zpd_cz_fabu_add"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:drawableStart="@drawable/zpd_cz_fabu_add"
+                android:onClick="onClickAdd"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="@string/publish_input_name" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <com.jeremy.lychee.customview.live.PagerSlidingTabStrip
+                    android:id="@+id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#fff"
+                    />
+
+                <ImageView
+                    android:layout_width="38dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/live_pd_xiaobaise"
+                    android:layout_alignRight="@+id/tabs"
+                    android:scaleType="fitXY"
+                    />
+
+                <ImageView
+                    android:layout_width="38dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/live_pd_xiaobaise_reverse"
+                    android:layout_alignLeft="@+id/tabs"
+                    android:scaleType="fitXY"
+                    />
+
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/single_line_color" />
+
+            <com.jeremy.lychee.fragment.live.LiveViewPager
+                android:id="@+id/vPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center"
+                android:persistentDrawingCache="animation">
+
+            </com.jeremy.lychee.fragment.live.LiveViewPager>
+        </LinearLayout>
+
+        <include
+            android:id="@+id/loading_layout"
+            layout="@layout/common_loading_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <include
+            android:id="@+id/error_layout"
+            layout="@layout/common_error_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <include layout="@layout/menu_right_bottom" />
+
+
+</RelativeLayout>

@@ -1,0 +1,19 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/news_page_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.jeremy.lychee.customview.PullListRecyclerView
+        android:id="@+id/user_discovery_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:scrollbars="none"
+        app:refershBarStartOffset="@dimen/refresh_bar_start_offset"/>
+    <!--通过app:refershBarStartOffset，
+    抵消paddingTop带来的RefershBar的显示位置-->
+
+</FrameLayout>

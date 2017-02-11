@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/net_error_panel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/user_white_bg"
+    android:clickable="true"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:src="@mipmap/net_error_image" />
+
+    <TextView
+        android:id="@+id/net_error_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/common_load_error"
+        android:textColor="#dcdcdc"
+        android:textSize="14dp" />
+
+</LinearLayout>

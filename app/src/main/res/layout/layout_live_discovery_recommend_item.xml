@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#F7F7F7"
+        android:id="@+id/toptext"
+        />
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/live_thumbnail_oneview"
+        android:layout_width="match_parent"
+        android:layout_below="@id/toptext"
+        android:layout_height="wrap_content">
+
+        <com.jeremy.lychee.widget.GlideControl.GlideImageView
+            android:id="@+id/live_discovery_column_item_img"
+            android:background="#e6e6e6"
+            app:layout_aspectRatio="178%"
+            app:layout_widthPercent="100%" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignBottom="@+id/live_discovery_column_item_img"
+            android:layout_alignRight="@+id/live_discovery_column_item_img"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/live_pd_play" />
+    </android.support.percent.PercentRelativeLayout>
+
+    <TextView
+        android:id="@+id/live_recoomend_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/live_thumbnail_oneview"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#999"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/live_discovery_column_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/live_thumbnail_oneview"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@+id/live_recoomend_data"
+        android:gravity="left"
+        android:maxLines="1"
+        android:layout_alignParentLeft="true"
+        android:textColor="#333333"
+        android:textSize="13dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/live_discovery_column_item_title"
+        android:background="#D1D1D1"
+        />
+
+
+</RelativeLayout>

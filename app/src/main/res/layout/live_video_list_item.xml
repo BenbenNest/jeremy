@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff">
+
+    <RelativeLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="15dp" >
+
+        <TextView
+            android:id="@+id/channel_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop=".5dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="#333333"
+            android:textSize="13dp" />
+
+        <TextView
+            android:id="@+id/live_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom=".5dp"
+            android:layout_marginRight="5dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="#333333"
+            android:textSize="15dp" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/live_play"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/top_bar"
+        android:background="#191919">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.jeremy.lychee.widget.GlideControl.GlideImageView
+                android:id="@+id/live_thumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#333333" />
+
+            <ImageView
+                android:id="@+id/play_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/living_pd_play_big" />
+        </RelativeLayout>
+    </FrameLayout>
+
+    <com.jeremy.lychee.videoplayer.VideoPlayerView
+        android:id="@+id/video_player_view"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/top_bar" />
+
+    <LinearLayout
+        android:id="@+id/sns_panel"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_below="@id/live_play"
+        android:divider="@drawable/live_share_bar_divider"
+        android:dividerPadding="16dp"
+        android:orientation="horizontal"
+        android:showDividers="middle">
+
+        <RelativeLayout
+            android:id="@+id/thumbs_up_in_list"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:id="@+id/thumbs_up_icon_in_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/article_icon_good_default" />
+
+                <TextView
+                    android:id="@+id/thumbs_up_text_in_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/thumbs_up_icon_in_list"
+                    android:textColor="#666666"
+                    android:textSize="15dp" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/comment_in_list"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:id="@+id/comment_icon_in_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/article_icon_comments" />
+
+                <TextView
+                    android:id="@+id/comment_text_in_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/comment_icon_in_list"
+                    android:text="点评"
+                    android:textColor="#666666"
+                    android:textSize="15dp" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/share_in_list"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:id="@+id/share_icon_in_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/article_icon_share" />
+
+                <TextView
+                    android:id="@+id/share_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/share_icon_in_list"
+                    android:text="分享"
+                    android:textColor="#666666"
+                    android:textSize="15dp" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/bottom_line"
+        android:layout_width="match_parent"
+        android:layout_height=".5dp"
+        android:layout_below="@id/sns_panel"
+        android:background="#d9d9d9" />
+
+    <ImageView
+        android:id="@+id/graySeprator"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_below="@+id/bottom_line"
+        android:background="#f7f7f7" />
+
+</RelativeLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fafafa"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" />
+
+    <android.support.v7.widget.SearchView
+        android:id="@+id/sv_search"
+        style="@style/CitySearchView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp" />
+
+    <com.jeremy.lychee.widget.IndexableListView
+        android:id="@+id/lv_citylist"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="5dp"
+        android:divider="#f3f3f3"
+        android:dividerHeight="1px"
+        android:paddingLeft="10dp" />
+
+</LinearLayout>

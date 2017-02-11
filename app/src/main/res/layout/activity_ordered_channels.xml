@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+
+    <include
+        android:id="@+id/toolbarLayout"
+        layout="@layout/toolbar" />
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:id="@+id/news_style_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:includeFontPadding="false"
+            android:text="可选择阅读方式"
+            android:textColor="#999999"
+            android:textSize="13dp" />
+
+        <LinearLayout
+            android:id="@+id/one_item_news_layout"
+            android:layout_width="0dp"
+            android:layout_height="29dp"
+            android:layout_below="@+id/news_style_txt"
+            android:background="@drawable/one_item_news_style_bg"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:tag="0"
+            app:layout_widthPercent="50%">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_one_item_news_style_selector"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:text="单图"
+                android:textColor="@color/news_style_color_selector" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/two_item_news_layout"
+            android:layout_width="0dp"
+            android:layout_height="29dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/news_style_txt"
+            android:background="@drawable/two_item_news_style_bg"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:tag="1"
+            app:layout_widthPercent="50%">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_two_item_news_style_selector"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:text="双图"
+                android:textColor="@color/news_style_color_selector" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="29dp"
+            android:layout_below="@+id/news_style_txt"
+            android:layout_centerHorizontal="true"
+            android:background="#bcc0c9" />
+    </android.support.percent.PercentRelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/layout"
+        android:layout_below="@+id/toolbarLayout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="12dp"
+                android:includeFontPadding="false"
+                android:text="已订阅"
+                android:textColor="#999999"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/status_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:includeFontPadding="false"
+                android:padding="2dp"
+                android:text="编辑"
+                android:textColor="#6e91c1"
+                android:textSize="13dp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/ordered_channel_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt1"
+                android:layout_marginTop="12dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="2dp" />
+
+            <TextView
+                android:id="@+id/txt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ordered_channel_recyclerView"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="24dp"
+                android:includeFontPadding="false"
+                android:text="推荐订阅"
+                android:textColor="#999999"
+                android:textSize="13dp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/unordered_channel_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt2"
+                android:layout_marginTop="12dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="2dp" />
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

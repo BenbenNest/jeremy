@@ -1,0 +1,107 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/user_page_toolbar_collapse"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:contentScrim="@color/toolbar_color"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/toolbar_height"
+                    android:background="@color/toolbar_color"
+                    app:layout_collapseMode="parallax">
+
+                    <RelativeLayout
+                        android:layout_width="100dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_height="@dimen/toolbar_height">
+                        <com.jeremy.lychee.widget.slidingtab.SlidingTabLayout
+                            android:id="@+id/user_page_tab_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/user_tab_layout_bg"
+                            app:tabLayoutIndicatorColor="@color/user_tab_title_text_selected"
+                            app:tabLayoutIndicatorWidth="12dp"
+                            app:tabTextDefaultColor="@color/user_tab_title_text"
+                            app:tabTextSelectedColor="@color/user_tab_title_text_selected"
+                            app:tabTextSize="18px"
+                            app:tabTextSelectedSize="18px"
+                            app:tabTextSelectedPadding="0dp" />
+
+                    </RelativeLayout>
+
+                    <com.jeremy.lychee.widget.GlideControl.GlideImageView
+                        android:id="@+id/user_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_alignParentLeft="true"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true">
+
+                        <ImageButton
+                            android:id="@+id/user_message_btn"
+                            android:layout_height="wrap_content"
+                            android:layout_width="40dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            style="@style/ActionButtonStyle"
+                            android:src="@drawable/zpd_icon_msg" />
+
+                        <ImageButton
+                            android:id="@+id/user_setting_btn"
+                            android:layout_height="wrap_content"
+                            android:layout_width="40dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            style="@style/ActionButtonStyle"
+                            android:src="@drawable/zpd_icon_set" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/message_red_pot"
+                        android:layout_width="6dp"
+                        android:layout_height="6dp"
+                        android:src="@drawable/living_icon_red"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="43dp"
+                        android:layout_marginTop="8dp"
+                        android:visibility="gone"/>
+
+                </RelativeLayout>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/user_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/news_page_bg"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
+    </android.support.design.widget.CoordinatorLayout>
+
+    <include layout="@layout/menu_right_bottom2" />
+</RelativeLayout>

@@ -1,0 +1,393 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>新闻详情页</title><meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1"><link href="../css/common.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="../js/libs/zepto.js"></script><script type="text/javascript" src="../js/libs/fastclick.js"></script><script type="text/javascript" src="../js/libs/touch.js"></script><script type="text/javascript" src="../js/libs/selector.js"></script><script type="text/javascript" src="../js/libs/ejs.js"></script><script type="text/javascript" src="../js/utils.js"></script><script id="grayBar-tmpl" type="text/html"><div class="grayBar">
+			{%if(typeof transmit_num != 'undefined'){%}
+			<a class="grayBar-rt native-call" data-native="news.recommend" href="javascript:;">
+			{%if (transmit_num>=2){%}<span class="grayBar-txt">
+				{%tagData.forEach(function(item,i){ %}{%=item.name%}{%if(i==0){%}、{%}%}{%})%}{%if(transmit_num>2){%}等{%}%}{%=transmit_num%}个自频道转推过</span>
+			{%} else if(transmit_num == 1){ %}
+				<span class="grayBar-txt">自频道{%=tagData[0].name%}转推过</span>
+			{%}%}
+				<span class="banner-arr-rt"></span>
+			</a>
+			{%}%}
+		</div></script><script id="article-tmpl" type="text/html"><section class="article part" data-name="正文">
+			{% if(typeof title != 'undefined'){ %}
+				<h1>{%=title%}</h1>
+			{% } %}
+			
+			{% if(typeof source != 'undefined'){ %}
+				<div class="article-info">
+					{% if(typeof(media)!="undefined" && typeof(media.name)!="undefined") { %}
+						<cite class="source native-call" data-param1="{%=JSON.stringify(media)%}" data-native="news.media">{%=media.name%}</cite>
+					{% }else { %}
+						{% if(typeof(source)!="undefined") { %}
+							<cite class="source">{%=source%}</cite>
+						{% } %}
+					{% } %}
+					{% if(typeof(time)!="undefined") { %}
+						<time>{%=time%}</time> 
+					{%}%}
+					<span class="readCount" data-fmt="{0} 阅读" style="display:none;"></span>
+					{% if(typeof origin!="undefined") { %}
+						<a href = "
+							{% if(window.$wap) { %}
+							{%=origin%}
+							{% } else { %}
+							javascript:;
+							{% } %}
+						" class="native-call js-origin readOrigin" data-param1="{%=origin%}" data-native="news.showFullText" >阅读原文</a>
+					{% } %}
+				</div>
+			{%} %}
+
+			{% if(typeof(summary)!="undefined") { %}
+			<div class="sx-summary">{%=summary%}</div> 
+			{%}%}
+			
+			
+			<div id="video"></div>
+			{% //正文内容 %}
+			{% var contentLen = content.length, openTag = false, imgNum = 2 %}
+			{% content.forEach(function(d, i){ %}
+
+				{% /* 对于文本和图片实现自动分块处理 */ %}
+				{% if (openTag && d.type != 'txt' && d.type != 'img') { %}
+					{% openTag = false; %}
+					</div>
+				{% } else if (!openTag && (d.type == 'txt' || d.type == 'img')) { %}
+					{% openTag = true; %}
+					<div class="block mod">
+				{% } %}
+				
+				{%  if(d.type == 'txt' && d.value){  -%}
+					{% if(d.noPTag){ %}
+						{%-d.value%}
+					{% }else{ %}
+						<p class="{%=d.cssClass%}">{%-d.value%}</p>
+					{% } %}
+				{%  } else if(d.type == 'img'){  -%}
+					<div class="photo-mod">
+						<div class="photo-wrap">
+							<img data-native="news.showFullImage" 
+							data-param1="{%=d.originalValue%}" 
+							{%if (imgNum >= 0){ %}
+								class="photo native-call"
+								src="{%=d.value%}" data-src="{%=d.value%}"
+							{% imgNum--;}else{ %}
+								class="photo lazy native-call"
+								data-src="{%=d.value%}" 
+							{%} %}
+							width="{%=d.width%}" 
+							height="{%=d.height%}"/>
+						</div>
+						{% if(d.title) { %}
+						<div class="photo-desc {% if(d.descAlignCenter) { %}center{% } %}">{%= d.title %}</div>
+						{% } %}
+					</div>
+				{%  } else if(d.type == 'html'){  -%}
+					<style>{%=d.css%}</style>
+					{%-d.value%}
+				{%  } -%}
+				
+				{% if (i === contentLen - 1 && openTag && (d.type == 'txt' || d.type == 'img')) { %}
+					{% openTag = false; %}
+					</div>
+				{% } %}
+				
+			{% }); %}
+			
+		</section></script><script id="album-tmpl" type="text/html">{%if (!window.$wap && name) {%}
+			<div class="album-p"><a href="javascript:;" class="native-call" data-native="news.showAlbum" data-param1="{%=JSON.stringify(window.albumData)%}">所属专辑：{%=name%}</a></div>
+			{%} %}</script><script id="mod-gallery-tmpl" type="text/html"><div class="gallery mod">
+			{% items.forEach(function(item){ %}
+			<div class="gallery-wrap">
+				<div class="cont gallery relative" data-itemperpage="{%=item.itemPerPage%}" data-trans-url="{%=item.zm%}" data-allqimg="{%=item.allqimg%}">
+
+					{%if (!window.$wap){ %}
+						{% item.items.forEach(function(url, i){ %}
+								{%if(i == 0){ %}
+									<a href="javascript:;" 
+									class="native-call relative block" 
+									data-param1="{%=item.originalPhotos[i]%}"
+									data-param2="{%=item.data%}"
+									data-native="photo.showFullImage"
+									{%if (i!=0) { %}style="display:none"{% } %}
+									data-mfp-src="{%=item.originalPhotos[i]%}">
+										<img class="lazy" data-src="{%=url%}" width="100%" height=""/>
+										<span class="pages">{%=item.allqimg%}/P</span>
+										<span class="galleryflag"><span>
+									</a>
+
+								{%}%}
+							
+						{% }); %}
+
+					{% }else{ %}
+						{% item.items.forEach(function(url, i){ %}
+								
+								<a href="javascript:;" title = "{%=item.title%}"
+									class="relative block" 
+								{%if (i!=0) { %}style="display:none"{% } %}
+
+								data-mfp-src="{%=item.originalPhotos[i]%}">
+									<img class="lazy"  data-src="{%=url%}" width="100%" height=""/>
+									<span class="pages">{%=item.allqimg%}/P</span>
+									<span class="galleryflag"><span>
+								</a>
+							
+						{% }); %}
+					{% } %}
+				</div>
+				{% if(item.title) { %}
+					<h3>图片：{%=item.title%}</h3>
+				{% } %}
+			</div>
+			{% }); %}
+		</div></script><script id="mod-video-tmpl" type="text/html"><div class="video mod">
+			{% items.forEach(function(item,i){ console.log(originData)%}
+				<div class="photo">
+					<a href="javascript:;"
+						class="native-call"
+						data-native="video.play" 
+						data-param1="{%=JSON.stringify(originData.items[i])%}" style="width:100%; height:{%=h%}px;">
+						<img class="snapshot" src="{%=item.imgurl%}" width="100%" height="{%=h%}"/>
+						<span class="play" ></span>
+					</a>
+				</div>
+
+				{% if(item.title) { %}
+					<h4>视频：{%=item.title%}</h4>
+				{% } %}
+
+			{% }); %}
+		</div></script><script id="recommend-articles-tmpl" type="text/html"><section class="recommend-articles part" data-name="相关" >
+
+			<h2 class="title">相关阅读</h2>
+			<ul class="articles-list">
+
+				{% related.forEach(function(item,i){ %}
+				{% if(i % 2 == 0 && i != 0){%}
+					</ul>
+					<ul class="articles-list">
+				{% } %}
+				<li class="native-call" data-native="related.viewRelatedArticel" data-param1="{%=item.url%}" data-index="{%=i%}">
+
+					{% if(window.$wap) { %}
+						<a href="{%=item.url%}">
+						<img class="photo lazy" data-src="{%=item.img%}" width="{%=item.width%}" height="{%=item.height%}" />
+						</a>
+						<a class="title-link" href="{%=item.url%}">
+							<div class="row2">{%=item.title%}</div>
+						</a>
+					{% } else { %}
+						
+						<img class="photo lazy" data-src="{%=item.img%}" width="{%=item.width%}" height="{%=item.height%}" />
+						
+						<a class="title-link" href="javascript:;" >
+							<div class="row2">{%=item.title%}</div>
+						</a>
+					{% } %}
+					<div class="time-tips">
+						{% if (typeof item.elapse == 'string') { %}
+							 <i>{%=item.elapse%}</i>
+						{% } %}
+					</div>
+				</li>
+				{% }); %}
+
+				{% if(related.length%2 == 1){ %}
+					<li></li>
+				{% } %}
+			</ul>
+		</section></script><script id="recommend-video-tmpl" type="text/html"><section class="recommend-video part" data-name="相关" >
+
+			<h2 class="title">相关视频</h2>
+			<ul class="articles-list">
+
+				{% related_video.forEach(function(item,i){ %}
+				<li class="native-call flex" data-native="related.viewRelatedVideo" data-param1="{%=JSON.stringify(item)%}" data-index="{%=i%}">
+
+					{% if(window.$wap) { %}
+						<a href="{%=item.url%}" class="mr10">
+						<img class="photo lazy" data-src="{%=item.img%}" width="{%=item.width%}" height="{%=item.height%}"/>
+						</a>
+						<a class="title-link flex-item" href="{%=item.url%}">
+							<div class="row2">{%=item.title%}</div>
+							<p class="time-tips">
+								{% if (typeof item.elapse == 'string') { %}
+									 <i>{%=item.elapse%}</i>
+								{% } %}
+							</p>
+						</a>
+					{% } else { %}
+						
+						<img class="photo lazy" data-src="{%=item.img%}" width="{%=item.width%}" height="{%=item.height%}"/>
+						
+						<a class="flex-item txts" href="javascript:;" >
+							<div class="title-link row2">{%=item.title%}</div>
+							<p class="time-tips">
+								{% if (typeof item.elapse == 'string') { %}
+									 <i>{%=item.elapse%}</i>
+								{% } %}
+							</p>
+						</a>
+					{% } %}
+				</li>
+				{% }); %}
+			</ul>
+		</section></script><script id="hot-articles-tmpl" type="text/html"><section class="hot-articles part" data-name="热门推荐"%}>
+			<h2 class="title">热门推荐</h2>
+			<ul class="articles-list">
+				{% hotNewsList.forEach(function(item,i){ %}
+					<li class="native-call flex" data-native="related.viewHotArticel" data-param1="{%=item.url%}">
+						<div class="hot-img">
+							<a 
+							{% if(window.$wap) { %} 
+							href="{%=item.url%}"
+							{% } else { %} 
+							href="javascript:;"
+							{% } %}
+							>
+								<img class="photo lazy" data-src="{%=item.img%}" width="{%=item.width%}" height="{%=item.height%}" />
+							</a>
+						</div>
+						<a class="flex-item txts" 
+						{% if(window.$wap) { %}
+						href="{%=item.url%}"
+						{% } else { %}
+						href="javascript:;" 
+						{% } %}
+						>
+							<div class="title-link row2" >{%=item.title%}</div>
+							<p>
+								{% if (typeof item.elapse == 'string') { %}
+									 <i>{%=item.elapse%}</i>
+								{% } %}
+							</p>
+						</a>
+					</li>
+				{% }); %}
+			</ul>
+		</section></script><script id="comments-tmpl" type="text/html"><section class="comments part {% if(typeof more != 'undefined' && !window.$wap) { %} has-more {% } %}" data-name="评论">
+			{% if(!window.$wap || _comments.length > 0) { //app都有title，分享页无评论时所有都不显示 %}
+				{% if(typeof title != 'undefined'){ %}
+				<h2 class="title">{%=title%}</h2>
+				{% } else { %}
+				<h2 class="title">热门评论</h2>
+				{% } %}
+			{% } %}
+
+			{% if(_comments.length > 0){ //有评论%}
+				
+				<ul class="comment-list">
+					{% _comments.forEach(function(item){ %}
+						{% if(!item.text || item.text.length == 0) return; %}
+					<li>
+						<a class="native-call" href="javascript:;" data-native="news.commUser" data-param1="{%=item.uid%}">
+							{% if(item.avatarUrl) {%}
+							<img class="avatar" src="{%=item.avatarUrl%}" />
+							{% } else { %}
+							<span class="avatar"><span>
+							{% } %}
+						</a>
+						<div class="info-text">
+							<div class="info">
+								
+								<a class="thumbup native-call" href="javascript:;" data-native="news.likeThisComment" data-param1="{%=item.cid%}">
+									<i></i>
+								</a>
+								<a class="thumbup-active" style="display:none;" href="javascript:;">
+									<i></i>
+								</a>
+								<span class="liked">{%=item.liked%}</span>
+								<span class="username">{%=item.username%}</span>
+							</div>
+							<div class="text">
+								{%=item.text%}
+							</div>
+							<div class="time">
+								{%=item.time%}
+							</div>
+						</div>
+					</li>
+					{% }); %}
+				</ul>
+				
+			{% } else { //没有评论%}
+				<ul class="comment-list" style="display:none;"></ul>
+
+				{% if(!window.$wap) { %}
+					<div class="no-comments native-call" data-native="news.comment">
+							还没评论呢，你来吧
+					</div>
+				{% } %} 
+			{% } %}
+
+			{% if(typeof more != 'undefined' && !window.$wap){ %}
+				<a class="more-comments native-call" 
+				data-native="news.showComments"
+				href="javascript:;">{%=more%}</a>
+			{% } else if(typeof more == 'undefined') { // 如果无评论，将查看更多隐藏%}
+				<a class="more-comments native-call" 
+				style="display:none" 
+				data-native="news.showComments"
+				href="javascript:;">
+				{%if(!window.$wap){ //app %}
+				查看更多评论
+				{%}else{ %}
+				查看更多评论,请下载视线客户端...
+				{%} %}
+				</a>
+			{% } %}
+		</section></script><script id="rss-articles-tmpl" type="text/html"><section class="rss-articles part" data-name="订阅">
+				<ul class="rss-top flex">
+					{% if(media.icon) { //头像%}
+					<li class="rss-avatar">
+						<img src="{%=media.icon%}" alt="">
+					</li>
+					{% } %}
+					<li class="rss-tips flex-item" >
+						<h3>{%=media.name%}</h3>
+						<p class="row2">{%=media.summary%}</p>
+					</li>
+					<li class="rss-toprt">
+						{% if(media.issub) { //true 已订阅%}
+							<a href="javascript:;" class="rss-btn subscribed" style="display:block"></a>
+						{% } else { %}
+							<a href="javascript:;" class="native-call rss-btn js-dy" data-param1="{%=rssBtnData%}" data-native="dingyue.addRss"></a>
+							<a href="javascript:;" class="rss-btn subscribed"></a>
+						{% } %}
+						
+					</li>
+				</ul>
+				{%if (media.news && media.news.length) { %}
+					<ul class="articles-list">
+						{%media.news.forEach(function(item,i) { %}
+							{%if( i%2 == 0 && i!=0 ) { %}
+								</ul>
+								<ul class="articles-list">
+							{% } %}
+
+							<li class="native-call" data-native="dingyue.rssListItem" data-param1="" data-index="{%=i%}">
+									{%if(item.img){ %}
+										<div class="rss-img-wrap">
+											<img class="photo lazy" data-src="{%=item.img%}" width="100%" height="" src="">
+										</div>
+									{%}%}
+									<a class="title-link" href="javascript:;">
+										<div class="row2">{%=item.title%}</div>
+									</a>
+							</li>
+
+						{% }) %}
+					</ul>
+				{% } %}
+			</section></script><script id="topics-tmpl" type="text/html"><section class="topics-articles part" data-name="话题">
+				<h2 class="title">话题</h2>
+				<div class="topics-list">
+					<ul class="flex">
+						{%topic.forEach(function(item,i){ i = i%5;%}
+							<li class="tagClr-{%=i%} native-call" data-native="related.clkTopic" data-param1="{%=JSON.stringify(item)%}">{%=item.title%}</li>
+						{%})%}
+					</ul>
+				</div>
+			</section></script></head><body><div class="wrapper"><div id="sx-graybar"></div><div id="sx-article"></div><div id="sx-album"></div><div id="sx-rss"></div><div id="sx-topics"></div><div id="sx-videoRec"></div><div id="sx-comments"></div><div id="sx-recommond"></div><div id="sx-hot"></div></div><script type="text/javascript" src="../js/nativeApi.js"></script><script type="text/javascript" src="../js/contentRender.js"></script></body></html>

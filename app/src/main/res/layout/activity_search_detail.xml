@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/search_detail_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/search_detail_toolbar" />
+
+    <include android:id="@+id/search_detail_toolbar"
+        layout="@layout/toolbar" />
+
+
+    <ProgressBar
+        android:id="@+id/web_load_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/search_detail_toolbar"
+        android:indeterminate="false"
+        android:indeterminateOnly="false" />
+
+    <include
+        android:id="@+id/web_net_error"
+        layout="@layout/web_net_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/search_detail_toolbar"
+        android:visibility="gone" />
+</RelativeLayout>

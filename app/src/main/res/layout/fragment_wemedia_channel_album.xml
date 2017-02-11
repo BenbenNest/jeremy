@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/empty_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="15dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:text="@string/wemedia_album_empty_str"
+            android:textColor="#999999"
+            android:textSize="14dp" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/error_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:src="@mipmap/net_error_image" />
+
+        <TextView
+            android:id="@+id/net_error_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/common_load_error"
+            android:textColor="#dcdcdc"
+            android:textSize="14dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.jeremy.lychee.widget.MyLoadingView
+            android:id="@+id/loading_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp" />
+
+        <TextView
+            android:id="@+id/common_loading_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="加载中..."
+            android:textColor="@color/bottombar_text"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+    <com.jeremy.lychee.widget.BounceNestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp">
+
+            <LinearLayout
+                android:id="@+id/create_new_album_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/user_white_bg"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:background="@color/single_line_color"
+                    android:visibility="gone"/>
+
+                <include layout="@layout/wemedia_album_list_item" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/txt_create_channel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:background="@color/single_line_color"
+                    android:visibility="gone"/>
+
+                <!--<TextView-->
+                    <!--style="@style/MediaChannelList"-->
+                    <!--android:layout_marginBottom="7dp"-->
+                    <!--android:layout_marginLeft="7dp"-->
+                    <!--android:layout_marginTop="15dp"-->
+                    <!--android:text="我创建的专辑"-->
+                    <!--android:textColor="@color/userhome_column_sub"-->
+                    <!--android:textSize="12dp" />-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+
+            </LinearLayout>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/album_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/user_white_bg"
+                android:divider="@null"
+                android:overScrollMode="never"
+                android:scrollbars="none" />
+
+        </LinearLayout>
+
+    </com.jeremy.lychee.widget.BounceNestedScrollView>
+
+</FrameLayout>
+

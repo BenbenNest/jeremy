@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:layout_marginTop="10dp"
+    android:paddingBottom="15dp">
+
+    <ImageView
+        android:id="@+id/avatar_img"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="15dp" />
+
+    <TextView
+        android:id="@+id/channel_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/avatar_img"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop=".5dp"
+        android:layout_toRightOf="@id/avatar_img"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textColor="#666666"
+        android:textSize="13dp" />
+
+    <TextView
+        android:id="@+id/live_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/avatar_img"
+        android:layout_marginBottom=".5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_toRightOf="@id/avatar_img"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textColor="#333333"
+        android:textSize="15dp" />
+
+    <com.jeremy.lychee.widget.GlideControl.GlideImageView
+        android:id="@+id/live_thumbnail"
+        android:layout_width="match_parent"
+        android:layout_height="185dp"
+        android:layout_below="@id/avatar_img"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="#DDDDDD" />
+
+    <TextView
+        android:id="@+id/live_type"
+        android:layout_width="wrap_content"
+        android:layout_alignTop="@+id/live_thumbnail"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/live_thumbnail"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="13dp"
+        android:textColor="#FAFAFA"
+        android:gravity="center"/>
+
+</RelativeLayout>

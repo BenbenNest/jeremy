@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.jeremy.lychee.activity.user.MsgAuthCodeActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/toolbar_color"
+        app:navigationIcon="@mipmap/ic_nav_back"
+        app:titleTextColor="@color/toolbar_title"/>
+
+    <TextView
+        android:id="@+id/phone_num_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:background="@color/tel_txt_bg"
+        android:textColor="@color/tel_txt_color"
+        android:gravity="center" />
+
+    <com.jeremy.lychee.customview.user.LoginInputLayout
+        android:id="@+id/msg_auth_code_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        app:input_name="@string/auth_code"
+        app:hint="@string/msg_auth_code"
+        app:inputType="text" />
+
+    <com.jeremy.lychee.customview.user.LoginInputLayout
+        android:id="@+id/password_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        app:input_name="@string/password"
+        app:hint="@string/msg_auth_password_hint"
+        app:inputType="password" />
+
+    <Button
+        android:id="@+id/commit_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:enabled="false"
+        android:background="@drawable/phone_login_btn_bg"
+        android:onClick="onCommit"
+        android:text="@string/register_btn_txt"
+        android:textColor="@color/white"
+        android:textSize="16dp" />
+
+</LinearLayout>

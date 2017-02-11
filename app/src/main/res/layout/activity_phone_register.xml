@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.jeremy.lychee.activity.user.PhoneRegisterActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/toolbar_color"
+        app:navigationIcon="@mipmap/ic_nav_back"
+        app:titleTextColor="@color/toolbar_title"/>
+
+    <com.jeremy.lychee.customview.user.LoginInputLayout
+        android:id="@+id/telephone_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        app:input_name="@string/cn_tel_code"
+        app:hint="@string/account_hint"
+        app:inputType="phone" />
+
+    <com.jeremy.lychee.customview.user.LoginImgAuthCodeLayout
+        android:id="@+id/auth_code_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"/>
+
+    <Button
+        android:id="@+id/next_step_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:enabled="false"
+        android:background="@drawable/phone_login_btn_bg"
+        android:onClick="nextStep"
+        android:text="@string/next_step"
+        android:textColor="@color/white"
+        android:textSize="16dp" />
+
+</LinearLayout>

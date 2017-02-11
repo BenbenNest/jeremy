@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/load_more"
+        android:layout_width="match_parent"
+        android:background="#f0f0f0"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center">
+            <ProgressBar
+                android:id="@+id/load_progressBar"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginTop="12dp"
+                android:indeterminate="false"
+                android:indeterminateDrawable="@drawable/progressbar"
+                />
+
+            <TextView
+                android:id="@+id/load_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:text="加载中..."
+                android:textSize="12dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/load_error"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="网络不给力,请检查网络刷新重试"
+                android:textColor="#cccccc"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/load_no_data"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/load_nodata_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="没有了，点击刷新更多"
+                android:textColor="#cccccc"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

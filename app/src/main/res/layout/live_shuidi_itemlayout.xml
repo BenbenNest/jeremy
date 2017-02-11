@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/img_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#e4e4e4"
+        android:padding="0.5dp"
+        app:layout_aspectRatio="178%"
+        app:layout_widthPercent="100%">
+
+        <com.jeremy.lychee.widget.GlideControl.GlideImageView
+            android:id="@+id/video_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true" />
+
+        <TextView
+            android:id="@+id/area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/video_img"
+            android:layout_alignLeft="@+id/video_img"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/news_type_bg"
+            android:drawablePadding="4dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:paddingTop="2dp"
+            android:textColor="#FFFFFF"
+            android:textSize="11dp"
+            android:text="这是地区"
+            />
+        <TextView
+            android:id="@+id/onlookers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/video_img"
+            android:layout_alignRight="@+id/video_img"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="8dp"
+            android:drawablePadding="4dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:paddingTop="2dp"
+            android:textColor="#FFFFFF"
+            android:textSize="12dp"
+            android:text="5555人围观"
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_layout"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:lines="2"
+        android:maxLines="2"
+        android:includeFontPadding="false"
+        android:textColor="#444444"
+        android:textSize="16dp" />
+    <LinearLayout
+        android:id="@+id/user_area"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_below="@id/title"
+        android:gravity="center_vertical"
+        android:layout_marginTop="4dp"
+        android:paddingBottom="8dp"
+        android:layout_height="wrap_content">
+        <com.jeremy.lychee.widget.GlideControl.GlideImageView
+            android:id="@+id/user_head_img"
+            android:layout_width="28dp"
+            android:layout_marginLeft="8dp"
+            android:layout_height="28dp" />
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:textSize="12dp"
+            android:textColor="#999999"
+            android:text="小肥羊的摄像机"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</android.support.percent.PercentRelativeLayout>

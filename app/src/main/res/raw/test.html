@@ -1,0 +1,689 @@
+<!--
+//设置内容;
+window.onWebMessage( '{"type":"setItems","data":{"items":[{"name":1111,"type":"doc"},{"name":2222,"type":"doc"}]}}' ) ;
+ 
+window.onWebMessage( '{"type":"setItems","data":{"items":[{"name":"文档类型","type":"doc"},{"name":"音频类型","type":"audio","active":true},{"name":"视频类型","type":"video"},{"name":"单元测试","type":"test"},{"name":"图片类型","type":"pic"}]}}' ) ;
+ 
+//设置内容, 对应的item对象如果active为true为激活态;
+window.onWebMessage( '{"type":"setItems","data":{"items":[{"name":1111,"type":"doc"},{"name":2222,"type":"doc","active":true}]}}' ) ;
+ 
+//设置某个第n个位置的item;
+window.onWebMessage('{"type":"setItem","data":[2,{ "name" : "add-item", "type":"doc"}]}');
+ 
+//激活第三个锚链接为选中态;
+window.onWebMessage( '{"type":"active","data":2}' )
+ 
+//获取目前的数据:
+window.onWebMessage( '{"type":"getItem"}' )
+-->
+ 
+<html>
+  <head>
+        <meta charset="utf-8" />
+        <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
+      </head>
+  <style>
+        /*初始的reset样式*/
+        *{
+          margin:0;
+          padding:0;
+        }
+        .time-line-wrap{
+          position: relative;
+          width: 400px;
+          margin:0 auto;
+        }
+        ul{
+          list-style: none;
+        }
+        body,html{
+          height: 100%;
+        }
+        body{
+          background:#303030;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+     
+     
+        /*样式开始*/
+        .scroll-time-line{
+          height:100%;
+          overflow: hidden;
+        }
+        .time-line-wrap{
+          position: relative;
+        }
+        .time-line-wrap::before{
+          display: block;
+          content: "";
+          position: absolute;
+          border: 2px solid #616161;
+          width: 7px;
+          background: #303030;
+          height: 7px;
+          z-index: 2;
+          border-radius: 100%;
+          left: 12px;
+          top: 0;
+        }
+        .time-line-wrap::after{
+          display: block;
+          content: "";
+          position: absolute;
+          border: 2px solid #616161;
+          width: 7px;
+          background: #303030;
+          height: 7px;
+          z-index: 2;
+          border-radius: 100%;
+          left: 12px;
+          bottom:0;
+        }
+        .time-line-ul{
+          position: relative;
+        }
+        /**
+        时间轴的轴用伪类实现;
+        */
+        .time-line-ul::before{
+          display: block;
+          position:absolute;
+          content:"";
+          height:100%;
+          width:1px;
+          left:17px;
+          top:0;
+          background: #616161;
+        }
+     
+        .time-line-ul li{
+          padding: 14px;
+          position: relative;
+          color: #FFF;
+          height: 26px;
+        }
+        .time-line-ul li>* {
+          vertical-align: middle;
+          display: inline-block;
+        }
+     
+        /**
+        为了更好的维护hover的样式， 背景图片通过js进行管理
+        hover start;
+        */
+        .time-line-ul li b{
+          width: 32px;
+          height: 32px;
+        }
+        .time-line-ul li b.active{
+          display: none;
+        }
+        .time-line-ul li:hover b{
+          display: none;
+        }
+        .time-line-ul li:hover .active{
+          display: inline-block;
+        }
+        /**
+          当li被点击的时候添加的类,优先级
+        */
+        .time-line-ul li b.show{
+          display: none;
+        }
+        .time-line-ul li b.active.show{
+          display: inline-block;
+        }
+        /**
+        hover end
+        */
+     
+        .time-line-ul li span{
+          display: inline-block;
+          white-space: nowrap;
+          word-wrap: normal;
+          width: 100px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+        /**
+        当拖拽LI到某个LI上面，这个LI变透明
+        */
+        .over{
+          opacity: 0.4;
+        }
+        /**
+        占位DIV;
+        */
+        .blank{
+          display: block;
+          height:50px;
+          line-height: 50px;
+        }
+     
+        /**
+        默认时间轴锚链接的样式
+        */
+        .time-line-icon{
+          width: 7px;
+          height: 7px;
+          display: inline-block;
+          background: #616161;
+          border-radius: 100%;
+        }
+        /**
+        鼠标移动上来，或者锚链接有active时候的背景图样式
+        */
+        .time-line-icon.active,.time-line-icon:hover{
+          background: #fff;
+        }
+      </style>
+ 
+  <!--模板，勿删!-->
+  <script type="text/tempate" id="li-tpl">
+    <% for(var i=0; i<items.length; i++ ) {%>
+      <li class="li-<%=i%>" draggable="true">
+        <a href="###" class="time-line-icon <% if(items[i].active){ %> <%="active"%> <%}%> "></a>
+        <b class="">
+          <img src="imgs/<%=items[i].type%>.png" />
+        </b>
+        <b class="active">
+          <img src="imgs/<%=items[i].type%>1.png" />
+        </b>
+        <span>
+          <%=items[i].name%>
+        </span>
+      </li>
+    <% } %>
+  </script>
+ 
+  <body>
+    <!--
+    滚动出现在这个div里面
+    -->
+    <div class="scroll-time-line">
+     
+          <!---
+      时间轴相关的html结构
+      -->
+          <div class="time-line-wrap">
+            <ul class="time-line-ul">
+     
+              <!----假数据--->
+              <li class="li-0" draggable="true">
+                <a href="###" class="time-line-icon "></a>
+                <b class="">
+                  <img src="imgs/doc.png">
+                </b>
+                <b class="active">
+                  <img src="imgs/doc1.png">
+                </b>
+                <span>
+              文档类型
+            </span>
+              </li>
+     
+              <li class="li-2" draggable="true">
+                <a href="###" class="time-line-icon "></a>
+                <b class="">
+                  <img src="imgs/video.png">
+                </b>
+                <b class="active">
+                  <img src="imgs/video1.png">
+                </b>
+                <span>
+              视频类型
+            </span>
+              </li>
+     
+     
+              <li class="li-3" draggable="true">
+                <a href="###" class="time-line-icon "></a>
+                <b class="">
+                  <img src="imgs/test.png">
+                </b>
+                <b class="active">
+                  <img src="imgs/test1.png">
+                </b>
+                <span>
+              单元测试
+            </span>
+              </li><li class="li-1" draggable="true">
+              <a href="###" class="time-line-icon active "></a>
+              <b class="">
+                <img src="imgs/audio.png">
+              </b>
+              <b class="active">
+                <img src="imgs/audio1.png">
+              </b>
+              <span>
+            音频类型
+          </span>
+            </li>
+     
+              <li class="li-4" draggable="true">
+                <a href="###" class="time-line-icon "></a>
+                <b class="">
+                  <img src="imgs/pic.png">
+                </b>
+                <b class="active">
+                  <img src="imgs/pic1.png">
+                </b>
+              <span>
+            图片类型
+          </span>
+              </li>
+     
+              <li class="li-0" draggable="true">
+                <a href="###" class="time-line-icon "></a>
+                <b class="">
+                  <img src="imgs/doc.png">
+                </b>
+                <b class="active">
+                  <img src="imgs/doc1.png">
+                </b>
+                <span>
+              文档类型
+            </span>
+              </li>
+     
+              <li class="li-2" draggable="true">
+                <a href="###" class="time-line-icon "></a>
+                <b class="">
+                  <img src="imgs/video.png">
+                </b>
+                <b class="active">
+                  <img src="imgs/video1.png">
+                </b>
+                <span>
+              视频类型
+            </span>
+              </li>
+     
+     
+              <li class="li-3" draggable="true">
+                <a href="###" class="time-line-icon "></a>
+                <b class="">
+                  <img src="imgs/test.png">
+                </b>
+                <b class="active">
+                  <img src="imgs/test1.png">
+                </b>
+                <span>
+              单元测试
+            </span>
+              </li><li class="li-1" draggable="true">
+              <a href="###" class="time-line-icon active "></a>
+              <b class="">
+                <img src="imgs/audio.png">
+              </b>
+              <b class="active">
+                <img src="imgs/audio1.png">
+              </b>
+              <span>
+            音频类型
+          </span>
+            </li>
+     
+              <li class="li-4" draggable="true">
+                <a href="###" class="time-line-icon "></a>
+                <b class="">
+                  <img src="imgs/pic.png">
+                </b>
+                <b class="active">
+                  <img src="imgs/pic1.png">
+                </b>
+                <span>
+              图片类型
+            </span>
+              </li>
+     
+              <li class="li-0" draggable="true">
+                <a href="###" class="time-line-icon "></a>
+                <b class="">
+                  <img src="imgs/doc.png">
+                </b>
+                <b class="active">
+                  <img src="imgs/doc1.png">
+                </b>
+                <span>
+              文档类型
+            </span>
+              </li>
+     
+              <li class="li-2" draggable="true">
+                <a href="###" class="time-line-icon "></a>
+                <b class="">
+                  <img src="imgs/video.png">
+                </b>
+                <b class="active">
+                  <img src="imgs/video1.png">
+                </b>
+                <span>
+              视频类型
+            </span>
+              </li>
+     
+     
+              <li class="li-3" draggable="true">
+                <a href="###" class="time-line-icon "></a>
+                <b class="">
+                  <img src="imgs/test.png">
+                </b>
+                <b class="active">
+                  <img src="imgs/test1.png">
+                </b>
+                <span>
+              单元测试
+            </span>
+              </li><li class="li-1" draggable="true">
+              <a href="###" class="time-line-icon active "></a>
+              <b class="">
+                <img src="imgs/audio.png">
+              </b>
+              <b class="active">
+                <img src="imgs/audio1.png">
+              </b>
+              <span>
+            音频类型
+          </span>
+            </li>
+     
+              <li class="li-4" draggable="true">
+                <a href="###" class="time-line-icon "></a>
+                <b class="">
+                  <img src="imgs/pic.png">
+                </b>
+                <b class="active">
+                  <img src="imgs/pic1.png">
+                </b>
+                <span>
+              图片类型
+            </span>
+              </li>
+     
+              <li class="li-0" draggable="true">
+                <a href="###" class="time-line-icon "></a>
+                <b class="">
+                  <img src="imgs/doc.png">
+                </b>
+                <b class="active">
+                  <img src="imgs/doc1.png">
+                </b>
+                <span>
+              文档类型
+            </span>
+              </li>
+     
+              <li class="li-2" draggable="true">
+                <a href="###" class="time-line-icon "></a>
+                <b class="">
+                  <img src="imgs/video.png">
+                </b>
+                <b class="active">
+                  <img src="imgs/video1.png">
+                </b>
+                <span>
+              视频类型
+            </span>
+              </li>
+     
+     
+              <li class="li-3" draggable="true">
+                <a href="###" class="time-line-icon "></a>
+                <b class="">
+                  <img src="imgs/test.png">
+                </b>
+                <b class="active">
+                  <img src="imgs/test1.png">
+                </b>
+                <span>
+              单元测试
+            </span>
+              </li><li class="li-1" draggable="true">
+                <a href="###" class="time-line-icon active "></a>
+                <b class="">
+                  <img src="imgs/audio.png">
+                </b>
+                <b class="active">
+                  <img src="imgs/audio1.png">
+                </b>
+                <span>
+              音频类型
+            </span>
+              </li>
+     
+              <li class="li-4" draggable="true">
+                <a href="###" class="time-line-icon "></a>
+                <b class="">
+                  <img src="imgs/pic.png">
+                </b>
+                <b class="active">
+                  <img src="imgs/pic1.png">
+                </b>
+                <span>
+              图片类型
+            </span>
+              </li>
+     
+              <li class="li-0" draggable="true">
+                <a href="###" class="time-line-icon "></a>
+                <b class="">
+                  <img src="imgs/doc.png">
+                </b>
+                <b class="active">
+                  <img src="imgs/doc1.png">
+                </b>
+                <span>
+              文档类型
+            </span>
+              </li>
+     
+              <li class="li-2" draggable="true">
+                <a href="###" class="time-line-icon "></a>
+                <b class="">
+                  <img src="imgs/video.png">
+                </b>
+                <b class="active">
+                  <img src="imgs/video1.png">
+                </b>
+                <span>
+              视频类型
+            </span>
+              </li>
+     
+     
+              <!---假数据end--->
+     
+            </ul>
+          </div>
+          <!---
+      时间轴相关的html结构结束
+      -->
+        </div>
+    <script>
+      //模板引擎的代码
+      (function () {
+        //underscore抄的模板引擎;
+        var escaper = /\\|'|\r|\n|\t|\u2028|\u2029/g;
+ 
+        var escapes = {
+          "'":   "'",
+          '\\':   '\\',
+          '\r':   'r',
+          '\n':   'n',
+          '\t':   't',
+          '\u2028': 'u2028',
+          '\u2029': 'u2029'
+        };
+ 
+        $.templateSettings = {
+          evaluate  : /<%([\s\S]+?)%>/g,
+          interpolate : /<%=([\s\S]+?)%>/g,
+          escape   : /<%-([\s\S]+?)%>/g
+        }
+        $.template = function(text, data, settings) {
+          var render;
+          settings = $.extend({}, settings, $.templateSettings);
+ 
+          // Combine delimiters into one regular expression via alternation.
+          var matcher = new RegExp([
+            (settings.escape || noMatch).source,
+            (settings.interpolate || noMatch).source,
+            (settings.evaluate || noMatch).source
+          ].join('|') + '|$', 'g');
+ 
+          // Compile the template source, escaping string literals appropriately.
+          var index = 0;
+          var source = "__p+='";
+          text.replace(matcher, function(match, escape, interpolate, evaluate, offset) {
+            source += text.slice(index, offset)
+                .replace(escaper, function(match) { return '\\' + escapes[match]; });
+ 
+            if (escape) {
+              source += "'+\n((__t=(" + escape + "))==null?'':_.escape(__t))+\n'";
+            }
+            if (interpolate) {
+              source += "'+\n((__t=(" + interpolate + "))==null?'':__t)+\n'";
+            }
+            if (evaluate) {
+              source += "';\n" + evaluate + "\n__p+='";
+            }
+            index = offset + match.length;
+            return match;
+          });
+          source += "';\n";
+ 
+          // If a variable is not specified, place data values in local scope.
+          if (!settings.variable) source = 'with(obj||{}){\n' + source + '}\n';
+ 
+          source = "var __t,__p='',__j=Array.prototype.join," +
+              "print=function(){__p+=__j.call(arguments,'');};\n" +
+              source + "return __p;\n";
+ 
+          try {
+            render = new Function(settings.variable || 'obj', '_', source);
+          } catch (e) {
+            e.source = source;
+            throw e;
+          }
+ 
+          if (data) return render(data, _);
+          var template = function(data) {
+            return render.call(this, data);
+          };
+ 
+          // Provide the compiled function source as a convenience for precompilation.
+          template.source = 'function(' + (settings.variable || 'obj') + '){\n' + source + '}';
+ 
+          return template;
+        };
+      })();
+ 
+      (function( fn ) {
+ 
+        $( fn.call( $ ,$) );
+ 
+      })(function ($) {
+ 
+        $.timeLineSetting = {
+          offsetTop : 100
+        };
+ 
+        $.extend($.fn, {
+          timeLine : function() {
+            $.each(this, function() {
+ 
+              var _this = this,
+                  eleDrag;
+              $(this).delegate(".time-line-ul>li", "click", function( ev ) {
+                $(".time-line-icon.active").removeClass("active");
+                $(this).find(".time-line-icon").addClass("active");
+                $("b").removeClass("show");
+                $(this).find("b").addClass("show");
+                $(_this).animate({scrollTop: this.offsetTop - $.timeLineSetting.offsetTop},300);
+                ev.preventDefault();
+              }).delegate(".time-line-ul>li","dragstart" , function(ev) {
+                //不允许img和a的拖拽;
+                if( ev.target&&ev.target.tagName.toLocaleLowerCase() === "img" || ev.target.tagName.toLocaleLowerCase() === "a") {
+                  return false;
+                };
+                /*拖拽开始*/
+                //拖拽效果
+                ev.originalEvent.dataTransfer.effectAllowed = "move";
+                eleDrag = ev.originalEvent.target;
+                return true;
+              }).delegate(".time-line-ul>li","dragenter" , function(ev) {
+                return true;
+              }).delegate(".time-line-ul>li", "dragover" , function(ev) {
+                $(".time-line-ul>li.over").removeClass("over");
+                $(this).addClass("over");
+                $(".blank").remove();
+                var $blank = $("<li class='blank' draggable='true'></li>");
+                $(this).after( $blank );
+                /*拖拽元素在目标元素头上移动的时候*/
+                ev.preventDefault();
+                return true;
+              });
+              $(".time-line-ul").bind("drop" , function(ev) {
+                if(ev.target.tagName.toLocaleLowerCase() === "li") {
+                  $(ev.target).after( eleDrag );
+                };
+                $(".blank").remove();
+                $(".time-line-ul>li.over").removeClass("over");
+                return false;
+              });
+            });
+          }
+        });
+      });
+ 
+      $(function() {
+        var compile= $.template( $("#li-tpl").html() || "");
+ 
+        //与客户端的交互事件;
+        var orginalData = {};
+        window.onWebMessage = function( msg ) {
+          msg = JSON.parse(msg);
+          switch( msg.type ) {
+            case "setItems" :
+              $(".time-line-ul").html( compile(msg.data) );
+              //结构化复制;
+              orginalData = JSON.parse(JSON.stringify(msg.data));
+              break;
+ 
+            case "setItem" :
+              orginalData.items&&orginalData.items.splice(msg.data[0],0,msg.data[1]);
+              $(".time-line-ul").html( compile(orginalData) );
+              break;
+ 
+            case "getItem" :
+                var result = [];
+                var lis = $(".time-line-ul li");
+                for(var i=0; i<lis.length; i++) {
+                  result.push( {
+                    index : i,
+                    src : $(lis[i]).find("img").attr("src"),
+                    name : $(lis[i]).find("span").text()
+                  });
+                };
+                alert(JSON.stringify( result ));
+              break;
+ 
+            case "active" :
+              $(".time-line-icon.active").removeClass("active");
+              $(".time-line-ul>li").eq( msg.data).find(".time-line-icon").addClass("active")
+              break;
+ 
+          };
+ 
+        };
+ 
+        //启用插件;
+        $(".scroll-time-line").timeLine();
+      })
+    </script>
+  </body>
+</html>

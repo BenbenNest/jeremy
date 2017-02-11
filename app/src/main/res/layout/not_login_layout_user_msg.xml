@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.jeremy.lychee.widget.BounceNestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/news_page_bg">
+        <TextView
+            android:id="@+id/no_data_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:gravity="center"
+            android:drawableTop="@drawable/image_xiaoxi"
+            android:drawablePadding="25dp"
+            android:text="@string/user_home_empty_str"
+            android:textColor="#bdbdbd"
+            android:textSize="13dp" />
+    </RelativeLayout>
+</com.jeremy.lychee.widget.BounceNestedScrollView>

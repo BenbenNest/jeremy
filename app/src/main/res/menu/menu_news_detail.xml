@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.popupwindowoverflow.MainActivity">
+    <item
+        android:id="@+id/menu"
+        android:orderInCategory="1"
+        android:title="@null"
+        android:icon="@mipmap/ic_news_more"
+        app:showAsAction="always">
+        <menu>
+            <item android:id="@+id/menu_edit_parent_album"
+                android:title="编辑所属专辑"/>
+            <item android:id="@+id/menu_delete"
+                android:title="删除"/>
+        </menu>
+    </item>
+
+</menu>

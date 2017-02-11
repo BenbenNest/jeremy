@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.jeremy.lychee.activity.user.CreateArticleActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <include android:id="@+id/create_article_toolbar"
+            layout="@layout/toolbar" />
+
+        <EditText
+            android:id="@+id/title_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/create_article_toolbar"
+            android:paddingTop="23dp"
+            android:paddingBottom="16dp"
+            android:paddingLeft="16dp"
+            android:singleLine="true"
+            android:paddingRight="16dp"
+            android:background="@null"
+            android:hint="@string/hint_title" />
+
+        <LinearLayout
+            android:id="@+id/options_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="49dp"
+                android:layout_height="35dp"
+                android:background="@drawable/sl_item_bg"
+                android:onClick="onClickBlock"
+                android:src="@drawable/zpd_cz_n_biaodian_1" />
+
+            <ImageButton
+                android:layout_width="49dp"
+                android:layout_height="35dp"
+                android:background="@drawable/sl_item_bg"
+                android:onClick="onClickDecimal"
+                android:src="@drawable/zpd_cz_n_number_4" />
+
+            <ImageButton
+                android:layout_width="49dp"
+                android:layout_height="35dp"
+                android:onClick="onClickDot"
+                android:background="@drawable/sl_item_bg"
+                android:src="@drawable/zpd_cz_n_number_1" />
+
+            <ImageButton
+                android:layout_width="49dp"
+                android:layout_height="35dp"
+                android:background="@drawable/sl_item_bg"
+                android:onClick="onClickLink"
+                android:src="@drawable/zpd_cz_n_link" />
+
+            <ImageButton
+                android:layout_width="49dp"
+                android:layout_height="35dp"
+                android:background="@drawable/sl_item_bg"
+                android:onClick="onClickLine"
+                android:src="@drawable/zpd_cz_n_fenge" />
+
+        </LinearLayout>
+
+        <WebView
+            android:id="@+id/content_web"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/options_lay"
+            android:layout_below="@+id/title_et" />
+
+        <View
+            android:id="@+id/options_lay_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_above="@+id/options_lay"
+            android:background="@color/tabbar_divider_color" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@+id/title_et"
+            android:background="@color/tabbar_divider_color" />
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

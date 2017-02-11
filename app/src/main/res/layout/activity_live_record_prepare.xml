@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include layout="@layout/toolbar" />
+
+    <ImageView
+        android:id="@+id/cover"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/topic_head_backimage" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/edittext_bg_selecter"
+        android:gravity="center"
+        android:hint="请输入直播标题"
+        android:text="这个是默认的标题" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@drawable/sl_cb_location"
+        android:text="位置打开" />
+
+    <!-- <CheckBox
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="微博同步" />
+
+     <CheckBox
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="微信同步" />
+
+     <CheckBox
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="朋友圈同步" />
+
+     <CheckBox
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="QQ同步" />-->
+
+    <Button
+        android:id="@+id/start_record"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sl_btn_start_live"
+        android:text="开始播放" />
+</LinearLayout>

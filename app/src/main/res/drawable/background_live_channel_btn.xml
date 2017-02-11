@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="2px" />
+    <solid android:color="@color/news_page_bg" />
+    <stroke android:width="1px" android:color="@color/news_page_bg"/>
+    <size android:height="34dp" />
+</shape>

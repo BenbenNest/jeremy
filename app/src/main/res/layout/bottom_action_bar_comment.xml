@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/bottom_action_bar_height"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/go_cmt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:drawableLeft="@drawable/wenz_icom_xpl_default"
+        android:drawableStart="@drawable/wenz_icom_xpl_default"
+        android:gravity="center_vertical"
+        android:onClick="sendCmt"
+        android:background="@drawable/live_mine_item_bg_sl"
+        android:drawablePadding="12dp"
+        android:text="@string/cmt_hint"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/toolbar_divider" />
+</RelativeLayout>

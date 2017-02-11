@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="29dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_horizontal"
+        android:paddingTop="15dp"
+        android:text="修改标题"
+        android:textColor="#666666"
+        android:textSize="15dp" />
+
+    <EditText
+        android:id="@+id/et_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginRight="28dp"
+        android:background="#f2f2f2"
+        android:paddingLeft="2dp"
+        android:singleLine="true"
+        android:textColor="#666666"
+        android:textCursorDrawable="@drawable/cursor_drawable" />
+</LinearLayout>

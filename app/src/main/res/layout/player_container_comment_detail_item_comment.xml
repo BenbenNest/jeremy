@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.jeremy.lychee.widget.CmtItemLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/sl_item_bg"
+    android:clipToPadding="false"
+    android:layout_marginBottom="12dp"
+    android:layout_marginTop="12dp">
+
+    <com.jeremy.lychee.widget.GlideControl.GlideImageView
+        android:id="@+id/comment_avata"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="@dimen/padding_medium"
+        android:scaleType="fitCenter"
+        android:src="@drawable/comment_avata" />
+
+    <TextView
+        android:id="@+id/comment_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/comment_avata"
+        android:gravity="center"
+        android:textColor="#999999"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/comment_plus_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:drawablePadding="@dimen/padding_small"
+        android:drawableRight="@drawable/comment_plus"
+        android:textColor="@color/gray_text"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/comment_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="8dp"
+        android:layout_alignLeft="@+id/comment_account"
+        android:layout_alignRight="@+id/comment_plus_num"
+        android:layout_below="@+id/comment_account"
+        android:lineSpacingExtra="4dp"
+        android:singleLine="false"
+        android:textColor="@color/comment_content_text_color"
+        android:textSize="14dp"
+        android:padding="10dp"
+        android:background="#f0f1f2"/>
+
+    <TextView
+        android:id="@+id/comment_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/comment_account"
+        android:layout_below="@+id/comment_content"
+        android:textColor="#999999"
+        android:textSize="12dp" />
+</com.jeremy.lychee.widget.CmtItemLayout>
+
+

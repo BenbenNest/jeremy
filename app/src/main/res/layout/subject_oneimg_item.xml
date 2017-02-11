@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/live_mine_item_bg_sl">
+
+
+
+    <TextView
+        android:id="@+id/subject_oneimg_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/subject_column_name"
+        android:layout_marginTop="7dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="两会"
+        android:maxLines="2"
+        android:textColor="#262525"
+        android:textSize="16dp" />
+
+
+    <FrameLayout
+        android:id="@+id/video_img_lay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/subject_oneimg_title"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp">
+
+        <android.support.percent.PercentRelativeLayout
+            android:layout_width="129dp"
+            android:layout_height="wrap_content">
+
+            <com.jeremy.lychee.widget.GlideControl.GlideImageView
+                android:id="@+id/live_hot_normal_item_video_img"
+                android:background="@color/live_item_bg"
+                app:layout_aspectRatio="162%"
+                app:layout_widthPercent="100%" />
+
+        </android.support.percent.PercentRelativeLayout>
+
+
+        <!--<TextView-->
+            <!--android:id="@+id/live_hot_normal_item_video_duration"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="bottom|end"-->
+            <!--android:layout_marginBottom="4dp"-->
+            <!--android:layout_marginEnd="4dp"-->
+            <!--android:layout_marginRight="4dp"-->
+            <!--android:background="@drawable/video_time_bg"-->
+            <!--android:drawableLeft="@drawable/ic_news_type_video"-->
+            <!--android:drawablePadding="6dp"-->
+            <!--android:paddingBottom="4dp"-->
+            <!--android:paddingLeft="7dp"-->
+            <!--android:paddingRight="7dp"-->
+            <!--android:paddingTop="4dp"-->
+            <!--android:text="1:00"-->
+            <!--android:textColor="#333333"-->
+            <!--android:textSize="11dp" />-->
+
+        <TextView
+            android:id="@+id/live_hot_normal_item_video_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/news_img"
+            android:layout_alignRight="@+id/news_img"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/news_type_bg"
+            android:drawablePadding="4dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:paddingTop="2dp"
+            android:text="11:00"
+            android:textColor="#d8d8d8"
+            android:textSize="11dp" />
+
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/live_hot_normal_item__video_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/video_img_lay"
+        android:layout_marginRight="10dp"
+        android:layout_toEndOf="@+id/video_img_lay"
+        android:layout_toRightOf="@+id/video_img_lay"
+        android:ellipsize="end"
+        android:lineSpacingExtra="5dp"
+        android:maxLines="3"
+        android:text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        android:textColor="#898989"
+        android:textSize="13dp" />
+
+    <LinearLayout
+        android:id="@+id/sub_content_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/video_img_lay"
+        android:layout_marginBottom="4dp"
+        android:layout_toEndOf="@+id/video_img_lay"
+        android:layout_toRightOf="@+id/video_img_lay"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/live_hot_normal_item_video_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:text="xxxxxxxxxxxxxxxxxxxx"
+            android:textColor="#A8A8A8"
+            android:textSize="12dp" />
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/sub_content_lay"
+        android:layout_marginTop="12dp"
+        android:background="#dee0e0" />
+
+
+</RelativeLayout>

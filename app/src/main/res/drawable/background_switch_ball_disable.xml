@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item android:id="@+id/shape_bacground">
+        <!--定义成椭圆在代码中设置小球大小为正方向，最终显示效果便是圆-->
+        <shape android:shape="oval" >
+            <!--边界线的宽度和颜色值-->
+            <stroke
+                android:width="2dp"
+                android:color="#CBCBCB" />
+            <!--填充色-->
+            <solid android:color="@color/white" />
+        </shape>
+    </item>
+
+</layer-list>

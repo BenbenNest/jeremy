@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/clickable"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_user_menu_item">
+
+    <View
+        android:id="@+id/split_line"
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:layout_alignParentTop="true"
+        android:background="@color/single_line_color"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/user_icon"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/default_avatar" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@id/user_icon"
+        android:layout_marginLeft="19dp"
+        android:layout_toRightOf="@id/user_icon">
+
+        <TextView
+            android:id="@+id/article_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:textColor="#999999"
+            android:minWidth="100dp"
+            android:textSize="12dp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/prise_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/article_num"
+            android:textColor="#999999"
+            android:textSize="12dp"
+            android:visibility="gone"/>
+
+
+        <ImageView
+            android:id="@+id/top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/prise_num"
+            android:src="@drawable/wenz_icon_dianz_default"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="0dp"
+            android:textColor="#666666"
+            android:textSize="13dp" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/user_icon"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/single_line_color" />
+
+</RelativeLayout>

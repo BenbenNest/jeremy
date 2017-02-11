@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="../js/ejs/ejs.js"></script>
+    <script type="text/javascript">
+            function myfunction(){
+
+                var data='{"title":"cleaning","supplies":["mop","broom","duster"]}';
+                alert(data);
+                <!--var html = new EJS({url: '../js/test.ejs'}).render(JSON.parse(data));-->
+                var html=new EJS({text:"<h1><%=title %></h1> <ul> <%  for ( var  i=0; i<supplies.length; i++) { %>          <li>              <a href= 'supplies/<%=supplies[i] %>' >                  <%= supplies[i] %>              </a>          </li>      <% } %> </ul>"}).render(JSON.parse(data));
+                //JSON.parse(data) 把JSON字符串解析为原生的javascript值。
+                alert(html);
+                document.getElementById("div1").innerHTML=html; }
+
+
+    </script>
+</head>
+<body>
+<div onclick="myfunction()">点击</div>
+<div id="div1"></div>
+</body>
+</html>

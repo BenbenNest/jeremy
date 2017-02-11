@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>新闻详情页</title><meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1"><link href="../css/commonHtml.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="../js/libs/zepto.js"></script><script type="text/javascript" src="../js/libs/fastclick.js"></script><script type="text/javascript" src="../js/libs/touch.js"></script><script type="text/javascript" src="../js/utils.js"></script><script type="text/javascript" src="../js/libs/ejs.js"></script><script id="grayBar-tmpl" type="text/html"><div class="grayBar">
+			{%tagData.forEach(function(item){%}
+				<span class="grayBar-tag">{%=item.name%}</span>
+			{%})%}
+
+			{%if(transmit_num){%}
+			<a class="grayBar-rt native-call" data-native="news.recommend" href="javascript:;"><span>已被{%=transmit_num%}个自频道转推</span><span class="banner-arr-rt"></span></a>
+			{%}%}
+		</div></script><script id="article-title-tmpl" type="text/html"><section class="article part" data-name="正文">
+			{% if(typeof title != 'undefined'){ %}
+					<h1>{%=title%}</h1>
+				{% } %}
+
+		
+			{% if(typeof source != 'undefined'){ %}
+				<div class="article-info">
+					{% if(source) { %}<cite class="source">{%=source%}</cite>{% } %}
+					{% if(time) { %}<time>{%=time%}</time> {%}%}
+					<span class="readCount" data-fmt="{0} 阅读" style="display:none;"></span>
+				</div>
+			{% } %}
+	
+		</section></script><script id="comments-tmpl" type="text/html"><section class="comments part {% if(typeof more != 'undefined' && !window.$wap) { %} has-more {% } %}" data-name="评论">
+			{% if(!window.$wap || _comments.length > 0) { //app都有title，分享页无评论时所有都不显示 %}
+				{% if(typeof title != 'undefined'){ %}
+				<h2 class="title">{%=title%}</h2>
+				{% } else { %}
+				<h2 class="title">热门评论</h2>
+				{% } %}
+			{% } %}
+
+			{% if(_comments.length > 0){ //有评论%}
+				
+				<ul class="comment-list">
+					{% _comments.forEach(function(item){ %}
+						{% if(!item.text || item.text.length == 0) return; %}
+					<li>
+						<a class="native-call" href="javascript:;" data-native="news.commUser" data-param1="{%=item.cid%}">
+							{% if(item.avatarUrl) {%}
+							<img class="avatar" src="{%=item.avatarUrl%}" />
+							{% } else { %}
+							<span class="avatar"><span>
+							{% } %}
+						</a>
+						<div class="info-text">
+							<div class="info">
+								
+								<a class="thumbup native-call" href="javascript:;" data-native="news.likeThisComment" data-param1="{%=item.cid%}">
+									<i></i>
+								</a>
+								<a class="thumbup-active" style="display:none;" href="javascript:;">
+									<i></i>
+								</a>
+								<span class="liked">{%=item.liked%}</span>
+								<span class="username">{%=item.username%}</span>
+							</div>
+							<div class="text">
+								{%=item.text%}
+							</div>
+							<div class="time">
+								{%=item.time%}
+							</div>
+						</div>
+					</li>
+					{% }); %}
+				</ul>
+				
+			{% } else { //没有评论%}
+				<ul class="comment-list" style="display:none;"></ul>
+
+				{% if(!window.$wap) { %}
+					<div class="no-comments native-call" data-native="news.comment">
+							还没评论呢，你来吧
+					</div>
+				{% } %} 
+			{% } %}
+
+			{% if(typeof more != 'undefined' && !window.$wap){ %}
+				<a class="more-comments native-call" 
+				data-native="news.showComments"
+				href="javascript:;">{%=more%}</a>
+			{% } else if(typeof more == 'undefined') { // 如果无评论，将查看更多隐藏%}
+				<a class="more-comments native-call" 
+				style="display:none" 
+				data-native="news.showComments"
+				href="javascript:;">查看更多评论,请下载视线客户端...</a>
+			{% } %}
+		</section></script><script id="recommend-articles-tmpl" type="text/html"><section class="recommend-articles part" data-name="推荐" >
+
+			<h2 class="title">相关阅读</h2>
+			<ul class="articles-list">
+
+				{% related.forEach(function(item,i){ %}
+				{% if(i % 2 == 0 && i != 0){%}
+					</ul>
+					<ul class="articles-list">
+				{% } %}
+				<li class="native-call" data-native="related.viewRelatedArticel" data-param1="{%=item.url%}" data-index="{%=i%}">
+
+					{% if(window.$wap) { %}
+						<a href="{%=item.url%}">
+						<img class="photo lazy" data-src="{%=item.img%}" width="{%=item.width%}" height="{%=item.height%}" />
+						</a>
+						<a class="title-link" href="{%=item.url%}">
+							<div class="row2">{%=item.title%}</div>
+						</a>
+					{% } else { %}
+						
+						<img class="photo lazy" data-src="{%=item.img%}" width="{%=item.width%}" height="{%=item.height%}" />
+						
+						<a class="title-link" href="javascript:;" >
+							<div class="row2">{%=item.title%}</div>
+						</a>
+					{% } %}
+					<div class="time-tips">
+						{% if (typeof item.elapse == 'string') { %}
+							 <i>{%=item.elapse%}</i>
+						{% } %}
+					</div>
+				</li>
+				{% }); %}
+
+				{% if(related.length%2 == 1){ %}
+					<li></li>
+				{% } %}
+			</ul>
+		</section></script><script id="hot-articles-tmpl" type="text/html"><section class="hot-articles part" data-name="热门推荐"%}>
+			<h2 class="title">热门推荐</h2>
+			<ul class="articles-list">
+				{% hotNewsList.forEach(function(item,i){ %}
+					<li class="native-call flex" data-native="related.viewHotArticel" data-param1="{%=item.url%}">
+						<div class="hot-img">
+							<a 
+							{% if(window.$wap) { %} 
+							href="{%=item.url%}"
+							{% } else { %} 
+							href="javascript:;"
+							{% } %}
+							>
+								<img class="photo lazy" data-src="{%=item.img%}" width="{%=item.width%}" height="{%=item.height%}" />
+							</a>
+						</div>
+						<a class="flex-item txts" 
+						{% if(window.$wap) { %}
+						href="{%=item.url%}"
+						{% } else { %}
+						href="javascript:;" 
+						{% } %}
+						>
+							<div class="title-link row2" >{%=item.title%}</div>
+							<p>
+								{% if (typeof item.elapse == 'string') { %}
+									 <i>{%=item.elapse%}</i>
+								{% } %}
+							</p>
+						</a>
+						
+					</li>
+				{% }); %}
+			</ul>
+		</section></script></head><body><style type="text/css" id="sx-style"></style><div class="wrapper"><div id="sx-graybar"></div><div id="sx-article-tit"></div><div id="sx-article"></div><div id="sx-recommond"></div><div id="sx-hot"></div><div id="sx-comments"></div></div><script type="text/javascript" src="../js/nativeApi.js"></script><script type="text/javascript" src="../js/contentRender.js"></script></body></html>

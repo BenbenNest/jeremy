@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F0F0">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.jeremy.lychee.customview.live.PagerSlidingTabStrip
+            android:id="@+id/tab_strip"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:layout_marginRight="45dp"
+            android:background="#F7F7F7"
+            app:pstsStartOffset="10dp"/>
+        <ImageButton
+            android:id="@+id/morechannel"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/toolbar_height"
+            android:layout_alignBottom="@id/tab_strip"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/tab_strip"
+            android:background="@drawable/morechannel_selecter" />
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tab_strip"
+            />
+    </RelativeLayout>
+    <include layout="@layout/menu_right_bottom2" />
+    <include
+        android:id="@+id/loading_layout"
+        layout="@layout/common_loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/error_layout"
+        layout="@layout/common_error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:visibility="gone" />
+</RelativeLayout>

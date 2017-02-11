@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#e6e6e6" />
+
+    <TextView
+        android:id="@+id/channel_video_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:background="#fff"
+        android:paddingLeft="10dp"
+        android:text="最火"
+        android:textColor="#333"
+        android:textSize="16dp" />
+
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/live_discovery_small_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp">
+
+        <ImageView
+            android:id="@+id/middleLine_one"
+            android:layout_width="7dp"
+            android:layout_height="1dp"
+            android:background="#0000"
+            android:layout_centerHorizontal="true" />
+
+        <RelativeLayout
+            android:id="@+id/live_thumbnail_one_img_layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/middleLine_one"
+            android:background="@drawable/live_channel_item_bg"
+            android:visibility="gone"
+            app:layout_aspectRatio="178%"
+            app:layout_widthPercent="50%"
+            android:layout_marginLeft="1px"
+            android:layout_marginRight="1px">
+
+            <com.jeremy.lychee.widget.GlideControl.GlideImageView
+                android:id="@+id/live_thumbnail_one"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#DDDD" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/live_pd_play" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/live_thumbnail_two_img_layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/middleLine_one"
+            android:background="@drawable/live_channel_item_bg"
+            android:visibility="gone"
+            app:layout_aspectRatio="178%"
+            app:layout_widthPercent="50%"
+            android:layout_marginLeft="1px"
+            android:layout_marginRight="1px">
+
+            <com.jeremy.lychee.widget.GlideControl.GlideImageView
+                android:id="@+id/live_thumbnail_two"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#DDDD" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/live_pd_play" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/vedio_title_one"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignRight="@+id/live_thumbnail_one_img_layout"
+            android:layout_below="@id/live_thumbnail_one_img_layout"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="-1dp"
+            android:background="@drawable/live_channel_item_bg"
+            android:lineSpacingExtra="@dimen/line_spacing_news_title"
+            android:maxLines="2"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="ffffffffffffffffffffffffffffffffffffff"
+            android:textColor="#333"
+            android:textSize="15dp"
+            android:visibility="gone"
+
+            />
+
+        <TextView
+            android:id="@+id/vedio_title_two"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_alignLeft="@+id/live_thumbnail_two_img_layout"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/live_thumbnail_two_img_layout"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="-1dp"
+            android:background="@drawable/live_channel_item_bg"
+            android:lineSpacingExtra="@dimen/line_spacing_news_title"
+            android:maxLines="2"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="eeeeeeeeeeeeeeeeeeee"
+            android:textColor="#333"
+            android:textSize="15dp"
+            android:visibility="gone"
+            />
+
+    </android.support.percent.PercentRelativeLayout>
+
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/live_discovery_small_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp">
+
+        <ImageView
+            android:id="@+id/middleLine_two"
+            android:layout_width="7dp"
+            android:layout_height="1dp"
+            android:background="#0000"
+            android:layout_centerHorizontal="true" />
+
+        <RelativeLayout
+            android:id="@+id/live_thumbnail_three_img_layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/middleLine_two"
+            android:background="@drawable/live_channel_item_bg"
+            android:visibility="gone"
+            app:layout_aspectRatio="178%"
+            app:layout_widthPercent="50%"
+            android:layout_marginLeft="1px"
+            android:layout_marginRight="1px">
+
+            <com.jeremy.lychee.widget.GlideControl.GlideImageView
+                android:id="@+id/live_thumbnail_three"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#DDDD" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/live_pd_play" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/live_thumbnail_four_img_layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/middleLine_two"
+            android:background="@drawable/live_channel_item_bg"
+            android:visibility="gone"
+            app:layout_aspectRatio="178%"
+            app:layout_widthPercent="50%"
+            android:layout_marginLeft="1px"
+            android:layout_marginRight="1px">
+
+            <com.jeremy.lychee.widget.GlideControl.GlideImageView
+                android:id="@+id/live_thumbnail_four"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#DDDD" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/live_pd_play" />
+        </RelativeLayout>
+
+        <TextView
+
+            android:id="@+id/vedio_title_three"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_alignRight="@+id/live_thumbnail_three_img_layout"
+            android:layout_below="@id/live_thumbnail_three_img_layout"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="-1dp"
+            android:layout_toLeftOf="@+id/middleLine_two"
+            android:background="@drawable/live_channel_item_bg"
+            android:lineSpacingExtra="@dimen/line_spacing_news_title"
+            android:maxLines="2"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="aaaaaaaaaaaaaa"
+            android:textColor="#333"
+            android:textSize="15dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/vedio_title_four"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_alignLeft="@+id/live_thumbnail_four_img_layout"
+            android:layout_below="@id/live_thumbnail_four_img_layout"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="-1dp"
+            android:layout_toRightOf="@+id/middleLine_two"
+            android:background="@drawable/live_channel_item_bg"
+            android:lineSpacingExtra="@dimen/line_spacing_news_title"
+            android:maxLines="2"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="bbbbbbbbbbbbb"
+            android:textColor="#333"
+            android:textSize="15dp"
+            android:visibility="gone" />
+
+    </android.support.percent.PercentRelativeLayout>
+
+    <ImageButton
+        android:id="@+id/live_discovery_small_more"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_below="@+id/live_discovery_small_two"
+        android:background="@drawable/live_list_spread_more_selecter"
+        android:src="@drawable/living_pd__spread_more"
+        android:text="更多"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:visibility="gone" />
+
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/live_discovery_small_three"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp">
+
+        <ImageView
+            android:id="@+id/middleLine_three"
+            android:layout_width="7dp"
+            android:layout_height="1dp"
+            android:background="#0000"
+            android:layout_centerHorizontal="true" />
+
+        <RelativeLayout
+            android:id="@+id/live_thumbnail_five_img_layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/middleLine_three"
+            android:background="@drawable/live_channel_item_bg"
+            android:visibility="gone"
+
+            app:layout_aspectRatio="178%"
+            app:layout_widthPercent="50%"
+            android:layout_marginLeft="1px"
+            android:layout_marginRight="1px">
+
+            <com.jeremy.lychee.widget.GlideControl.GlideImageView
+                android:id="@+id/live_thumbnail_five"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#DDDD" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/live_pd_play" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/vedio_title_five"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_alignRight="@+id/live_thumbnail_five_img_layout"
+            android:layout_below="@id/live_thumbnail_five_img_layout"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="-1dp"
+            android:layout_toLeftOf="@+id/middleLine_three"
+            android:background="@drawable/live_channel_item_bg"
+            android:lineSpacingExtra="@dimen/line_spacing_news_title"
+            android:maxLines="2"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            android:textColor="#333"
+            android:textSize="15dp"
+            android:visibility="gone" />
+
+
+        <RelativeLayout
+            android:id="@+id/live_thumbnail_six_img_layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/middleLine_three"
+            android:background="@drawable/live_channel_item_bg"
+            android:visibility="gone"
+            app:layout_aspectRatio="178%"
+            app:layout_widthPercent="50%"
+            android:layout_marginLeft="1px"
+            android:layout_marginRight="1px">
+
+            <com.jeremy.lychee.widget.GlideControl.GlideImageView
+                android:id="@+id/live_thumbnail_six"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#DDDD" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/live_pd_play" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/vedio_title_six"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_alignLeft="@+id/live_thumbnail_six_img_layout"
+            android:layout_below="@id/live_thumbnail_six_img_layout"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="-1dp"
+            android:layout_toRightOf="@+id/middleLine_three"
+            android:background="@drawable/live_channel_item_bg"
+            android:lineSpacingExtra="@dimen/line_spacing_news_title"
+            android:maxLines="2"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            android:textColor="#333"
+            android:textSize="15dp"
+            android:visibility="gone" />
+
+    </android.support.percent.PercentRelativeLayout>
+
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/live_discovery_small_four"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp">
+
+        <ImageView
+            android:id="@+id/middleLine_four"
+            android:layout_width="7dp"
+            android:layout_height="1dp"
+            android:background="#0000"
+            android:layout_centerHorizontal="true" />
+
+        <RelativeLayout
+            android:id="@+id/live_thumbnail_seven_img_layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/middleLine_four"
+            android:background="@drawable/live_channel_item_bg"
+            android:visibility="gone"
+            app:layout_aspectRatio="178%"
+            app:layout_widthPercent="50%"
+            android:layout_marginLeft="1px"
+            android:layout_marginRight="1px">
+
+            <com.jeremy.lychee.widget.GlideControl.GlideImageView
+                android:id="@+id/live_thumbnail_seven"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#DDDDDD" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/live_pd_play" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/vedio_title_seven"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_alignRight="@+id/live_thumbnail_seven_img_layout"
+            android:layout_below="@id/live_thumbnail_seven_img_layout"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="-1dp"
+            android:layout_toLeftOf="@+id/middleLine_four"
+            android:background="@drawable/live_channel_item_bg"
+            android:lineSpacingExtra="@dimen/line_spacing_news_title"
+            android:maxLines="2"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            android:textColor="#333"
+            android:textSize="15dp"
+            android:visibility="gone" />
+
+
+        <RelativeLayout
+            android:id="@+id/live_thumbnail_eight_img_layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/middleLine_four"
+            android:background="@drawable/live_channel_item_bg"
+            android:visibility="gone"
+            app:layout_aspectRatio="178%"
+            app:layout_widthPercent="50%"
+            android:layout_marginLeft="1px"
+            android:layout_marginRight="1px">
+
+            <com.jeremy.lychee.widget.GlideControl.GlideImageView
+                android:id="@+id/live_thumbnail_eight"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#DDDDDD" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/live_pd_play" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/vedio_title_eight"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_alignLeft="@+id/live_thumbnail_eight_img_layout"
+            android:layout_below="@id/live_thumbnail_eight_img_layout"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="-1dp"
+            android:layout_toRightOf="@+id/middleLine_four"
+            android:background="@drawable/live_channel_item_bg"
+            android:lineSpacingExtra="@dimen/line_spacing_news_title"
+            android:maxLines="2"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            android:textColor="#333"
+            android:textSize="15dp"
+            android:visibility="gone" />
+
+    </android.support.percent.PercentRelativeLayout>
+
+    <TextView
+        android:id="@+id/live_discovery_show_all"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_below="@+id/live_discovery_small_four"
+        android:background="@drawable/live_list_spread_more_selecter"
+        android:gravity="center"
+        android:text="查看全部"
+        android:textColor="#999"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:textSize="13dp"
+        android:visibility="gone" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="7dp" />
+</LinearLayout>

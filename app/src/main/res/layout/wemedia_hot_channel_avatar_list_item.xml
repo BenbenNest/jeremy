@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="75dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <com.jeremy.lychee.widget.GlideControl.GlideImageView
+        android:id="@+id/hot_channel_icon"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_width="62dp"
+        android:layout_height="62dp" />
+
+    <TextView
+        android:id="@+id/hot_channel_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="9dp"
+        android:layout_marginTop="10dp"
+        android:singleLine="true"
+        android:ellipsize="end"/>
+</LinearLayout>

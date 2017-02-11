@@ -1,0 +1,325 @@
+<resources>
+    <string name="app_name">lychee</string>
+
+    <string name="tip_first_page">已经是第一页</string>
+    <string name="tip_last_page">已经是最后一页</string>
+
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="exit_text">再按一次 退出程序</string>
+    <string name="news_load_error">加载出错啦！</string>
+    <string name="common_load_error">网络出问题了\n点击屏幕重新加载</string>
+    <string name="news_load_no_data">没有历史数据！</string>
+    <string name="news_net_error_text">网络不给力o(︶︿︶)o</string>
+    <string name="news_net_refresh_text">刷新试试</string>
+    <string name="news_snackbar_text">加载失败，请重试！</string>
+    <string name="news_snackbar_refresh">刷新</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_myr_reader">MyrReaderActivity</string>
+    <string name="title_activity_my_reader">读者</string>
+
+    <!-- settings -->
+    <string name="is_the_latest_version">已经是最新版本</string>
+    <string name="settings_item_upgrade_version_name">v%s</string>
+    <string name="settings_item_upgrade_title">检查更新</string>
+    <string name="login_out_txt">退出登录</string>
+    <string name="about_version_name">版本：%s</string>
+    <string name="settings_about_declare">软件隐私申明</string>
+    <string name="settings_about_permit">软件使用许可</string>
+    <string name="settings_about_improve">用户体验改进计划</string>
+    <string name="settings_about_improve_join">加入用户体验改进计划</string>
+    <string name="settings_use_mobile_net">使用3G/4G网络拍摄或播放视频</string>
+    <string name="settings_use_mobile_push">接收推送</string>
+    <string name="settings_use_mobile_wify">WIFI下自动加载视频</string>
+
+    <string name="dialog_use_mobile_net_play">播放视频会耗费较大流量，\n允许在移动网络下播放视频吗？</string>
+    <string name="dialog_use_mobile_net_record">拍摄视频会耗费较大流量，\n允许在移动网络下拍摄视频吗？</string>
+    <string name="dialog_button_confirm">确定</string>
+    <string name="dialog_button_cancel">取消</string>
+
+    <string name="zt_news_detail">转推</string>
+    <string name="zan">赞个</string>
+    <string name="share">分享</string>
+    <string name="xpl_news_detail">点评</string>
+    <string name="net_error">网络错误</string>
+    <!--comment-->
+    <string name="msg_no_cmt">还没评论呢，你来吧</string>
+    <string name="user_comments">网友评论</string>
+    <string name="comment_digged">已经赞过啦</string>
+    <string name="copy_ok">已复制到剪切板</string>
+    <string name="reply">回复</string>
+    <string name="copy">复制</string>
+    <string name="copy_url">复制链接</string>
+    <string name="comment_tab_hot">最热</string>
+    <string name="comment_tab_new">最新</string>
+    <string name="loading_more">正在加载更多</string>
+    <string name="cmt_hint">我来说点儿…</string>
+    <!--sendcmt-->
+    <string name="send_et_hint">我来说点</string>
+    <string name="send_text">发表</string>
+    <string name="text_num">%s/140</string>
+    <string name="can_not_reply_yourself">不能回复自己的评论</string>
+    <string name="content_too_large">字数超过140字了</string>
+    <string name="no_content">先说点儿什么吧</string>
+    <string name="send_ok">评论成功</string>
+    <string name="cmd_too_frequent">评论太过频繁</string>
+    <string name="salt">!@#salt#&amp;*_</string>
+    <!--ImageNewsActivity-->
+    <string name="cmt_menu">评论</string>
+
+    <!-- Share and Login Block -->
+    <string name="share_err">分享失败</string>
+    <string name="share_ok">分享成功</string>
+    <string name="share_cancel">分享取消</string>
+    <string name="share_cancel_btn">取消</string>
+    <string name="share_deny">分享被拒绝</string>
+    <string name="share_unknown">分享返回</string>
+    <string name="share_weibo_notsupport">当前微博版本不支持SDK分享</string>
+    <string name="share_weibo">微博</string>
+    <string name="share_weixin">微信</string>
+    <string name="share_weixin_uninstalled">亲，您没有安装微信客户端，无法进行微信分享</string>
+    <string name="share_weibo_uninstalled">亲，您没有安装微博客户端，无法进行微博分享</string>
+    <string name="share_circle">朋友圈</string>
+    <string name="share_kongjian">空间</string>
+    <string name="share_more">更多</string>
+    <string name="share_to">分享到：</string>
+    <string name="share_to_junior">分享给小伙伴</string>
+    <string name="login_weixin_uninstalled">亲，您没有安装微信客户端，无法进行微信登录</string>
+    <string name="login_weibo_uninstalled">亲，您没有安装微博客户端，无法进行微博登录</string>
+    <string name="login_text_phone">手机账号登录</string>
+    <string name="login_text_weibo">微博账号登录</string>
+    <string name="login_text_weixin">微信账号登录</string>
+    <string name="login_activity_title">你可以用以下方式登录</string>
+    <string name="login_dialog_title">登录后才可以评论哦~</string>
+    <string name="login_dialog_title_relogin">登录过期了，请重新登录下吧</string>
+    <string name="login_dialog_title_logining">正在登录呢，请稍等</string>
+    <string name="login_hint">立即登录</string>
+    <string name="login_success">成功登录</string>
+    <string name="login_failed">登录失败</string>
+    <string name="login_cancel">已取消登录</string>
+
+
+    <string name="change_scenes">换个场景看不同内容 试试看吧 ~</string>
+    <string name="get_up">早起</string>
+    <string name="on_the_road">路上</string>
+    <string name="dine">吃饭</string>
+    <string name="before_sleep">睡前</string>
+    <string name="meeting">开会</string>
+    <string name="font_change">字体调整</string>
+    <string name="font_level_0">不能再小了</string>
+    <string name="font_level_1">这样可以吗</string>
+    <string name="font_level_2">是不是刚刚好</string>
+    <string name="font_level_3">看得见了吗</string>
+    <string name="font_level_4">已经最大了</string>
+    <string name="more">更多</string>
+    <string name="title_activity_create_album">创建新专辑</string>
+    <string name="title_activity_edit_channel">编辑直播号</string>
+    <string name="title_activity_settings">设置</string>
+    <string name="title_activity_transmit">我来点评</string>
+    <string name="title_activity_transarticle">推荐文章</string>
+    <string name="title_activity_change_album">变更所在专辑</string>
+    <string name="title_activity_about">关于</string>
+    <string name="title_activity_send_cmt">SendCmtActivity</string>
+
+
+    <string name="user_home_comment_num">%1$s条评论</string>
+    <string name="doing_update">加载中...</string>
+    <string name="common_net_error">网络错误，点击重试</string>
+    <string name="common_load_more">点击加载更多</string>
+    <string name="common_no_data">没有更多数据</string>
+    <string name="user_discovery_column_sub">%1$s篇文章 %2$s名读者</string>
+    <!--<string name="user_discovery_hot_topic">热门话题</string>-->
+    <!--<string name="user_discovery_hot_channel">热门自频道</string>-->
+    <!--<string name="user_discovery_article">热门文章</string>-->
+    <string name="user_sub_topic_section_name">订阅的话题</string>
+    <string name="user_sub_channel_section_name">订阅的直播号</string>
+    <string name="user_sub_hot_topic_section_name">热门推荐话题</string>
+    <string name="user_sub_news_title">最新动态</string>
+    <string name="column_detail_reader_num">%1$s名读者</string>
+    <string name="column_detail_news_num">%1$s篇文章</string>
+    <string name="channel_booked">取消订阅</string>
+    <string name="channel_unbook">订阅</string>
+    <string name="channel_edit">编辑</string>
+
+    <!-- Live play -->
+    <string name="livetype_none">直播</string>
+    <string name="livetype_live">正在直播</string>
+    <string name="livetype_record">直播回顾</string>
+    <string name="live_business_server_error">服务器连接超时，请稍后重试！</string>
+    <string name="live_invalid_data_error">由于网络原因，服务器返回的数据异常，请稍后重试！</string>
+    <string name="live_cloud_server_error">视频服务器连接超时，请稍后重试！</string>
+    <string name="live_player_kernel_error">视频播放失败，请稍后重试！</string>
+    <string name="live_no_network_available_error">无网络连接，无法播放视频，请连接网络后重试！</string>
+    <string name="live_mobile_network_without_permission">当前设置禁止移动网络下播放视频，请修改设置或在Wifi下播放！</string>
+    <string name="live_unknown_error">未知错误，请稍后重试！</string>
+    <string name="live_thumbs_up_empty">赞个</string>
+    <string name="live_view_comment_template">%d条热评 ></string>
+    <string name="invalid_time">00:00:00</string>
+    <string name="invalid_negative_time">-00:00:00</string>
+
+    <string name="wemedia_article_empty_str">暂时没有内容哦～</string>
+    <string name="wemedia_reader_empty_str">暂时没有内容哦～</string>
+    <string name="wemedia_video_empty_str">暂时没有内容哦～</string>
+    <string name="wemedia_album_empty_str">暂时没有创建专辑</string>
+    <string name="wemedia_topic_empty_str">暂时没有内容哦～</string>
+    <string name="album_article_empty_str">暂时没有内容</string>
+    <string name="wemedia_no_public_str">此频道已被设为非公开直播号</string>
+    <string name="wemedia_no_subscribed_channel">尚未订阅任何直播号</string>
+
+    <string name="user_home_empty_str">暂时没有订阅的内容更新哦~</string>
+    <string name="long_press_to_manage_channel">长按图标可管理频道</string>
+    <string name="full_data">没有了，点击刷新更多</string>
+    <string name="ordered_channel">你订阅的%d个频道</string>
+    <string name="see_all_sub_channel">查看全部%d个频道</string>
+    <string name="title_activity_trans_article">TransArticleActivity</string>
+    <string name="has_ordered">已订阅</string>
+    <string name="selected_done">选好了</string>
+    <string name="search_empty">搜索关键词不能为空</string>
+    <string name="programlist">BTV节目单</string>
+
+    <!-- Live Mine-->
+    <string name="live_mine_history_browse">浏览历史</string>
+    <string name="live_mine_history_upload">上传历史</string>
+    <string name="live_mine_history_record">直播历史</string>
+    <string name="live_mine_login_txt">你还尚未登录，请登录后查看</string>
+    <string name="nodata_browse">浏览的视频会保存在这里哦~</string>
+    <string name="nodata_upload">拍摄的短视频会保存在这里哦~</string>
+    <string name="nodata_record">直播的视频会保存在这里哦~</string>
+    <string name="live_mine_del_confirm">确认是否删除~</string>
+
+    <string name="my_message">我的消息</string>
+
+    <!-- create article -->
+    <string name="hint_title">写个标题…</string>
+    <string name="hint_content">写点什么…</string>
+    <string name="article_save">保存</string>
+    <string name="article_publish">发布</string>
+    <string name="title_must_not_null"> 标题不能为空</string>
+    <string name="article_must_not_null"> 文章内容不能为空</string>
+    <string name="save_ok"> 文章保存成功</string>
+    <string name="link_title"> 添加链接</string>
+    <string name="link_hint"> 请输入链接</string>
+
+    <!-- PublishActivity -->
+    <string name="publish_sure">确定</string>
+    <string name="publish_title">发布文章</string>
+    <string name="publish_rec">请荐入推荐语</string>
+    <string name="publish_check_channel">请选择专辑</string>
+    <string name="publish_to">发布到</string>
+    <string name="publish_input_name">请输入新专辑名</string>
+    <string name="publish_error">发布失败请重新发布</string>
+    <string name="publish_ok">发布成功</string>
+
+    <!-- Album Article Select Mode-->
+    <string name="menu_all_select_text">全选</string>
+    <string name="menu_all_unselect_text">取消全选</string>
+
+    <!--login register find pwd-->
+    <string name="login_title">账号登录</string>
+    <string name="register_title">账号注册</string>
+    <string name="find_password_title">找回密码</string>
+    <string name="verify_code_title">填写验证码</string>
+    <string name="login_btn_txt">登录</string>
+    <string name="register_btn_txt">注册</string>
+    <string name="commit_btn_txt">提交</string>
+    <string name="account">账　号</string>
+    <string name="password">密　码</string>
+    <string name="auth_code">验证码</string>
+    <string name="account_hint">请输入手机号</string>
+    <string name="password_hint">请输入密码</string>
+    <string name="auth_code_hint">请输入验证码</string>
+    <string name="cn_tel_code">+86</string>
+    <string name="next_step">下一步</string>
+    <string name="tel_tishi">已向手机号%s发送验证码</string>
+    <string name="msg_auth_code">短信验证码</string>
+    <string name="msg_auth_password_hint">请输入密码，6–20位字符</string>
+    <string name="commit_success">提交成功</string>
+    <string name="register_success">注册成功</string>
+    <string name="string_load_more">查看更多</string>
+    <string name="top_toast_net_error">网络不给力，请检查网络刷新重试</string>
+    <string name="toast_zm_url_get_failed">无法获取网页内容，转到原始网页</string>
+    <string name="title_activity_home">HomeActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
+    <!-- from other -->
+    <string name="app_menu">Jeremy Menu</string>
+
+    <string name="main_empty_data">感谢你热爱学习，更重要的是妹纸，可惜没干货了T~T</string>
+    <string name="main_load_error">加载失败，再试试T~T</string>
+
+
+    <string name="daily_android_tag_tv">Android</string>
+    <string name="daily_ios_tag_tv">iOS</string>
+    <string name="daily_js_tag_tv">前端</string>
+    <string name="navigation_title">干货在手，万事精彩。</string>
+
+    <string name="common_navigation_function">程序案例</string>
+    <string name="common_navigation_daily">每日精彩</string>
+    <string name="common_welfare">福利</string>
+    <string name="common_android">Android</string>
+    <string name="common_ios">iOS</string>
+    <string name="common_js">前端</string>
+    <string name="common_video">休息视频</string>
+    <string name="common_resources">拓展资源</string>
+    <string name="common_app">App</string>
+    <string name="common_via">via. %s</string>
+    <string name="common_via_key">via. </string>
+    <string name="common_go_back_tip">再按一次退出</string>
+    <string name="common_copy_success">复制成功</string>
+    <string name="common_network_error">网络错误</string>
+
+    <string name="technology_github_tag_tv">github</string>
+    <string name="technology_blog_tag_tv">文章</string>
+
+    <string name="menu_web_refresh">重新加载</string>
+    <string name="menu_web_copy">复制链接</string>
+    <string name="menu_web_share">分享链接</string>
+    <string name="menu_web_horizontal">横屏显示</string>
+    <string name="menu_web_vertical">竖屏显示</string>
+
+
+    <string name="menu_picture_download">下载图片</string>
+    <string name="menu_picture_copy">复制链接</string>
+    <string name="menu_picture_share">分享出去</string>
+
+    <string name="picture_loading">图片还在加载中，请稍等...</string>
+    <string name="picture_download">下载高清原图到手机?</string>
+
+    <string name="menu_main_about">关于Jeremy妹纸</string>
+    <string name="menu_main_top_github">热门 Github 仓库</string>
+    <string name="menu_main_home_page">前往 gank.io 主页</string>
+
+
+    <string name="about_title">关于Jeremy妹纸</string>
+    <string name="about_nickname">CaMnter</string>
+    <string name="about_sign">目送三次元世界渐行渐远的二次元的少年</string>
+    <string name="about_github">https://github.com/CaMnter</string>
+    <string name="about_project_introduce">项目介绍</string>
+    <string name="about_project_introduce_content">Jeremy妹纸项目所用的基本上是Rx系列的框架 ( Square + ReactiveX ) :\n\n\tRxJava\n\tRxAndroid\n\tOkhttp\n\tRetrofit\n\tButterknife\n\tGlide\n\tReservoir\n\n以基本的MVP模式为主划分模块，抽出Presenter作为View代理业务层，减轻View层代码的耦合度，然后集成了现在主流的RxJava+RxAndroid+Retrofit组合框架。\n\nJeremy：https://github.com/CaMnter/Jeremy\n\nApi接口提供：http://gank.io/api</string>
+    <string name="about_project_other">最后一些话</string>
+    <string name="about_project_other_content">\t\t15毕业的我，在16初对这个世界抱着很大的期待，技术在与时俱进，如果不跟进的话是多么让人忧伤。\n\t\t做Jeremy纯粹是为了巩固学习而已，而且干货集中营是一个技术潮流的先驱网站，提供的干货都很不错。公司项目用到了RxJava但是只是小模块，项目沉淀很大，重构需要的代价也很大。\n\t\t早就知道Rx+Retrofit这组合很有名，一直没机会用，公司也有自己的核心架构，所以也在开始写了Jeremy妹纸项目。也其恰巧这个月不是很忙，时间很容易挤出来，平时要是忙的话，晚上再回来写自己的项目，会崩溃了。为了写这个项目日夜操劳，最多操劳的还是UI设计这块，也借鉴了drakeet的项目，真的很棒。\n\t\t开源的魅力就在于，感觉大家在做一个项目似的。相信很多人有过这样的感受：每换一个公司，你都会有新的收获，这之中的奥秘，就在于你接触了不同的项目、不同的世界。投入到开源世界的道理和你换公司是一样的，不同的领域、不同的世界、不同的收获。至少，我收获了很多，如果在公司一直待着，我是不可能用到这个项目里的框架的，都是现学现用的。\n\n\t总之，非常开心。</string>
+
+
+    <string name="default_text">弹幕测试</string>
+    <string-array name="default_text_array">
+        <item>颓废不是我的调调，积极才是我的王道</item>
+        <item>最让人感动的不是强者的保护，而是弱者的坚强</item>
+        <item>轻轻浅浅的笑，天马行空的心</item>
+        <item>做好人，做好事；做明白人，做明白事！</item>
+        <item>认真你就赢了</item>
+        <item>我这么努力你都不赞我</item>
+        <item>等你一切都准备好了，或许你就没动力了</item>
+        <item>为什么毕业过了几年以后，同学之间的差距变的那么大？</item>
+        <item>本来差距就大，不过学校就那么点事，不显而已。</item>
+        <item>加油加油加油！</item>
+        <item>这是一个弹幕的例子</item>
+    </string-array>
+</resources>

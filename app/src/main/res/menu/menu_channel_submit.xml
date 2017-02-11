@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <item
+        android:id="@+id/create_channel_submit"
+        android:title="创建"
+        android:orderInCategory="0"
+        app:actionLayout="@layout/menu_layout_wemedia_create_channel"
+        app:showAsAction="always"/>
+</menu>

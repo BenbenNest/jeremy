@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentTop="true">
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true">
+
+        <RelativeLayout
+            android:id="@+id/player_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentTop="true"
+            app:layout_aspectRatio="162%"
+            app:layout_widthPercent="100%">
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottomBarSize"
+            android:layout_alignParentBottom="true"
+            android:background="#ffffff"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/zan_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/zan_btn_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:drawableLeft="@drawable/article_icon_good_default"
+                    android:drawablePadding="@dimen/bottomBardrawablePadding"
+                    android:drawableStart="@drawable/article_icon_good_default"
+                    android:gravity="center_vertical"
+                    android:text="赞个"
+                    android:textColor="@color/bottombar_text" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/xpl_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:drawableLeft="@drawable/article_icon_comments"
+                    android:drawablePadding="@dimen/bottomBardrawablePadding"
+                    android:drawableStart="@drawable/article_icon_comments"
+                    android:gravity="center_vertical"
+                    android:text="@string/xpl_news_detail"
+                    android:textColor="@color/bottombar_text" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/share_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:drawableLeft="@drawable/article_icon_share"
+                    android:drawablePadding="@dimen/bottomBardrawablePadding"
+                    android:drawableStart="@drawable/article_icon_share"
+                    android:gravity="center_vertical"
+                    android:text="@string/share"
+                    android:textColor="@color/bottombar_text" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/graySeprator"
+            android:layout_width="match_parent"
+            android:layout_height=".5dp"
+            android:layout_above="@id/bottomBar"
+            android:background="#c8caca" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/main_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/graySeprator"
+            android:layout_below="@+id/player_container"
+            android:background="#fafcfc"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" />
+
+        <include
+            android:id="@+id/error_refresh"
+            layout="@layout/common_error_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/graySeprator"
+            android:layout_below="@+id/player_container"
+            android:visibility="gone" />
+
+        <include
+            android:id="@+id/loading_layout"
+            layout="@layout/common_loading_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/graySeprator"
+            android:layout_below="@+id/player_container"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="11dp"
+            android:background="@drawable/close_circle_mask"
+            android:scaleType="center"
+            android:src="@drawable/live_icon_close" />
+
+    </android.support.percent.PercentRelativeLayout>
+</RelativeLayout>

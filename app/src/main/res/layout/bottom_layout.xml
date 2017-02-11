@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_alignParentBottom="true"
+    android:layout_marginTop="@dimen/main_tab_diff_neg"
+    android:background="#f2f4f5"
+    android:orientation="horizontal">
+
+    <com.jeremy.lychee.widget.ImageTextView
+        android:id="@+id/view_tab_news"
+        style="@style/BtnMainTab"
+        android:drawableTop="@drawable/ic_tab_news_selecter"
+        android:text="资讯"
+        android:textSize="@dimen/bottom_bar_font_size"
+        app:top_height="@dimen/bottom_bar_icon_size_v"
+        app:top_width="@dimen/bottom_bar_icon_size_h"/>
+
+    <com.jeremy.lychee.widget.ImageTextView
+        android:id="@+id/view_tab_live"
+        style="@style/BtnMainTab"
+        android:drawableTop="@drawable/ic_tab_live_selecter"
+        android:text="直播"
+        android:textSize="@dimen/bottom_bar_font_size"
+        app:top_height="@dimen/bottom_bar_icon_size_v"
+        app:top_width="@dimen/bottom_bar_icon_size_h"/>
+
+    <com.jeremy.lychee.widget.ImageTextView
+        android:id="@+id/view_tab_user"
+        style="@style/BtnMainTab"
+        android:drawableTop="@drawable/ic_tab_user_selecter"
+        android:text="直播号"
+        android:textSize="@dimen/bottom_bar_font_size"
+        app:top_height="@dimen/bottom_bar_icon_size_v"
+        app:top_width="@dimen/bottom_bar_icon_size_h"/>
+
+</LinearLayout>

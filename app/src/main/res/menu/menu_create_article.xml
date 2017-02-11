@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_article_save"
+        android:title="@string/article_save"
+        android:orderInCategory="0"
+        android:onClick="onClickSave"
+        app:showAsAction="ifRoom|withText"/>
+    <item
+        android:id="@+id/action_article_publish"
+        android:title="@string/article_publish"
+        android:orderInCategory="0"
+        android:onClick="onClickPublish"
+        app:showAsAction="ifRoom|withText"/>
+</menu>

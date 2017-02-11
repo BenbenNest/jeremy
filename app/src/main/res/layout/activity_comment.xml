@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        app:navigationIcon="@mipmap/ic_nav_back"
+        android:background="@color/toolbar_color"
+        android:minHeight="@dimen/toolbar_height"/>
+
+    <include
+        android:id="@+id/bottom_bar"
+        layout="@layout/bottom_action_bar_comment"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_action_bar_height"
+        android:layout_alignParentBottom="true" />
+
+    <com.jeremy.lychee.widget.MySwipeRefreshLayout
+        android:id="@+id/pull_refresh_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_bar"
+        android:layout_below="@+id/toolbar">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:scrollbars="vertical" />
+    </com.jeremy.lychee.widget.MySwipeRefreshLayout>
+
+    <include
+        android:id="@+id/no_cmt_layout"
+        layout="@layout/no_cmt_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/loading_layout"
+        layout="@layout/common_loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/error_layout"
+        layout="@layout/common_error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:visibility="gone" />
+
+</RelativeLayout>

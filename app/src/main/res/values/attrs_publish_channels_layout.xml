@@ -1,0 +1,6 @@
+<resources>
+    <declare-styleable name="PublishChannelsLayout">
+        <attr name="hgap" format="dimension" />
+        <attr name="vgap" format="dimension" />
+    </declare-styleable>
+</resources>

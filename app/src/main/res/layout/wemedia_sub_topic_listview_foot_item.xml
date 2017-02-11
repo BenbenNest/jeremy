@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/clickable"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_user_menu_item"
+    android:paddingBottom="6dp"
+    android:paddingTop="6dp">
+
+    <!-- layout_width 不设置固定值，会造成onMeasure触发getView频繁调用-->
+    <com.jeremy.lychee.widget.ImageTextView
+        android:layout_width="70dp"
+        android:layout_height="32dp"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:text="查看更多"
+        android:textColor="#A8A8A8"
+        android:drawableRight="@drawable/zpd_image_more"
+        android:drawablePadding="5dp"
+        android:textSize="13dp"
+        app:right_height="12dp"
+        app:right_width="6dp" />
+
+</RelativeLayout>
+

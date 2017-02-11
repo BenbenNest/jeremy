@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/wemedia_list_item_space"
+    android:orientation="vertical"
+    android:background="@color/user_white_bg">
+
+    <view
+        android:id="@+id/hot_channel_avatar_list"
+        class="com.jeremy.lychee.fragment.user.UserDiscoveryFragment2$HotChannelRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:overScrollMode="never" />
+
+</LinearLayout>

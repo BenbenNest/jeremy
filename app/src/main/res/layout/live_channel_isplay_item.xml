@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="12dp"
+    android:background="#f2f2f2"
+    android:paddingLeft="10dp"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/title"
+        android:textSize="18dp"
+        android:textColor="#444444"
+        android:includeFontPadding="true"
+        android:text=""
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:id="@+id/introduction"
+        android:textColor="#999999"
+        android:text=""
+        android:layout_marginTop="8dp"
+        android:textSize="13dp"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/introduction"
+        android:layout_marginBottom="15dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/come_from"
+            android:text="林秀如肥羊"
+            android:includeFontPadding="true"
+            android:textColor="#B6B6B6"
+            android:textSize="12dp"
+            />
+        <TextView
+            android:id="@+id/share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:layout_alignParentRight="true"
+            android:includeFontPadding="true"
+            android:drawableLeft="@drawable/live_pd_icon_share"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/comment"
+            android:text="222222"
+            android:drawablePadding="4dp"
+            android:layout_marginRight="18dp"
+            android:textColor="#b6b6b6"
+            android:layout_toLeftOf="@id/share"
+            android:drawableLeft="@drawable/live_icon_comment"
+            />
+    </RelativeLayout>
+
+
+</RelativeLayout>

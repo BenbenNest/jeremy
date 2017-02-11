@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <item
+        android:id="@+id/menu_transarticle_confirm"
+        android:title="发表"
+        android:orderInCategory="0"
+        app:actionLayout="@layout/menu_transarticle_layout"
+
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_transarticle_confirm2"
+        android:title="发表"
+        android:orderInCategory="1"
+        app:actionLayout="@layout/menu_transarticle_layout2"
+        app:showAsAction="always"/>
+</menu>

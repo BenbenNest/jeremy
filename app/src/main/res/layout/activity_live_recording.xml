@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="true">
+
+    <RelativeLayout
+        android:id="@+id/tools_group"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/living_bg_top_icons"
+        android:paddingTop="24dp">
+
+        <TextView
+            android:id="@+id/close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/living_icon_close" />
+
+        <TextView
+            android:id="@+id/finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/live_finish"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/cover_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="50dp"
+            android:paddingTop="4dp"
+            android:text="直播时请将画面对准现场" />
+
+        <CheckBox
+            android:id="@+id/flash_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_toLeftOf="@+id/camera"
+            android:button="@drawable/sl_cb_flash_light" />
+
+        <TextView
+            android:id="@+id/camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_toLeftOf="@+id/more"
+            android:background="@drawable/living_icon_photo" />
+
+        <TextView
+            android:id="@+id/more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="8dp"
+            android:background="@drawable/living_icon_more" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/live_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="30dp"
+        android:singleLine="true"
+        android:text="12月20日的直播"
+        android:textColor="@color/white"
+        android:textSize="10dp"
+        android:layout_marginRight="110dp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/live_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/live_title"
+        android:layout_below="@+id/live_title"
+        android:drawableLeft="@drawable/living_icon_red"
+        android:drawablePadding="4dp"
+        android:singleLine="true"
+        android:text="00:00:00 11观看/5人在线"
+        android:textColor="@color/white"
+        android:textSize="9dp"
+        android:visibility="gone" />
+
+
+    <TextView
+        android:id="@+id/change_title"
+        android:layout_width="120dp"
+        android:layout_height="55dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tools_group"
+        android:layout_marginRight="10dp"
+        android:background="#a8ffffff"
+        android:gravity="center"
+        android:padding="12dp"
+        android:text="修改标题"
+        android:textColor="@color/black_text"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="250dp"
+        android:background="#434343"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/soft_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="15dp">
+
+            <EditText
+                android:id="@+id/et_title"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/edittext_bg_live_title"
+                android:gravity="center"
+                android:hint="请输入直播标题"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:paddingRight="20dp"
+                android:textCursorDrawable="@drawable/cursor_drawable"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/iv_voice_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_audio_input" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/voice_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/btn_voice_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_voice_input"
+                    android:gravity="center"
+                    android:text="按住录音"
+                    android:textColor="@color/white" />
+
+                <FrameLayout
+                    android:id="@+id/btn_voice_play_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/btn_voice_play"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_voice_input"
+                        android:gravity="center"
+                        android:text="播放录音"
+                        android:textColor="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/iv_delete_voice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:padding="10dp"
+                        android:src="@drawable/living_audio_delete" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/voice_play_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:clickable="false" />
+            </FrameLayout>
+
+
+            <ImageView
+                android:id="@+id/iv_soft_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_soft_input" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <CheckBox
+                android:id="@+id/cb_location"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="35dp"
+                android:layout_weight="1"
+                android:button="@drawable/sl_cb_location"
+                android:paddingLeft="4dp"
+                android:text="位置打开"
+                android:textColor="@color/live_checkbox" />
+
+            <CheckBox
+                android:id="@+id/cb_orientation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="35dp"
+                android:layout_weight="1"
+                android:button="@drawable/sl_cb_orientation"
+                android:paddingLeft="4dp"
+                android:text="横屏直播"
+                android:textColor="@color/live_checkbox" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="112dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/selector_btn_start"
+        android:stateListAnimator="@null"
+        android:text="开始直播"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/stop"
+        android:layout_width="112dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/selector_btn_stop"
+        android:stateListAnimator="@null"
+        android:text="完成"
+        android:textColor="@color/white"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/pause"
+        android:layout_width="112dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/selector_btn_stop"
+        android:stateListAnimator="@null"
+        android:text="暂停"
+        android:textColor="@color/white"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/record_audio"
+        android:layout_width="112dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/selector_btn_stop"
+        android:stateListAnimator="@null"
+        android:text="录音"
+        android:textColor="@color/white"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/play_audio"
+        android:layout_width="112dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/selector_btn_stop"
+        android:stateListAnimator="@null"
+        android:text="播放"
+        android:textColor="@color/white"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/iv_living_pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/living_pause"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/iv_living_pause_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_living_pause"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/living_pause"
+        android:text="直播已暂停"
+        android:textColor="@color/white"
+        android:visibility="gone" />
+
+</RelativeLayout>

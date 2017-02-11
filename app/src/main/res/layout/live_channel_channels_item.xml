@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="56dp"
+    android:layout_height="67dp"
+    >
+    <com.jeremy.lychee.widget.GlideControl.GlideImageView
+        android:id="@+id/channels_channel_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="15dp"
+        android:layout_gravity="center_vertical"
+         />
+    <com.jeremy.lychee.widget.GlideControl.GlideImageView
+        android:id="@+id/icon_below"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/living_pd_sanjiao"
+        android:visibility="visible"
+        android:layout_marginLeft="25dp"
+        android:layout_gravity="bottom"
+        />
+</FrameLayout>

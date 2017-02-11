@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/news_net_error_layout_height"
+    android:background="@color/white"
+    android:clickable="true">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/error_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/news_net_error_text"
+            android:textColor="@color/news_item_text_color"
+            android:textSize="22dp" />
+
+        <RelativeLayout
+            android:id="@+id/refresh_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/net_refresh_bg_selector"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:clickable="true">
+            <ImageView
+                android:id="@+id/image_layout"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@mipmap/net_error_refresh"
+                android:scaleType="fitXY"/>
+            <TextView
+                android:id="@+id/refresh_text"
+                android:layout_toRightOf="@id/image_layout"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/news_net_refresh_text"
+                android:textColor="@color/news_item_text_color"
+                android:textSize="15dp" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

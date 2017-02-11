@@ -1,0 +1,4 @@
+<resources>
+    <!-- OldNewsDetailActivity -->
+    <dimen name="FloatingActionButtonMargin">16dp</dimen>
+</resources>

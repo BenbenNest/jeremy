@@ -1,0 +1,343 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppWindowTranslucentStatusTheme" parent="AppTheme">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <style name="AppWindowTranslucentBackgroundTheme" parent="AppTheme">
+        <item name="android:windowBackground">@null</item>
+    </style>
+
+    <style name="AnimationActivity" mce_bogus="1" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_anim_enter</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_anim_exit</item>
+        <item name="android:activityCloseEnterAnimation">@anim/activity_back_enter</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_back_exit</item>
+    </style>
+
+    <style name="ReverseAnimationActivity" mce_bogus="1" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_anim_enter_reverse</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_anim_exit_reverse</item>
+        <item name="android:activityCloseEnterAnimation">@anim/activity_back_enter_reverse</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_back_exit_reverse</item>
+    </style>
+
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!--全局字体:方正兰亭-->
+        <!--<item name="android:typeface">serif</item>-->
+        <!--如果用代码设置状态栏透明，SlidinActivity滑动返回时会出现抖动，故用style设置-->
+        <!--<item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>-->
+        <!--Activity切换动画-->
+        <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
+    </style>
+
+    <style name="ImageNewsTheme" parent="AppBaseTheme">
+        <!--全局字体:方正兰亭-->
+        <item name="android:typeface">serif</item>
+        <!--Activity切换动画-->
+        <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
+
+        <item name="actionMenuTextColor">@android:color/white</item>
+        <item name="actionMenuTextAppearance">@style/ImageNewsToolbarMenuTextSize</item>
+        <item name="actionButtonStyle">@style/ActionButtonStyle</item>
+        <item name="android:actionButtonStyle">@style/ActionButtonStyle</item>
+
+    </style>
+
+    <style name="SquareActivityTheme" parent="AppBaseTheme">
+        <!--全局字体:方正兰亭-->
+        <item name="android:typeface">serif</item>
+        <!--如果用代码设置状态栏透明，SlidinActivity滑动返回时会出现抖动，故用style设置-->
+        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>
+        <!--Activity切换动画-->
+        <item name="android:windowAnimationStyle">@style/ReverseAnimationActivity</item>
+    </style>
+
+    <style name="ImageNewsToolbarMenuTextSize">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="ActionButtonStyle" parent="@android:style/Widget.ActionButton">
+        <item name="android:minWidth">56dip</item>
+        <item name="android:minHeight">56dip</item>
+    </style>
+
+    <style name="ActionButtonStyle1" parent="@android:style/Widget.ActionButton">
+        <item name="android:minWidth">10dip</item>
+        <item name="android:minHeight">10dip</item>
+    </style>
+
+
+    <style name="dialog_view_theme" parent="android:Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="dialog_view_animation" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_view_in_anim</item>
+        <item name="android:windowExitAnimation">@anim/dialog_view_out_anim</item>
+    </style>
+
+    <style name="UserPageTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabMaxWidth">264dp</item>
+        <item name="tabIndicatorColor">?attr/colorAccent</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabPaddingStart">12dp</item>
+        <item name="tabPaddingEnd">12dp</item>
+        <item name="tabBackground">?attr/selectableItemBackground</item>
+        <item name="tabTextAppearance">@style/UserPageTabLayoutTextAppearance</item>
+        <item name="tabSelectedTextColor">?android:textColorPrimary</item>
+    </style>
+
+    <style name="UserPageTabLayoutTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+    <style name="settings_item">
+        <item name="android:height">48dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+
+    </style>
+
+    <style name="BtnMainTab" parent="ActionButtonStyle">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/main_tab_diff</item>
+        <!--<item name="android:background">@color/white</item>-->
+        <item name="android:textSize">11dp</item>
+        <item name="android:textColor">@color/tab_main</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:gravity">bottom|center_horizontal</item>
+        <item name="android:drawablePadding">1dp</item>
+    </style>
+
+    <style name="ColumnToolbarCollapsedTitle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">17dp</item>
+    </style>
+
+    <style name="ColumnToolbarExpandedTitle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">17dp</item>
+        <item name="android:shadowColor">#ff000000</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+
+    <style name="TextShadow">
+        <item name="android:shadowColor">#c0191919</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+
+    <style name="thirdPartyUserToolbarExpandedTitle">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">@dimen/user_name_m</item>
+    </style>
+
+    <style name="thirdPartyUserToolbarcollapsedTitle">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">@dimen/user_name_l</item>
+    </style>
+
+    <style name="MediaChannelItem">
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="MediaChannelList">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:paddingEnd">15dp</item>
+        <item name="android:paddingStart">15dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="MediaChannelSubButton">
+        <item name="android:text">10dp</item>
+        <item name="android:textColor">@color/gray_text</item>
+    </style>
+
+    <style name="NoTitleBarNoAnimTranslucentTheme" parent="@android:style/Theme.Translucent.NoTitleBar">
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowEnterAnimation">@null</item>
+        <item name="android:windowExitAnimation">@null</item>
+    </style>
+
+    <style name="AppCompatNoTitleDialog" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="windowNoTitle">true</item>
+
+
+    </style>
+
+    <style name="CustomNoTitleDialog" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <!--<item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="actionBarStyle">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="android:actionBarStyle">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="android:windowAnimationStyle">@style/AnimationTransmitActivity</item>-->
+
+    </style>
+
+    <style name="AnimationTransmitActivity">
+        <item name="android:activityOpenEnterAnimation">@anim/transmitactivity_anim_enter</item>
+        <item name="android:activityOpenExitAnimation">@anim/transmitactivity_anim_out</item>
+    </style>
+
+    <style name="style_channels_gridview">
+        <item name="android:numColumns">4</item>
+        <item name="android:verticalSpacing">12dp</item>
+        <item name="android:horizontalSpacing">12dp</item>
+        <item name="android:stretchMode">columnWidth</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="android:cacheColorHint">#00000000</item>
+        <item name="android:listSelector">@color/transparent</item>
+    </style>
+
+    <style name="popup_window_animate">
+        <item name="android:windowEnterAnimation">@anim/popup_window_in</item>
+        <item name="android:windowExitAnimation">@anim/popup_window_out</item>
+    </style>
+
+
+    <style name="transmit_editor_item">
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+    </style>
+
+    <!--ToolBar 字体配置-->
+    <style name="ToolbarTitleAppearance">
+        <item name="android:textSize">20sp</item>
+        <!--<item name="android:textStyle">normal</item>-->
+        <item name="android:textColor">@color/channels_item_text_color</item>
+    </style>
+
+    <style name="DarkToolbar" parent="style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:background">@color/toolbar_color</item>
+        <item name="actionMenuTextAppearance">@style/ToolbarMenuTextSize</item>
+    </style>
+
+    <style name="WhiteTitleAppearance">
+        <item name="android:textSize">18dp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/toolbar_title</item>
+    </style>
+
+    <style name="ToolbarMenuTextSize">
+        <item name="android:textSize">19sp</item>
+    </style>
+
+    <style name="MediaChannelEditItem">
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:paddingRight">4dip</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#333333</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="DarkToolbarWithSubMenu" parent="@style/DarkToolbar">
+        <item name="android:listViewStyle">@android:style/Widget.ListView.White</item>
+        <item name="android:actionMenuTextColor">@color/white</item>
+    </style>
+
+    <style name="WemediaArticleCheckboxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/selector_wemedia_article_checkbox</item>
+    </style>
+
+    <!-- AppBarLayout以及ToolBar去除阴影 -->
+    <style name="Widget.Design.AppBarLayout" parent="android:Widget">
+        <item name="elevation">0dp</item>
+        <item name="android:background">?attr/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="CitySearchView" parent="Base.Widget.AppCompat.SearchView">
+        <item name="searchHintIcon">@drawable/ic_city_search</item>
+        <item name="closeIcon">@drawable/ic_city_clear</item>
+        <item name="queryBackground">@drawable/search_bottom_border</item>
+    </style>
+
+
+    <!-- From: file:/usr/local/google/buildbot/src/googleplex-android/mnc-supportlib-release/frameworks/support/v7/cardview/res/values/colors.xml -->
+    <eat-comment />
+    <color name="cardview_dark_background">#FF202020</color>
+    <color name="cardview_light_background">#FFFAFAFA</color>
+    <color name="cardview_shadow_end_color">#03000000</color>
+    <color name="cardview_shadow_start_color">#37000000</color>
+    <declare-styleable name="CardView">
+        <attr name="cardBackgroundColor" format="color" />
+        <attr name="cardCornerRadius" format="dimension" />
+        <attr name="cardElevation" format="dimension" />
+        <attr name="cardMaxElevation" format="dimension" />
+        <attr name="cardUseCompatPadding" format="boolean" />
+        <attr name="cardPreventCornerOverlap" format="boolean" />
+        <attr name="contentPadding" format="dimension" />
+        <attr name="contentPaddingLeft" format="dimension" />
+        <attr name="contentPaddingRight" format="dimension" />
+        <attr name="contentPaddingTop" format="dimension" />
+        <attr name="contentPaddingBottom" format="dimension" />
+    </declare-styleable>
+    <!-- From: file:/usr/local/google/buildbot/src/googleplex-android/mnc-supportlib-release/frameworks/support/v7/cardview/res/values/dimens.xml -->
+    <eat-comment />
+    <dimen name="cardview_compat_inset_shadow">1dp</dimen>
+    <dimen name="cardview_default_elevation">2dp</dimen>
+    <dimen name="cardview_default_radius">2dp</dimen>
+    <!-- From: file:/usr/local/google/buildbot/src/googleplex-android/mnc-supportlib-release/frameworks/support/v7/cardview/res/values/styles.xml -->
+    <eat-comment />
+
+    <style name="CardView">
+        <item name="cardBackgroundColor">@color/cardview_light_background</item>
+        <item name="cardCornerRadius">@dimen/cardview_default_radius</item>
+        <item name="cardElevation">@dimen/cardview_default_elevation</item>
+        <item name="cardMaxElevation">@dimen/cardview_default_elevation</item>
+        <item name="cardUseCompatPadding">false</item>
+        <item name="cardPreventCornerOverlap">true</item>
+    </style>
+
+    <style name="Function.Card" parent="CardView">
+        <item name="contentPadding">0dp</item>
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardPreventCornerOverlap">false</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+    </style>
+
+    <style name="EasyGank.Card" parent="CardView">
+        <item name="contentPadding">0dp</item>
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardPreventCornerOverlap">false</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+    </style>
+
+
+    <style name="EasyGank.About.Card" parent="EasyGank.Card">
+        <item name="contentPadding">0dp</item>
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardPreventCornerOverlap">true</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+</resources>

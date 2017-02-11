@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.jeremy.lychee.widget.BlurBgLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/blur_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/change_scenes"
+            android:textColor="#333333"
+            android:textSize="15dp" />
+
+        <LinearLayout
+            android:id="@+id/scene_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/scene1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_scene_get_up_selector"
+                android:gravity="center"
+                android:tag="1"
+                android:text="@string/get_up"
+                android:textColor="@drawable/ic_scene_txt_color_selector" />
+
+            <TextView
+                android:id="@+id/scene2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_scene_way_selector"
+                android:gravity="center"
+                android:tag="2"
+                android:text="@string/on_the_road"
+                android:textColor="@drawable/ic_scene_txt_color_selector" />
+
+            <TextView
+                android:id="@+id/scene3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_scene_dine_selecter"
+                android:gravity="center"
+                android:tag="3"
+                android:text="@string/dine"
+                android:textColor="@drawable/ic_scene_txt_color_selector" />
+
+            <TextView
+                android:id="@+id/scene5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_scene_meeting_selector"
+                android:gravity="center"
+                android:tag="5"
+                android:text="@string/meeting"
+                android:textColor="@drawable/ic_scene_txt_color_selector" />
+
+            <TextView
+                android:id="@+id/scene4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_scene_before_sleep_selector"
+                android:gravity="center"
+                android:tag="4"
+                android:text="@string/before_sleep"
+                android:textColor="@drawable/ic_scene_txt_color_selector" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="20dp"
+            android:alpha="0.5"
+            android:background="#fafafa" />
+
+        <TextView
+            android:id="@+id/fontChangeTxt"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:layout_marginTop="22dp"
+            android:gravity="center"
+            android:text="@string/font_change"
+            android:textColor="#333333"
+            android:textSize="15dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/decrease_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:src="@mipmap/ic_font_decrease" />
+
+            <ImageView
+                android:id="@+id/increase_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16dp"
+                android:src="@mipmap/ic_font_increase" />
+
+            <SeekBar
+                android:id="@+id/font_size_seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_toLeftOf="@+id/increase_img"
+                android:layout_toRightOf="@+id/decrease_img"
+                android:maxHeight="3.0dip"
+                android:minHeight="3.0dip"
+                android:progressDrawable="@drawable/seekbar_drawable"
+                android:thumb="@drawable/seek_thumb" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="15dp"
+            android:alpha="0.5"
+            android:background="#fafafa" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/channel_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dp"
+            android:overScrollMode="never" />
+    </LinearLayout>
+
+
+</com.jeremy.lychee.widget.BlurBgLayout>

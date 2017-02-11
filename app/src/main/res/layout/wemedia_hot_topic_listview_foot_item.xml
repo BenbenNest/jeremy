@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/clickable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="6dp"
+        android:paddingTop="6dp"
+        android:background="@drawable/background_user_menu_item">
+        <!-- layout_width 不设置固定值，会造成onMeasure触发getView频繁调用-->
+        <com.jeremy.lychee.widget.ImageTextView
+            android:layout_width="100dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:drawablePadding="5dp"
+            android:drawableRight="@drawable/zpd_image_more"
+            android:gravity="center"
+            android:text="查看更多推荐"
+            android:textColor="#A8A8A8"
+            android:textSize="13dp"
+            app:right_height="12dp"
+            app:right_width="6dp" />
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/news_page_bg"/>
+
+</LinearLayout>
+

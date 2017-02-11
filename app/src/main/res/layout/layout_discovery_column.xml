@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F9FA">
+
+
+    <com.jeremy.lychee.widget.MySwipeRefreshLayout
+        android:id="@+id/pull_refresh_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff">
+
+        <com.jeremy.lychee.widget.LiveHotUltimateRecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#0000"
+            android:overScrollMode="never"
+            android:scrollbars="vertical"
+            app:recyclerviewClipToPadding="true"
+            app:recyclerviewDefaultSwipeColor="@array/google_colors"
+            app:recyclerviewEmptyView="@layout/empty_view"
+            app:recyclerviewScrollbars="vertical" />
+    </com.jeremy.lychee.widget.MySwipeRefreshLayout>
+
+
+    <include
+        android:id="@+id/loading_layout"
+        layout="@layout/common_loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/error_layout"
+        layout="@layout/common_error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+</RelativeLayout>

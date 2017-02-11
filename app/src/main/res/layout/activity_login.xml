@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000">
+
+
+    <LinearLayout
+        android:id="@+id/ll_login_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_login_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dialog_margin_l"
+            android:text="@string/login_activity_title"
+            android:textColor="#979797" />
+
+        <FrameLayout
+            android:id="@+id/rl_login_weixin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dialog_margin_l"
+            android:layout_marginRight="@dimen/dialog_margin_l"
+            android:layout_marginTop="@dimen/dialog_margin_l"
+            android:background="@drawable/login_weixin_btn_bg"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableLeft="@mipmap/ic_login_weixin"
+                android:drawableStart="@mipmap/ic_login_weixin"
+                android:drawablePadding="@dimen/margin_large"
+                android:gravity="center"
+                android:text="@string/login_text_weixin"
+                android:textColor="@color/white" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/rl_login_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dialog_margin_l"
+            android:layout_marginRight="@dimen/dialog_margin_l"
+            android:layout_marginTop="@dimen/dialog_margin_l"
+            android:background="@drawable/login_weibo_btn_bg"
+            android:visibility="visible"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableLeft="@mipmap/ic_login_weibo"
+                android:drawableStart="@mipmap/ic_login_weibo"
+                android:drawablePadding="@dimen/margin_large"
+                android:gravity="center"
+                android:text="@string/login_text_weibo"
+                android:textColor="@color/white" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/rl_login_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dialog_margin_l"
+            android:background="@drawable/login_phone_btn_bg"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableLeft="@mipmap/land_bjtime"
+                android:drawableStart="@mipmap/land_bjtime"
+                android:drawablePadding="@dimen/margin_large"
+                android:gravity="center"
+                android:text="@string/login_text_phone"
+                android:textColor="@color/white" />
+        </FrameLayout>
+        <View
+            android:id="@+id/share_cancel_underline"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#E6E6E6" />
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_cancel_bg"
+            android:gravity="center"
+            android:paddingBottom="@dimen/padding_large"
+            android:paddingTop="@dimen/padding_large"
+            android:text="@string/share_cancel_btn"
+            android:textColor="#666666" />
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/view_login_top"
+        android:layout_width="match_parent"
+        android:layout_above="@+id/ll_login_content"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>
