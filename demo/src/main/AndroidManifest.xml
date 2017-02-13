@@ -81,7 +81,20 @@
         <activity android:name=".activity.WebViewActivity" />
         <activity android:name=".activity.CheckUpdateActivity" />
         <activity android:name=".activity.SpringBackActivity" />
-        <activity android:name=".activity.VideoFullScreenActivity"></activity>
+        <activity android:name=".activity.VideoFullScreenActivity" />
+
+        <!-- Android 7.0 需要使用provider打开文件权限 -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.jeremy.demo.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity android:name=".activity.TestActivity"></activity>
     </application>
 
 </manifest>

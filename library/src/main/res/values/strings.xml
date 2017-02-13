@@ -2,6 +2,12 @@
     <string name="app_name">library</string>
     <string name="common_load_error">网络出问题了\n点击屏幕重新加载</string>
 
+
+    <!--命名规范:直接英语描述,不与位置关联,用下划线链接。如:app_update-->
+
+    <!-- common -->
+    <string name="confirm">确定</string>
+
     <!-- WebView图片操作 -->
     <string name="webview_image_tip">提示</string>
     <string name="webview_image_save">保存图片到相册</string>
@@ -12,4 +18,15 @@
     <string name="image_down_success">保存成功</string>
     <string name="image_down_fail">保存失败</string>
 
+    <!-- permission -->
+    <string name="permissions">权限</string>
+    <string name="permissions_need">“蔚来”已被禁止使用部分权限，请在设置中开启权限</string>
+    <string name="camera_permission_need">“蔚来”已被禁止使用相机权限，请在设置中开启权限</string>
+    <string name="camera_external_storage_permission_need">“蔚来”已被禁止使用权限，请在设置中开启权限</string>
+    <string name="permission_reminder">提示</string>
+    <string name="camera_permission_forbidden_reminder">无法获取摄像头数据，请检查是否已经打开摄像头权限。</string>
+
+    <!-- update -->
+    <string name="app_update">版本更新</string>
+    <string name="the_latest_version">已是最新版本</string>
 </resources>
