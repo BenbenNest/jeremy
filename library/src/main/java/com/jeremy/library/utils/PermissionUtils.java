@@ -15,7 +15,6 @@ import static com.jeremy.library.permission.Permissions.REQUEST_CODE_EXTERNAL_ST
  */
 public class PermissionUtils {
 
-
     public static boolean checkSDPermission(Activity activity) {
         if (Build.VERSION.SDK_INT >= 23) {
             int permissionRead = ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE);
