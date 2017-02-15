@@ -32,6 +32,9 @@ public class FunctionListModel {
     private void initData() {
         FunctionData data;
 
+        data = new FunctionData("拍照裁剪", packageName + "PickPhotoActivity", "拍照裁剪", 0);
+        list.add(data);
+
         data = new FunctionData("WebView视频全屏", packageName + "VideoFullScreenActivity", "WebView视频全屏", 0);
         list.add(data);
 

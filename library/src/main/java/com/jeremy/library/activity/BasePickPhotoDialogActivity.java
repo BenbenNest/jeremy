@@ -4,12 +4,13 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 
 import com.jeremy.library.utils.FetchImageUtils;
 
-public abstract class BasePickPhotoDialogActivity extends BaseFragmentGroupActivity implements OnClickListener, FetchImageUtils.OnPickFinishedCallback {
+public abstract class BasePickPhotoDialogActivity extends AppCompatActivity implements OnClickListener, FetchImageUtils.OnPickFinishedCallback {
 
     protected Bitmap mBitmap;
     private Dialog mPickPhotoDialog;
@@ -99,16 +100,16 @@ public abstract class BasePickPhotoDialogActivity extends BaseFragmentGroupActiv
         mImageUtil.setAspectX(aspectX);
         mImageUtil.setAspectY(aspectY);
         mPhotoType = photoType;
-//        if (mPickPhotoDialog == null) {
-//            mPickPhotoDialog = new Dialog(this, R.style.TransparentDialogStyle);
+        if (mPickPhotoDialog == null) {
+            mPickPhotoDialog = new Dialog(this);
 //            View layout = getLayoutInflater().inflate(R.layout.dialog_pick_photo, null);
 //            layout.findViewById(R.id.tv_choose_frome_album).setOnClickListener(this);
 //            layout.findViewById(R.id.tv_choose_frome_camera).setOnClickListener(this);
 //            mPickPhotoDialog.setContentView(layout);
-//        }
-//        if (!mPickPhotoDialog.isShowing()) {
-//            mPickPhotoDialog.show();
-//        }
+        }
+        if (!mPickPhotoDialog.isShowing()) {
+            mPickPhotoDialog.show();
+        }
     }
 
 }
