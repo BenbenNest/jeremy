@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <color name="hint_text_color">#ffcfcfcf</color>
+
+
+    <!-- 通用字体颜色 -->
+    <color name="c1">#ffffff</color>
+    <color name="c2">#D8000000</color>
+    <color name="c3">#8c000000</color>
+    <color name="c4">#4D000000</color>
+    <color name="c5">#4caf50</color>
+
+    <!-- 通用背景颜色 -->
+    <color name="c6">#408c40</color>
+    <color name="c7">#34000000</color>
+    <color name="c8">#20000000</color>
+    <color name="c9">#fafafa</color>
+    <color name="c10">#ffffff</color>
+    <color name="c11">#f34235</color>
+
+
+</resources>

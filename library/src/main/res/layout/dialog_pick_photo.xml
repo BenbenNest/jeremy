@@ -2,55 +2,55 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
+    android:background="@color/app_bg"
     android:orientation="vertical">
 
-    <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="60dp"-->
-        <!--android:gravity="center"-->
-        <!--android:text="@string/choice_photo"-->
-        <!--android:textColor="@color/c3"-->
-        <!--android:textSize="@dimen/h3" />-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:text="@string/choice_photo"
+        android:textColor="@color/c3"
+        android:textSize="@dimen/h3" />
 
-    <!--&lt;!&ndash;<View style="@style/HorizontalDividerDefaultStyle" />&ndash;&gt;-->
+    <View style="@style/HorizontalDividerDefaultStyle" />
 
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="horizontal"-->
-        <!--android:paddingBottom="@dimen/default_vertical_margin"-->
-        <!--android:paddingTop="@dimen/default_vertical_margin">-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/default_vertical_margin"
+        android:paddingTop="@dimen/default_vertical_margin">
 
-        <!--<TextView-->
-            <!--android:id="@+id/tv_choose_frome_album"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_gravity="center_vertical"-->
-            <!--android:layout_marginBottom="@dimen/default_vertical_margin"-->
-            <!--android:layout_marginTop="@dimen/default_vertical_margin"-->
-            <!--android:layout_weight="1"-->
-            <!--android:drawableTop="@drawable/ic_album"-->
-            <!--android:gravity="center"-->
-            <!--android:text="@string/choose_frome_album"-->
-            <!--android:textColor="@color/gray_dark"-->
-            <!--android:textSize="@dimen/h3" />-->
+        <TextView
+            android:id="@+id/tv_choose_frome_album"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="@dimen/default_vertical_margin"
+            android:layout_marginTop="@dimen/default_vertical_margin"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_album"
+            android:gravity="center"
+            android:text="@string/choose_frome_album"
+            android:textColor="@color/gray_dark"
+            android:textSize="@dimen/h3" />
 
-        <!--&lt;!&ndash;<View style="@style/VerticalDividerDefaultStyle" />&ndash;&gt;-->
+        <View style="@style/VerticalDividerDefaultStyle" />
 
-        <!--<TextView-->
-            <!--android:id="@+id/tv_choose_frome_camera"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_gravity="center_vertical"-->
-            <!--android:layout_marginBottom="@dimen/default_vertical_margin"-->
-            <!--android:layout_marginTop="@dimen/default_vertical_margin"-->
-            <!--android:layout_weight="1"-->
-            <!--android:drawableTop="@drawable/ic_camera"-->
-            <!--android:gravity="center"-->
-            <!--android:text="@string/choose_frome_camera"-->
-            <!--android:textColor="@color/gray_dark"-->
-            <!--android:textSize="@dimen/h3" />-->
-    <!--</LinearLayout>-->
+        <TextView
+            android:id="@+id/tv_choose_frome_camera"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="@dimen/default_vertical_margin"
+            android:layout_marginTop="@dimen/default_vertical_margin"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_camera"
+            android:gravity="center"
+            android:text="@string/choose_frome_camera"
+            android:textColor="@color/gray_dark"
+            android:textSize="@dimen/h3" />
+    </LinearLayout>
 
 </LinearLayout>

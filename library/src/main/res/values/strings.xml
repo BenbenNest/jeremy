@@ -8,6 +8,12 @@
     <!-- common -->
     <string name="confirm">确定</string>
 
+    <!-- Pick Photo -->
+    <string name="choice_photo">选择照片</string>
+    <string name="choose_frome_album">从相册里选择</string>
+    <string name="choose_frome_camera">相机拍摄</string>
+    <string name="errcode_take_photo">获取图片失败，请重试</string>
+
     <!-- WebView图片操作 -->
     <string name="webview_image_tip">提示</string>
     <string name="webview_image_save">保存图片到相册</string>

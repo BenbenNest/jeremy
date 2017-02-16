@@ -7,7 +7,10 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
+import android.widget.Toast;
 
+import com.jeremy.library.R;
 import com.jeremy.library.utils.FetchImageUtils;
 
 public abstract class BasePickPhotoDialogActivity extends AppCompatActivity implements OnClickListener, FetchImageUtils.OnPickFinishedCallback {
@@ -46,7 +49,7 @@ public abstract class BasePickPhotoDialogActivity extends AppCompatActivity impl
 
     @Override
     public void onPickFailed() {
-//        Toast.makeText(this, R.string.errcode_take_photo, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.errcode_take_photo, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -57,21 +60,21 @@ public abstract class BasePickPhotoDialogActivity extends AppCompatActivity impl
     @Override
     public void onClick(View v) {
         int id = v.getId();
-//        if (R.id.tv_choose_frome_album == id) {
-//            dismissPickPhotoDialog();
-//            if (mIsCrop) {
-//                mImageUtil.doPickCropPhotoFromGallery(this);
-//            } else {
-//                mImageUtil.doPickPhotoFromGallery(this);
-//            }
-//        } else if (R.id.tv_choose_frome_camera == id) {
-//            dismissPickPhotoDialog();
-//            if (mIsCrop) {
-//                mImageUtil.doTakeCropPhotoFromCamera(this);
-//            } else {
-//                mImageUtil.doTakePhotoFromCamera(this);
-//            }
-//        }
+        if (R.id.tv_choose_frome_album == id) {
+            dismissPickPhotoDialog();
+            if (mIsCrop) {
+                mImageUtil.doPickCropPhotoFromGallery(this);
+            } else {
+                mImageUtil.doPickPhotoFromGallery(this);
+            }
+        } else if (R.id.tv_choose_frome_camera == id) {
+            dismissPickPhotoDialog();
+            if (mIsCrop) {
+                mImageUtil.doTakeCropPhotoFromCamera(this);
+            } else {
+                mImageUtil.doTakePhotoFromCamera(this);
+            }
+        }
 
     }
 
@@ -102,10 +105,11 @@ public abstract class BasePickPhotoDialogActivity extends AppCompatActivity impl
         mPhotoType = photoType;
         if (mPickPhotoDialog == null) {
             mPickPhotoDialog = new Dialog(this);
-//            View layout = getLayoutInflater().inflate(R.layout.dialog_pick_photo, null);
-//            layout.findViewById(R.id.tv_choose_frome_album).setOnClickListener(this);
-//            layout.findViewById(R.id.tv_choose_frome_camera).setOnClickListener(this);
-//            mPickPhotoDialog.setContentView(layout);
+            mPickPhotoDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            View layout = getLayoutInflater().inflate(R.layout.dialog_pick_photo, null);
+            layout.findViewById(R.id.tv_choose_frome_album).setOnClickListener(this);
+            layout.findViewById(R.id.tv_choose_frome_camera).setOnClickListener(this);
+            mPickPhotoDialog.setContentView(layout);
         }
         if (!mPickPhotoDialog.isShowing()) {
             mPickPhotoDialog.show();
