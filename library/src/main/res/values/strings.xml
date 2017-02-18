@@ -13,6 +13,7 @@
     <string name="choose_frome_album">从相册里选择</string>
     <string name="choose_frome_camera">相机拍摄</string>
     <string name="errcode_take_photo">获取图片失败，请重试</string>
+    <string name="errcode_take_photo_sdcard">请确保手机SD卡正确安装</string>
 
     <!-- WebView图片操作 -->
     <string name="webview_image_tip">提示</string>
@@ -26,10 +27,15 @@
 
     <!-- permission -->
     <string name="permissions">权限</string>
+    <string name="permission_reminder">提示</string>
+    <string name="permissions_SD">请在设置中开启文件读取权限</string>
+    <string name="permissions_CAMERA">请在设置中开启相机权限</string>
+    <string name="permissions_SD_CAMERA">请在设置中开启文件读取和相机权限</string>
+
+
     <string name="permissions_need">“蔚来”已被禁止使用部分权限，请在设置中开启权限</string>
     <string name="camera_permission_need">“蔚来”已被禁止使用相机权限，请在设置中开启权限</string>
     <string name="camera_external_storage_permission_need">“蔚来”已被禁止使用权限，请在设置中开启权限</string>
-    <string name="permission_reminder">提示</string>
     <string name="camera_permission_forbidden_reminder">无法获取摄像头数据，请检查是否已经打开摄像头权限。</string>
 
     <!-- update -->

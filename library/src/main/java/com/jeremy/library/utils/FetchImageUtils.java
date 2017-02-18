@@ -47,21 +47,21 @@ public class FetchImageUtils {
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(data != null && data.getData() != null) {
+        if (data != null && data.getData() != null) {
             Log.d("hui", "data = " + data.getData().toString());
         } else {
             Log.d("hui", "data = " + null);
         }
 
-        switch(requestCode) {
+        switch (requestCode) {
             case 3021:
-                if(0 == resultCode) {
-                    if(this.callback != null) {
+                if (0 == resultCode) {
+                    if (this.callback != null) {
                         this.callback.onPickCancel();
                     }
                 } else {
-                    if(data == null) {
-                        if(this.callback != null) {
+                    if (data == null) {
+                        if (this.callback != null) {
                             this.callback.onPickFailed();
                         }
 
@@ -69,8 +69,8 @@ public class FetchImageUtils {
                     }
 
                     Uri uri = data.getData();
-                    if(this.callback != null) {
-                        if(uri == null) {
+                    if (this.callback != null) {
+                        if (uri == null) {
                             this.callback.onPickFailed();
                         } else {
                             this.callback.onPickSuccessed(uri);
@@ -79,8 +79,8 @@ public class FetchImageUtils {
                 }
                 break;
             case 3022:
-                if(0 == resultCode) {
-                    if(this.callback != null) {
+                if (0 == resultCode) {
+                    if (this.callback != null) {
                         this.callback.onPickCancel();
                     }
                 } else {
@@ -88,21 +88,21 @@ public class FetchImageUtils {
                 }
                 break;
             case 3023:
-                if(0 == resultCode) {
-                    if(this.callback != null) {
+                if (0 == resultCode) {
+                    if (this.callback != null) {
                         this.callback.onPickCancel();
                     }
                 } else {
-                    if(this.tempPhotoUri == null) {
-                        if(this.callback != null) {
+                    if (this.tempPhotoUri == null) {
+                        if (this.callback != null) {
                             this.callback.onPickFailed();
                         }
 
                         return;
                     }
 
-                    if(this.callback != null) {
-                        if(this.tempPhotoUri == null) {
+                    if (this.callback != null) {
+                        if (this.tempPhotoUri == null) {
                             this.callback.onPickFailed();
                         } else {
                             this.callback.onPickSuccessed(this.tempPhotoUri);
@@ -111,8 +111,8 @@ public class FetchImageUtils {
                 }
                 break;
             case 3024:
-                if(0 == resultCode) {
-                    if(this.callback != null) {
+                if (0 == resultCode) {
+                    if (this.callback != null) {
                         this.callback.onPickCancel();
                     }
                 } else {
@@ -120,8 +120,8 @@ public class FetchImageUtils {
                 }
                 break;
             case 3025:
-                if(0 == resultCode) {
-                    if(this.callback != null) {
+                if (0 == resultCode) {
+                    if (this.callback != null) {
                         this.callback.onPickCancel();
                     }
                 } else {
@@ -131,14 +131,14 @@ public class FetchImageUtils {
 
     }
 
-    private void doCameraCropPhoto(File f) {
+    public void doCameraCropPhoto(File f) {
         try {
-            MediaScannerConnection.scanFile(this.mActivity, new String[]{f.getAbsolutePath()}, new String[]{null}, (MediaScannerConnection.OnScanCompletedListener)null);
+            MediaScannerConnection.scanFile(this.mActivity, new String[]{f.getAbsolutePath()}, new String[]{null}, (MediaScannerConnection.OnScanCompletedListener) null);
             Intent e = this.getCameraCropImageIntent(Uri.fromFile(f));
             this.mActivity.startActivityForResult(e, 3023);
         } catch (Exception var3) {
             var3.printStackTrace();
-            if(this.callback != null) {
+            if (this.callback != null) {
                 this.callback.onPickFailed();
             }
         }
@@ -147,13 +147,13 @@ public class FetchImageUtils {
 
     private void doCameraPhoto(File f) {
         try {
-            MediaScannerConnection.scanFile(this.mActivity, new String[]{f.getAbsolutePath()}, new String[]{null}, (MediaScannerConnection.OnScanCompletedListener)null);
-            if(this.callback != null) {
+            MediaScannerConnection.scanFile(this.mActivity, new String[]{f.getAbsolutePath()}, new String[]{null}, (MediaScannerConnection.OnScanCompletedListener) null);
+            if (this.callback != null) {
                 this.callback.onPickSuccessed(Uri.fromFile(f));
             }
         } catch (Exception var3) {
             var3.printStackTrace();
-            if(this.callback != null) {
+            if (this.callback != null) {
                 this.callback.onPickFailed();
             }
         }
@@ -175,14 +175,14 @@ public class FetchImageUtils {
     }
 
     private Intent getPhotoPickIntent() {
-        Intent intent = new Intent("android.intent.action.GET_CONTENT", (Uri)null);
+        Intent intent = new Intent("android.intent.action.GET_CONTENT", (Uri) null);
         intent.setType("image/*");
         intent.putExtra("return-data", true);
         return intent;
     }
 
     public Intent getPickPhotoIntent() {
-        Intent intent = new Intent("android.intent.action.PICK", (Uri)null);
+        Intent intent = new Intent("android.intent.action.PICK", (Uri) null);
         intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
         return intent;
     }
@@ -197,7 +197,7 @@ public class FetchImageUtils {
             this.mActivity.startActivityForResult(e, 3025);
         } catch (ActivityNotFoundException var3) {
             var3.printStackTrace();
-            if(callback != null) {
+            if (callback != null) {
                 callback.onPickFailed();
             }
         }
@@ -214,7 +214,7 @@ public class FetchImageUtils {
             this.mActivity.startActivityForResult(e, 3024);
         } catch (ActivityNotFoundException var3) {
             var3.printStackTrace();
-            if(callback != null) {
+            if (callback != null) {
                 callback.onPickFailed();
             }
         }
@@ -229,7 +229,7 @@ public class FetchImageUtils {
             this.mActivity.startActivityForResult(e, 3021);
         } catch (ActivityNotFoundException var3) {
             var3.printStackTrace();
-            if(callback != null) {
+            if (callback != null) {
                 callback.onPickFailed();
             }
         }
@@ -244,7 +244,7 @@ public class FetchImageUtils {
             this.mActivity.startActivityForResult(e, 3022);
         } catch (ActivityNotFoundException var3) {
             var3.printStackTrace();
-            if(callback != null) {
+            if (callback != null) {
                 callback.onPickFailed();
             }
         }
@@ -258,7 +258,7 @@ public class FetchImageUtils {
     }
 
     private Intent getTakePickIntent(File f) {
-        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE", (Uri)null);
+        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE", (Uri) null);
         intent.putExtra("output", Uri.fromFile(f));
         return intent;
     }
@@ -269,7 +269,7 @@ public class FetchImageUtils {
     }
 
     private File getTempFile() {
-        if(this.isSDCARDMounted()) {
+        if (this.isSDCARDMounted()) {
             File f = new File(Environment.getExternalStorageDirectory(), "temp.jpg");
 
             try {

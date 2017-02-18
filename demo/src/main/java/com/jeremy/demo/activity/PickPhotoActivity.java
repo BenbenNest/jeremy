@@ -8,7 +8,11 @@ import com.jeremy.demo.R;
 import com.jeremy.library.activity.BasePickPhotoDialogActivity;
 import com.jeremy.library.common.Constants;
 import com.jeremy.library.utils.BitmapUtil;
+import com.jeremy.library.utils.FetchImageUtils;
+import com.jeremy.library.utils.StorageUtils;
 import com.jeremy.library.widget.CircleAvatarView;
+
+import java.io.File;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,21 +28,22 @@ public class PickPhotoActivity extends BasePickPhotoDialogActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pick_photo);
         ButterKnife.bind(this);
+        mPhotoType = Constants.PHOTO_TYPE_HEAD;
 
     }
 
 
     @Override
     protected void pickPhotoSuccessed(Uri uri) {
-        if (mBitmap != null && !mBitmap.isRecycled()) {
-            mBitmap.recycle();
-            mBitmap = null;
-            System.gc();
-        }
+        clearBitmap();
         if (uri != null) {
             try {
                 mBitmap = BitmapUtil.getimage(this, uri);
             } catch (Exception e) {
+                File dir = StorageUtils.getPhotoDir(this);
+                File file = new File(dir, StorageUtils.getPhotoFileName(Constants.PHOTO_TYPE_HEAD));
+                FetchImageUtils fetchImageUtils = new FetchImageUtils(this);
+                fetchImageUtils.doCameraCropPhoto(file);
             }
             if (mBitmap != null) {
                 performAction();
@@ -50,7 +55,16 @@ public class PickPhotoActivity extends BasePickPhotoDialogActivity {
         }
     }
 
+    private void clearBitmap() {
+        if (mBitmap != null && !mBitmap.isRecycled()) {
+            mBitmap.recycle();
+            mBitmap = null;
+            System.gc();
+        }
+    }
+
     private void performAction() {
+        ivAvatar.setImageBitmap(mBitmap);
 //        showProgressDialog();
         new Thread(new Runnable() {
             @Override

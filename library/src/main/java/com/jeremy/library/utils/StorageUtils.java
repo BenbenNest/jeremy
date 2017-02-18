@@ -1,5 +1,6 @@
 package com.jeremy.library.utils;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -8,8 +9,13 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.jeremy.library.common.Constants;
+
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import static android.os.Environment.MEDIA_MOUNTED;
 
@@ -28,6 +34,12 @@ public class StorageUtils {
     private static final String EXTERNAL_STORAGE_PERMISSION = "android.permission.WRITE_EXTERNAL_STORAGE";
     private static final String TAG = "StorageUtils";
 
+    //获取文件读取写入权限
+    public static final String[] PERMISSIONS_STORAGE = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
+
     private StorageUtils() {
     }
 
@@ -36,6 +48,50 @@ public class StorageUtils {
             return true;
         }
         return false;
+    }
+
+    /**
+     * 照片图片的
+     *
+     * @param context
+     * @return
+     */
+    public static File getPhotoDir(Context context) {
+        File dir = null;
+        if (isSDCardAvailable(context)) {
+            dir = Environment.getExternalStorageDirectory();
+            dir = new File(dir, "Android");
+            if (Build.VERSION.SDK_INT < 24) {
+                //在华为P9升级到7.1.1之后(升级之前并没有测试，未知)，如果添加data这个文件夹，就无法映射到相册，所以针对所有的7.0以上机型都不再添加data这个文件夹，以免其他手机也有类似情况
+                dir = new File(dir, "data");
+            }
+            dir = new File(dir, context.getPackageName());
+            dir = new File(dir, "Image");
+        }
+        if (dir == null) {
+            dir = context.getCacheDir();
+        }
+        if (dir == null) {
+            Log.w(TAG, "Can't define system cache directory! The app should be re-installed.");
+        } else {
+            if (!dir.exists()) {
+                if (!dir.mkdirs()) {
+                    return null;
+                }
+            }
+        }
+        return dir;
+    }
+
+    public static String getPhotoFileName(int photo_type) {
+        switch (photo_type) {
+            case Constants.PHOTO_TYPE_HEAD:
+                return Constants.PHOTO_HEAD_FILE_NAME;
+            default:
+                Date date = new Date(System.currentTimeMillis());
+                SimpleDateFormat dateFormat = new SimpleDateFormat("\'IMG\'_yyyyMMdd_HHmmss", Locale.getDefault());
+                return dateFormat.format(date) + ".jpg";
+        }
     }
 
     public static File getCacheDirectoryCrash(Context context) {

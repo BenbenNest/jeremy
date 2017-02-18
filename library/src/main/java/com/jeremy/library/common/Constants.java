@@ -6,15 +6,18 @@ package com.jeremy.library.common;
 
 public class Constants {
 
-    public static final String FILE_PROVIDER="com.jeremy.demo.fileprovider";
+    public static final String FILE_PROVIDER = "com.jeremy.demo.fileprovider";
 
     /**
-     * Photo Type
+     * Photo Type, open camera request code also use this type
      */
+    public static final int PHOTO_TYPE_HEAD = 1001;//头像照片
+
+    public static final String PHOTO_HEAD_FILE_NAME = "header.jpg";
+
     public static final int PHOTO_TYPE_BUSINESS_LICENSE = 1;
     public static final int PHOTO_TYPE_IDENTIFIER_FRONT = 2;
     public static final int PHOTO_TYPE_IDENTIFIER_BACK = 3;
-    public static final int PHOTO_TYPE_HEAD_PHOTO = 4;
     public static final int PHOTO_TYPE_STORE_PHOTO = 5;
     public static final int PHOTO_TYPE_SHOW_PHOTO = 6;
     public static final int PHOTO_TYPE_REWARD_PHOTO = 7;
@@ -29,4 +32,8 @@ public class Constants {
 
 
     public static final int HANLDER_TPYE_UPLOAD_PHOTO = 1;
+
+
+
+
 }
