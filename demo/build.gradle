@@ -53,7 +53,8 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     //可选，用于生成application类
-//    provided('com.tencent.tinker:tinker-android-anno:1.7.5')
+    //    provided('com.tencent.tinker:tinker-android-anno:1.7.5')
     //tinker的核心库
-//    compile('com.tencent.tinker:tinker-android-lib:1.7.5')
+    //    compile('com.tencent.tinker:tinker-android-lib:1.7.5')
+    compile project(':crop')
 }

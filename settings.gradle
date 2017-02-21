@@ -1,4 +1,4 @@
-include ':app', ':yourday', ':demo', ':library', ':viewinject-annotation', ':viewinject_compiler', ':viewinject_compiler', ':inject', ':inject', 'lianxiandaogenerator', ':annotation'
+include ':app', ':yourday', ':demo', ':library', ':viewinject-annotation', ':viewinject_compiler', ':viewinject_compiler', ':inject', ':inject', ':crop', 'lianxiandaogenerator', ':annotation'
 
 //include ':yourday'
 
