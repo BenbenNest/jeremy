@@ -3,4 +3,9 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+    <!-- Pick Photo -->
+    <dimen name="pick_photo_avatar_size">200dp</dimen>
+    <dimen name="pick_photo_item_margin_top">20dp</dimen>
+
 </resources>

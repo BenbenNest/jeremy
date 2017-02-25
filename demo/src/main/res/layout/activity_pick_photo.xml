@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_pick_photo"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <!--com.jeremy.library.widget.CircleAvatarView-->
 
     <com.jeremy.library.widget.CircleAvatarView
         android:id="@+id/iv_avatar"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_centerInParent="true" />
+
+        android:layout_width="@dimen/pick_photo_avatar_size"
+        android:layout_height="@dimen/pick_photo_avatar_size" />
 
     <ImageView
         android:id="@+id/result_image"
@@ -19,4 +20,4 @@
         android:scaleType="centerInside" />
 
 
-</RelativeLayout>
+</LinearLayout>
