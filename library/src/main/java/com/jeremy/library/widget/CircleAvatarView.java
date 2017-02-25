@@ -10,6 +10,7 @@ import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
@@ -59,10 +60,6 @@ public class CircleAvatarView extends ImageView {
         paint.setXfermode(null);
         canvas.restore();
 
-        // paint.setColor(0xFFFFFFFF);
-        // paint.setStrokeWidth(dip2px(2));
-        // paint.setStyle(Style.STROKE);
-        // canvas.drawCircle(canvasDiameter / 2, canvasDiameter / 2, diameter / 2, paint);
     }
 
     @Override
@@ -75,7 +72,14 @@ public class CircleAvatarView extends ImageView {
     }
 
     @Override
+    public void setImageURI(Uri uri) {
+        super.setImageURI(uri);
+        setImageDrawable(getDrawable());
+    }
+
+    @Override
     public void setImageBitmap(Bitmap bm) {
+        if (bm == null) return;
         if (bm.getWidth() != diameter) {
             int newWidth = diameter;
             int bmWidth = bm.getWidth();
@@ -111,18 +115,20 @@ public class CircleAvatarView extends ImageView {
     }
 
     private Bitmap drawableToBitmap(Drawable drawable) {
-        Bitmap bitmap = Bitmap
-                .createBitmap(
-                        drawable.getIntrinsicWidth(),
-                        drawable.getIntrinsicHeight(),
-                        drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
-                                : Bitmap.Config.RGB_565);
+        Bitmap bitmap = null;
+        if (drawable != null) {
+            bitmap = Bitmap
+                    .createBitmap(
+                            drawable.getIntrinsicWidth(),
+                            drawable.getIntrinsicHeight(),
+                            drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
+                                    : Bitmap.Config.RGB_565);
 
-        Canvas canvas = new Canvas(bitmap);
-        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(),
-                drawable.getIntrinsicHeight());
-        drawable.draw(canvas);
-
+            Canvas canvas = new Canvas(bitmap);
+            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(),
+                    drawable.getIntrinsicHeight());
+            drawable.draw(canvas);
+        }
         return bitmap;
     }
 
