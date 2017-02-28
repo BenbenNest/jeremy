@@ -32,6 +32,9 @@ public class FunctionListModel {
     private void initData() {
         FunctionData data;
 
+        data = new FunctionData("摇一摇", packageName + "ShakeActivity", "摇一摇", 0);
+        list.add(data);
+
         data = new FunctionData("拍照裁剪", packageName + "PickPhotoActivity", "拍照裁剪", 0);
         list.add(data);
 
