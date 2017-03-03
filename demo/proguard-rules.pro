@@ -17,18 +17,6 @@
 #}
 
 
-#butterknife proguard
--keep class butterknife.** { *; }
--dontwarn butterknife.internal.**
--keep class **$$ViewBinder { *; }
--keepclasseswithmembernames class * {
-    @butterknife.* <fields>;
-}
--keepclasseswithmembernames class * {
-    @butterknife.* <methods>;
-}
-
-
 # for v4, v7
 -dontwarn android.support.v4.**
 -keep class android.support.v4.** { *; }
@@ -44,6 +32,25 @@
 -keep interface android.support.design.**{*;}
 # for Annotation
 -keep class * extends java.lang.annotation.Annotation
+
+#butterknife proguard
+-keep class butterknife.** { *; }
+-dontwarn butterknife.internal.**
+-keep class **$$ViewBinder { *; }
+-keepclasseswithmembernames class * {
+    @butterknife.* <fields>;
+}
+-keepclasseswithmembernames class * {
+    @butterknife.* <methods>;
+}
+
+#retrofit proguard
+-dontwarn retrofit2.**
+-keep class retrofit2.** { *; }
+-keepattributes Signature
+-keepattributes Exceptions
+
+
 
 
 
