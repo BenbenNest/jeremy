@@ -50,6 +50,26 @@
 -keepattributes Signature
 -keepattributes Exceptions
 
+##---------------Begin: proguard configuration for OkHttp and Okio  ----------
+-keepattributes Signature
+-keepattributes Annotation
+# OkHttp
+-dontwarn okhttp3.**
+-keep class okhttp3.** { *; }
+-keep class com.squareup.okhttp3.** {
+*;
+}
+
+# Okio
+-dontwarn okio.**
+-keep class okio.** { *; }
+
+# okhttp-urlconnection
+-keep class com.squareup.okhttp.** { *; }
+-keep interface com.squareup.okhttp.** { *; }
+-dontwarn com.squareup.okhttp.**
+##---------------End: proguard configuration for OkHttp and Okio  ----------
+
 
 
 
