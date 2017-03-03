@@ -31,10 +31,8 @@ import java.lang.ref.WeakReference;
 public class ShakeActivity extends AppCompatActivity implements SensorEventListener {
     private static final String TAG = "ShakeActivity";
 
-    private ImageView image;
     private SensorManager sensorManager;
     private Sensor sensor;
-    private Vibrator vibrator;
     private static final int UPTATE_INTERVAL_TIME = 50;
     private static final int SPEED_SHRESHOLD = 50;//这个值调节灵敏度
     private long lastUpdateTime;
@@ -50,11 +48,8 @@ public class ShakeActivity extends AppCompatActivity implements SensorEventListe
     private Sensor mAccelerometerSensor;
     private Vibrator mVibrator;//手机震动
     private SoundPool mSoundPool;//摇一摇音效
-
     //记录摇动状态
     private boolean isShake = false;
-
-
     private LinearLayout mTopLayout;
     private LinearLayout mBottomLayout;
     private ImageView mTopLine;
@@ -62,7 +57,6 @@ public class ShakeActivity extends AppCompatActivity implements SensorEventListe
 
     private MyHandler mHandler;
     private int mWeiChatAudio;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,9 +66,6 @@ public class ShakeActivity extends AppCompatActivity implements SensorEventListe
         setContentView(R.layout.activity_shake);
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
-        image = (ImageView) findViewById(R.id.image);
-
 
         //初始化View
         initView();
@@ -165,21 +156,15 @@ public class ShakeActivity extends AppCompatActivity implements SensorEventListe
             lastY = y;
             lastZ = z;
             double speed = (Math.sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ) / timeInterval) * 100;
-//            if (speed >= SPEED_SHRESHOLD) {
-////                vibrator.vibrate(300);
-////                image.setImageResource(R.drawable.running01);
-//            }
 
 //            if ((Math.abs(x) > 17 || Math.abs(y) > 17 || Math
 //                    .abs(z) > 17) && !isShake) {
-            if (speed >= SPEED_SHRESHOLD) {
+            if (speed >= SPEED_SHRESHOLD && !isShake) {
                 isShake = true;
                 // TODO: 2016/10/19 实现摇动逻辑, 摇动后进行震动
                 Thread thread = new Thread() {
                     @Override
                     public void run() {
-
-
                         super.run();
                         try {
                             Log.d(TAG, "onSensorChanged: 摇动");
@@ -225,7 +210,7 @@ public class ShakeActivity extends AppCompatActivity implements SensorEventListe
             switch (msg.what) {
                 case START_SHAKE:
                     //This method requires the caller to hold the permission VIBRATE.
-                    mActivity.mVibrator.vibrate(300);
+//                    mActivity.mVibrator.vibrate(300);
                     //发出提示音
                     mActivity.mSoundPool.play(mActivity.mWeiChatAudio, 1, 1, 0, 0, 1);
                     mActivity.mTopLine.setVisibility(View.VISIBLE);
@@ -233,7 +218,7 @@ public class ShakeActivity extends AppCompatActivity implements SensorEventListe
                     mActivity.startAnimation(false);//参数含义: (不是回来) 也就是说两张图片分散开的动画
                     break;
                 case AGAIN_SHAKE:
-                    mActivity.mVibrator.vibrate(300);
+//                    mActivity.mVibrator.vibrate(300);
                     break;
                 case END_SHAKE:
                     //整体效果结束, 将震动设置为false
