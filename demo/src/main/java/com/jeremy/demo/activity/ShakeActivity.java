@@ -6,8 +6,6 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.media.AudioManager;
-import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -21,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.jeremy.demo.R;
+import com.jeremy.library.utils.SoundPlayUtils;
 
 import java.lang.ref.WeakReference;
 
@@ -42,14 +41,12 @@ public class ShakeActivity extends AppCompatActivity implements SensorEventListe
     private SensorManager mSensorManager;
     private Sensor mAccelerometerSensor;
     private Vibrator mVibrator;
-    private SoundPool mSoundPool;
     private boolean isShake = false;
     private LinearLayout mTopLayout;
     private LinearLayout mBottomLayout;
     private ImageView mTopLine;
     private ImageView mBottomLine;
     private MyHandler mHandler;
-    private int mWeiChatAudio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +55,8 @@ public class ShakeActivity extends AppCompatActivity implements SensorEventListe
         setContentView(R.layout.activity_shake);
         initView();
         mHandler = new MyHandler(this);
-        mSoundPool = new SoundPool(1, AudioManager.STREAM_SYSTEM, 5);
-        mWeiChatAudio = mSoundPool.load(this, R.raw.weichat_audio, 1);
         mVibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+        SoundPlayUtils.init(this);
     }
 
     @Override
@@ -160,7 +156,7 @@ public class ShakeActivity extends AppCompatActivity implements SensorEventListe
             switch (msg.what) {
                 case START_SHAKE:
                     mActivity.mVibrator.vibrate(300);
-                    mActivity.mSoundPool.play(mActivity.mWeiChatAudio, 1, 1, 0, 0, 1);
+                    SoundPlayUtils.play(SoundPlayUtils.SOUND_SHAKE);
                     mActivity.mTopLine.setVisibility(View.VISIBLE);
                     mActivity.mBottomLine.setVisibility(View.VISIBLE);
                     mActivity.startAnimation(false);
