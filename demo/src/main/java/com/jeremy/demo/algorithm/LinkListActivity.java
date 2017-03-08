@@ -60,14 +60,13 @@ public class LinkListActivity extends AppCompatActivity {
      * @return
      */
     public static Node revertList(Node head) {
-        if (head == null || head.next == null) return head;
-        Node reHead = null, pre = null;
-        Node cur = head;
-        while (cur != null) {
+        if (null == head || null == head.next) return head;
+        Node cur = head, pre = head, reHead = null;
+        while (null != cur) {
             pre = cur;
-            cur = cur.next;
             pre.next = reHead;
             reHead = pre;
+            cur = cur.next;
         }
         return reHead;
     }
