@@ -32,6 +32,10 @@ public class FunctionListModel {
     private void initData() {
         FunctionData data;
 
+
+        data = new FunctionData("数字签名", packageName + "DigtalSignActivity", "数字签名", 0);
+        list.add(data);
+
         data = new FunctionData("摇一摇", packageName + "ShakeActivity", "摇一摇", 0);
         list.add(data);
 
@@ -81,6 +85,9 @@ public class FunctionListModel {
         list.add(data);
 
         data = new FunctionData("友盟推送", packageName + "YouMengActivity", "友盟推送", 0);
+        list.add(data);
+
+        data = new FunctionData("数字签名", packageName + "DigtalSignActivity", "数字签名", 0);
         list.add(data);
 
 //        FunctionData data = new FunctionData("窗帘效果", packageName + "CurtainActivity", "窗帘效果", 0);

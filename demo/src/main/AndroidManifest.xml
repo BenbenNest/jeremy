@@ -92,6 +92,9 @@
         <activity android:name=".activity.CheckUpdateActivity" />
         <activity android:name=".activity.SpringBackActivity" />
         <activity android:name=".activity.VideoFullScreenActivity" />
+        <activity
+            android:name=".activity.DigtalSignActivity"
+            android:screenOrientation="portrait" />
 
         <!-- Android 7.0 需要使用provider打开文件权限 -->
         <provider
