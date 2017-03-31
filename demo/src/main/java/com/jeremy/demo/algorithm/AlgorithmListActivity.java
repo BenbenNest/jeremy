@@ -16,5 +16,4 @@ public class AlgorithmListActivity extends AppCompatActivity {
 
 
 
-
 }

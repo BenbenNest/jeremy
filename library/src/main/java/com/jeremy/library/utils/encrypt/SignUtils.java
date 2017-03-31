@@ -6,7 +6,6 @@ package com.jeremy.library.utils.encrypt;
 
 import android.content.Context;
 
-import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.security.KeyStore;
@@ -145,10 +144,11 @@ public abstract class SignUtils extends Coder {
     private static KeyStore getKeyStore(Context context, String keyStoreFile, String password)
             throws Exception {
         InputStream inputStream = context.getAssets().open(keyStoreFile);
-        FileInputStream is = (FileInputStream) inputStream;
-        KeyStore ks = KeyStore.getInstance(KEY_STORE);
-        ks.load(is, password.toCharArray());
-        is.close();
+//        FileInputStream is = (FileInputStream) inputStream;
+//        KeyStore ks = KeyStore.getInstance(KEY_STORE);
+        KeyStore ks = KeyStore.getInstance("jks");
+        ks.load(inputStream, password.toCharArray());
+        inputStream.close();
         return ks;
     }
 

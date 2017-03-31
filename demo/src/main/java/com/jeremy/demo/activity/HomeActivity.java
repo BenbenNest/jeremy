@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jeremy.demo.R;
+import com.jeremy.demo.algorithm.HeapSort;
 import com.jeremy.demo.algorithm.LinkListActivity;
 import com.jeremy.demo.mvp.bean.FunctionData;
 import com.jeremy.demo.mvp.presenter.FunctionListPresenter;
@@ -44,10 +45,11 @@ public class HomeActivity extends AppCompatActivity implements FunctionListView 
         //崩溃日志记录测试代码
 //        commonRecyclerView.setVisibility(View.VISIBLE);
         ButterKnife.bind(this);
-        test();
+//        test();
         init();
-
+        HeapSort.testHeapSort();
     }
+
 
     private void test() {
         LinkListActivity.test();
@@ -110,7 +112,6 @@ public class HomeActivity extends AppCompatActivity implements FunctionListView 
     public void onFailure(Throwable e) {
 
     }
-
 
     class FunctionListAdapter extends RecyclerView.Adapter {
 
@@ -203,7 +204,6 @@ public class HomeActivity extends AppCompatActivity implements FunctionListView 
 
             }
         }
-
 
     }
 }

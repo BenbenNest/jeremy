@@ -16,8 +16,6 @@
 
     <!-- 震动权限 -->
     <uses-permission android:name="android.permission.VIBRATE" />
-
-
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
@@ -110,7 +108,8 @@
         <activity android:name=".activity.TestActivity" />
         <activity android:name=".activity.PickPhotoActivity" />
         <activity android:name="com.jeremy.crop.CropImageActivity" />
-        <activity android:name=".activity.ShakeActivity"></activity>
+        <activity android:name=".activity.ShakeActivity" />
+        <activity android:name=".algorithm.HeapSortActivity"></activity>
     </application>
 
 </manifest>
