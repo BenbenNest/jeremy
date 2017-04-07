@@ -34,9 +34,7 @@ public class AnnotationActivity extends AppCompatActivity {
     }
 
 
-
-
-//    /**
+    //    /**
 //     * 获取直播状态
 //     * @param id
 //     * @return
