@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- common color -->
+    <color name="white">#ffffff</color>
+
+
+
+
+
+
     <color name="app_bg">#fafafa</color>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
@@ -15,4 +23,7 @@
     <color name="gray_dark">#ffd2d2d2</color>
 
     <color name="divider_color">@color/c8</color>
+
+    <!-- Input Dialog -->
+    <color name="input_dialog_send_btn_color">#cccccc</color>
 </resources>

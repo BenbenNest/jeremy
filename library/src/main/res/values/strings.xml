@@ -41,4 +41,9 @@
     <!-- update -->
     <string name="app_update">版本更新</string>
     <string name="the_latest_version">已是最新版本</string>
+
+    <!-- input edit dialog -->
+    <string name="input_dialog_send_btn_text">发送</string>
+    <string name="input_dialog_edit_hint">你的观点</string>
+
 </resources>

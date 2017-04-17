@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/share_content_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:gravity="bottom"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_dialog_edit_layout_height"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <cn.com.weilaihui3.widgets.ChatEditText
+                android:id="@+id/live_chat_room_send_edit"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:drawableLeft="@drawable/details_page_write_comment_icon"
+                android:drawablePadding="@dimen/input_dialog_send_btn_padding_left"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:hint="@string/input_dialog_edit_hint"
+                android:imeOptions="flagNoExtractUi"
+                android:paddingLeft="@dimen/input_dialog_send_btn_padding_left"
+                android:textColorHint="@color/send_txt"
+                android:textSize="@dimen/input_dialog_send_btn_text_size" />
+
+            <Button
+                android:id="@+id/live_chat_room_send_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:background="@null"
+                android:paddingLeft="@dimen/input_dialog_send_btn_padding_left"
+                android:paddingRight="@dimen/input_dialog_send_btn_padding_right"
+                android:text="@string/input_dialog_send_btn_text"
+                android:textColor="@color/input_dialog_send_btn_color"
+                android:textSize="@dimen/input_dialog_send_btn_text_size" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
