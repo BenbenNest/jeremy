@@ -26,14 +26,13 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:background="@color/white"
-                android:drawableLeft="@drawable/details_page_write_comment_icon"
                 android:drawablePadding="@dimen/input_dialog_send_btn_padding_left"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:hint="@string/input_dialog_edit_hint"
                 android:imeOptions="flagNoExtractUi"
                 android:paddingLeft="@dimen/input_dialog_send_btn_padding_left"
-                android:textColorHint="@color/send_txt"
+                android:textColorHint="@color/input_dialog_send_btn_color"
                 android:textSize="@dimen/input_dialog_send_btn_text_size" />
 
             <Button
