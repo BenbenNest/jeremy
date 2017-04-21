@@ -65,3 +65,9 @@ allprojects {
         mavenCentral()
     }
 }
+
+ext{
+    compileSdkVersion = 25
+    buildToolsVersion = "23.0.3"
+
+}
