@@ -161,12 +161,13 @@ public class StorageUtils {
 
     private static File getExternalCacheDir(Context context) {
         File dataDir = new File(new File(Environment.getExternalStorageDirectory(), "Android"), "data");
-        File appCacheDir = new File(new File(dataDir, context.getPackageName()), "cache/download");
+        File appCacheDir = new File(new File(dataDir, context.getPackageName()), "cache");
         if (!appCacheDir.exists()) {
-            if (!appCacheDir.mkdirs()) {
-                Log.w(TAG, "Unable to create external cache directory");
-                return null;
-            }
+            appCacheDir.mkdirs();
+//            if (!appCacheDir.mkdirs()) {
+//                Log.w(TAG, "Unable to create external cache directory");
+//                return null;
+//            }
             try {
                 new File(appCacheDir, ".nomedia").createNewFile();
             } catch (IOException e) {

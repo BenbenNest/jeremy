@@ -9,11 +9,22 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
+import java.io.File;
+
 /**
  * Created by changqing.zhao on 2017/2/13.
  */
 
 public class SystemUtils {
+
+    public static void installApk(Context context, String apkPath) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setDataAndType(Uri.fromFile(new File(apkPath)),
+                "application/vnd.android.package-archive");
+        context.startActivity(intent);
+    }
+
     public static void launchAppDetailSettingIntent(Context context, String pkgName) {
         Intent localIntent = new Intent();
         localIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

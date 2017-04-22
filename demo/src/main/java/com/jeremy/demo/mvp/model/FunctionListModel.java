@@ -32,6 +32,8 @@ public class FunctionListModel {
     private void initData() {
         FunctionData data;
 
+        data = new FunctionData("DroidPlugin插件", packageName + "DroidPluginActivity", "DroidPlugin插件", 0);
+        list.add(data);
 
         data = new FunctionData("数字签名", packageName + "DigtalSignActivity", "数字签名", 0);
         list.add(data);
