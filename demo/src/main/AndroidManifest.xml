@@ -110,7 +110,8 @@
         <activity android:name="com.jeremy.crop.CropImageActivity" />
         <activity android:name=".activity.ShakeActivity" />
         <activity android:name=".algorithm.HeapSortActivity" />
-        <activity android:name=".activity.DroidPluginActivity"></activity>
+        <activity android:name=".activity.DroidPluginActivity" />
+        <activity android:name=".fragmentwithback.FragmentWithBackActivity"></activity>
     </application>
 
 </manifest>

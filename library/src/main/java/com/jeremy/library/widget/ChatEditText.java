@@ -10,7 +10,7 @@ import java.util.Calendar;
 
 /**
  * Created by changqing.zhao on 2017/3/31.
- * 安卓手机软键盘弹出后不响应onKeyDown、onBackPressed的解决方法
+ * 安卓手机软键盘弹出后不响应onKeyDown、onBackPressed的解决方法(http://blog.csdn.net/wuyinlei/article/details/53844208)
  */
 public class ChatEditText extends AppCompatEditText {
     private String TAG = "ChatEditText";

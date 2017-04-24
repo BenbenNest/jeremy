@@ -32,6 +32,9 @@ public class FunctionListModel {
     private void initData() {
         FunctionData data;
 
+        data = new FunctionData("Fragment监听返回键", "com.jeremy.demo.fragmentwithback.FragmentWithBackActivity", "Fragment监听返回键", 0);
+        list.add(data);
+
         data = new FunctionData("DroidPlugin插件", packageName + "DroidPluginActivity", "DroidPlugin插件", 0);
         list.add(data);
 
