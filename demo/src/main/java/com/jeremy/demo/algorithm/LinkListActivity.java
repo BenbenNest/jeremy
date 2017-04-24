@@ -80,4 +80,121 @@ public class LinkListActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * 2个链表表示的整数进行相加求和
+     * LinkedList属于双向链表
+     */
+
+    public Node<Integer> addList(Node<Integer> n1, Node<Integer> n2) {
+        if (null == n1) return n2;
+        if (null == n2) return n1;
+        int temp, key = 0;
+        Node<Integer> result = null;
+        while (null != n1 && null != n2) {
+            temp = n1.val + n2.val;
+            if (temp > 10) {
+                key = 1;
+                temp -= 10;
+            } else {
+                key = 0;
+            }
+            if (key > 0) {
+                temp += key;
+            }
+            Node<Integer> node = new Node<>(temp);
+            if (null == result) {
+                result = node;
+            } else {
+                result.next = node;
+                result = node;
+            }
+        }
+        if (null != n1) {
+            while (null != n1) {
+                temp = n1.val;
+                if (key > 0) {
+                    temp += key;
+                    key = 0;
+                }
+                Node<Integer> node = new Node<>(temp);
+                result.next = node;
+                result = node;
+            }
+        }
+        if (null != n2) {
+            while (null != n2) {
+                temp = n2.val;
+                if (key > 0) {
+                    temp += key;
+                    key = 0;
+                }
+                Node<Integer> node = new Node<>(temp);
+                result.next = node;
+                result = node;
+            }
+        }
+        return result;
+    }
+
+    public Node<Integer> add(Node<Integer> n1, Node<Integer> n2) {
+        if (null == n1) return n2;
+        if (null == n2) return n1;
+        int length = dealListLen(n1, n2);
+        int temp, key = 0;
+        Node<Integer> result = new Node<>(0);
+        while (null != n1.next) {
+            temp = n1.val + n2.val;
+        }
+        return result;
+    }
+
+    public int dealListLen(Node<Integer> n1, Node<Integer> n2) {
+        int len1 = 0, len2 = 0;
+        Node<Integer> list1 = n1;
+        Node<Integer> list2 = n2;
+        Node<Integer> cur = n1;
+        while (null != cur) {
+            len1 += 1;
+            cur = cur.next;
+        }
+        cur = n2;
+        while (null != cur) {
+            len2 += 1;
+            cur = cur.next;
+        }
+
+        if (len1 > len2) {
+            int count = 0;
+            cur = n2;
+            while (count < len1) {
+                count += 1;
+                if (null == cur.next) {
+                    Node<Integer> node = new Node<>(0);
+                    cur.next = node;
+                    cur = node;
+                } else {
+                    cur = cur.next;
+                }
+            }
+            return len1;
+        }
+
+        if (len1 < len2) {
+            int count = 0;
+            cur = n1;
+            while (count < len2) {
+                count += 1;
+                if (null == cur.next) {
+                    Node<Integer> node = new Node<>(0);
+                    cur.next = node;
+                    cur = node;
+                } else {
+                    cur = cur.next;
+                }
+            }
+            return len2;
+        }
+        return len1;
+    }
+
 }
