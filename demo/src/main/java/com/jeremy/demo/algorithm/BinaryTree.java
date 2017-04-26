@@ -46,7 +46,7 @@ public class BinaryTree {
     public static void LevelTraverse(BinaryTreeNode root) {
         if (null == root)
             return;
-        LinkedList<BinaryTreeNode> list = new LinkedList<BinaryTreeNode>();
+        LinkedList<BinaryTreeNode> list = new LinkedList<>();
         list.push(root);
         while (!list.isEmpty()) {
             BinaryTreeNode node = list.poll();
