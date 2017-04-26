@@ -12,6 +12,28 @@ public class BinaryTree {
         public T value;
         public BinaryTreeNode left;
         public BinaryTreeNode right;
+
+        public BinaryTreeNode(T val) {
+            value = val;
+        }
+    }
+
+    /**
+     * 数组构造完全二叉树
+     *
+     * @param root
+     * @param nums
+     * @param index
+     * @return
+     */
+    public BinaryTreeNode<Integer> buildTree(BinaryTreeNode<Integer> root, int[] nums, int index) {
+        if (index >= nums.length) {
+            return null;
+        }
+        root = new BinaryTreeNode(nums[index]);
+        root.left = buildTree(root.left, nums, 2 * index + 1);
+        root.right = buildTree(root.right, nums, 2 * index + 2);
+        return root;
     }
 
     /**
@@ -39,11 +61,11 @@ public class BinaryTree {
 
     /**
      * 求二叉树第K层的节点个数
-     6. 求二叉树第K层的节点个数
-     递归解法：
-     （1）如果二叉树为空或者k<1返回0
-     （2）如果二叉树不为空并且k==1，返回1
-     （3）如果二叉树不为空且k>1，返回左子树中k-1层的节点个数与右子树k-1层节点个数之和
+     * 6. 求二叉树第K层的节点个数
+     * 递归解法：
+     * （1）如果二叉树为空或者k<1返回0
+     * （2）如果二叉树不为空并且k==1，返回1
+     * （3）如果二叉树不为空且k>1，返回左子树中k-1层的节点个数与右子树k-1层节点个数之和
      *
      * @param k
      * @return
@@ -68,7 +90,7 @@ public class BinaryTree {
         return getTreeNodeCount(root.left) + getTreeNodeCount(root.right) + 1;
     }
 
-//2. 求二叉树的深度
+    //2. 求二叉树的深度
 //    递归解法：
 //            （1）如果二叉树为空，二叉树的深度为0
 //（2）如果二叉树不为空，二叉树的深度 = max(左子树深度， 右子树深度) + 1
