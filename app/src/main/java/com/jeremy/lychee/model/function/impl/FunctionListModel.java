@@ -41,6 +41,10 @@ public class FunctionListModel implements IFunctionListModel {
         mFunctionList.put(FUNCTION_CURTAIN, data);
         mOrderList.add(FUNCTION_CURTAIN);
 
+        data = new FunctionListData("RxJava+Retrofit+OKHttp", packageName + "RxJavaRetrofitOkhttpActivity", "RxJava+Retrofit+OKHttp", 0);
+        mFunctionList.put(FUNCTION_CURTAIN, data);
+        mOrderList.add(FUNCTION_CURTAIN);
+
         data = new FunctionListData("弹幕效果", packageName + "BarrageActivity", "弹幕效果", 0);
         mFunctionList.put(FUNCTION_BARRAGE, data);
         mOrderList.add(FUNCTION_BARRAGE);

@@ -111,7 +111,10 @@
         <activity android:name=".activity.ShakeActivity" />
         <activity android:name=".algorithm.HeapSortActivity" />
         <activity android:name=".activity.DroidPluginActivity" />
-        <activity android:name=".fragmentwithback.FragmentWithBackActivity"></activity>
+        <activity android:name=".fragmentwithback.FragmentWithBackActivity" />
+        <activity
+            android:name=".activity.RxJavaRetrofitOkhttpActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

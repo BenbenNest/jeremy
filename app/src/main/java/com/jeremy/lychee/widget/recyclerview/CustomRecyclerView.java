@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 
 /**
- * Created by daibangwen-xy on 16/2/15.
+ * Created by zhaochangqing on 17/2/15.
  */
 public class CustomRecyclerView extends RecyclerView {
     public CustomRecyclerView(Context context) {

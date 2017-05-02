@@ -17,7 +17,6 @@ public class FunctionListModel {
     public static final int FUNCTION_WAVE_VIEW = 1004;
     public static final int FUNCTION_ANNOTATION = 1005;
 
-
     private String packageName = "com.jeremy.demo.activity.";
     private ArrayList<FunctionData> list = new ArrayList<>();
 
@@ -31,6 +30,8 @@ public class FunctionListModel {
 
     private void initData() {
         FunctionData data;
+        data = new FunctionData("RxJava+Retrofit+OKHttp", packageName + "RxJavaRetrofitOkhttpActivity", "RxJava+Retrofit+OKHttp", 0);
+        list.add(data);
 
         data = new FunctionData("Fragment监听返回键", "com.jeremy.demo.fragmentwithback.FragmentWithBackActivity", "Fragment监听返回键", 0);
         list.add(data);

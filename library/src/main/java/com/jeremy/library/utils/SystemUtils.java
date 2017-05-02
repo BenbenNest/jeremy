@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
+import org.apache.http.protocol.HttpContext;
+
 import java.io.File;
 
 /**
@@ -64,4 +66,5 @@ public class SystemUtils {
         InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.SHOW_FORCED);
     }
+
 }
