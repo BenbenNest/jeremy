@@ -2,6 +2,7 @@ package com.jeremy.demo.net;
 
 import android.support.annotation.IntDef;
 
+import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.jeremy.demo.BuildConfig;
 
@@ -80,6 +81,7 @@ public class RetroAdapter {
 
     private static RetroApiService createService(@ServiceType final int type) {
         OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
+        clientBuilder.addNetworkInterceptor(new StethoInterceptor());
         clientBuilder.addInterceptor(new Interceptor() {
             @Override
             public Response intercept(Chain chain) throws IOException {

@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Build;
 
+import com.facebook.stetho.Stetho;
 import com.jeremy.library.utils.CrashHandler;
 import com.morgoo.droidplugin.PluginHelper;
 
@@ -27,6 +28,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         sContext = this;
+        Stetho.initializeWithDefaults(this);
         CrashHandler.getInstance(getApplicationContext()).init();
         if (Build.VERSION.SDK_INT < 24) {
             PluginHelper.getInstance().applicationOnCreate(getBaseContext());

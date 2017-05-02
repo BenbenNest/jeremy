@@ -6,7 +6,6 @@ import android.view.View;
 
 import com.jeremy.demo.R;
 import com.jeremy.demo.net.RetroAdapter;
-import com.jeremy.library.utils.ToastUtils;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
