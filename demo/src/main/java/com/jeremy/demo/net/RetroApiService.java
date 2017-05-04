@@ -1,5 +1,7 @@
 package com.jeremy.demo.net;
 
+import com.jeremy.demo.model.GankList;
+
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;
 import retrofit2.http.GET;
@@ -11,7 +13,7 @@ public interface RetroApiService {
      * 获取所有频道
      */
     @GET("data/Android/10/1")
-    Observable<ResponseBody> getAll();
+    Observable<GankList> getAll();
 
 
 //    /**

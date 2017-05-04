@@ -5,13 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.jeremy.demo.R;
-import com.jeremy.demo.net.RetroAdapter;
-
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
-import okhttp3.ResponseBody;
 
 public class RxJavaRetrofitOkhttpActivity extends AppCompatActivity {
 
@@ -23,32 +16,8 @@ public class RxJavaRetrofitOkhttpActivity extends AppCompatActivity {
 
     }
 
-    public void getHtml(View view) {
-//        ToastUtils.showCenter(this, "test");
-        RetroAdapter.getService().getAll()
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe(new Observer<ResponseBody>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(ResponseBody responseBody) {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
+    public void getGankAll(View view) {
+        GankAllActivity.startActivity(this);
 
 
     }

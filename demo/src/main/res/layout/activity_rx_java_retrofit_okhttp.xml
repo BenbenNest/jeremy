@@ -15,8 +15,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="getHtml"
-            android:text="Get Html" />
+            android:onClick="getGankAll"
+            android:text="Get请求" />
 
         <Button
             android:layout_width="wrap_content"

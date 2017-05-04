@@ -20,6 +20,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 /**
@@ -147,6 +148,7 @@ public class RetroAdapter {
         Retrofit.Builder retrofitBuilder = new Retrofit.Builder()
                 .client(clientBuilder.build())
                 .baseUrl(getServiceInfo(type).getBaseUrl())
+                .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create());
 
 //        retrofitBuilder.addConverterFactory(new StringConverterFactory());

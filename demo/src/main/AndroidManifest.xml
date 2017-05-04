@@ -114,7 +114,10 @@
         <activity android:name=".fragmentwithback.FragmentWithBackActivity" />
         <activity
             android:name=".activity.RxJavaRetrofitOkhttpActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.GankAllActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
