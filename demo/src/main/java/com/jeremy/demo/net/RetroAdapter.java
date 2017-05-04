@@ -151,8 +151,6 @@ public class RetroAdapter {
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create());
 
-//        retrofitBuilder.addConverterFactory(new StringConverterFactory());
-//
 //        Converter.Factory converterFactory = getServiceInfo(type).getConverterFactory();
 //        if (converterFactory != null) {
 //            retrofitBuilder.addConverterFactory(converterFactory);

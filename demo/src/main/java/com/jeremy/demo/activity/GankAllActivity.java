@@ -18,6 +18,7 @@ import com.bumptech.glide.RequestManager;
 import com.jeremy.demo.R;
 import com.jeremy.demo.model.GankList;
 import com.jeremy.demo.net.RetroAdapter;
+import com.jeremy.library.HeaderAndFooterRecyclerView.HeaderAndFooterRecyclerViewAdapter;
 import com.jeremy.library.recycler_view.CustomDecoration;
 import com.jeremy.library.utils.DateUtil;
 
