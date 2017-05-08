@@ -42,56 +42,56 @@ public class FunctionListModel {
         data = new FunctionData("数字签名", packageName + "DigtalSignActivity", "数字签名", 0);
         list.add(data);
 
-//        data = new FunctionData("摇一摇", packageName + "ShakeActivity", "摇一摇", 0);
+        data = new FunctionData("摇一摇", packageName + "ShakeActivity", "摇一摇", 0);
+        list.add(data);
+
+        data = new FunctionData("拍照裁剪", packageName + "PickPhotoActivity", "拍照裁剪", 0);
+        list.add(data);
+
+        data = new FunctionData("WebView视频全屏", packageName + "VideoFullScreenActivity", "WebView视频全屏", 0);
+        list.add(data);
+
+        data = new FunctionData("回弹效果", packageName + "SpringBackActivity", "回弹效果", 0);
+        list.add(data);
+
+        data = new FunctionData("APP检测更新自动升级", packageName + "CheckUpdateActivity", "APP检测更新自动升级", 0);
+        list.add(data);
+
+        data = new FunctionData("WebView中长按图片保存", packageName + "WebViewActivity", "WebView中长按图片保存", 0);
+        list.add(data);
+
+        data = new FunctionData("心形气泡点赞效果", packageName + "BubbleHeartActivity", "心形气泡点赞效果", 0);
+        list.add(data);
+
+        data = new FunctionData("饼状图", packageName + "PieChartActivity", "饼状图", 0);
+        list.add(data);
+
+        data = new FunctionData("仿遥控器按钮", packageName + "CustomViewActivity", "仿遥控器按钮", 0);
+        list.add(data);
+
+        data = new FunctionData("H5拉起APP", packageName + "WakeUpAppActivity", "通过H5页面拉起App", 0);
+        list.add(data);
+
+        data = new FunctionData("HTTPS", packageName + "HttpsActivity", "Android实现Https功能", 0);
+        list.add(data);
+
+//        data = new FunctionData("子线程更新UI", packageName + "ThreadActivity", "Android子线程更新UI", 0);
 //        list.add(data);
-//
-//        data = new FunctionData("拍照裁剪", packageName + "PickPhotoActivity", "拍照裁剪", 0);
-//        list.add(data);
-//
-//        data = new FunctionData("WebView视频全屏", packageName + "VideoFullScreenActivity", "WebView视频全屏", 0);
-//        list.add(data);
-//
-//        data = new FunctionData("回弹效果", packageName + "SpringBackActivity", "回弹效果", 0);
-//        list.add(data);
-//
-//        data = new FunctionData("APP检测更新自动升级", packageName + "CheckUpdateActivity", "APP检测更新自动升级", 0);
-//        list.add(data);
-//
-//        data = new FunctionData("WebView中长按图片保存", packageName + "WebViewActivity", "WebView中长按图片保存", 0);
-//        list.add(data);
-//
-//        data = new FunctionData("心形气泡点赞效果", packageName + "BubbleHeartActivity", "心形气泡点赞效果", 0);
-//        list.add(data);
-//
-//        data = new FunctionData("饼状图", packageName + "PieChartActivity", "饼状图", 0);
-//        list.add(data);
-//
-//        data = new FunctionData("仿遥控器按钮", packageName + "CustomViewActivity", "仿遥控器按钮", 0);
-//        list.add(data);
-//
-//        data = new FunctionData("H5拉起APP", packageName + "WakeUpAppActivity", "通过H5页面拉起App", 0);
-//        list.add(data);
-//
-//        data = new FunctionData("HTTPS", packageName + "HttpsActivity", "Android实现Https功能", 0);
-//        list.add(data);
-//
-////        data = new FunctionData("子线程更新UI", packageName + "ThreadActivity", "Android子线程更新UI", 0);
-////        list.add(data);
-//
-//        data = new FunctionData("Android重力感应动画", packageName + "SenserActivity", "Android重力感应动画", 0);
-//        list.add(data);
-//
-//        data = new FunctionData("运行时注解实现ButterKnife的ViewInject功能", packageName + "ViewInjectActivity", "基于运行时注解的ViewInject框架", 0);
-//        list.add(data);
-//
-//        data = new FunctionData("编译时注解框架", packageName + "AnnotationActivity", "基于注解的ViewInject框架", 0);
-//        list.add(data);
-//
-//        data = new FunctionData("APP进程间通信", packageName + "AIDLActivity", "使用AIDL完成APP内和APP间进程通信", 0);
-//        list.add(data);
-//
-//        data = new FunctionData("友盟推送", packageName + "YouMengActivity", "友盟推送", 0);
-//        list.add(data);
+
+        data = new FunctionData("Android重力感应动画", packageName + "SenserActivity", "Android重力感应动画", 0);
+        list.add(data);
+
+        data = new FunctionData("运行时注解实现ButterKnife的ViewInject功能", packageName + "ViewInjectActivity", "基于运行时注解的ViewInject框架", 0);
+        list.add(data);
+
+        data = new FunctionData("编译时注解框架", packageName + "AnnotationActivity", "基于注解的ViewInject框架", 0);
+        list.add(data);
+
+        data = new FunctionData("APP进程间通信", packageName + "AIDLActivity", "使用AIDL完成APP内和APP间进程通信", 0);
+        list.add(data);
+
+        data = new FunctionData("友盟推送", packageName + "YouMengActivity", "友盟推送", 0);
+        list.add(data);
 
 
     }

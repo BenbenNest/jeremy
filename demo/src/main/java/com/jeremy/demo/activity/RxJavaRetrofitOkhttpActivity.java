@@ -22,5 +22,4 @@ public class RxJavaRetrofitOkhttpActivity extends AppCompatActivity {
 
     }
 
-
 }

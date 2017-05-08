@@ -16,73 +16,73 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="getGankAll"
-            android:text="Get请求" />
+            android:text="所有干货" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="postFile"
-            android:text="Post File" />
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="postFile"-->
+            <!--android:text="Post File" />-->
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="postString"
-            android:text="Post String" />
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="postString"-->
+            <!--android:text="Post String" />-->
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="getHttpsHtml"
-            android:text="Get Https Html" />
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="getHttpsHtml"-->
+            <!--android:text="Get Https Html" />-->
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="getUser"
-            android:text="Get User" />
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="getUser"-->
+            <!--android:text="Get User" />-->
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="getUsers"
-            android:text="Get Users" />
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="getUsers"-->
+            <!--android:text="Get Users" />-->
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="getImage"
-            android:text="Get Image" />
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="getImage"-->
+            <!--android:text="Get Image" />-->
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="uploadFile"
-            android:text="Upload File" />
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="uploadFile"-->
+            <!--android:text="Upload File" />-->
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="multiFileUpload"
-            android:text="Multi Upload Files" />
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="multiFileUpload"-->
+            <!--android:text="Multi Upload Files" />-->
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="downloadFile"
-            android:text="Download File" />
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="downloadFile"-->
+            <!--android:text="Download File" />-->
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="otherRequestDemo"
-            android:text="otherRequestDemo" />
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="otherRequestDemo"-->
+            <!--android:text="otherRequestDemo" />-->
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="clearSession"
-            android:text="clearSession" />
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="clearSession"-->
+            <!--android:text="clearSession" />-->
 
     </com.jeremy.demo.widget.FlowLayout>
 

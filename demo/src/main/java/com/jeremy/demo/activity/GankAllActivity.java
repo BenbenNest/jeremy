@@ -17,7 +17,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.jeremy.demo.R;
 import com.jeremy.demo.model.GankList;
-import com.jeremy.demo.net.RetroAdapter;
+import com.jeremy.demo.mvp.presenter.GankAllPresenter;
+import com.jeremy.demo.mvp.view.GankAllView;
 import com.jeremy.library.recycler_view.CustomDecoration;
 import com.jeremy.library.utils.DateUtil;
 
@@ -27,17 +28,19 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class GankAllActivity extends AppCompatActivity {
+public class GankAllActivity extends AppCompatActivity implements GankAllView {
 
     @BindView(R.id.list)
     RecyclerView mRecyclerView;
     private GankAdapter mAdapter;
     private RequestManager glide;
+    private GankAllPresenter mPresenter;
 
     public static void startActivity(Context context) {
         Intent intent = new Intent(context, GankAllActivity.class);
@@ -49,6 +52,7 @@ public class GankAllActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gank_all);
         ButterKnife.bind(this);
+        initToolBar();
         init();
     }
 
@@ -62,13 +66,23 @@ public class GankAllActivity extends AppCompatActivity {
         mRecyclerView.addItemDecoration(customDecoration);
         mAdapter = new GankAdapter();
         mRecyclerView.setAdapter(mAdapter);
-        getGankList(0);
+        mPresenter = new GankAllPresenter();
+        mPresenter.attachView(this);
+        mPresenter.getData();
     }
 
-    private void getGankList(int page) {
-        //        ToastUtils.showCenter(this, "test");
-        RetroAdapter.getService().getAll()
-                .observeOn(AndroidSchedulers.mainThread())
+    private void initToolBar() {
+        getSupportActionBar().setTitle("干货集中营");
+    }
+
+    @Override
+    public void onFailure(Throwable e) {
+
+    }
+
+    @Override
+    public void onDataSuccess(Observable<GankList> observable) {
+        observable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<GankList>() {
                     @Override
@@ -82,11 +96,10 @@ public class GankAllActivity extends AppCompatActivity {
 
                     @Override
                     public void onNext(GankList gankList) {
-                        final GankList list = gankList;
                         if (mAdapter != null) {
-                            mAdapter.addData(list.getResults());
+                            mAdapter.addData(gankList.getResults());
                             mRecyclerView.setAdapter(mAdapter);
-//                                    mAdapter.notifyDataSetChanged();
+                            mAdapter.notifyDataSetChanged();
                         }
                     }
 
@@ -106,7 +119,6 @@ public class GankAllActivity extends AppCompatActivity {
         private LayoutInflater mLayoutInflater;
         private List<GankList.ResultsBean> mDataList = new ArrayList<>();
 
-
         public void setData(List<GankList.ResultsBean> list) {
             mDataList.clear();
             mDataList.addAll(list);
@@ -115,17 +127,13 @@ public class GankAllActivity extends AppCompatActivity {
 
         public void addData(List<GankList.ResultsBean> list) {
             mDataList.addAll(list);
-//            notifyDataSetChanged();
+            notifyDataSetChanged();
         }
 
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_function, null);
             return new FunctionViewHolder(view);
-//            TextView textView = new TextView(parent.getContext());
-//            textView.setText("ADfsafsadfsafa");
-//            textView.setTextColor(Color.BLUE);
-//            return textView;
         }
 
         @Override
