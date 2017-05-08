@@ -21,6 +21,7 @@ import com.jeremy.demo.mvp.presenter.FunctionListPresenter;
 import com.jeremy.demo.mvp.view.FunctionListView;
 import com.jeremy.library.recycler_view.CommonRecyclerView;
 import com.jeremy.library.utils.DateUtil;
+import com.jeremy.library.utils.ToastUtils;
 
 import java.io.InputStream;
 import java.io.ObjectInputStream;
@@ -32,7 +33,7 @@ import java.util.Random;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HomeActivity extends AppCompatActivity implements FunctionListView {
+public class HomeActivity extends AppCompatActivity implements FunctionListView, CommonRecyclerView.OnRefreshLoadMoreListener {
     @BindView(R.id.common_recyclerview)
     CommonRecyclerView commonRecyclerView;
 
@@ -96,6 +97,7 @@ public class HomeActivity extends AppCompatActivity implements FunctionListView 
 
 
     private void init() {
+        commonRecyclerView.setOnRefreshLoadMoreListener(this);
         commonRecyclerView.disableRefresh();
         presenter = new FunctionListPresenter();
         presenter.attachView(this);
@@ -111,6 +113,17 @@ public class HomeActivity extends AppCompatActivity implements FunctionListView 
     @Override
     public void onFailure(Throwable e) {
 
+    }
+
+    @Override
+    public void onRefresh() {
+
+    }
+
+    @Override
+    public void onLoadMore(int currentPage) {
+        ToastUtils.showCenter(this, "no more data");
+        commonRecyclerView.setLoadingState(false);
     }
 
     class FunctionListAdapter extends RecyclerView.Adapter {

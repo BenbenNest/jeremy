@@ -6,7 +6,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.widget.FrameLayout;
 
 import com.jeremy.library.R;
@@ -16,43 +18,82 @@ import com.jeremy.library.R;
  * Created by benbennest on 16/8/24.
  */
 public class CommonRecyclerView extends FrameLayout {
+    private static String TAG = "CommonRecyclerView";
     MySwipeRefreshLayout swipeRefreshLayout;
-    RecyclerView mRecyclerView;
+    LoadMoreRecyclerView mLoadMoreRecyclerView;
+    LinearLayoutManager layoutManager;
+
+    private int mActivePointerId;
+    private static final int INVALID_POINTER = -1;
+    private static final int INVALID_COORDINATE = -1;
+    private float mLastY;
+    private float mLastX;
+    private int mTouchSlop;
+    private boolean mRefreshEnabled = true;
+    private boolean mLoadMoreEnabled = true;
+    private float mRefreshTriggerOffset;
+    private float mLoadMoreTriggerOffset;
+    private float mRefreshFinalDragOffset;
+    private float mLoadMoreFinalDragOffset;
+    private View mHeaderView;
+
+    private View mTargetView;
+    private View mFooterView;
+    private int mHeaderHeight;
+    private int mFooterHeight;
+    private boolean mHasHeaderView;
+    private boolean mHasFooterView;
+    private OnRefreshListener mRefreshListener;
+    private OnLoadMoreListener mLoadMoreListener;
+    private int mHeaderOffset;
+    private int mTargetOffset;
+    private int mFooterOffset;
+    private float mInitDownY;
+    private float mInitDownX;
+    private static final float DEFAULT_DRAG_RATIO = 0.5f;
+    private float mDragRatio = DEFAULT_DRAG_RATIO;
+    OnRefreshLoadMoreListener listener;
+    RecyclerOnScrollListener onScrollListener;
 
     public CommonRecyclerView(Context context) {
         super(context);
-        init();
+        init(context);
     }
 
     public CommonRecyclerView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
+        init(context);
     }
 
     public CommonRecyclerView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
+        init(context);
     }
 
-    private void init() {
+    private void init(Context context) {
+        mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.recycler_view_wrapper, this);
         swipeRefreshLayout = (MySwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_layout);
-
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
-        mRecyclerView.setHasFixedSize(true);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
-        mRecyclerView.setLayoutManager(layoutManager);
-
-        CustomDecoration customDecoration = new CustomDecoration(getContext(), CustomDecoration.VERTICAL_LIST);
-        mRecyclerView.addItemDecoration(customDecoration);
-
-
+        mLoadMoreRecyclerView = (LoadMoreRecyclerView) view.findViewById(R.id.load_more_recycler_view);
     }
 
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        return super.onInterceptTouchEvent(ev);
+    }
+
+    public void setOnRefreshLoadMoreListener(final OnRefreshLoadMoreListener listener) {
+        this.listener = listener;
+//        mRecyclerView.addOnScrollListener(onScrollListener);
+    }
 
     public void setAdapter(RecyclerView.Adapter adapter) {
-        mRecyclerView.setAdapter(adapter);
+        mLoadMoreRecyclerView.setAdapter(adapter);
+    }
+
+    public void setLoadingState(boolean loading) {
+        onScrollListener.setLoadingState(loading);
     }
 
     public void disableRefresh() {
@@ -68,6 +109,12 @@ public class CommonRecyclerView extends FrameLayout {
                 }, 1000);
             }
         });
+    }
+
+    public interface OnRefreshLoadMoreListener {
+        void onRefresh();
+
+        void onLoadMore(int currentPage);
     }
 
 }
