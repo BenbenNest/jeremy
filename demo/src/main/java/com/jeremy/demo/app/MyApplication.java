@@ -1,18 +1,18 @@
 package com.jeremy.demo.app;
 
 import android.app.ActivityManager;
-import android.app.Application;
 import android.content.Context;
 import android.os.Build;
 
 import com.facebook.stetho.Stetho;
 import com.jeremy.library.utils.CrashHandler;
 import com.morgoo.droidplugin.PluginHelper;
+import com.umeng.analytics.MobclickAgent;
 
 /**
  * Created by benbennest on 17/2/11.
  */
-public class MyApplication extends Application {
+public class MyApplication extends BaseApplication {
     public static Context sContext;
 
     @Override
@@ -38,7 +38,10 @@ public class MyApplication extends Application {
 
     private void mainProcessInit() {
         if (isMainProcess()) {
-
+            //友盟
+            MobclickAgent.setDebugMode(true);
+            MobclickAgent.setScenarioType(getApplicationContext(), MobclickAgent.EScenarioType.E_UM_NORMAL);
+            MobclickAgent.setCatchUncaughtExceptions(true);
         }
     }
 
