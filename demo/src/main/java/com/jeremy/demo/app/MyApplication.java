@@ -42,6 +42,13 @@ public class MyApplication extends BaseApplication {
             MobclickAgent.setDebugMode(true);
             MobclickAgent.setScenarioType(getApplicationContext(), MobclickAgent.EScenarioType.E_UM_NORMAL);
             MobclickAgent.setCatchUncaughtExceptions(true);
+
+//            //微信
+//            PlatformConfig.setWeixin("xxx", "xxx");
+//            //新浪
+//            PlatformConfig.setSinaWeibo("xxx", "xxx");
+//            //qq qqzone
+//            PlatformConfig.setQQZone("xxx", "xxx");
         }
     }
 

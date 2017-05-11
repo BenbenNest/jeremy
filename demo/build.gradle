@@ -26,14 +26,28 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    signingConfigs {
+        demo {
+            keyAlias 'demo'
+            keyPassword '123456'
+            storeFile file('demo.jks')
+            storePassword '123456'
+        }
+    }
+
     buildTypes {
         debug {
             buildConfigField("boolean", "LOG_OPEN", "true")
+//            minifyEnabled true
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.demo
         }
         release {
             buildConfigField("boolean", "LOG_OPEN", "true")
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.demo
         }
     }
     productFlavors {
@@ -81,6 +95,5 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-
     compile 'com.umeng.analytics:analytics:latest.integration'
 }
