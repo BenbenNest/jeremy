@@ -69,8 +69,6 @@ dependencies {
     apt project(':viewinject_compiler')
     compile project(':crop')
     compile project(':DroidPlugin')
-    testCompile 'junit:junit:4.12'
-    apt 'com.jakewharton:butterknife-compiler:8.2.1'
     //可选，用于生成application类
     //    provided('com.tencent.tinker:tinker-android-anno:1.7.5')
     //tinker的核心库
@@ -83,6 +81,7 @@ dependencies {
     compile('com.squareup.okhttp3:okhttp:' + okhttp3Version)
     compile('com.squareup.okhttp3:logging-interceptor:' + okhttp3Version)
     testCompile('com.squareup.okhttp3:mockwebserver:' + okhttp3Version)
+    compile files('libs/AMap3DMap_5.0.0_AMapNavi_5.0.1_AMapSearch_5.0.0_AMapLocation_3.4.0_20170427.jar')
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile 'io.reactivex.rxjava2:rxjava:2.0.5'
     compile 'org.reactivestreams:reactive-streams:1.0.0'
@@ -96,5 +95,6 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.umeng.analytics:analytics:latest.integration'
-    compile files('libs/AMap3DMap_5.0.0_AMapNavi_5.0.1_AMapSearch_5.0.0_AMapLocation_3.4.0_20170427.jar')
+    testCompile 'junit:junit:4.12'
+    apt 'com.jakewharton:butterknife-compiler:8.2.1'
 }

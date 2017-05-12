@@ -30,6 +30,10 @@ public class FunctionListModel {
 
     private void initData() {
         FunctionData data;
+
+        data = new FunctionData("属性动画学习", packageName + "PropertyAnimActivity", "属性动画学习", 0);
+        list.add(data);
+
         data = new FunctionData("RxJava+Retrofit+OKHttp", packageName + "RxJavaRetrofitOkhttpActivity", "RxJava+Retrofit+OKHttp", 0);
         list.add(data);
 
