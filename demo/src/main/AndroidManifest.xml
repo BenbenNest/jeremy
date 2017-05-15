@@ -150,7 +150,8 @@
             android:name=".activity.GankAllActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".activity.PropertyAnimActivity" />
-        <activity android:name=".activity.anim.Xml4AnimActivity"></activity>
+        <activity android:name=".activity.anim.Xml4AnimActivity" />
+        <activity android:name=".activity.anim.layoutTransitionActivity"></activity>
     </application>
 
 </manifest>

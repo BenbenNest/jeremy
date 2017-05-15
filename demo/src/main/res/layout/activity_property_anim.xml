@@ -16,11 +16,11 @@
             android:onClick="XmlAnimation"
             android:text="XML动画" />
 
-        <!--<Button-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:onClick="postFile"-->
-        <!--android:text="Post File" />-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="layoutTransition"
+            android:text="LayoutTransition" />
 
         <!--<Button-->
         <!--android:layout_width="wrap_content"-->
