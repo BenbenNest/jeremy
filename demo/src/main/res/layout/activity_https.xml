@@ -6,11 +6,16 @@
     android:orientation="vertical"
     tools:context="com.jeremy.demo.activity.HttpsActivity">
 
-    <LinearLayout
+    <com.jeremy.demo.widget.FlowLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/https_by_http"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="直接访问Https网站"
+            android:textSize="15sp" />
 
         <Button
             android:id="@+id/https1"
@@ -26,14 +31,6 @@
             android:layout_marginLeft="10dp"
             android:text="HttpClient"
             android:textSize="15sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:orientation="vertical">
 
         <Button
             android:id="@+id/https3"
@@ -43,7 +40,7 @@
             android:text="访问自签名证书网站"
             android:textSize="15sp" />
 
-    </LinearLayout>
+    </com.jeremy.demo.widget.FlowLayout>
 
 
     <WebView

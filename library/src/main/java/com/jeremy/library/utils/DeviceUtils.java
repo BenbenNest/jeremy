@@ -4,7 +4,10 @@ import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.util.Config;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -12,11 +15,24 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Method;
 
+import static android.content.Context.TELEPHONY_SERVICE;
+
 /**
  * Created by changqing.zhao on 2017/5/9.
  */
 
 public class DeviceUtils {
+
+    public static void getInfo(Context context) {
+        TelephonyManager mTm = (TelephonyManager) context.getSystemService(TELEPHONY_SERVICE);
+        String imei = mTm.getDeviceId();
+        String imsi = mTm.getSubscriberId();
+        String mtype = android.os.Build.MODEL; // 手机型号
+        if (Config.DEBUG) {
+            Log.d("android.os.Build.MODEL", mtype);
+        }
+        String numer = mTm.getLine1Number(); // 手机号码，有的可得，有的不可得
+    }
 
     public static boolean checkPermission(Context context, String permission) {
         boolean result = false;
@@ -47,7 +63,7 @@ public class DeviceUtils {
         try {
             org.json.JSONObject json = new org.json.JSONObject();
             android.telephony.TelephonyManager tm = (android.telephony.TelephonyManager) context
-                    .getSystemService(Context.TELEPHONY_SERVICE);
+                    .getSystemService(TELEPHONY_SERVICE);
             String device_id = null;
             if (checkPermission(context, Manifest.permission.READ_PHONE_STATE)) {
                 device_id = tm.getDeviceId();

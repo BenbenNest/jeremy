@@ -1,4 +1,4 @@
-package com.jeremy.library.http;
+package com.jeremy.library.https;
 
 
 import java.security.cert.CertificateException;

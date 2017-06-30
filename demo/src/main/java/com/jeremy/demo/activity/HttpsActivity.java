@@ -7,10 +7,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.jeremy.demo.R;
-import com.jeremy.library.http.HttpsUtils;
+import com.jeremy.library.https.HttpsUtils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -85,13 +84,12 @@ public class HttpsActivity extends AppCompatActivity {
     void onClick(View view) {
         switch (view.getId()) {
             case R.id.https1:
-                Toast.makeText(HttpsActivity.this, "test", Toast.LENGTH_LONG).show();
                 new AsyncTask<Void, Void, String>() {
                     @Override
                     protected String doInBackground(Void... params) {
                         try {
-//                            return HttpsUtils.runWithHttpsUrlConnection(HttpsActivity.this, mSogouUrl);
-                            return HttpsUtils.runAllWithHttpsUrlConnection(mSogouUrl);
+                            return HttpsUtils.runWithHttpsUrlConnection(HttpsActivity.this, mSogouUrl);
+//                            return HttpsUtils.runAllWithHttpsUrlConnection(mSogouUrl);
                         } catch (Exception e) {
                             return e.toString();
                         }

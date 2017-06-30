@@ -1,4 +1,4 @@
-package com.jeremy.library.http;
+package com.jeremy.library.https;
 
 import android.os.Build;
 
