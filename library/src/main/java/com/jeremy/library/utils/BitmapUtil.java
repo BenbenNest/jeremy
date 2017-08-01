@@ -8,7 +8,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.NinePatchDrawable;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Environment;
@@ -26,11 +31,55 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import static com.jeremy.library.utils.NinePatchUtils.getNinePathDrawableFromBitmap;
+
 /**
  * Created by benbennest on 16/12/14.
  */
 @SuppressLint("NewApi")
 public class BitmapUtil {
+
+
+    public static Bitmap drawTextOnNinePatchDrawable(Context context, String text, String pic) {
+        pic="ninepatch/dynamic_route_bubble_left_bottom";
+        Bitmap bitmap = null;
+        try {
+            bitmap = NinePatchUtils.getNinePathchFromAsset(context, pic);
+        } catch (Exception e) {
+
+        }
+        if (bitmap != null && !TextUtils.isEmpty(text)) {
+            NinePatchDrawable ninePatchDrawable = getNinePathDrawableFromBitmap(context, bitmap);
+            if (ninePatchDrawable == null) return bitmap;
+            android.graphics.Bitmap.Config bitmapConfig = bitmap.getConfig();
+            if (bitmapConfig == null) {
+                bitmapConfig = Bitmap.Config.RGB_565;
+            }
+            Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+            paint.setColor(Color.WHITE);
+            paint.setTextSize(32);
+            paint.setDither(true);
+            paint.setFilterBitmap(true);
+            Rect bounds = new Rect();
+            paint.getTextBounds(text, 0, text.length(), bounds);
+            int picWidth = (int) paint.measureText(text) + 26;
+            int picHeight = bounds.height() + 50;
+            bounds = new Rect(0, 0, picWidth, picHeight);
+            ninePatchDrawable.setBounds(bounds);
+            bitmap = Bitmap.createBitmap(bounds.width(), bounds.height(), bitmapConfig);
+            Canvas canvas = new Canvas(bitmap);
+            ninePatchDrawable.draw(canvas);
+            int height;
+            //30 代表 是.9图片不进行拉伸的突出的那个角的高度再加上文字距图片上边缘的间距
+            if (pic.contains("bottom")) {
+                height = 32 + (picHeight - 32 - 30) / 2;
+            } else {
+                height = 32 + 30;
+            }
+            canvas.drawText(text, 13, height, paint);
+        }
+        return bitmap;
+    }
 
     // 按大小缩放
     public static Bitmap getimage(Context context, Uri uri) {
@@ -214,7 +263,6 @@ public class BitmapUtil {
     }
 
 
-
     /**
      * Bitmap缩放
      */
@@ -314,7 +362,8 @@ public class BitmapUtil {
     }
 
     /**
-     *  质量压缩
+     * 质量压缩
+     *
      * @param image
      * @return
      */
@@ -335,6 +384,7 @@ public class BitmapUtil {
 
     /**
      * 根据Uri获取图片绝对路径，解决Android4.4以上版本Uri转换
+     *
      * @param context
      * @param imageUri
      * @author yaoxing
@@ -368,7 +418,7 @@ public class BitmapUtil {
                     contentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
                 }
                 String selection = MediaStore.Images.Media._ID + "=?";
-                String[] selectionArgs = new String[] { split[1] };
+                String[] selectionArgs = new String[]{split[1]};
                 return getDataColumn(context, contentUri, selection, selectionArgs);
             }
         } // MediaStore (and general)
@@ -388,7 +438,7 @@ public class BitmapUtil {
     public static String getDataColumn(Context context, Uri uri, String selection, String[] selectionArgs) {
         Cursor cursor = null;
         String column = MediaStore.Images.Media.DATA;
-        String[] projection = { column };
+        String[] projection = {column};
         try {
             cursor = context.getContentResolver().query(uri, projection, selection, selectionArgs, null);
             if (cursor != null && cursor.moveToFirst()) {
