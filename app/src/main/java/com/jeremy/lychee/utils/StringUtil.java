@@ -2,6 +2,7 @@
 package com.jeremy.lychee.utils;
 
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.widget.TextView;
@@ -398,4 +399,39 @@ public class StringUtil {
         }
         return str.replaceAll(regStartSpace, "").replaceAll(regEndSpace, "");
     }
+
+    /**
+     * 粗略计算文字宽度
+     */
+    public static float measureText(Paint paint, String str) {
+        return paint.measureText(str);
+    }
+
+    /**
+     * 计算文字所在矩形，可以得到宽高
+     */
+    public static Rect getTextBounds(Paint paint, String str) {
+        Rect rect = new Rect();
+        paint.getTextBounds(str, 0, str.length(), rect);
+        int w = rect.width();
+        int h = rect.height();
+        return rect;
+    }
+
+    /**
+     * 精确计算文字宽度
+     */
+    public static int getTextWidth(Paint paint, String str) {
+        int iRet = 0;
+        if (str != null && str.length() > 0) {
+            int len = str.length();
+            float[] widths = new float[len];
+            paint.getTextWidths(str, widths);
+            for (int j = 0; j < len; j++) {
+                iRet += (int) Math.ceil(widths[j]);
+            }
+        }
+        return iRet;
+    }
+
 }
