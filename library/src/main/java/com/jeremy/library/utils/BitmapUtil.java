@@ -39,6 +39,7 @@ import static com.jeremy.library.utils.NinePatchUtils.getNinePathDrawableFromBit
 @SuppressLint("NewApi")
 public class BitmapUtil {
 
+    //http://blog.csdn.net/zcwfengbingdongguke/article/details/10916453
 
     public static Bitmap drawTextOnNinePatchDrawable(Context context, String text, String pic) {
         pic="ninepatch/dynamic_route_bubble_left_bottom";
