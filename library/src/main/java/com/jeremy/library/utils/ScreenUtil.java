@@ -2,11 +2,14 @@ package com.jeremy.library.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Rect;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.TypedValue;
+import android.view.Window;
 import android.view.WindowManager;
 
 import java.lang.reflect.Method;
@@ -21,6 +24,101 @@ import java.util.Enumeration;
 public class ScreenUtil {
     static TelephonyManager sTelephonyManager;
     static WifiManager sWifiManager;
+
+    /**
+     * 获取状态栏高度(通过系统尺寸资源获取)
+     *
+     * @return
+     */
+    public static int getStatusBarHeight1(Context context) {
+        int statusBarHeight = -1;
+        //获取status_bar_height资源的ID
+        int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            //根据资源ID获取响应的尺寸值
+            statusBarHeight = context.getResources().getDimensionPixelSize(resourceId);
+        }
+        return statusBarHeight;
+    }
+
+    /**
+     * 获取状态栏高度(通过R类的反射)
+     *
+     * @return
+     */
+    public static int getStatusBarHeight(Context context) {
+        int statusBarHeight = -1;
+        try {
+            Class<?> clazz = Class.forName("com.android.internal.R$dimen");
+            Object object = clazz.newInstance();
+            int height = Integer.parseInt(clazz.getField("status_bar_height").get(object).toString());
+            statusBarHeight = context.getResources().getDimensionPixelSize(height);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return statusBarHeight;
+    }
+
+    /**
+     * 获取状态栏高度(借助应用区域的top属性)
+     * 注意*该方法不能在初始化的时候用
+     * *注意* 如果单单获取statusBar高度而不获取titleBar高度时，这种方法并不推荐大家使用，因为这种方法依赖于WMS（窗口管理服务的回调）。
+     * 正是因为窗口回调机制，所以在Activity初始化时执行此方法得到的高度是0，这就是很多人获取到statusBar高度为0的原因。
+     * 这个方法推荐在回调方法onWindowFocusChanged()中执行，才能得到预期结果。
+     *
+     * @return
+     */
+    public static int getStatusBarHeight3(Activity context) {
+        Rect rectangle = new Rect();
+        context.getWindow().getDecorView().getWindowVisibleDisplayFrame(rectangle);
+        return rectangle.top;
+    }
+
+    /**
+     * 获取状态栏高度——方法4
+     * 状态栏高度 = 屏幕高度 - 应用区高度
+     * *注意*该方法同样不能在初始化的时候用
+     */
+    public static int getStatusBarHeight4(Activity context) {
+        //屏幕
+        DisplayMetrics dm = new DisplayMetrics();
+        context.getWindowManager().getDefaultDisplay().getMetrics(dm);
+        //应用区域
+        Rect outRect1 = new Rect();
+        context.getWindow().getDecorView().getWindowVisibleDisplayFrame(outRect1);
+        int statusBar = dm.heightPixels - outRect1.height();  //状态栏高度=屏幕高度-应用区域高度
+        return statusBar;
+    }
+
+    public static int getTibleBarHeight(Activity activity) {
+        //屏幕
+        DisplayMetrics dm = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
+        //应用区域
+        Rect outRect1 = new Rect();
+        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(outRect1);
+        //View绘制区域
+        Rect outRect2 = new Rect();
+        activity.getWindow().findViewById(Window.ID_ANDROID_CONTENT).getDrawingRect(outRect2);
+        Log.e("jeremy", "View绘制区域顶部-错误方法：" + outRect2.top);   //不能像上边一样由outRect2.top获取，这种方式获得的top是0，可能是bug吧
+        int viewTop = activity.getWindow().findViewById(Window.ID_ANDROID_CONTENT).getTop();   //要用这种方法
+        Log.e("jeremy", "View绘制区域顶部-正确方法：" + viewTop);
+        Log.e("jeremy", "View绘制区域高度：" + outRect2.height());
+        /**
+         * 获取标题栏高度-方法1
+         * 标题栏高度 = View绘制区顶端位置 - 应用区顶端位置(也可以是状态栏高度，获取状态栏高度方法3中说过了)
+         * */
+        int titleHeight1 = viewTop - outRect1.top;
+        Log.e("WangJ", "标题栏高度-方法1：" + titleHeight1);
+        /**
+         * 获取标题栏高度-方法2
+         * 标题栏高度 = 应用区高度 - View绘制区高度
+         * */
+        int titleHeight2 = outRect1.height() - outRect2.height();
+        Log.e("WangJ", "标题栏高度-方法2：" + titleHeight2);
+        return titleHeight1;
+    }
+
 
     public static String getDeviceSerial() {
         String serial = "";
@@ -50,14 +148,11 @@ public class ScreenUtil {
         throw new AssertionError();
     }
 
-    ;
-
     public static int getScreenWidth(Context context) {
         if (context == null) {
             return 0;
         }
-        WindowManager windowManager = (WindowManager) context
-                .getSystemService(Context.WINDOW_SERVICE);
+        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics displayMetrics = new DisplayMetrics();
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
         int w = displayMetrics.widthPixels;
