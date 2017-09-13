@@ -119,7 +119,6 @@ public class ScreenUtil {
         return titleHeight1;
     }
 
-
     public static String getDeviceSerial() {
         String serial = "";
         try {
@@ -211,7 +210,6 @@ public class ScreenUtil {
         }
         return sTelephonyManager.getSubscriberId();
     }
-
 
     /**
      * Role:Telecom service providers获取手机服务商信息 <BR>
