@@ -63,6 +63,7 @@ allprojects {
             url 'http://jcenter.bintray.com/'
         }
         mavenCentral()
+        mavenLocal()
     }
 }
 
