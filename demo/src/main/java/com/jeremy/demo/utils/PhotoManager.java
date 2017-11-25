@@ -52,6 +52,13 @@ public class PhotoManager {
             } else {
 //                file.lastModified()
                 fileInfo(file.getAbsolutePath());
+//                handlePhoto(file);
+//                String newPath = file.getParent() + File.separator + "test";
+//                File newDir = new File(newPath);
+//                if (!newDir.exists()) {
+//                    newDir.mkdirs();
+//                }
+//                copyFile(file.getAbsolutePath(), file.getParent() + File.separator + "test" + File.separator + file.getName());
             }
         }
     }
@@ -116,6 +123,11 @@ public class PhotoManager {
 
             String TAG_APERTURE = exifInterface.getAttribute(ExifInterface.TAG_APERTURE);
             String TAG_DATETIME = exifInterface.getAttribute(ExifInterface.TAG_DATETIME);
+
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy:MM:dd hh:mm:ss");
+
+            Date date = simpleDateFormat.parse(TAG_DATETIME);
+
             String TAG_EXPOSURE_TIME = exifInterface.getAttribute(ExifInterface.TAG_EXPOSURE_TIME);
             String TAG_FLASH = exifInterface.getAttribute(ExifInterface.TAG_FLASH);
             String TAG_FOCAL_LENGTH = exifInterface.getAttribute(ExifInterface.TAG_FOCAL_LENGTH);
@@ -147,6 +159,7 @@ public class PhotoManager {
 
                 mTextView.setText("TAG_DATETIME = " + TAG_DATETIME + "\n" + "FStringTime = " + FStringTime);
                 */
+
         } catch (Exception e) {
             e.printStackTrace();
         }
