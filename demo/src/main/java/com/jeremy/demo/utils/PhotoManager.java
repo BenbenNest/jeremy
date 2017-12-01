@@ -3,6 +3,8 @@ package com.jeremy.demo.utils;
 import android.media.ExifInterface;
 import android.util.Log;
 
+import com.jeremy.library.utils.FileUtils;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -51,7 +53,9 @@ public class PhotoManager {
                 sortFile(file);
             } else {
 //                file.lastModified()
-                fileInfo(file.getAbsolutePath());
+                if (FileUtils.isImage(file.getAbsolutePath())) {
+                    fileInfo(file.getAbsolutePath());
+                }
 //                handlePhoto(file);
 //                String newPath = file.getParent() + File.separator + "test";
 //                File newDir = new File(newPath);

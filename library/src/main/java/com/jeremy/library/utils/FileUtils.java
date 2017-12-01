@@ -15,9 +15,10 @@ import java.util.List;
 
 public class FileUtils {
 
-    public static boolean isImage(String type) {
-        String[] imagType = {".jpg", ".png", ".bmp", ".gif", "jpeg"};
-        List<String> imageTypeLists = Arrays.asList(imagType);
+    public static boolean isImage(String path) {
+        String type = path.substring(path.lastIndexOf(".") + 1, path.length());
+        String[] imageType = {".jpg", ".png", ".bmp", ".gif", "jpeg"};
+        List<String> imageTypeLists = Arrays.asList(imageType);
         if (imageTypeLists.contains(type)) {
             return true;
         } else {
