@@ -26,6 +26,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+//        jackOptions {
+//            enabled true
+//        }
     }
 
     signingConfigs {
@@ -116,4 +119,20 @@ dependencies {
 //    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
 //        exclude group: 'com.android.support', module: 'support-annotations'
 //    })
+}
+
+task compile << {
+    println 'compiling source'
+}
+
+task compileTest(dependsOn: compile) << {
+    println 'compiling unit tests'
+}
+
+task test1(dependsOn: [compile, compileTest]) << {
+    println 'running unit tests'
+}
+
+task dist(dependsOn: [compile, test1]) << {
+    println 'building the distribution'
 }

@@ -4,11 +4,18 @@ import android.util.Log;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.zip.GZIPOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
+
+import static com.jeremy.library.utils.StreamUtils.closeStream;
 
 /**
  * Created by changqing on 2017/7/1.
@@ -18,14 +25,11 @@ public class ZipUtils {
 
     public static final String TAG = "ZipUtils";
 
-    public static void test(){
+    public static void test() {
 //        ZipCompress zipCom = new ZipCompress("D:\\电影.zip","F:\\电影");
-        try
-        {
-            zip("","");
-        }
-        catch(Exception e)
-        {
+        try {
+            zip("", "");
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -275,6 +279,71 @@ public class ZipUtils {
         outZip.close();
 
     }// end of func
+
+
+    public static final int BUFFER = 1024;
+    public static final String EXT = ".gz";
+
+    /**
+     * 文件压缩
+     *
+     * @param file
+     * @param delete 是否删除原始文件
+     * @throws Exception
+     */
+    public static void compress(File file, boolean delete) throws Exception {
+        FileInputStream fis = new FileInputStream(file);
+        FileOutputStream fos = new FileOutputStream(file.getPath() + EXT);
+        compress(fis, fos);
+        fis.close();
+        fos.flush();
+        fos.close();
+        if (delete) {
+            file.delete();
+        }
+    }
+
+    /**
+     * 数据压缩
+     *
+     * @param is
+     * @param os
+     * @throws IOException
+     * @throws Exception
+     */
+    public static void compress(InputStream is, OutputStream os) throws IOException {
+        GZIPOutputStream gos = new GZIPOutputStream(os);
+        int count;
+        byte data[] = new byte[BUFFER];
+        while ((count = is.read(data, 0, BUFFER)) != -1) {
+            gos.write(data, 0, count);
+        }
+        gos.finish();
+        gos.flush();
+        gos.close();
+    }
+
+    /**
+     * @param bt
+     * @return
+     * @description 将byte 数组压缩
+     */
+    public static byte[] compress(byte[] bt) {
+        //将byte数据读入文件流
+        ByteArrayOutputStream bos = null;
+        GZIPOutputStream gzipos = null;
+        try {
+            bos = new ByteArrayOutputStream();
+            gzipos = new GZIPOutputStream(bos);
+            gzipos.write(bt);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeStream(gzipos);
+            closeStream(bos);
+        }
+        return bos.toByteArray();
+    }
 
 
 }
