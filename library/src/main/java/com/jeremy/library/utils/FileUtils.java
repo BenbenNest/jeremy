@@ -4,9 +4,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.io.RandomAccessFile;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -14,6 +17,35 @@ import java.util.List;
  */
 
 public class FileUtils {
+
+    /**
+     * 文件排序:按文件最后一次被修改的时间排序
+     *
+     * @param dir
+     */
+    public static void sortFiles(File dir) {
+        File[] files = dir.listFiles();
+        if (files != null && files.length > 0) {
+            Arrays.sort(files, new FileOrederComparator());
+        }
+    }
+
+    /**
+     * 往文件中追加内容
+     * @param fileName
+     * @param content
+     */
+    public void writeContent(String fileName, String content) {
+        try {
+            RandomAccessFile randomFile = new RandomAccessFile(fileName, "rw");
+            long fileLength = randomFile.length();
+            randomFile.seek(fileLength);
+            randomFile.writeBytes(content);
+            randomFile.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static boolean isImage(String path) {
         String type = path.substring(path.lastIndexOf(".") + 1, path.length());
@@ -241,6 +273,22 @@ public class FileUtils {
             outFile.close();
         } catch (Exception e) {
 
+        }
+    }
+
+    static class FileOrederComparator implements Comparator<File> {
+        public int compare(File f1, File f2) {
+            long diff = f1.lastModified() - f2.lastModified();
+            if (diff > 0)
+                return 1;
+            else if (diff == 0)
+                return 0;
+            else
+                return -1;
+        }
+
+        public boolean equals(Object obj) {
+            return true;
         }
     }
 

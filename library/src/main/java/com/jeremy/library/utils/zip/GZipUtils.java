@@ -10,14 +10,41 @@ import java.io.OutputStream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
+import static com.jeremy.library.utils.StreamUtils.closeStream;
+
 /**
  * Created by changqing on 2017/12/8.
  */
 
 public class GZipUtils {
 
-    public static final int BUFFER = 1024;
+    public static final int BUFFER_SIZE = 1024;
     public static final String EXT = ".gz";
+
+    public static byte[] getGZipBytes(File file) throws Exception {
+        FileInputStream inputStream = new FileInputStream(file);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        GZIPOutputStream gzipOutputStream = new GZIPOutputStream(byteArrayOutputStream);
+        byte[] buffer = new byte[BUFFER_SIZE];
+        int len = 0;
+        while ((len = inputStream.read(buffer, 0, BUFFER_SIZE)) != -1) {
+            gzipOutputStream.write(buffer, 0, len);
+        }
+        closeStream(inputStream);
+        closeStream(gzipOutputStream);
+        return byteArrayOutputStream.toByteArray();
+    }
+
+    /**
+     * 文件压缩
+     *
+     * @param file
+     * @throws Exception
+     */
+    public static void compress(File file) throws Exception {
+        compress(file, true);
+    }
+
 
     /**
      * 数据压缩
@@ -35,16 +62,6 @@ public class GZipUtils {
         baos.close();
         bais.close();
         return output;
-    }
-
-    /**
-     * 文件压缩
-     *
-     * @param file
-     * @throws Exception
-     */
-    public static void compress(File file) throws Exception {
-        compress(file, true);
     }
 
     /**
@@ -76,8 +93,8 @@ public class GZipUtils {
     public static void compress(InputStream is, OutputStream os) throws Exception {
         GZIPOutputStream gos = new GZIPOutputStream(os);
         int count;
-        byte data[] = new byte[BUFFER];
-        while ((count = is.read(data, 0, BUFFER)) != -1) {
+        byte data[] = new byte[BUFFER_SIZE];
+        while ((count = is.read(data, 0, BUFFER_SIZE)) != -1) {
             gos.write(data, 0, count);
         }
         gos.finish();
@@ -164,8 +181,8 @@ public class GZipUtils {
     public static void decompress(InputStream is, OutputStream os) throws Exception {
         GZIPInputStream gis = new GZIPInputStream(is);
         int count;
-        byte data[] = new byte[BUFFER];
-        while ((count = gis.read(data, 0, BUFFER)) != -1) {
+        byte data[] = new byte[BUFFER_SIZE];
+        while ((count = gis.read(data, 0, BUFFER_SIZE)) != -1) {
             os.write(data, 0, count);
         }
         gis.close();
