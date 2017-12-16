@@ -14,14 +14,14 @@ public class PhotoManagerTest {
 
     @Test
     public void sortPhoto() {
-        String root="/Users/didi/benben/temp";
+        String root="/Users/didi/benben/temp/photo";
         File newDir = new File(root + File.separator + "Photo_Mu" + File.separator);
         if (!newDir.exists()) {
             newDir.mkdirs();
         }
         PhotoManager.sortFile(new File(root));
         try {
-            Thread.sleep(1000 * 60 * 10);
+            Thread.sleep(1000 * 60 * 5);
         } catch (Exception e) {
 
         }

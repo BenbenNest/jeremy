@@ -1,6 +1,7 @@
 package com.jeremy.library.utils;
 
 import java.io.File;
+import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
@@ -32,6 +33,7 @@ public class FileUtils {
 
     /**
      * 往文件中追加内容
+     *
      * @param fileName
      * @param content
      */
@@ -48,8 +50,8 @@ public class FileUtils {
     }
 
     public static boolean isImage(String path) {
-        String type = path.substring(path.lastIndexOf(".") + 1, path.length());
-        String[] imageType = {".jpg", ".png", ".bmp", ".gif", "jpeg"};
+        String type = path.substring(path.lastIndexOf("."), path.length());
+        String[] imageType = {".jpg", ".png", ".bmp", ".gif", ".jpeg"};
         List<String> imageTypeLists = Arrays.asList(imageType);
         if (imageTypeLists.contains(type)) {
             return true;
@@ -273,6 +275,21 @@ public class FileUtils {
             outFile.close();
         } catch (Exception e) {
 
+        }
+    }
+
+    static final String[] acceptedExtensions = new String[]{".jpg", ".png", ".bmp", ".jpeg"};
+
+    static class ImageFileFilter implements FileFilter {
+        @Override
+        public boolean accept(File file) {
+            if (file.isDirectory())
+                return false;
+            for (String extension : acceptedExtensions) {
+                if (file.getName().toLowerCase().endsWith(extension))
+                    return true;
+            }
+            return false;
         }
     }
 

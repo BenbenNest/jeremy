@@ -44,4 +44,7 @@ dependencies {
     //    compile files('libs/annotation.jar')
     //    compile files('libs/injectlib.jar')
     compile files('libs/BASE64.jar')
+
+    compile 'com.drewnoakes:metadata-extractor:2.11.0'
+
 }
