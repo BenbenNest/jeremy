@@ -1,6 +1,7 @@
 package com.jeremy.demo.utils;
 
 
+import com.jeremy.library.utils.DateUtil;
 import com.jeremy.library.utils.FileUtils;
 
 import java.io.BufferedReader;
@@ -70,15 +71,18 @@ public class PhotoManager {
         //Java第三方库方法
         Date date = Metadata_Extractor.getDate(file);
         if (date != null) {
-            File yearDir = new File(root + File.separator + "Photo_Mu" + File.separator + (date.getYear() + 1900));
-            if (!yearDir.exists()) {
-                yearDir.mkdirs();
+            File destDir = new File(file.getParent() + File.separator + "Photo_Mu" + File.separator + DateUtil.getYearStr(date));
+            if (!destDir.exists()) {
+                destDir.mkdirs();
             }
-            File monthDir = new File(yearDir, date.getMonth() + "");
-            if (!monthDir.exists()) {
-                monthDir.mkdirs();
+
+            if (!isEmpty(DateUtil.getMonthStr(date))) {
+                destDir = new File(destDir, DateUtil.getMonthStr(date));
+                if (!destDir.exists()) {
+                    destDir.mkdirs();
+                }
             }
-            copyFile(file.getAbsolutePath(), monthDir.getAbsolutePath() + File.separator + file.getName());
+            copyFile(file.getAbsolutePath(), destDir.getAbsolutePath() + File.separator + file.getName());
         }
         //Android方法
 //        try {
@@ -99,6 +103,13 @@ public class PhotoManager {
 //
 //        }
 
+    }
+
+    public static boolean isEmpty(CharSequence str) {
+        if (str == null || str.equals("")) {
+            return true;
+        }
+        return false;
     }
 
     /**

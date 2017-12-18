@@ -48,4 +48,32 @@ public class DateUtil {
         return timestamp;
     }
 
+    public static int getYear(Date date) {
+        if (date != null) {
+            return date.getYear() + 1900;
+        }
+        return 1900;
+    }
+
+    public static String getYearStr(Date date) {
+        if (date != null) {
+            return (date.getYear() + 1900) + "";
+        }
+        return "";
+    }
+
+    public static int getMonth(Date date) {
+        if (date != null) {
+            return date.getMonth() + 1;
+        }
+        return 0;
+    }
+
+    public static String getMonthStr(Date date) {
+        if (date != null) {
+            return (date.getMonth() + 1) + "";
+        }
+        return "";
+    }
+
 }

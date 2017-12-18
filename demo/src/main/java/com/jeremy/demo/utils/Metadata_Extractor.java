@@ -55,6 +55,7 @@ public class Metadata_Extractor {
                 if (date != null) {
                     int year = date.getYear();
                     year += 1900;
+                    return date;
                 }
             }
         }
