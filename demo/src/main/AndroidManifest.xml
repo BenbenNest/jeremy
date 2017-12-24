@@ -152,6 +152,9 @@
         <activity android:name=".activity.PropertyAnimActivity" />
         <activity android:name=".activity.anim.Xml4AnimActivity" />
         <activity android:name=".activity.anim.layoutTransitionActivity"></activity>
+        <activity
+            android:name=".activity.plugin.HookActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

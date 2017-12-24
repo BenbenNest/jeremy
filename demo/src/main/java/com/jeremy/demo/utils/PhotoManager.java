@@ -21,6 +21,9 @@ import java.util.Date;
 public class PhotoManager {
     static String TAG = "PhotoManager";
 
+    public abstract class PhotoTest extends PhotoManager{
+
+    }
     public static String root;
 
 //    public void test() {
