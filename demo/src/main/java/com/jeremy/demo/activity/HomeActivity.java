@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.jeremy.demo.R;
 import com.jeremy.demo.algorithm.HeapSort;
 import com.jeremy.demo.algorithm.LinkListActivity;
+import com.jeremy.demo.jni.MyJNI;
 import com.jeremy.demo.mvp.bean.FunctionData;
 import com.jeremy.demo.mvp.presenter.FunctionListPresenter;
 import com.jeremy.demo.mvp.view.FunctionListView;
@@ -49,6 +50,7 @@ public class HomeActivity extends AppCompatActivity implements FunctionListView,
 //        test();
         init();
         HeapSort.testHeapSort();
+        System.out.print("jni:"+MyJNI.getStringFromC());
     }
 
 

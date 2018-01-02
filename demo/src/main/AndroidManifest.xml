@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jeremy.demo">
 
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
     <!-- 友盟必备权限 -->
     <!-- ACCESS_NETWORK_STATE(必须)	检测联网方式，区分用户设备使用的是2G、3G或是WiFi -->
     <!-- READ_PHONE_STATE(必须)	获取用户设备的IMEI，通过IMEI和mac来唯一的标识用户。 -->
@@ -151,10 +155,11 @@
             android:screenOrientation="portrait" />
         <activity android:name=".activity.PropertyAnimActivity" />
         <activity android:name=".activity.anim.Xml4AnimActivity" />
-        <activity android:name=".activity.anim.layoutTransitionActivity"></activity>
+        <activity android:name=".activity.anim.layoutTransitionActivity" />
         <activity
             android:name=".activity.plugin.HookActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".activity.jni.MyFirstJniActivity"></activity>
     </application>
 
 </manifest>

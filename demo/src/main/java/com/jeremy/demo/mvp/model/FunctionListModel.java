@@ -100,6 +100,8 @@ public class FunctionListModel {
         data = new FunctionData("友盟推送", packageName + "YouMengActivity", "友盟推送", 0);
         list.add(data);
 
+        data = new FunctionData("MyFirstJni", packageName + "jni.MyFirstJniActivity", "MyFirstJni", 0);
+        list.add(data);
 
     }
 

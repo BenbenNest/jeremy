@@ -30,6 +30,13 @@ android {
 //        jackOptions {
 //            enabled true
 //        }
+
+        ndk {
+//            moduleName "myjni"
+//            ldLibs "log", "z", "m"
+            abiFilters "armeabi", "armeabi-v7a"
+        }
+
     }
 
     signingConfigs {
@@ -55,6 +62,27 @@ android {
             signingConfig signingConfigs.demo
         }
     }
+
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java']
+            assets.srcDirs = ['src/main/assets']
+//            if (build_jni) {
+//                jniLibs.srcDirs = ['null']
+//            }
+            jni.srcDirs = []//disable automatic ndk-build call
+            jniLibs.srcDir "src/main/libs"
+        }
+    }
+
+
+    externalNativeBuild {
+        ndkBuild {
+            path './src/main/jni/Android.mk'
+        }
+    }
+
+
     productFlavors {
         yingyongbao {
             manifestPlaceholders(["UMENG_CHANNEL_VALUE": "yingyongbao"])
