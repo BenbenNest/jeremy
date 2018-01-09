@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+//apply plugin: 'com.jeremy.plugin.Register'
 
 android {
     compileSdkVersion 26
@@ -34,4 +35,29 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
+}
+
+android.applicationVariants.all { variant->
+    def dexTask = project.tasks.findByName("transformClassesWithDexForDebug")
+    def preDexTask = project.tasks.findByName("transformClassesWithPreDexForDebug")
+    if(preDexTask) {
+        project.logger.error "======preDexTask======"
+        preDexTask.inputs.files.files.each {file ->
+            project.logger.error "inputs =$file.absolutePath"
+        }
+
+        preDexTask.outputs.files.files.each {file ->
+            project.logger.error "outputs =$file.absolutePath"
+        }
+    }
+    if(dexTask) {
+        project.logger.error "======dexTask======"
+        dexTask.inputs.files.files.each {file ->
+            project.logger.error "inputs =$file.absolutePath"
+        }
+
+        dexTask.outputs.files.files.each {file ->
+            project.logger.error "outputs =$file.absolutePath"
+        }
+    }
 }
