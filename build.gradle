@@ -1,37 +1,5 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
-//                            _ooOoo_
-//                           o8888888o
-//                           88" . "88
-//                           (| -_- |)
-//                            O\ = /O
-//                        ____/`---'\____
-//                      .   ' \\| |// `.
-//                       / \\||| : |||// \
-//                     / _||||| -:- |||||- \
-//                       | | \\\ - /// | |
-//                     | \_| ''\---/'' | |
-//                      \ .-\__ `-` ___/-. /
-//                   ___`. .' /--.--\ `. . __
-//                ."" '< `.___\_<|>_/___.' >'"".
-//               | | : `- \`.;`\ _ /`;.`/ - ` : | |
-//                 \ \ `-. \_ __\ /__ _/ .-` / /
-//         ======`-.____`-.___\_____/___.-`____.-'======
-//                            `=---='
-//
-//         .............................................
-//                  佛祖镇楼                  BUG辟易
-//          佛曰:
-//                  写字楼里写字间，写字间里程序员；
-//                  程序人员写程序，又拿程序换酒钱。
-//                  酒醒只在网上坐，酒醉还来网下眠；
-//                  酒醉酒醒日复日，网上网下年复年。
-//                  但愿老死电脑间，不愿鞠躬老板前；
-//                  奔驰宝马贵者趣，公交自行程序员。
-//                  别人笑我忒疯癫，我笑自己命太贱；
-//                  不见满街漂亮妹，哪个归得程序员？
-
-
 buildscript {
     repositories {
         jcenter() {
@@ -44,15 +12,16 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.2'
-//        classpath 'com.android.tools.build:gradle:2.0.0'
+//        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath 'com.android.tools.build:gradle:2.3.2'
+//        classpath 'com.android.tools.build:gradle:3.0.1'
         classpath 'me.tatarka:gradle-retrolambda:3.2.5'
         classpath 'me.tatarka.retrolambda.projectlombok:lombok.ast:0.2.3.a2'
         classpath 'org.aspectj:aspectjtools:1.8.1'
         classpath 'com.fernandocejas.frodo:frodo-plugin:0.8.2'
         classpath 'com.jakewharton.hugo:hugo-plugin:1.2.1'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
-        classpath 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.4.2'
+//        classpath 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.4.2'
         classpath 'org.greenrobot:greendao-gradle-plugin:3.1.0'
         classpath('com.tencent.tinker:tinker-patch-gradle-plugin:1.7.5')
         // NOTE: Do not place your application dependencies here; they belong
@@ -77,6 +46,6 @@ allprojects {
 
 ext{
     compileSdkVersion = 25
-    buildToolsVersion = "23.0.3"
+    buildToolsVersion = "25.0.3"
 
 }
