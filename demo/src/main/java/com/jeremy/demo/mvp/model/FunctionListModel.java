@@ -31,6 +31,9 @@ public class FunctionListModel {
     private void initData() {
         FunctionData data;
 
+        data = new FunctionData("身份证拍照", packageName + "camera.IDCardUploadActivity", "身份证拍照", 0);
+        list.add(data);
+
         data = new FunctionData("hook系统剪切板服务", packageName + "plugin.HookActivity", "hook系统剪切板服务", 0);
         list.add(data);
 

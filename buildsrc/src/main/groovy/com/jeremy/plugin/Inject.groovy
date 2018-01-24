@@ -3,6 +3,7 @@ package com.jeremy.plugin
 import javassist.ClassPool
 import javassist.CtClass
 import org.apache.commons.io.FileUtils
+import org.gradle.api.Project
 
 /**
  * Created by AItsuki on 2016/4/7.
@@ -29,7 +30,7 @@ public class Inject {
      * --- 3. Application
      * @param path 目录的路径
      */
-    public static void injectDir(String path) {
+    public static void injectDir(Project project,String path) {
         pool.appendClassPath(path)
         File dir = new File(path)
         if(dir.isDirectory()) {
@@ -43,11 +44,13 @@ public class Inject {
                         // 这里是application的名字，可以通过解析清单文件获得，先写死了
                         && !filePath.contains("HotPatchApplication.class")) {
                     // 这里是应用包名，也能从清单文件中获取，先写死
-                    int index = filePath.indexOf("com\\aitsuki\\hotpatchdemo")
+                    int index = filePath.indexOf("com/jeremy/hotfix")
+                    project.logger.error "================filePath==========="+filePath
+                    project.logger.error "================index==========="+index
                     if (index != -1) {
                         int end = filePath.length() - 6 // .class = 6
                         String className = filePath.substring(index, end).replace('\\', '.').replace('/','.')
-                        injectClass(className, path)
+                        injectClass(project, className, path)
                     }
                 }
             }
@@ -58,7 +61,7 @@ public class Inject {
      * 这里需要将jar包先解压，注入代码后再重新生成jar包
      * @path jar包的绝对路径
      */
-    public static void injectJar(String path) {
+    public static void injectJar(Project project, String path) {
         if (path.endsWith(".jar")) {
             File jarFile = new File(path)
 
@@ -80,7 +83,7 @@ public class Inject {
                         && !className.contains('R.class')
                         && !className.contains("BuildConfig.class")) {
                     className = className.substring(0, className.length()-6)
-                    injectClass(className, jarZipDir)
+                    injectClass(project, className, jarZipDir)
                 }
             }
 
@@ -92,13 +95,14 @@ public class Inject {
         }
     }
 
-    private static void injectClass(String className, String path) {
+    private static void injectClass(Project project, String className, String path) {
         CtClass c = pool.getCtClass(className)
         if (c.isFrozen()) {
             c.defrost()
         }
         def constructor = c.getConstructors()[0];
-        constructor.insertAfter("System.out.println(com.aitsuki.hack.AntilazyLoad.class);")
+        constructor.insertAfter("System.out.println(com.jeremy.hack.AntilazyLoad.class);")
+        project.logger.error "================System.out.println(com.jeremy.hack.AntilazyLoad.class);！=========="
         c.writeFile(path)
     }
 

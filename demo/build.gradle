@@ -49,16 +49,17 @@ android {
     }
 
     buildTypes {
-        debug {
-            buildConfigField("boolean", "LOG_OPEN", "true")
-//            minifyEnabled true
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        release {
+            buildConfigField("boolean", "LOG_OPEN", "false")
+            minifyEnabled true//最小化资源包
+            shrinkResources true//去掉无用资源
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.demo
         }
-        release {
+
+        debug {
             buildConfigField("boolean", "LOG_OPEN", "true")
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled false
             signingConfig signingConfigs.demo
         }
     }
@@ -74,7 +75,6 @@ android {
             jniLibs.srcDir "src/main/libs"
         }
     }
-
 
 //    externalNativeBuild {
 //        ndkBuild {

@@ -4,7 +4,6 @@ import android.support.annotation.IntDef;
 
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import com.jeremy.demo.BuildConfig;
 
 import java.io.IOException;
 import java.lang.annotation.Retention;
@@ -122,10 +121,10 @@ public class RetroAdapter {
         if (extraInterceptor != null) {
             clientBuilder.addInterceptor(extraInterceptor);
         }
-        if (BuildConfig.DEBUG) {
+//        if (BuildConfig.DEBUG) {
 //            Interceptor debugHostInterceptor = DebugNetworkConfig.getInstance().addHostHeader(getServiceInfo(type).getBaseUrl());
 
-        }
+//        }
 
 //        if (SystemInfo.isDebugMode()) {
 //            Interceptor debugHostInterceptor = DebugNetworkConfig.getInstance().addHostHeader(getServiceInfo(type).getBaseUrl());

@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: com.jeremy.plugin.Register
+//apply plugin: com.jeremy.plugin.Register
 
 android {
 //    compileSdkVersion 23

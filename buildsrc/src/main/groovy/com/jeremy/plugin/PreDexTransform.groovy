@@ -41,7 +41,9 @@ public class PreDexTransform extends Transform {
             throws IOException, TransformException, InterruptedException {
 
         // 获取到hack module的debug目录，也就是Antilazy.class所在的目录。
-        def libPath = project.project(':hack').buildDir.absolutePath.concat("\\intermediates\\classes\\debug")
+        def libPath = project.project(':hack').buildDir.absolutePath.concat("/intermediates/classes/debug")
+        project.logger.error "================libPath=========="+libPath
+        //================libPath==========/Users/didi/benben/jeremy/hack/build\intermediates\classes\debug
         // 将路径添加到Classpool的classPath
         Inject.appendClassPath(libPath)
 
@@ -55,7 +57,7 @@ public class PreDexTransform extends Transform {
                         directoryInput.contentTypes, directoryInput.scopes, Format.DIRECTORY)
 
                 //TODO 这里可以对input的文件做处理，比如代码注入！
-                Inject.injectDir(directoryInput.file.absolutePath)
+                Inject.injectDir(project,directoryInput.file.absolutePath)
 
                 // 将input的目录复制到output指定目录
                 FileUtils.copyDirectory(directoryInput.file, dest)

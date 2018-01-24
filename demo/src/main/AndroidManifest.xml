@@ -10,10 +10,10 @@
     <!-- ACCESS_NETWORK_STATE(必须)	检测联网方式，区分用户设备使用的是2G、3G或是WiFi -->
     <!-- READ_PHONE_STATE(必须)	获取用户设备的IMEI，通过IMEI和mac来唯一的标识用户。 -->
     <!-- ACCESS_WIFI_STATE(必须)	获取用户设备的mac地址，在平板设备上，无法通过imei标示设备，我们会将mac地址作为用户的唯一标识 -->
-    <!-- INTERNET(必须)	允许应用程序联网，以便向我们的服务器端发送数据。 -->
+    <!-- INTERNET(必须)	允许应用程序联网，以便向我们的服务器端发送数据。 安定roidM
 
 
-    <!-- 联网相关权限 -->
+    <!- 联网相关权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -24,6 +24,11 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- 摄像头权限  -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <!-- 用于进行网络定位 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -48,7 +53,6 @@
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.RECORD_VIDEO" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
@@ -160,6 +164,9 @@
             android:name=".activity.plugin.HookActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".activity.jni.MyFirstJniActivity"></activity>
+        <activity
+            android:name=".activity.camera.IDCardUploadActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

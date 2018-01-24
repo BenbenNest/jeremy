@@ -1,5 +1,6 @@
-include ':app', ':yourday', ':demo', ':library', ':viewinject-annotation', ':viewinject_compiler', ':viewinject_compiler', ':inject', ':inject', ':crop', ':annotation', ':DroidPlugin', ':hotfix', ':buildsrc', ':hack'
+include ':app', ':yourday', ':demo', ':library', ':viewinject-annotation', ':viewinject_compiler',
+        ':viewinject_compiler', ':inject', ':inject', ':crop', ':annotation', ':DroidPlugin',
+        ':hotfix'
+//, ':buildsrc', ':hack'
 
-//include ':yourday'
 
-//':app', ':yourday', ':annotationlibrary', 'lianxiandaogenerator'
