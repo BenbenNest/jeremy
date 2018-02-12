@@ -102,6 +102,7 @@ dependencies {
     apt project(':viewinject_compiler')
     compile project(':crop')
     compile project(':DroidPlugin')
+    compile project(':camera')
     //可选，用于生成application类
     //    provided('com.tencent.tinker:tinker-android-anno:1.7.5')
     //tinker的核心库

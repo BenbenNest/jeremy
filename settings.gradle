@@ -1,4 +1,4 @@
-include ':app', ':yourday', ':demo', ':library', ':viewinject-annotation', ':viewinject_compiler',
+include ':app', ':yourday', ':demo', ':library', ':viewinject-annotation', ':viewinject_compiler', ':camera',
         ':viewinject_compiler', ':inject', ':inject', ':crop', ':annotation', ':DroidPlugin',
         ':hotfix'
 //, ':buildsrc', ':hack'

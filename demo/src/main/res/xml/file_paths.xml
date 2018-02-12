@@ -4,4 +4,16 @@
     <external-cache-path name="external-cache" path="" />
     <files-path name="files" path=""  />
     <external-path name="external-files" path="" />
+
+    <!--<external-path name="camera_photos" path="."  />-->
+    <!--<external-path name="cache" path="Android/data/com.jeremy.demo/cache" />-->
+    <!--<external-path name="images" path="Pictures/" />-->
+    <!--<external-path name="dcim" path="DCIM/" />-->
 </paths>
+
+
+
+
+
+
+

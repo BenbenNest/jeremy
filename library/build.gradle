@@ -46,7 +46,9 @@ dependencies {
     //    compile files('libs/annotation.jar')
     //    compile files('libs/injectlib.jar')
     compile files('libs/BASE64.jar')
-
+    compile 'com.squareup.okhttp3:okhttp:3.9.1'
     compile 'com.drewnoakes:metadata-extractor:2.11.0'
+
+//    compile 'com.zhy:okhttputils:2.6.2'
 
 }
