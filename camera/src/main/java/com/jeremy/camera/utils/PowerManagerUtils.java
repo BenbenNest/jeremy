@@ -8,6 +8,17 @@ import android.os.PowerManager.WakeLock;
  * Created by changqing on 2018/2/13.
  */
 
+/**
+ *
+ PowerManager负责对Android设备电源相关进行管理，而系统通过各种锁对电源进行控制，WakeLock是一种锁机制，只要有人拿着这把所，系统就无法进入休眠阶段。
+ 既然要保持应用程序一直在后台运行，那自然要获得这把锁才可以保证程序始终在后台运行。
+ 之前我做过一个需求是要在后台跑一个Service执行轮询，但发现一段时间以后，轮询就中断了（我测试是二十分钟后请求停止），但重新解锁屏幕后，轮询请求又开始了，
+ 后来在Stackoverflow上找到的WakeLock的用法，试了一下，还挺管用。
+ 在使用这个方法之前，我把Service置成前台Service等方法都不奏效.
+ *
+ */
+
+
 public class PowerManagerUtils {
 
     WakeLock wakeLock = null;
