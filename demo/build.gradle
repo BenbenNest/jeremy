@@ -92,6 +92,10 @@ android {
         }
     }
 
+    lintOptions {
+        abortOnError false
+    }
+
 }
 
 dependencies {
@@ -165,4 +169,11 @@ task test1(dependsOn: [compile, compileTest]) << {
 
 task dist(dependsOn: [compile, test1]) << {
     println 'building the distribution'
+}
+
+
+task hello{
+    doLast{
+        println 'Hello World1'
+    }
 }
