@@ -23,8 +23,9 @@ public class MyJsonParser {
             String key = text.substring(0, pos);
             String value = text.substring(pos + 1, text.length());
             //替换字符串开始和结束的字符串
-            value.replaceAll("^\\\"|\\\"$", "");
-            System.out.print(key+" ");
+            value = value.replaceAll("^\"|\"$", "");
+//            value = value.replaceAll("^\\\"|\\\"$", "");
+            System.out.print(key + " ");
             System.out.println(value);
         }
     }
