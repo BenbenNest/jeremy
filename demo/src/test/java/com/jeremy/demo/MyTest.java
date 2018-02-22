@@ -1,6 +1,7 @@
 package com.jeremy.demo;
 
 import com.jeremy.demo.study.DeadLock;
+import com.jeremy.demo.study.MyJsonParser;
 
 import org.junit.Test;
 
@@ -24,6 +25,9 @@ public class MyTest {
 
         }
 
+        //如果t2使用了task2，则不会产生死锁，因为没有使用相同的资源，不过如果obj1和obj2定义的时候如果没有使用new String 的话，还是会产生死锁
+        //因为字符串因为字符串池的问题，产生的对象还是同一个
+//        DeadLock.MyTask task2=new DeadLock.MyTask();
         task.setFlag(2);
         Thread t2 = new Thread(task);
         t2.start();
@@ -34,6 +38,11 @@ public class MyTest {
 
         }
 
+    }
+
+    @Test
+    public void testJsonParser() {
+        MyJsonParser.parse();
     }
 
 }
