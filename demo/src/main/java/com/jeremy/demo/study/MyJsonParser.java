@@ -16,6 +16,8 @@ public class MyJsonParser {
         //name:"jeremy"
         //age:30
         Pattern pattern = Pattern.compile("\\w+:(\"\\w+\"|\\d+)");
+        //解析value为{}json对象的方法
+//        Pattern pattern = Pattern.compile("\\w+:(\"\\w+\"|\\d+|\\{\\S+\\})");
         Matcher matcher = pattern.matcher(json);
         while (matcher.find()) {
             String text = matcher.group();
