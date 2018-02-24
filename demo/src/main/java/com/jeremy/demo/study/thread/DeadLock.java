@@ -1,4 +1,4 @@
-package com.jeremy.demo.study;
+package com.jeremy.demo.study.thread;
 
 /**
  * Created by changqing on 2018/2/21.
