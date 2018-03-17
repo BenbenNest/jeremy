@@ -5,5 +5,5 @@ package com.jeremy.demo.designpattern.simplefactory;
  */
 
 public interface Product {
-
+    void produce();
 }

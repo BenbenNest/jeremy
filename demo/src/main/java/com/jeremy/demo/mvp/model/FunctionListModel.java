@@ -31,6 +31,9 @@ public class FunctionListModel {
     private void initData() {
         FunctionData data;
 
+        data = new FunctionData("列表字母排序", "com.jeremy.demo.widget.sortedview.SortedViewActivity", "列表字母排序", 0);
+        list.add(data);
+
         data = new FunctionData("身份证拍照", packageName + "camera.IDCardUploadActivity", "身份证拍照", 0);
         list.add(data);
 
