@@ -5,13 +5,11 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 
-import com.jeremy.demo.R;
 import com.jeremy.library.utils.ScreenUtil;
 
 public class SideBar extends View {
@@ -63,6 +61,8 @@ public class SideBar extends View {
             if (i == choose) {
                 paint.setColor(Color.parseColor("#3399ff"));
                 paint.setFakeBoldText(true);
+            }else {
+
             }
             // x坐标等于中间-字符串宽度的一半.
             float xPos = width / 2 - paint.measureText(b[i]) / 2;
@@ -78,13 +78,13 @@ public class SideBar extends View {
         final int action = event.getAction();
         final float y = event.getY();// 点击y坐标
         final int oldChoose = choose;
-        final OnTouchingLetterChangedListener listener = onTouchingLetterChangedListener;
+//        final OnTouchingLetterChangedListener listener = onTouchingLetterChangedListener;
         final int c = (int) (y / getHeight() * b.length);// 点击y坐标所占总高度的比例*b数组的长度就等于点击b中的个数.
 
         switch (action) {
             case MotionEvent.ACTION_UP:
-                setBackgroundDrawable(new ColorDrawable(0x00000000));
-                choose = -1;//
+//                setBackgroundDrawable(new ColorDrawable(0x00000000));
+//                choose = -1;//
                 invalidate();
                 if (mTextDialog != null) {
                     mTextDialog.setVisibility(View.INVISIBLE);
@@ -92,11 +92,11 @@ public class SideBar extends View {
                 break;
 
             default:
-                setBackgroundResource(R.drawable.sidebar_background);
+//                setBackgroundResource(R.drawable.sidebar_background);
                 if (oldChoose != c) {
                     if (c >= 0 && c < b.length) {
-                        if (listener != null) {
-                            listener.onTouchingLetterChanged(b[c]);
+                        if (onTouchingLetterChangedListener != null) {
+                            onTouchingLetterChangedListener.onTouchingLetterChanged(b[c]);
                         }
                         if (mTextDialog != null) {
                             mTextDialog.setText(b[c]);
