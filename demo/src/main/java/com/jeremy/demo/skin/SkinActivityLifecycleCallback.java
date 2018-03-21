@@ -26,7 +26,7 @@ public class SkinActivityLifecycleCallback implements Application.ActivityLifecy
             e.printStackTrace();
         }
         layoutInflater.setFactory2(new SkinLayoutFactory() );
-//        LayoutInflaterCompat.setFactory(layoutInflater,new SkinLayoutFactory());
+//        LayoutInflaterCompat.setFactory2(layoutInflater,new SkinLayoutFactory());
 
     }
 
