@@ -30,6 +30,13 @@ public class IntDefTest {
      对于枚举来说占用的内存往往是使用静态常量的两倍，因而我们要尽量避免在Android中使用枚举。
      */
 
+    /**
+     使用 Enum 的缺点
+     1.每一个枚举值都是一个对象,在使用它时会增加额外的内存消耗,所以枚举相比与 Integer 和 String 会占用更多的内存
+     2.较多的使用 Enum 会增加 DEX 文件的大小,会造成运行时更多的开销,使我们的应用需要更多的空间。
+     3.特别是分dex的大APP，枚举的初始化很容易导致ANR
+     */
+
     public static final int STATE_NONE = -1;
     public static final int STATE_LOADING = 0;
     public static final int STATE_SUCCESS = 1;
