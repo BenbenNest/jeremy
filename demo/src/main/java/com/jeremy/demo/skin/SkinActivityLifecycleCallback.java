@@ -6,12 +6,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 
 import java.lang.reflect.Field;
+import java.util.HashMap;
 
 /**
  * Created by changqing on 2018/3/20.
  */
 
 public class SkinActivityLifecycleCallback implements Application.ActivityLifecycleCallbacks {
+
+    HashMap<Activity, SkinLayoutFactory> mLayoutFactoryMap = new HashMap<>();
+
     @Override
     public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
         LayoutInflater layoutInflater = LayoutInflater.from(activity);
@@ -25,9 +29,11 @@ public class SkinActivityLifecycleCallback implements Application.ActivityLifecy
         } catch (Exception e) {
             e.printStackTrace();
         }
-        layoutInflater.setFactory2(new SkinLayoutFactory() );
+        SkinLayoutFactory skinLayoutFactory = new SkinLayoutFactory();
+        layoutInflater.setFactory2(skinLayoutFactory);
+        SkinManager.getInstance().addObserver(skinLayoutFactory);
+        mLayoutFactoryMap.put(activity, skinLayoutFactory);
 //        LayoutInflaterCompat.setFactory2(layoutInflater,new SkinLayoutFactory());
-
     }
 
     @Override
@@ -57,6 +63,7 @@ public class SkinActivityLifecycleCallback implements Application.ActivityLifecy
 
     @Override
     public void onActivityDestroyed(Activity activity) {
-
+        SkinLayoutFactory skinLayoutFactory = mLayoutFactoryMap.remove(activity);
+        SkinManager.getInstance().deleteObserver(skinLayoutFactory);
     }
 }

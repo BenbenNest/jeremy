@@ -7,12 +7,14 @@ import android.view.View;
 
 import java.lang.reflect.Constructor;
 import java.util.HashMap;
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  * Created by changqing on 2018/3/20.
  */
 
-public class SkinLayoutFactory implements LayoutInflater.Factory2 {
+public class SkinLayoutFactory implements LayoutInflater.Factory2, Observer {
 
     private static final String[] mClassPrefixList = {
             "android.widget.",
@@ -77,5 +79,11 @@ public class SkinLayoutFactory implements LayoutInflater.Factory2 {
             }
         }
         return null;
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        //更换皮肤
+        skinAttribute.applySkin();
     }
 }
