@@ -55,7 +55,7 @@ public class SkinManager extends Observable {
      *
      * @param skin
      */
-    private void loadSkin(String skin) {
+    public void loadSkin(String skin) {
         //还原默认皮肤包
         if (TextUtils.isEmpty(skin)) {
             SkinPreference.getInstance().setSkin("");

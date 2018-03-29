@@ -25,22 +25,16 @@ import static android.os.Environment.MEDIA_MOUNTED;
  * @author changqing.zhao
  */
 public class StorageUtils {
-    public static final String FILE_SEP = File.separator;
-    public static final String SD_CARD_DIR = Environment.getExternalStorageDirectory().getAbsolutePath();
-    public static final String CAMERA_DIR = SD_CARD_DIR + StorageUtils.FILE_SEP + "DCIM" + StorageUtils.FILE_SEP
-            + "Camera" + StorageUtils.FILE_SEP;
-    public static final String NEXTEV_STORAGE_DIR = SD_CARD_DIR + StorageUtils.FILE_SEP + "nextev";
-
-    private static final String EXTERNAL_STORAGE_PERMISSION = "android.permission.WRITE_EXTERNAL_STORAGE";
+    public static final String FILE_SEPERATOR = File.separator;
+    public static final String ROOT_SD_CARD = Environment.getExternalStorageDirectory().getAbsolutePath();
+    public static final String CAMERA_DIR = ROOT_SD_CARD + FILE_SEPERATOR + "DCIM" + FILE_SEPERATOR
+            + "Camera" + FILE_SEPERATOR;
     private static final String TAG = "StorageUtils";
 
-    //获取文件读取写入权限
-    public static final String[] PERMISSIONS_STORAGE = {
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
-    };
-
-    private StorageUtils() {
+    //Android使用了权限组，所以申请了READ_EXTERNAL_STORAGE，也自动会申请WRITE_EXTERNAL_STORAGE
+    private static boolean hasExternalStoragePermission(Context context) {
+        int permission = context.checkCallingOrSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        return permission == PackageManager.PERMISSION_GRANTED;
     }
 
     public static boolean isSDCardAvailable(Context context) {
@@ -51,7 +45,7 @@ public class StorageUtils {
     }
 
     /**
-     * 照片图片的
+     * 图片存储目录
      *
      * @param context
      * @return
@@ -177,11 +171,6 @@ public class StorageUtils {
         return appCacheDir;
     }
 
-    private static boolean hasExternalStoragePermission(Context context) {
-        int permission = context.checkCallingOrSelfPermission(EXTERNAL_STORAGE_PERMISSION);
-        return permission == PackageManager.PERMISSION_GRANTED;
-    }
-
     /**
      * @param ctx
      * @param name
@@ -276,12 +265,12 @@ public class StorageUtils {
             throws IllegalAccessException, IOException {
         checkExternalStorageState();
 
-        StringBuilder cacheDirPath = new StringBuilder(SD_CARD_DIR);
-        cacheDirPath.append(FILE_SEP).append("Android").append(FILE_SEP).append("data").append(FILE_SEP)
-                .append(ctx.getApplicationContext().getPackageName()).append(FILE_SEP).append("cache");
+        StringBuilder cacheDirPath = new StringBuilder(ROOT_SD_CARD);
+        cacheDirPath.append(FILE_SEPERATOR).append("Android").append(FILE_SEPERATOR).append("data").append(FILE_SEPERATOR)
+                .append(ctx.getApplicationContext().getPackageName()).append(FILE_SEPERATOR).append("cache");
         File cacheDir = getDir(cacheDirPath.toString(), name);
         if (cacheDir == null) {
-            throw new IOException("External directory not created->" + cacheDirPath.toString() + FILE_SEP + name);
+            throw new IOException("External directory not created->" + cacheDirPath.toString() + FILE_SEPERATOR + name);
         }
         return cacheDir;
     }
@@ -306,30 +295,11 @@ public class StorageUtils {
         }
 
         StringBuilder cacheDirPath = new StringBuilder();
-        cacheDirPath.append(FILE_SEP).append("data").append(FILE_SEP).append("data").append(FILE_SEP)
-                .append(ctx.getPackageName()).append(FILE_SEP).append("cache");
+        cacheDirPath.append(FILE_SEPERATOR).append("data").append(FILE_SEPERATOR).append("data").append(FILE_SEPERATOR)
+                .append(ctx.getPackageName()).append(FILE_SEPERATOR).append("cache");
         cacheDir = getDir(cacheDirPath.toString(), name);
         if (!cacheDir.exists() && !cacheDir.mkdirs()) {
-            throw new IOException("Internal directory not created->" + cacheDirPath.toString() + FILE_SEP + name);
-        }
-        return cacheDir;
-    }
-
-    /**
-     * 获取蔚来汽车存储目录
-     *
-     * @param name
-     * @return
-     * @throws IllegalAccessException
-     * @throws IOException
-     */
-    public static File getNextEVDir(String name)
-            throws IllegalAccessException, IOException {
-        checkExternalStorageState();
-
-        File cacheDir = getDir(NEXTEV_STORAGE_DIR, name);
-        if (cacheDir == null) {
-            throw new IOException("External directory not created->" + NEXTEV_STORAGE_DIR + FILE_SEP + name);
+            throw new IOException("Internal directory not created->" + cacheDirPath.toString() + FILE_SEPERATOR + name);
         }
         return cacheDir;
     }
