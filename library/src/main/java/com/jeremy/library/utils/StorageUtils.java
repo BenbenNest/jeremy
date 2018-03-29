@@ -25,11 +25,11 @@ import static android.os.Environment.MEDIA_MOUNTED;
  * @author changqing.zhao
  */
 public class StorageUtils {
+
+    private static final String TAG = "StorageUtils";
+    public static final String FILE_PROVIDER = "com.jeremy.demo.fileprovider";
     public static final String FILE_SEPERATOR = File.separator;
     public static final String ROOT_SD_CARD = Environment.getExternalStorageDirectory().getAbsolutePath();
-    public static final String CAMERA_DIR = ROOT_SD_CARD + FILE_SEPERATOR + "DCIM" + FILE_SEPERATOR
-            + "Camera" + FILE_SEPERATOR;
-    private static final String TAG = "StorageUtils";
 
     //Android使用了权限组，所以申请了READ_EXTERNAL_STORAGE，也自动会申请WRITE_EXTERNAL_STORAGE
     private static boolean hasExternalStoragePermission(Context context) {
