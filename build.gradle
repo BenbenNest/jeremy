@@ -39,12 +39,12 @@ buildscript {
     dependencies {
 //        classpath 'com.android.tools.build:gradle:2.3.2'
         classpath 'com.android.tools.build:gradle:3.0.1'
-        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
+//        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
 //        classpath 'me.tatarka.retrolambda.projectlombok:lombok.ast:0.2.3.a2'
 //        classpath 'org.aspectj:aspectjtools:1.8.1'
 //        classpath 'com.fernandocejas.frodo:frodo-plugin:0.8.2'
 //        classpath 'com.jakewharton.hugo:hugo-plugin:1.2.1'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+//        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
 //        classpath 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.4.2'
 //        classpath 'org.greenrobot:greendao-gradle-plugin:3.1.0'
 //        classpath('com.tencent.tinker:tinker-patch-gradle-plugin:1.7.5')

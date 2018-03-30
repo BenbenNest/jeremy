@@ -29,34 +29,34 @@ public abstract class BaseRxActivity extends BaseActivity {
      * @param <T>
      * @return
      */
-    public <T> ObservableTransformer<HttpResult<T>, T> handleResult() {
-        return upstream -> {
-            return upstream.flatMap(result -> {
-                        if (result.isSuccess()) {
-                            return createData(result.data);
-                        } else if (result.isTokenInvalid()) {
-                            //处理token失效，tokenInvalid方法在BaseActivity 实现
-//                            tokenInvalid();
-                        } else {
-                            return Observable.error(new Exception(result.msg));
-                        }
-                        return Observable.empty();
-                    }
+//    public <T> ObservableTransformer<HttpResult<T>, T> handleResult() {
+//        return upstream -> {
+//            return upstream.flatMap(result -> {
+//                        if (result.isSuccess()) {
+//                            return createData(result.data);
+//                        } else if (result.isTokenInvalid()) {
+//                            //处理token失效，tokenInvalid方法在BaseActivity 实现
+////                            tokenInvalid();
+//                        } else {
+//                            return Observable.error(new Exception(result.msg));
+//                        }
+//                        return Observable.empty();
+//                    }
+//
+//            );
+//        };
+//    }
 
-            );
-        };
-    }
-
-    private <T> Observable<T> createData(final T t) {
-        return Observable.create(subscriber -> {
-            try {
-                subscriber.onNext(t);
-                subscriber.onComplete();
-            } catch (Exception e) {
-                subscriber.onError(e);
-            }
-        });
-    }
+//    private <T> Observable<T> createData(final T t) {
+//        return Observable.create(subscriber -> {
+//            try {
+//                subscriber.onNext(t);
+//                subscriber.onComplete();
+//            } catch (Exception e) {
+//                subscriber.onError(e);
+//            }
+//        });
+//    }
 
     public boolean addRxStop(Disposable disposable) {
         if (disposables2Stop == null) {

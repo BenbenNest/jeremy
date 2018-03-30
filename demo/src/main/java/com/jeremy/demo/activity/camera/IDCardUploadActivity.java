@@ -2,6 +2,7 @@ package com.jeremy.demo.activity.camera;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 
 import com.jeremy.demo.R;
@@ -21,7 +22,13 @@ public class IDCardUploadActivity extends AppCompatActivity {
         mCameraSurfaceView = (CameraSurfaceView) findViewById(R.id.cameraSurfaceView);
         button = (Button) findViewById(R.id.takePic);
 
-        button.setOnClickListener(v -> mCameraSurfaceView.takePicture());
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mCameraSurfaceView.takePicture();
+            }
+        });
+//        button.setOnClickListener(v -> mCameraSurfaceView.takePicture());
     }
 
 
