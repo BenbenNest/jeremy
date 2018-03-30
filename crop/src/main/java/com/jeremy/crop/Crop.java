@@ -124,9 +124,9 @@ public class Crop {
      * @param context  Context
      * @param fragment Fragment to receive result
      */
-    public void start(Context context, android.support.v4.app.Fragment fragment) {
-        start(context, fragment, REQUEST_CROP);
-    }
+//    public void start(Context context, android.support.v4.app.Fragment fragment) {
+//        start(context, fragment, REQUEST_CROP);
+//    }
 
     /**
      * Send the crop Intent with a custom request code
@@ -147,9 +147,9 @@ public class Crop {
      * @param fragment    Fragment to receive result
      * @param requestCode requestCode for result
      */
-    public void start(Context context, android.support.v4.app.Fragment fragment, int requestCode) {
-        fragment.startActivityForResult(getIntent(context), requestCode);
-    }
+//    public void start(Context context, android.support.v4.app.Fragment fragment, int requestCode) {
+//        fragment.startActivityForResult(getIntent(context), requestCode);
+//    }
 
     /**
      * Get Intent to start crop Activity
@@ -206,9 +206,9 @@ public class Crop {
      * @param context  Context
      * @param fragment Fragment to receive result
      */
-    public static void pickImage(Context context, android.support.v4.app.Fragment fragment) {
-        pickImage(context, fragment, REQUEST_PICK);
-    }
+//    public static void pickImage(Context context, android.support.v4.app.Fragment fragment) {
+//        pickImage(context, fragment, REQUEST_PICK);
+//    }
 
     /**
      * Pick image from an Activity with a custom request code
@@ -247,13 +247,13 @@ public class Crop {
      * @param fragment    Fragment to receive result
      * @param requestCode requestCode for result
      */
-    public static void pickImage(Context context, android.support.v4.app.Fragment fragment, int requestCode) {
-        try {
-            fragment.startActivityForResult(getImagePicker(), requestCode);
-        } catch (ActivityNotFoundException e) {
-            showImagePickerError(context);
-        }
-    }
+//    public static void pickImage(Context context, android.support.v4.app.Fragment fragment, int requestCode) {
+//        try {
+//            fragment.startActivityForResult(getImagePicker(), requestCode);
+//        } catch (ActivityNotFoundException e) {
+//            showImagePickerError(context);
+//        }
+//    }
 
     private static Intent getImagePicker() {
         return new Intent(Intent.ACTION_GET_CONTENT).setType("image/*");
