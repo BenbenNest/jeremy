@@ -17,10 +17,8 @@ def getDate() {
 }
 
 android {
-//    compileSdkVersion 25
-//    buildToolsVersion '25.0.2'
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
     useLibrary 'org.apache.http.legacy'
 
 //    compileOptions {
@@ -30,8 +28,8 @@ android {
 
     defaultConfig {
         applicationId "com.jeremy.demo"
-        minSdkVersion 19
-        targetSdkVersion 25
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode 1
         versionName "1.0"
         multiDexEnabled true

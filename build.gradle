@@ -1,5 +1,5 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-
+apply from:"config.gradle"
 //顶级构建文件
 /**
  * The buildscript {} block is where you configure the repositories and
@@ -39,6 +39,7 @@ buildscript {
     dependencies {
 //        classpath 'com.android.tools.build:gradle:2.3.2'
         classpath 'com.android.tools.build:gradle:3.0.1'
+
 //        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
 //        classpath 'me.tatarka.retrolambda.projectlombok:lombok.ast:0.2.3.a2'
 //        classpath 'org.aspectj:aspectjtools:1.8.1'
@@ -93,13 +94,14 @@ allprojects {
     }
 }
 
-ext {
-//    MinSdkVersion = 14
-//    TargetSdkVersion = 25
-    compileSdkVersion = 25
-    buildToolsVersion = "25.0.3"
-    SupportLibraryVersion = '23.4.0'
-}
+//https://developer.android.com/guide/topics/manifest/uses-sdk-element.html
+//ext {
+//    minSdkVersion = 19
+//    targetSdkVersion = 25
+//    compileSdkVersion = 25
+//    buildToolsVersion = "25.0.3"
+//    supportLibraryVersion = '23.4.0'
+//}
 
 task clean(type: Delete) {
     delete rootProject.buildDir

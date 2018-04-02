@@ -1,6 +1,6 @@
-include ':app', ':yourday', ':demo', ':library', ':viewinject-annotation', ':viewinject_compiler', ':camera', ':designpattern',
-        ':viewinject_compiler', ':inject', ':inject', ':crop', ':annotation', ':DroidPlugin',
-        ':hotfix'
+//include ':app', ':yourday', ':demo', ':library', ':viewinject-annotation', ':viewinject_compiler', ':camera', ':designpattern',
+//        ':viewinject_compiler', ':inject', ':inject', ':crop', ':annotation', ':DroidPlugin',
+//        ':hotfix'
 //, ':buildsrc', ':hack'
 
-
+include ':demo', ':library', ':viewinject-annotation', ':inject', ':crop', ':DroidPlugin', ':camera'

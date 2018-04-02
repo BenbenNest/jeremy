@@ -6,8 +6,8 @@ dependencies {
 }
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
