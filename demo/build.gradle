@@ -90,14 +90,14 @@ android {
 //    }
 
 
-    productFlavors {
-        yingyongbao {
-            manifestPlaceholders(["UMENG_CHANNEL_VALUE": "yingyongbao"])
-        }
-        baidu {
-            manifestPlaceholders(["UMENG_CHANNEL_VALUE": "baidu"])
-        }
-    }
+//    productFlavors {
+//        yingyongbao {
+//            manifestPlaceholders(["UMENG_CHANNEL_VALUE": "yingyongbao"])
+//        }
+//        baidu {
+//            manifestPlaceholders(["UMENG_CHANNEL_VALUE": "baidu"])
+//        }
+//    }
 
     lintOptions {
         abortOnError false
@@ -138,8 +138,12 @@ dependencies {
     compile project(':inject')
 //    apt project(':viewinject_compiler')
     compile project(':crop')
-    compile project(':DroidPlugin')
+//    compile project(':DroidPlugin')
     compile project(':camera')
+
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
     //可选，用于生成application类
     //    provided('com.tencent.tinker:tinker-android-anno:1.7.5')
     //tinker的核心库
@@ -164,14 +168,12 @@ dependencies {
         exclude group: 'com.android.support', module: 'cardview-v7'
     }
     compile "com.android.support:design:25.3.1"
-    compile 'com.jakewharton:butterknife:8.2.1'
     compile 'com.android.support:cardview-v7:25.3.1'
     compile 'com.bartoszlipinski:recyclerviewheader2:2.0.1'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.umeng.analytics:analytics:latest.integration'
-//    apt 'com.jakewharton:butterknife-compiler:8.2.1'
     //单元测试
     testCompile 'junit:junit:4.12'
     androidTestCompile 'junit:junit:4.12'
@@ -193,25 +195,25 @@ dependencies {
 //    })
 }
 
-task compile << {
-    println 'compiling source'
-}
-
-task compileTest(dependsOn: compile) << {
-    println 'compiling unit tests'
-}
-
-task test1(dependsOn: [compile, compileTest]) << {
-    println 'running unit tests'
-}
-
-task dist(dependsOn: [compile, test1]) << {
-    println 'building the distribution'
-}
-
-
-task hello {
-    doLast {
-        println 'Hello World1'
-    }
-}
+//task compile << {
+//    println 'compiling source'
+//}
+//
+//task compileTest(dependsOn: compile) << {
+//    println 'compiling unit tests'
+//}
+//
+//task test1(dependsOn: [compile, compileTest]) << {
+//    println 'running unit tests'
+//}
+//
+//task dist(dependsOn: [compile, test1]) << {
+//    println 'building the distribution'
+//}
+//
+//
+//task hello {
+//    doLast {
+//        println 'Hello World1'
+//    }
+//}

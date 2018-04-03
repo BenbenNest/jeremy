@@ -16,6 +16,7 @@ android {
         //        testApplicationId 'com.soundcloud.android.crop.test'
 //        testInstrumentationRunner 'android.test.InstrumentationTestRunner'
     }
+    buildToolsVersion '27.0.3'
 }
 
 dependencies {

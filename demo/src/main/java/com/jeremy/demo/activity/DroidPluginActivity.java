@@ -12,14 +12,9 @@ import android.widget.TextView;
 
 import com.jeremy.demo.R;
 import com.jeremy.library.permission.PermissionUtils;
-import com.jeremy.library.utils.StorageUtils;
 import com.jeremy.library.utils.SystemUtils;
-import com.morgoo.droidplugin.pm.PluginManager;
-import com.morgoo.helper.compat.PackageManagerCompat;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
 
 public class DroidPluginActivity extends AppCompatActivity {
     private TextView tvTest;
@@ -90,31 +85,31 @@ public class DroidPluginActivity extends AppCompatActivity {
     }
 
     private void copyApk() {
-        try {
-            InputStream is = getAssets().open("plugin-debug.apk");
-            File dir = StorageUtils.getCacheDirectory(this);
-            dir = new File(dir, "plugin");
-            if (!dir.exists()) {
-                dir.mkdirs();
-            }
-            File apkFile = new File(dir, "plugin.apk");
-            //文件存在并且进行MD5校验
-            if (!apkFile.exists()) {
-                FileOutputStream fos = new FileOutputStream(apkFile);
-                byte[] buffer = new byte[1024];
-                int byteCount = 0;
-                while ((byteCount = is.read(buffer)) != -1) {//循环从输入流读取 buffer字节
-                    fos.write(buffer, 0, byteCount);//将读取的输入流写入到输出流
-                }
-                fos.flush();//刷新缓冲区
-                is.close();
-                fos.close();
-            }
-            PluginManager.getInstance().installPackage(apkFile.getAbsolutePath(), PackageManagerCompat.INSTALL_REPLACE_EXISTING);
-            tvTest.setText(apkFile.getAbsolutePath());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            InputStream is = getAssets().open("plugin-debug.apk");
+//            File dir = StorageUtils.getCacheDirectory(this);
+//            dir = new File(dir, "plugin");
+//            if (!dir.exists()) {
+//                dir.mkdirs();
+//            }
+//            File apkFile = new File(dir, "plugin.apk");
+//            //文件存在并且进行MD5校验
+//            if (!apkFile.exists()) {
+//                FileOutputStream fos = new FileOutputStream(apkFile);
+//                byte[] buffer = new byte[1024];
+//                int byteCount = 0;
+//                while ((byteCount = is.read(buffer)) != -1) {//循环从输入流读取 buffer字节
+//                    fos.write(buffer, 0, byteCount);//将读取的输入流写入到输出流
+//                }
+//                fos.flush();//刷新缓冲区
+//                is.close();
+//                fos.close();
+//            }
+//            PluginManager.getInstance().installPackage(apkFile.getAbsolutePath(), PackageManagerCompat.INSTALL_REPLACE_EXISTING);
+//            tvTest.setText(apkFile.getAbsolutePath());
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
         //        AssetUtils.copyFilesFromassets(this, "plugin-debug.apk", apkPath.getAbsolutePath());
 

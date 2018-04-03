@@ -2,11 +2,9 @@ package com.jeremy.demo.app;
 
 import android.app.ActivityManager;
 import android.content.Context;
-import android.os.Build;
 
 import com.facebook.stetho.Stetho;
 import com.jeremy.library.utils.CrashHandler;
-import com.morgoo.droidplugin.PluginHelper;
 import com.umeng.analytics.MobclickAgent;
 
 /**
@@ -18,9 +16,9 @@ public class MyApplication extends BaseApplication {
     @Override
     protected void attachBaseContext(Context base) {
         //DroidPlugin在Android7.0有兼容性问题，所以需要判断版本
-        if (Build.VERSION.SDK_INT < 24) {
-            PluginHelper.getInstance().applicationAttachBaseContext(base);
-        }
+//        if (Build.VERSION.SDK_INT < 24) {
+//            PluginHelper.getInstance().applicationAttachBaseContext(base);
+//        }
         super.attachBaseContext(base);
     }
 
@@ -30,9 +28,9 @@ public class MyApplication extends BaseApplication {
         sContext = this;
         Stetho.initializeWithDefaults(this);
         CrashHandler.getInstance(getApplicationContext()).init();
-        if (Build.VERSION.SDK_INT < 24) {
-            PluginHelper.getInstance().applicationOnCreate(getBaseContext());
-        }
+//        if (Build.VERSION.SDK_INT < 24) {
+//            PluginHelper.getInstance().applicationOnCreate(getBaseContext());
+//        }
         mainProcessInit();
     }
 

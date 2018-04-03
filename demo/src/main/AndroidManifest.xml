@@ -75,14 +75,14 @@
         <!-- 定位需要的服务 -->
         <service android:name="com.amap.api.location.APSService" />
 
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="590201725312dd82ac002192" />
+        <!--<meta-data-->
+            <!--android:name="UMENG_APPKEY"-->
+            <!--android:value="590201725312dd82ac002192" />-->
         <!-- <meta-data android:value="Wandoujia" android:name="UMENG_CHANNEL"/> -->
 
-        <meta-data
-            android:name="UMENG_CHANNEL"
-            android:value="${UMENG_CHANNEL_VALUE}" />
+        <!--<meta-data-->
+            <!--android:name="UMENG_CHANNEL"-->
+            <!--android:value="${UMENG_CHANNEL_VALUE}" />-->
 
         <activity android:name=".activity.SplashActivity">
             <intent-filter>
@@ -115,7 +115,7 @@
         <activity android:name=".algorithm.AlgorithmListActivity" />
         <activity android:name=".algorithm.MonkeyNumberOffActivity" />
         <activity android:name=".algorithm.CardOrderActivity" />
-        <activity android:name=".activity.CameraMonitorActivity" />
+        <!--<activity android:name=".activity.CameraMonitorActivity" />-->
         <activity android:name=".algorithm.StringAlgorithmActivity" />
         <activity android:name=".algorithm.NumAlgorithmActivity" />
         <activity
