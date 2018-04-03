@@ -89,7 +89,6 @@ android {
 //        }
 //    }
 
-
 //    productFlavors {
 //        yingyongbao {
 //            manifestPlaceholders(["UMENG_CHANNEL_VALUE": "yingyongbao"])
@@ -130,7 +129,9 @@ android {
 //    }
 
 }
-
+configurations.all {
+//    exclude group: 'com.android.support', module: 'design'
+}
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':library')
@@ -141,14 +142,13 @@ dependencies {
 //    compile project(':DroidPlugin')
     compile project(':camera')
 
-    compile rootProject.ext.dependencies[ "design"]
-    compile rootProject.ext.dependencies[ "appcompat-v7"]
-    compile rootProject.ext.dependencies[ "recyclerview-v7"]
+    compile rootProject.ext.dependencies["design"]
+    compile rootProject.ext.dependencies["appcompat-v7"]
+    compile rootProject.ext.dependencies["recyclerview-v7"]
 //    compile('com.android.support:appcompat-v7:25.3.1') {
 //        exclude group: 'com.android.support', module: 'animated-vector-drawable'
 //        exclude group: 'com.android.support', module: 'cardview-v7'
 //    }
-
 
 
     implementation 'com.jakewharton:butterknife:8.8.1'
