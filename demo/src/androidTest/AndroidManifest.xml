@@ -20,7 +20,7 @@
 
     </application>
 
-    <uses-library android:name="android.test.runner" />
+    <!--<uses-library android:name="android.test.runner" />-->
 
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
