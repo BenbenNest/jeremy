@@ -3,14 +3,9 @@ package com.jeremy.demo.mvp.presenter;
 import com.jeremy.demo.model.GankList;
 import com.jeremy.demo.mvp.model.GankAllModel;
 import com.jeremy.demo.mvp.view.GankAllView;
-import com.jeremy.demo.net.RetroAdapter;
 import com.jeremy.library.mvp.BasePresenter;
 
 import io.reactivex.Observable;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by changqing.zhao on 2017/5/8.

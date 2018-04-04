@@ -17,7 +17,7 @@ public class RxJavaRetrofitOkhttpActivity extends AppCompatActivity {
     }
 
     public void getGankAll(View view) {
-        GankAllActivity.startActivity(this);
+//        GankAllActivity.startActivity(this);
 
 
     }
