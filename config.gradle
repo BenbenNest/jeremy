@@ -36,5 +36,14 @@ ext {
  implementation：本 module 不会通过自身的接口向外部暴露其依赖 module 的内容。
 
 
+ apt插件问题
+ //1.在project的build.gradle中删除
+ classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+ //2.在module的build.gradle中删除
+ apply plugin: 'android-apt'
+ //3.将module的build.gradle文件中的dependency
+ apt 'com.jakewharton:butterknife-compiler:8.1.0'
+ //改为
+ annotationProcessor 'com.jakewharton:butterknife-compiler:8.1.0'
 
  */
