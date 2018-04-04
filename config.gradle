@@ -15,3 +15,12 @@ ext {
 }
 
 //https://developer.android.com/guide/topics/manifest/uses-sdk-element.html
+
+/**
+ 总的原则:用于编译的SDK的版本 >= 所用支持库的版本，如用了下面的库：
+ compile 'com.android.support:design:22.2.1'
+ 那么SDK的版本要>=22:
+ compileSdkVersion 22
+ 此外，使用Android Support Design库后，如果项目中再次使用support v4包，会发生冲突，
+ 报java.exe finished with non-zero exit value 2这个错，此时删掉项目中的v4包即可。
+ */
