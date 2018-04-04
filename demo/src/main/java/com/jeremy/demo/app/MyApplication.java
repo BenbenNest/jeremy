@@ -3,7 +3,6 @@ package com.jeremy.demo.app;
 import android.app.ActivityManager;
 import android.content.Context;
 
-import com.facebook.stetho.Stetho;
 import com.jeremy.library.utils.CrashHandler;
 
 /**
@@ -25,7 +24,7 @@ public class MyApplication extends BaseApplication {
     public void onCreate() {
         super.onCreate();
         sContext = this;
-        Stetho.initializeWithDefaults(this);
+//        Stetho.initializeWithDefaults(this);
         CrashHandler.getInstance(getApplicationContext()).init();
 //        if (Build.VERSION.SDK_INT < 24) {
 //            PluginHelper.getInstance().applicationOnCreate(getBaseContext());
