@@ -21,16 +21,39 @@ buildscript {
         flatDir {
             dirs '../libs'
         }
-        jcenter() {
-            url 'http://jcenter.bintray.com/'
-        }
-        mavenCentral()
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
-//        google()
+//        jcenter() {
+//            url 'http://jcenter.bintray.com/'
+//        }
+//        mavenCentral()
+//        maven {
+//            url 'https://maven.google.com/'
+//            name 'Google'
+//        }
+        google()
+        jcenter()
+        /**
 
+         google()：Android Studio 3.0 现在默认使用 Google 的 Maven 存储库，而不是依赖于 Android SDK Manager 来获取 Android 支持库，
+         Google Play 服务，Firebase 和其他依赖项的更新；
+
+         jcenter()和mavenCentral()是Android Studio中Gradle插件使用的仓库
+
+         Android Studio早期版本使用的是mavenCentral，从某个时候开始切换到jcenter了。
+
+         这是因为jcenter在性能和占存储大小方面比mavenCentral更优：
+
+         jcenter是世界上最大的Java仓库
+         jcenter通过CDN服务，使用的是https协议，安全性更高，而Android Studio 0.8版本mavenCentral使用的是http协议
+         jcenter是mavenCentral的超集，包括许多额外的仓库
+         jcenter性能方面比mavenCentral更优
+         mavenCentral会自动下载很多与IDE相关的index，而这些用到的少，且不是必需
+
+         作者：某学姐
+         链接：https://www.jianshu.com/p/bce437eeb3d3
+         來源：简书
+         著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+         */
 //        0.7.7.201606060606
     }
 
@@ -42,7 +65,7 @@ buildscript {
     dependencies {
 //        classpath 'com.android.tools.build:gradle:2.3.2'
 //        classpath 'com.android.tools.build:gradle:3.0.1'
-        classpath 'com.android.tools.build:gradle:3.1.0'
+        classpath 'com.android.tools.build:gradle:3.1.0'  //Gradle插件的版本，由之前的 2.3.3 改成了 3.0.0。
 //        classpath "org.jacoco:org.jacoco.core:0.7.7.201606060606"
 
 //        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
@@ -87,15 +110,17 @@ allprojects {
         flatDir {
             dirs '../libs'
         }
-        jcenter() {
-            url 'http://jcenter.bintray.com/'
-        }
-        mavenCentral()
-        mavenLocal()
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
+//        jcenter() {
+//            url 'http://jcenter.bintray.com/'
+//        }
+//        mavenCentral()
+//        mavenLocal()
+//        maven {
+//            url 'https://maven.google.com/'
+//            name 'Google'
+//        }
+        google()
+        jcenter()
     }
 }
 
@@ -112,3 +137,11 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
+
+/**
+ gradle3.0或者以上版本	3.0之前(deprecated)	说明	作用
+ implementation	compile	gradle升级到3.0之后,新增了 implementation, 而compile 方式被标记为了deprecated, compile 在3.0之后仍然可以使用,但是 gradle 官方说会在 gradle 后续的某次重要升级后变为不可用.	如果我们使用了implementation方式来依赖项目的话,那么这个库就在编译时期,只对当前的module可见,对其他的module不可见,但是在运行使其是可见的,这种方式的好处是可以显著减少 build项目的时间,因为假如该依赖库有接口或者代码变动,那么Gradle只会去重新编译和它有直接依赖关系的module,也就是该库不存在传递性
+ api	compile	同上	使用api方式来依赖项目或者库的话,那么这个库,在编译时期和运行时期都可以对其他module可见
+ compileOnly	provided	3.0之后版本,使用compileOnly来替代provided	假如在项目中,对某些库你只是想要在编译时期使用,而在运行时期并不需要这个库,你可以使用这种方式!
+ runtimeOnly	apk	3.0之后,使用 runtinmeOnly来替代apk	Gradle 在运行时会将该库添加到 build 的 output 中去
+ */

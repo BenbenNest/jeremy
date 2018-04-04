@@ -24,3 +24,17 @@ ext {
  此外，使用Android Support Design库后，如果项目中再次使用support v4包，会发生冲突，
  报java.exe finished with non-zero exit value 2这个错，此时删掉项目中的v4包即可。
  */
+
+/**
+ Android Studio 3.0 升级
+
+ 1.buildToolsVersion：这里没有构建工具的版本 buildToolsVersion 属性了，
+ Android Studio 3.0 默认情况下，插件会自动为您使用的 Android 插件版本使用最低要求的构建工具版本；
+
+ 2.implementation：由以前的 compile 改成了 implementation。老版本的构建关键字 compile 被废弃了，而是改成了这两个：
+ api：同 compile 作用一样，即认为本 module 将会泄露其依赖的 module 的内容；
+ implementation：本 module 不会通过自身的接口向外部暴露其依赖 module 的内容。
+
+
+
+ */
