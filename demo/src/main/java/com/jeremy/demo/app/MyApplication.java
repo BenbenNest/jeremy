@@ -5,7 +5,6 @@ import android.content.Context;
 
 import com.facebook.stetho.Stetho;
 import com.jeremy.library.utils.CrashHandler;
-import com.umeng.analytics.MobclickAgent;
 
 /**
  * Created by benbennest on 17/2/11.
@@ -37,9 +36,9 @@ public class MyApplication extends BaseApplication {
     private void mainProcessInit() {
         if (isMainProcess()) {
             //友盟
-            MobclickAgent.setDebugMode(true);
-            MobclickAgent.setScenarioType(getApplicationContext(), MobclickAgent.EScenarioType.E_UM_NORMAL);
-            MobclickAgent.setCatchUncaughtExceptions(true);
+//            MobclickAgent.setDebugMode(true);
+//            MobclickAgent.setScenarioType(getApplicationContext(), MobclickAgent.EScenarioType.E_UM_NORMAL);
+//            MobclickAgent.setCatchUncaughtExceptions(true);
 
 //            //微信
 //            PlatformConfig.setWeixin("xxx", "xxx");

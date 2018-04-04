@@ -8,10 +8,7 @@ import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 
 import com.jeremy.demo.R;
-import com.jeremy.demo.base.BaseActivity;
-import com.jeremy.demo.constant.Constants;
 import com.jeremy.library.utils.DeviceUtils;
-import com.umeng.analytics.MobclickAgent;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,19 +34,19 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        MobclickAgent.onPageStart(TAG);
-        MobclickAgent.onResume(this);
+//        MobclickAgent.onPageStart(TAG);
+//        MobclickAgent.onResume(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        MobclickAgent.onPageEnd(TAG);
-        MobclickAgent.onPause(this);
+//        MobclickAgent.onPageEnd(TAG);
+//        MobclickAgent.onPause(this);
     }
 
     private void init() {
-        MobclickAgent.onEvent(this, Constants.APP_START);
+//        MobclickAgent.onEvent(this, Constants.APP_START);
         start.setImageResource(R.drawable.splash);
         final ScaleAnimation scaleAnim = new ScaleAnimation(START_SCALE, END_SCALE, START_SCALE, END_SCALE,
                 Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);

@@ -179,7 +179,7 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 
-    compile 'com.umeng.analytics:analytics:latest.integration'
+//    compile 'com.umeng.analytics:analytics:latest.integration'
     //单元测试
 //    testCompile 'junit:junit:4.12'
 //    androidTestCompile 'junit:junit:4.12'
