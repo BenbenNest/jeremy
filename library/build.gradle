@@ -36,7 +36,7 @@ android {
 }
 
 dependencies {
-//    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:23.4.0'
 
     testImplementation 'junit:junit:4.12'
@@ -46,7 +46,7 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:23.4.0'
     //    compile files('libs/annotation.jar')
     //    compile files('libs/injectlib.jar')
-    implementation files('libs/BASE64.jar')
+//    implementation files('libs/BASE64.jar')
     implementation 'com.squareup.okhttp3:okhttp:3.9.1'
     compile 'com.drewnoakes:metadata-extractor:2.11.0'
 
