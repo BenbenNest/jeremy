@@ -133,8 +133,20 @@ configurations.all {
 //    exclude group: 'com.android.support', module: 'cardview-v7'
 }
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+//    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':library')
+
+    //android support
+    compile "com.android.support:design:25.3.1"
+    compile 'com.android.support:cardview-v7:25.3.1'
+
+    //butterknife
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+
+
+
 //    compile project(':viewinject-annotation')
 //    compile project(':inject')
 //    apt project(':viewinject_compiler')
@@ -145,8 +157,7 @@ dependencies {
 //    compile rootProject.ext.dependencies["design"]
 //    compile rootProject.ext.dependencies["appcompat-v7"]
 //    compile rootProject.ext.dependencies["recyclerview-v7"]
-    compile "com.android.support:design:25.3.1"
-    compile 'com.android.support:cardview-v7:25.3.1'
+
 //    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 //    compile('com.android.support:appcompat-v7:25.3.1') {
 //        exclude group: 'com.android.support', module: 'animated-vector-drawable'
@@ -154,8 +165,6 @@ dependencies {
 //    }
 
 
-    implementation 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
     //可选，用于生成application类
     //    provided('com.tencent.tinker:tinker-android-anno:1.7.5')
