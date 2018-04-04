@@ -1,19 +1,15 @@
 package com.jeremy.demo.utils;
 
 
-import com.jeremy.library.utils.DateUtil;
 import com.jeremy.library.utils.FileUtils;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by changqing on 2017/11/16.
@@ -72,21 +68,21 @@ public class PhotoManager {
 
     public static void handlePhoto(File file) {
         //Java第三方库方法
-        Date date = Metadata_Extractor.getDate(file);
-        if (date != null) {
-            File destDir = new File(file.getParent() + File.separator + "Photo_Mu" + File.separator + DateUtil.getYearStr(date));
-            if (!destDir.exists()) {
-                destDir.mkdirs();
-            }
-
-            if (!isEmpty(DateUtil.getMonthStr(date))) {
-                destDir = new File(destDir, DateUtil.getMonthStr(date));
-                if (!destDir.exists()) {
-                    destDir.mkdirs();
-                }
-            }
-            copyFile(file.getAbsolutePath(), destDir.getAbsolutePath() + File.separator + file.getName());
-        }
+//        Date date = Metadata_Extractor.getDate(file);
+//        if (date != null) {
+//            File destDir = new File(file.getParent() + File.separator + "Photo_Mu" + File.separator + DateUtil.getYearStr(date));
+//            if (!destDir.exists()) {
+//                destDir.mkdirs();
+//            }
+//
+//            if (!isEmpty(DateUtil.getMonthStr(date))) {
+//                destDir = new File(destDir, DateUtil.getMonthStr(date));
+//                if (!destDir.exists()) {
+//                    destDir.mkdirs();
+//                }
+//            }
+//            copyFile(file.getAbsolutePath(), destDir.getAbsolutePath() + File.separator + file.getName());
+//        }
         //Android方法
 //        try {
 //            ExifInterface exifInterface = new ExifInterface(file.getAbsolutePath());
@@ -123,27 +119,27 @@ public class PhotoManager {
      * @return boolean
      */
     public static void copyFile(String oldPath, String newPath) {
-        try {
-//           int  bytesum  =  0;
-            int byteread = 0;
-            File oldfile = new File(oldPath);
-            if (oldfile.exists()) {  //文件存在时
-                InputStream inStream = new FileInputStream(oldPath);  //读入原文件
-                FileOutputStream fs = new FileOutputStream(newPath);
-                byte[] buffer = new byte[1444];
-//               int  length;
-                while ((byteread = inStream.read(buffer)) != -1) {
-//                   bytesum  +=  byteread;  //字节数  文件大小
-//                   System.out.println(bytesum);
-                    fs.write(buffer, 0, byteread);
-                }
-                inStream.close();
-            }
-        } catch (Exception e) {
-            System.out.println("复制单个文件操作出错");
-            e.printStackTrace();
-
-        }
+//        try {
+////           int  bytesum  =  0;
+//            int byteread = 0;
+//            File oldfile = new File(oldPath);
+//            if (oldfile.exists()) {  //文件存在时
+//                InputStream inStream = new FileInputStream(oldPath);  //读入原文件
+//                FileOutputStream fs = new FileOutputStream(newPath);
+//                byte[] buffer = new byte[1444];
+////               int  length;
+//                while ((byteread = inStream.read(buffer)) != -1) {
+////                   bytesum  +=  byteread;  //字节数  文件大小
+////                   System.out.println(bytesum);
+//                    fs.write(buffer, 0, byteread);
+//                }
+//                inStream.close();
+//            }
+//        } catch (Exception e) {
+//            System.out.println("复制单个文件操作出错");
+//            e.printStackTrace();
+//
+//        }
 
     }
 

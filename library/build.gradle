@@ -39,6 +39,8 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:23.4.0'
 
+    implementation 'com.squareup.okhttp3:okhttp:3.9.1'
+
     testImplementation 'junit:junit:4.12'
     compile 'com.github.bumptech.glide:glide:3.7.0'
 //    implementation 'com.github.bumptech.glide:glide:4.6.1'
@@ -47,8 +49,8 @@ dependencies {
     //    compile files('libs/annotation.jar')
     //    compile files('libs/injectlib.jar')
 //    implementation files('libs/BASE64.jar')
-    implementation 'com.squareup.okhttp3:okhttp:3.9.1'
-    compile 'com.drewnoakes:metadata-extractor:2.11.0'
+
+//    compile 'com.drewnoakes:metadata-extractor:2.11.0'
 
 //    compile 'com.zhy:okhttputils:2.6.2'
 
