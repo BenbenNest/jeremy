@@ -135,12 +135,12 @@ configurations.all {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':library')
-    compile project(':viewinject-annotation')
-    compile project(':inject')
+//    compile project(':viewinject-annotation')
+//    compile project(':inject')
 //    apt project(':viewinject_compiler')
-    compile project(':crop')
+//    compile project(':crop')
 //    compile project(':DroidPlugin')
-    compile project(':camera')
+//    compile project(':camera')
 
     compile rootProject.ext.dependencies["design"]
     compile rootProject.ext.dependencies["appcompat-v7"]
