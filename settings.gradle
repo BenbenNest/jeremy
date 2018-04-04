@@ -3,4 +3,4 @@
 //        ':hotfix'
 //, ':buildsrc', ':hack'
 
-include ':demo', ':library', ':viewinject-annotation', ':inject', ':crop', ':camera'
+include ':demo', ':library'
