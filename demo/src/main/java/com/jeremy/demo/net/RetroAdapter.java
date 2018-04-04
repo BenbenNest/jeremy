@@ -2,24 +2,9 @@ package com.jeremy.demo.net;
 
 import android.support.annotation.IntDef;
 
-import com.facebook.stetho.okhttp3.StethoInterceptor;
-import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-
-import java.io.IOException;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-
-import okhttp3.Headers;
-import okhttp3.HttpUrl;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 
 /**
@@ -66,97 +51,97 @@ public class RetroAdapter {
         }
     }
 
-    public static RetroApiService getService() {
-        return getService(ServiceType.GENERAL);
-    }
-
-    public static RetroApiService getService(@ServiceType int type) {
-        synchronized (lock) {
-            if (serviceMap.get(type) == null) {
-                serviceMap.put(type, createService(type));
-            }
-            return serviceMap.get(type);
-        }
-    }
-
-    private static RetroApiService createService(@ServiceType final int type) {
-        OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
-        clientBuilder.addNetworkInterceptor(new StethoInterceptor());
-        clientBuilder.addInterceptor(new Interceptor() {
-            @Override
-            public Response intercept(Chain chain) throws IOException {
-                Request request = chain.request();
-                Request.Builder builder = request.newBuilder();
-                HttpUrl.Builder urlBuilder = request.url().newBuilder();
-                Headers.Builder headersBuilder = request.headers().newBuilder();
-                Map<String, String> params = getServiceInfo(type).getCommonParameters();
-                if (params != null) {
-                    for (Map.Entry<String, String> entry : params.entrySet()) {
-                        urlBuilder.addQueryParameter(entry.getKey(), entry.getValue());
-                    }
-                }
-                builder = builder.url(urlBuilder.build());
-                return chain.proceed(builder.build());
-            }
-        });
-        clientBuilder.addInterceptor(new Interceptor() {
-            @Override
-            public Response intercept(Chain chain) throws IOException {
-                Request request = chain.request();
-                Request.Builder builder = request.newBuilder();
-                HttpUrl.Builder urlBuilder = request.url().newBuilder();
-                Headers.Builder headersBuilder = request.headers().newBuilder();
-                Map<String, String> extraParams = getServiceInfo(type).getExtraParameters(chain.request());
-                if (extraParams != null) {
-                    for (Map.Entry<String, String> entry : extraParams.entrySet()) {
-                        urlBuilder.addQueryParameter(entry.getKey(), entry.getValue());
-                    }
-                }
-                builder = builder.url(urlBuilder.build());
-                return chain.proceed(builder.build());
-            }
-        });
-
-        Interceptor extraInterceptor = getServiceInfo(type).getExtraInterceptor();
-        if (extraInterceptor != null) {
-            clientBuilder.addInterceptor(extraInterceptor);
-        }
-//        if (BuildConfig.DEBUG) {
-//            Interceptor debugHostInterceptor = DebugNetworkConfig.getInstance().addHostHeader(getServiceInfo(type).getBaseUrl());
-
-//        }
-
-//        if (SystemInfo.isDebugMode()) {
-//            Interceptor debugHostInterceptor = DebugNetworkConfig.getInstance().addHostHeader(getServiceInfo(type).getBaseUrl());
-//            if (debugHostInterceptor != null) {
-//                clientBuilder.addInterceptor(debugHostInterceptor);
+//    public static RetroApiService getService() {
+//        return getService(ServiceType.GENERAL);
+//    }
+//
+//    public static RetroApiService getService(@ServiceType int type) {
+//        synchronized (lock) {
+//            if (serviceMap.get(type) == null) {
+//                serviceMap.put(type, createService(type));
 //            }
+//            return serviceMap.get(type);
+//        }
+//    }
 //
-//            HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
-//            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-//            clientBuilder.addInterceptor(loggingInterceptor);
-//            if (ContentApplicationLike.getLikeInstance().getStethoInterceptor() != null) {
-//                clientBuilder.addNetworkInterceptor(ContentApplicationLike.getLikeInstance().getStethoInterceptor());
+//    private static RetroApiService createService(@ServiceType final int type) {
+//        OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
+//        clientBuilder.addNetworkInterceptor(new StethoInterceptor());
+//        clientBuilder.addInterceptor(new Interceptor() {
+//            @Override
+//            public Response intercept(Chain chain) throws IOException {
+//                Request request = chain.request();
+//                Request.Builder builder = request.newBuilder();
+//                HttpUrl.Builder urlBuilder = request.url().newBuilder();
+//                Headers.Builder headersBuilder = request.headers().newBuilder();
+//                Map<String, String> params = getServiceInfo(type).getCommonParameters();
+//                if (params != null) {
+//                    for (Map.Entry<String, String> entry : params.entrySet()) {
+//                        urlBuilder.addQueryParameter(entry.getKey(), entry.getValue());
+//                    }
+//                }
+//                builder = builder.url(urlBuilder.build());
+//                return chain.proceed(builder.build());
 //            }
-//        }
+//        });
+//        clientBuilder.addInterceptor(new Interceptor() {
+//            @Override
+//            public Response intercept(Chain chain) throws IOException {
+//                Request request = chain.request();
+//                Request.Builder builder = request.newBuilder();
+//                HttpUrl.Builder urlBuilder = request.url().newBuilder();
+//                Headers.Builder headersBuilder = request.headers().newBuilder();
+//                Map<String, String> extraParams = getServiceInfo(type).getExtraParameters(chain.request());
+//                if (extraParams != null) {
+//                    for (Map.Entry<String, String> entry : extraParams.entrySet()) {
+//                        urlBuilder.addQueryParameter(entry.getKey(), entry.getValue());
+//                    }
+//                }
+//                builder = builder.url(urlBuilder.build());
+//                return chain.proceed(builder.build());
+//            }
+//        });
 //
-//        clientBuilder.cookieJar(BTimeCookieJar.getInstance());
-        clientBuilder.connectTimeout(CONNECT_TIMEOUT_MILLIS, TimeUnit.SECONDS);
-        clientBuilder.readTimeout(READ_TIMEOUT_MILLIS, TimeUnit.SECONDS);
-
-        Retrofit.Builder retrofitBuilder = new Retrofit.Builder()
-                .client(clientBuilder.build())
-                .baseUrl(getServiceInfo(type).getBaseUrl())
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create());
-
-//        Converter.Factory converterFactory = getServiceInfo(type).getConverterFactory();
-//        if (converterFactory != null) {
-//            retrofitBuilder.addConverterFactory(converterFactory);
+//        Interceptor extraInterceptor = getServiceInfo(type).getExtraInterceptor();
+//        if (extraInterceptor != null) {
+//            clientBuilder.addInterceptor(extraInterceptor);
 //        }
+////        if (BuildConfig.DEBUG) {
+////            Interceptor debugHostInterceptor = DebugNetworkConfig.getInstance().addHostHeader(getServiceInfo(type).getBaseUrl());
 //
-        return retrofitBuilder.build().create(RetroApiService.class);
-    }
+////        }
+//
+////        if (SystemInfo.isDebugMode()) {
+////            Interceptor debugHostInterceptor = DebugNetworkConfig.getInstance().addHostHeader(getServiceInfo(type).getBaseUrl());
+////            if (debugHostInterceptor != null) {
+////                clientBuilder.addInterceptor(debugHostInterceptor);
+////            }
+////
+////            HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+////            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+////            clientBuilder.addInterceptor(loggingInterceptor);
+////            if (ContentApplicationLike.getLikeInstance().getStethoInterceptor() != null) {
+////                clientBuilder.addNetworkInterceptor(ContentApplicationLike.getLikeInstance().getStethoInterceptor());
+////            }
+////        }
+////
+////        clientBuilder.cookieJar(BTimeCookieJar.getInstance());
+//        clientBuilder.connectTimeout(CONNECT_TIMEOUT_MILLIS, TimeUnit.SECONDS);
+//        clientBuilder.readTimeout(READ_TIMEOUT_MILLIS, TimeUnit.SECONDS);
+//
+//        Retrofit.Builder retrofitBuilder = new Retrofit.Builder()
+//                .client(clientBuilder.build())
+//                .baseUrl(getServiceInfo(type).getBaseUrl())
+////                .addConverterFactory(GsonConverterFactory.create())
+//                .addCallAdapterFactory(RxJava2CallAdapterFactory.create());
+//
+////        Converter.Factory converterFactory = getServiceInfo(type).getConverterFactory();
+////        if (converterFactory != null) {
+////            retrofitBuilder.addConverterFactory(converterFactory);
+////        }
+////
+//        return retrofitBuilder.build().create(RetroApiService.class);
+//    }
 
 //    public static String getRequestUrl(@ServiceType int type) {
 //        if (SystemInfo.isDebugMode() || QEventBus.getEventBus().getStickyEvent(ApplicationEvents.DebugMode.class) != null) {

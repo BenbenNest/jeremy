@@ -1,11 +1,8 @@
 package com.jeremy.demo.mvp.presenter;
 
-import com.jeremy.demo.model.GankList;
 import com.jeremy.demo.mvp.model.GankAllModel;
 import com.jeremy.demo.mvp.view.GankAllView;
 import com.jeremy.library.mvp.BasePresenter;
-
-import io.reactivex.Observable;
 
 /**
  * Created by changqing.zhao on 2017/5/8.
@@ -18,10 +15,10 @@ public class GankAllPresenter extends BasePresenter<GankAllView> {
         gankAllModel = new GankAllModel();
     }
 
-    public void getData() {
-        Observable<GankList> observable = gankAllModel.getGankList(0);
-        getMvpView().onDataSuccess(observable);
-    }
+//    public void getData() {
+//        Observable<GankList> observable = gankAllModel.getGankList(0);
+//        getMvpView().onDataSuccess(observable);
+//    }
 
 
 //        RetroAdapter.getService().getAll()

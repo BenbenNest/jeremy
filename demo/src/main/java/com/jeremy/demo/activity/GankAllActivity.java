@@ -2,10 +2,7 @@ package com.jeremy.demo.activity;
 
 import android.support.v7.app.AppCompatActivity;
 
-import com.jeremy.demo.model.GankList;
 import com.jeremy.demo.mvp.view.GankAllView;
-
-import io.reactivex.Observable;
 
 public class GankAllActivity extends AppCompatActivity implements GankAllView {
     @Override
@@ -13,10 +10,10 @@ public class GankAllActivity extends AppCompatActivity implements GankAllView {
 
     }
 
-    @Override
-    public void onDataSuccess(Observable<GankList> observable) {
-
-    }
+//    @Override
+//    public void onDataSuccess(Observable<GankList> observable) {
+//
+//    }
 
 //    @BindView(R.id.list)
 //    RecyclerView mRecyclerView;

@@ -1,20 +1,8 @@
 package com.jeremy.demo.net;
 
-import com.jeremy.demo.model.GankList;
-
-import io.reactivex.Observable;
-import okhttp3.ResponseBody;
-import retrofit2.http.GET;
-
 //使用的接口来自：http://gank.io/api
 
 public interface RetroApiService {
-    /**
-     * 获取所有频道
-     */
-    @GET("data/Android/10/1")
-    Observable<GankList> getAll();
-
 
 //    /**
 //     * 内容页详情

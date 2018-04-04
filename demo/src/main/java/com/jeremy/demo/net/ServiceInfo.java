@@ -9,8 +9,6 @@ import java.util.Map;
 
 import okhttp3.Interceptor;
 import okhttp3.Request;
-import retrofit2.Converter;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 abstract public class ServiceInfo {
     abstract public String getBaseUrl();
@@ -21,9 +19,9 @@ abstract public class ServiceInfo {
 
     abstract public Interceptor getExtraInterceptor();
 
-    public Converter.Factory getConverterFactory() {
-        return GsonConverterFactory.create();
-    }
+//    public Converter.Factory getConverterFactory() {
+//        return GsonConverterFactory.create();
+//    }
 
     protected static Map<String, String> getBaseCommonParameters() {
         Map<String, String> mapParams = new HashMap<>();
