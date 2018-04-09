@@ -10,13 +10,10 @@ public class SkinPreference {
     private static SkinPreference instance;
     private final SharedPreferences mPref;
 
-    public static void init(Context context) {
+    //
+    public synchronized static void init(Context context) {
         if (instance == null) {
-            synchronized (SkinPreference.class) {
-                if (instance == null) {
-                    instance = new SkinPreference(context.getApplicationContext());
-                }
-            }
+            instance = new SkinPreference(context.getApplicationContext());
         }
     }
 
@@ -37,3 +34,4 @@ public class SkinPreference {
     }
 
 }
+

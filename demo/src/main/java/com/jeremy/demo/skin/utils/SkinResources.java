@@ -21,13 +21,9 @@ public class SkinResources {
         mAppResources = context.getResources();
     }
 
-    public static void init(Context context) {
+    public synchronized static void init(Context context) {
         if (instance == null) {
-            synchronized (SkinResources.class) {
-                if (instance == null) {
-                    instance = new SkinResources(context);
-                }
-            }
+            instance = new SkinResources(context);
         }
     }
 
