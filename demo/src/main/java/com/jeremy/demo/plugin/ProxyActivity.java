@@ -1,8 +1,8 @@
 package com.jeremy.demo.plugin;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -44,44 +44,37 @@ public class ProxyActivity extends Activity {
         }
     }
 
-    @SuppressLint("NewApi")
     protected void launchTargetActivity() {
-        PackageInfo packageInfo = getPackageManager().getPackageArchiveInfo(
-                mDexPath, 1);
-        if ((packageInfo.activities != null)
-                && (packageInfo.activities.length > 0)) {
+//        PackageManager.GET_ACTIVITIES
+        PackageInfo packageInfo = getPackageManager().getPackageArchiveInfo(mDexPath, PackageManager.GET_ACTIVITIES);
+        if ((packageInfo.activities != null) && (packageInfo.activities.length > 0)) {
             String activityName = packageInfo.activities[0].name;
             mClass = activityName;
             launchTargetActivity(mClass);
         }
     }
 
-    @SuppressLint("NewApi")
     protected void launchTargetActivity(final String className) {
         Log.d(TAG, "start launchTargetActivity, className=" + className);
         File dexOutputDir = this.getDir("dex", 0);
         final String dexOutputPath = dexOutputDir.getAbsolutePath();
         ClassLoader localClassLoader = ClassLoader.getSystemClassLoader();
-        DexClassLoader dexClassLoader = new DexClassLoader(mDexPath,
-                dexOutputPath, null, localClassLoader);
+        DexClassLoader dexClassLoader = new DexClassLoader(mDexPath, dexOutputPath, null, localClassLoader);
         try {
             Class<?> localClass = dexClassLoader.loadClass(className);
-            Constructor<?> localConstructor = localClass
-                    .getConstructor(new Class[] {});
-            Object instance = localConstructor.newInstance(new Object[] {});
+            Constructor<?> localConstructor = localClass.getConstructor(new Class[]{});
+            Object instance = localConstructor.newInstance(new Object[]{});
             Log.d(TAG, "instance = " + instance);
 
-            Method setProxy = localClass.getMethod("setProxy",
-                    new Class[] { Activity.class });
+            Method setProxy = localClass.getMethod("setProxy", new Class[]{Activity.class});
             setProxy.setAccessible(true);
-            setProxy.invoke(instance, new Object[] { this });
+            setProxy.invoke(instance, new Object[]{this});
 
-            Method onCreate = localClass.getDeclaredMethod("onCreate",
-                    new Class[] { Bundle.class });
+            Method onCreate = localClass.getDeclaredMethod("onCreate", new Class[]{Bundle.class});
             onCreate.setAccessible(true);
             Bundle bundle = new Bundle();
             bundle.putInt(FROM, FROM_EXTERNAL);
-            onCreate.invoke(instance, new Object[] { bundle });
+            onCreate.invoke(instance, new Object[]{bundle});
         } catch (Exception e) {
             e.printStackTrace();
         }
