@@ -10,10 +10,12 @@
     <!-- ACCESS_NETWORK_STATE(必须)	检测联网方式，区分用户设备使用的是2G、3G或是WiFi -->
     <!-- READ_PHONE_STATE(必须)	获取用户设备的IMEI，通过IMEI和mac来唯一的标识用户。 -->
     <!-- ACCESS_WIFI_STATE(必须)	获取用户设备的mac地址，在平板设备上，无法通过imei标示设备，我们会将mac地址作为用户的唯一标识 -->
-    <!-- INTERNET(必须)	允许应用程序联网，以便向我们的服务器端发送数据。 安定roidM
+    <!--
+    INTERNET(必须)	允许应用程序联网，以便向我们的服务器端发送数据。 安定roidM
 
 
-    <!- 联网相关权限 -->
+    <!- 联网相关权限
+    -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -24,7 +26,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
-    <!-- 摄像头权限  -->
+    <!-- 摄像头权限 -->
     <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature android:name="android.hardware.camera" />
@@ -70,16 +72,16 @@
             android:name="com.amap.api.v2.apikey"
             android:value="958f1354b22879c8736e9abc8d42e89b" />
         <!-- 定位需要的服务 -->
-        <service android:name="com.amap.api.location.APSService" />
-
-        <!--<meta-data-->
-            <!--android:name="UMENG_APPKEY"-->
-            <!--android:value="590201725312dd82ac002192" />-->
+        <!--<service android:name="com.amap.api.location.APSService" />-->
+        <!-- <meta-data -->
+        <!-- android:name="UMENG_APPKEY" -->
+        <!-- android:value="590201725312dd82ac002192" /> -->
         <!-- <meta-data android:value="Wandoujia" android:name="UMENG_CHANNEL"/> -->
 
-        <!--<meta-data-->
-            <!--android:name="UMENG_CHANNEL"-->
-            <!--android:value="${UMENG_CHANNEL_VALUE}" />-->
+
+        <!-- <meta-data -->
+        <!-- android:name="UMENG_CHANNEL" -->
+        <!-- android:value="${UMENG_CHANNEL_VALUE}" /> -->
 
         <activity android:name=".activity.SplashActivity">
             <intent-filter>
@@ -112,7 +114,7 @@
         <activity android:name=".algorithm.AlgorithmListActivity" />
         <activity android:name=".algorithm.MonkeyNumberOffActivity" />
         <activity android:name=".algorithm.CardOrderActivity" />
-        <!--<activity android:name=".activity.CameraMonitorActivity" />-->
+        <!-- <activity android:name=".activity.CameraMonitorActivity" /> -->
         <activity android:name=".algorithm.StringAlgorithmActivity" />
         <activity android:name=".algorithm.NumAlgorithmActivity" />
         <activity
@@ -161,14 +163,22 @@
         <activity
             android:name=".activity.plugin.HookActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.jni.MyFirstJniActivity"></activity>
+        <activity android:name=".activity.jni.MyFirstJniActivity" />
         <activity
             android:name=".activity.camera.IDCardUploadActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".widget.sortedview.SortedViewActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".plugin.PluginActivity"></activity>
+        <activity android:name=".plugin.ProxyActivity">
+            <intent-filter>
+                <action android:name="com.jeremy.plugin.VIEW" />
+                <category android:name="android.intent.category.DEFAULT"></category>
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>

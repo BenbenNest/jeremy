@@ -134,6 +134,7 @@ configurations.all {
 }
 dependencies {
 //    compile fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     compile project(':library')
 
     //android support
@@ -143,9 +144,6 @@ dependencies {
     //butterknife
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-
-
-
 
 //    compile project(':viewinject-annotation')
 //    compile project(':inject')
@@ -163,8 +161,6 @@ dependencies {
 //        exclude group: 'com.android.support', module: 'animated-vector-drawable'
 //        exclude group: 'com.android.support', module: 'cardview-v7'
 //    }
-
-
 
     //可选，用于生成application类
     //    provided('com.tencent.tinker:tinker-android-anno:1.7.5')

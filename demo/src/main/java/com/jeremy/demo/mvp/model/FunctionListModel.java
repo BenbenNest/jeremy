@@ -31,6 +31,9 @@ public class FunctionListModel {
     private void initData() {
         FunctionData data;
 
+        data = new FunctionData("动态加载APK插件测试", "com.jeremy.demo.plugin.PluginActivity", "动态加载APK插件测试", 0);
+        list.add(data);
+
         data = new FunctionData("列表字母排序", "com.jeremy.demo.widget.sortedview.SortedViewActivity", "列表字母排序", 0);
         list.add(data);
 
