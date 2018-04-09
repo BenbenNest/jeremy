@@ -62,6 +62,7 @@ public class ProxyActivity extends Activity {
         DexClassLoader dexClassLoader = new DexClassLoader(mDexPath, dexOutputPath, null, localClassLoader);
         try {
             Class<?> localClass = dexClassLoader.loadClass(className);
+            Constructor<?> constructors=localClass.getConstructor();
             Constructor<?> localConstructor = localClass.getConstructor(new Class[]{});
             Object instance = localConstructor.newInstance(new Object[]{});
             Log.d(TAG, "instance = " + instance);
