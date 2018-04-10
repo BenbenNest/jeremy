@@ -14,7 +14,6 @@ import com.jeremy.demo.skin.test.skin.SkinUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +21,7 @@ import java.util.List;
 
 public class SkinActivity extends Activity {
 
-
+    String TAG = "SkinActivity";
     /**
      * 从服务器拉取的皮肤表
      */
@@ -48,52 +47,33 @@ public class SkinActivity extends Activity {
         File theme = new File(getFilesDir(), "theme");
         if (theme.exists() && theme.isFile()) {
             theme.delete();
+//            Files.delete(theme.getAbsolutePath());
         }
         theme.mkdirs();
         File skinFile = skin.getSkinFile(theme);
         if (skinFile.exists()) {
-            Log.e("SkinActivity", "皮肤已存在,开始换肤");
+            Log.e(TAG, "皮肤已存在,开始换肤");
             return;
         }
-        Log.e("SkinActivity", "皮肤不存在,开始下载");
-        FileOutputStream fos = null;
-        InputStream is = null;
+        Log.e(TAG, "皮肤不存在,开始下载");
         //临时文件
         File tempSkin = new File(skinFile.getParentFile(), skin.name + ".temp");
-        try {
-            fos = new FileOutputStream(tempSkin);
+        try (FileOutputStream fos = new FileOutputStream(tempSkin); InputStream is = getAssets().open(skin.url)) {
             //假设下载皮肤包
-            is = getAssets().open(skin.url);
             byte[] bytes = new byte[10240];
             int len;
             while ((len = is.read(bytes)) != -1) {
                 fos.write(bytes, 0, len);
             }
             //下载成功，将皮肤包信息insert已下载数据库
-            Log.e("SkinActivity", "皮肤包下载完成开始校验");
+            Log.e(TAG, "皮肤包下载完成开始校验");
             //皮肤包的md5校验 防止下载文件损坏(但是会减慢速度。从数据库查询已下载皮肤表数据库中保留md5字段)
             if (TextUtils.equals(SkinUtils.getSkinMD5(tempSkin), skin.md5)) {
-                Log.e("SkinActivity", "校验成功,修改文件名。");
+                Log.e(TAG, "校验成功,修改文件名。");
                 tempSkin.renameTo(skinFile);
             }
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            tempSkin.delete();
-            if (null != fos) {
-                try {
-                    fos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (null != is) {
-                try {
-                    is.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 
