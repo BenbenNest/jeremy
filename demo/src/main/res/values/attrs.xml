@@ -3,4 +3,5 @@
     <declare-styleable name="CircleView">
         <attr name="corcleColor" format="color"/>
     </declare-styleable>
+    <attr name="skinTypeface" format="string"/>
 </resources>

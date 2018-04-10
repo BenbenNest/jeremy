@@ -7,6 +7,10 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 
+/**
+ * @author jeremy
+ */
+
 public class SkinResources {
 
     private static SkinResources instance;
@@ -21,9 +25,13 @@ public class SkinResources {
         mAppResources = context.getResources();
     }
 
-    public synchronized static void init(Context context) {
+    public static void init(Context context) {
         if (instance == null) {
-            instance = new SkinResources(context);
+            synchronized (SkinResources.class) {
+                if (instance == null) {
+                    instance = new SkinResources(context);
+                }
+            }
         }
     }
 
@@ -125,6 +133,11 @@ public class SkinResources {
         return null;
     }
 
+    /**
+     * 获得字体
+     * @param resId
+     * @return
+     */
     public Typeface getTypeface(int resId) {
         String skinTypefacePath = getString(resId);
         if (TextUtils.isEmpty(skinTypefacePath)) {

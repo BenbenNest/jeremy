@@ -31,6 +31,9 @@ public class FunctionListModel {
     private void initData() {
         FunctionData data;
 
+        data = new FunctionData("动态换肤", "com.jeremy.demo.skin.test.MainActivity", "动态换肤", 0);
+        list.add(data);
+
         data = new FunctionData("动态加载APK插件测试", "com.jeremy.demo.plugin.PluginActivity", "动态加载APK插件测试", 0);
         list.add(data);
 

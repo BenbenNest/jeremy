@@ -2,6 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/t_window_bg"
@@ -15,10 +16,12 @@
 
 
     <Button
+        skinTypeface="@string/typeface2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="skinSelect"
-        android:text="个性换肤"/>
+        android:text="个性换肤"
+        tools:ignore="MissingPrefix" />
 
 
     <!--测试换肤==> viewPager 与 fragment-->

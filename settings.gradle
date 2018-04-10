@@ -3,4 +3,4 @@
 //        ':hotfix'
 //, ':buildsrc', ':hack'
 
-include ':demo', ':library', ':plugin'
+include ':demo', ':library', ':plugin', ':app-skin'

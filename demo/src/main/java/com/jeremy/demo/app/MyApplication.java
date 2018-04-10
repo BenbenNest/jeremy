@@ -3,6 +3,7 @@ package com.jeremy.demo.app;
 import android.app.ActivityManager;
 import android.content.Context;
 
+import com.jeremy.demo.skin.SkinManager;
 import com.jeremy.library.utils.CrashHandler;
 
 /**
@@ -29,6 +30,7 @@ public class MyApplication extends BaseApplication {
 //        if (Build.VERSION.SDK_INT < 24) {
 //            PluginHelper.getInstance().applicationOnCreate(getBaseContext());
 //        }
+        SkinManager.init(this);
         mainProcessInit();
     }
 

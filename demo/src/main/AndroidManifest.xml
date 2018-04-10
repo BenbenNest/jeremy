@@ -179,6 +179,11 @@
             </intent-filter>
 
         </activity>
+
+        //换肤
+        <activity android:name=".skin.test.MainActivity" />
+        <activity android:name=".skin.test.SkinActivity" />
+
     </application>
 
 </manifest>
