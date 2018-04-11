@@ -25,13 +25,9 @@ public class SkinResources {
         mAppResources = context.getResources();
     }
 
-    public static void init(Context context) {
+    public synchronized static void init(Context context) {
         if (instance == null) {
-            synchronized (SkinResources.class) {
-                if (instance == null) {
-                    instance = new SkinResources(context);
-                }
-            }
+            instance = new SkinResources(context);
         }
     }
 
@@ -135,6 +131,7 @@ public class SkinResources {
 
     /**
      * 获得字体
+     *
      * @param resId
      * @return
      */
@@ -148,7 +145,6 @@ public class SkinResources {
             if (isDefaultSkin) {
                 typeface = Typeface.createFromAsset(mAppResources.getAssets(), skinTypefacePath);
                 return typeface;
-
             }
             typeface = Typeface.createFromAsset(mSkinResources.getAssets(), skinTypefacePath);
             return typeface;

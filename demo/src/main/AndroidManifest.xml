@@ -182,7 +182,9 @@
 
         //换肤
         <activity android:name=".skin.test.MainActivity" />
-        <activity android:name=".skin.test.SkinActivity" />
+        <activity
+            android:name=".skin.test.SkinActivity"
+            android:theme="@style/AppThemeSkin" />
 
     </application>
 

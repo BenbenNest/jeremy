@@ -135,7 +135,7 @@ configurations.all {
 dependencies {
 //    compile fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile project(':library')
+    implementation project(':library')
 
     //android support
     implementation "com.android.support:design:27.1.0"
