@@ -4,3 +4,11 @@
 //, ':buildsrc', ':hack'
 
 include ':demo', ':library', ':plugin', ':app-skin'
+
+
+//判断系统变量并输出系统变量值
+def tomConfig = System.env.containsKey('PATH_TOM');
+println tomConfig
+println System.getenv('PATH_TOM')
+
+
