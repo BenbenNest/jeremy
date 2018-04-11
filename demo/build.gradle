@@ -57,7 +57,8 @@ android {
 
     buildTypes {
         release {
-            buildConfigField("boolean", "LOG_OPEN", "false")
+            buildConfigField("boolean", "LOG_DEBUG", "false")
+            buildConfigField("String", "SERVER_HOST", "\"jeremy.demo.api/\"")
             minifyEnabled true//最小化资源包
             shrinkResources true//去掉无用资源
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -65,7 +66,8 @@ android {
         }
 
         debug {
-            buildConfigField("boolean", "LOG_OPEN", "true")
+            buildConfigField("boolean", "LOG_DEBUG", "true")
+            buildConfigField("String", "SERVER_HOST", "\"test.jeremy.demo.api/\"")
             minifyEnabled false
             signingConfig signingConfigs.demo
         }
