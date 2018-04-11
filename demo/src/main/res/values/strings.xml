@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Demo</string>
+    <!--<string name="app_name">Demo</string>-->
     <string name="title_activity_binary_tree">BinaryTreeActivity</string>
     <string name="typeface"/>
     <string name="typeface2"/>

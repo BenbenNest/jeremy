@@ -26,14 +26,24 @@ android {
 //        targetCompatibility JavaVersion.VERSION_1_8
 //    }
 
+    //使用 Git tag 或者 hash 作为版本号
+    // query git for the SHA, Tag and commit count. Use these to automate versioning.
+    def gitSha = 'git rev-parse --short HEAD'.execute([], project.rootDir).text.trim()
+    def gitTag = 'git describe --tags'.execute([], project.rootDir).text.trim()
+    def gitCommitCount = 100 +
+            Integer.parseInt('git rev-list --count HEAD'.execute([], project.rootDir).text.trim())
+
     defaultConfig {
         applicationId "com.jeremy.demo"
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode gitCommitCount
+        versionName gitTag
+        archivesBaseName = "jeremy-${versionName}"
+        buildConfigField "String", "GIT_SHA", "\"${gitSha}\""
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        flavorDimensions "color"
 //        jackOptions {
 //            enabled true
 //        }
@@ -55,6 +65,20 @@ android {
         }
     }
 
+//    signingConfigs {
+//        release {
+//            storeFile     "${System.env.PRIVATE_KEY}"
+//            keyAlias      "${System.env.ALIAS}"
+//            storePassword "${System.env.STORE_PW}"
+//            keyPassword   "${System.env.APP_PW}"
+//        }
+//    }
+
+    /**
+     buildTypes 是指建构的类型，一般只用两种默认类型 debug 和 release ，顾名思义 debug 用来配置开发过程中的一些内容；
+     release 用来配置正式发布版本的内容；这里面可以设置 applicationIdSuffix 、minifyEnabled 、name 等属性，
+     所有的可配置属性参考这里 — BuildType 和 ProductFlavor。
+     */
     buildTypes {
         release {
             buildConfigField("boolean", "LOG_DEBUG", "false")
@@ -70,6 +94,26 @@ android {
             buildConfigField("String", "SERVER_HOST", "\"test.jeremy.demo.api/\"")
             minifyEnabled false
             signingConfig signingConfigs.demo
+        }
+    }
+
+    /**
+     productFlavors 指各种产品分类，比如免费版本和收费版本。
+     有些定制软件可能会出很多版本，通过 productFlavors 就非常方便， 比如某某输入法就经常出各种定制版，这样以后管理代码和发版就方便多了。
+     */
+
+    productFlavors {
+        free {
+            applicationId = "com.jeremy.demo.free"
+            buildConfigField "String", "CHANNEL", '"YOUMI"'
+            resValue "string", "app_name", "Jeremy free"
+            dimension "color"
+        }
+        pro {
+            applicationId = "com.jeremy.demo.pro"
+            buildConfigField "String", "CHANNEL", '"OTHER"'
+            resValue "string", "app_name", "Jeremy pro"
+            dimension "color"
         }
     }
 
