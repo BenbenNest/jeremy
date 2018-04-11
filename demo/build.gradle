@@ -32,6 +32,12 @@ android {
     def gitTag = 'git describe --tags'.execute([], project.rootDir).text.trim()
     def gitCommitCount = 100 +
             Integer.parseInt('git rev-list --count HEAD'.execute([], project.rootDir).text.trim())
+    println("gitSha="+gitSha)
+    println("gitTag="+gitTag)
+    println("gitCommitCount="+gitCommitCount)
+
+    def buildTime = new Date().format("yyyy-MM-dd'T'HH:mm:ss'Z'", TimeZone.getTimeZone("UTC"))
+    println(buildTime)
 
     defaultConfig {
         applicationId "com.jeremy.demo"
@@ -53,7 +59,9 @@ android {
 //            ldLibs "log", "z", "m"
             abiFilters "armeabi", "armeabi-v7a"
         }
-
+        buildConfigField "String", "BUILD_TIME", "\"${buildTime}\""
+        // 还可以这样
+        buildConfigField "long", "BUILD_TIME_LONG", "${System.currentTimeMillis()}L"
     }
 
     signingConfigs {
