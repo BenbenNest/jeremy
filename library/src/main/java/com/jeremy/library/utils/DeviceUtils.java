@@ -1,7 +1,6 @@
 package com.jeremy.library.utils;
 
 import android.Manifest;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -76,13 +75,16 @@ public class DeviceUtils {
     /**
      * IMEI 在root的手机或者其他情况，会获取失败，使用的时候判断是否为空
      */
-    @TargetApi(Build.VERSION_CODES.O)
     public static String getIMEI(@Nullable Context context) {
         String imei = "";
         if (PermissionUtils.checkReadPhonestatePermission(context)) {
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
             if (telephonyManager != null) {
-                imei = telephonyManager.getImei();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    imei = telephonyManager.getImei();
+                } else {
+                    imei = telephonyManager.getDeviceId();
+                }
             }
         }
         return imei;
