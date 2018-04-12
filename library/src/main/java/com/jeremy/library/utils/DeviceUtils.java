@@ -60,6 +60,7 @@ public class DeviceUtils {
     }
 
     public static class DeviceInfo {
+        //DeviceId是获得国际移动身份识别码，此码是全世界唯一。IMSI是国际移动用户识别码，是区别移动用户的标志。
         String DeviceId = "";//唯一的设备ID： GSM手机的 IMEI 和 CDMA手机的 MEID
         String IMEI = "";//IMEI 在root的手机或者其他情况，会获取失败，使用的时候判断是否为空
         String IMSI = "";//返回用户唯一标识，比如GSM网络的IMSI编号 唯一的用户ID： 例如：IMSI(国际移动用户识别码) for a GSM phone.
