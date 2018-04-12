@@ -8,7 +8,6 @@ import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 
 import com.jeremy.demo.R;
-import com.jeremy.library.utils.DeviceUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,7 +27,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
         init();
-        String deviceInfo = DeviceUtils.getDeviceInfo(this);
+//        String deviceInfo = DeviceUtils.getDeviceInfo(this);
     }
 
     @Override
