@@ -33,6 +33,7 @@ public class CircleView extends View  {
         super(context, attrs, defStyleAttr);
         this.attrs = attrs;
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CircleView);
+        //R.styleable.CircleView_corcleColor 返回的是attrs中corcleColor属性的index
         int color = typedArray.getColor(R.styleable.CircleView_corcleColor, 0);
         corcleColorResId = typedArray.getResourceId(R.styleable.CircleView_corcleColor, 0);
         typedArray.recycle();

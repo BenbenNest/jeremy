@@ -1,13 +1,15 @@
 package com.jeremy.library.utils;
 
 import android.Manifest;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.support.annotation.Nullable;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import android.util.Config;
-import android.util.Log;
+
+import com.jeremy.library.permission.PermissionUtils;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -23,15 +25,104 @@ import static android.content.Context.TELEPHONY_SERVICE;
 
 public class DeviceUtils {
 
-    public static void getInfo(Context context) {
-        TelephonyManager mTm = (TelephonyManager) context.getSystemService(TELEPHONY_SERVICE);
-        String imei = mTm.getDeviceId();
-        String imsi = mTm.getSubscriberId();
-        String mtype = android.os.Build.MODEL; // 手机型号
-        if (Config.DEBUG) {
-            Log.d("android.os.Build.MODEL", mtype);
+    private DeviceUtils() {
+
+    }
+
+    public static DeviceInfo getDeviceInfo(@Nullable Context context) {
+        DeviceInfo deviceInfo = new DeviceInfo();
+        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && telephonyManager != null) {
+            if (PermissionUtils.checkReadPhonestatePermission(context)) {
+                deviceInfo.DeviceId = telephonyManager.getDeviceId();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    deviceInfo.IMEI = telephonyManager.getImei();
+                }
+                if (TextUtils.isEmpty(deviceInfo.IMEI)) {
+                    deviceInfo.IMEI = android.provider.Settings.System.getString(context.getContentResolver(), android.provider.Settings.System.ANDROID_ID);
+                }
+                deviceInfo.IMSI = telephonyManager.getSubscriberId();
+                deviceInfo.MODEL = Build.MODEL;
+                deviceInfo.PhoneNum = telephonyManager.getLine1Number();
+            }
+        } else {
+            deviceInfo.DeviceId = telephonyManager.getDeviceId();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                deviceInfo.IMEI = telephonyManager.getImei();
+            }
+            if (TextUtils.isEmpty(deviceInfo.IMEI)) {
+                deviceInfo.IMEI = android.provider.Settings.System.getString(context.getContentResolver(), android.provider.Settings.System.ANDROID_ID);
+            }
+            deviceInfo.IMSI = telephonyManager.getSubscriberId();
+            deviceInfo.MODEL = Build.MODEL;
+            deviceInfo.PhoneNum = telephonyManager.getLine1Number();
         }
-        String numer = mTm.getLine1Number(); // 手机号码，有的可得，有的不可得
+        return deviceInfo;
+    }
+
+    public static class DeviceInfo {
+        String DeviceId = "";//唯一的设备ID： GSM手机的 IMEI 和 CDMA手机的 MEID
+        String IMEI = "";//IMEI 在root的手机或者其他情况，会获取失败，使用的时候判断是否为空
+        String IMSI = "";//返回用户唯一标识，比如GSM网络的IMSI编号 唯一的用户ID： 例如：IMSI(国际移动用户识别码) for a GSM phone.
+        String MODEL = "";//手机型号
+        String PhoneNum = "";
+
+        @Override
+        public String toString() {
+            return "DeviceId=" + DeviceId + "; IMEI=" + IMEI + "; IMSI=" + IMSI + "; MODEL=" + MODEL + "; PhoneNum=" + PhoneNum;
+        }
+    }
+
+    /**
+     * IMEI 在root的手机或者其他情况，会获取失败，使用的时候判断是否为空
+     */
+    @TargetApi(Build.VERSION_CODES.O)
+    public static String getIMEI(@Nullable Context context) {
+        String imei = "";
+        if (PermissionUtils.checkReadPhonestatePermission(context)) {
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+            if (telephonyManager != null) {
+                imei = telephonyManager.getImei();
+            }
+        }
+        return imei;
+    }
+
+    /**
+     * 唯一的设备ID： GSM手机的 IMEI 和 CDMA手机的 MEID. Return null if device ID is not
+     * 取得手机IMEI
+     */
+    @Deprecated
+    public static String getDeviceId(@Nullable Context context) {
+        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        String deviceId = "";
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && telephonyManager != null) {
+            if (PermissionUtils.checkReadPhonestatePermission(context)) {
+                deviceId = telephonyManager.getDeviceId();
+            }
+        } else {
+            deviceId = telephonyManager.getDeviceId();
+        }
+        return deviceId;
+    }
+
+
+    /**
+     * 取得手机IMSI
+     * 返回用户唯一标识，比如GSM网络的IMSI编号 唯一的用户ID： 例如：IMSI(国际移动用户识别码) for a GSM phone.
+     * 需要权限：READ_PHONE_STATE
+     */
+    public static String getIMSI(@Nullable Context context) {
+        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        String imsi = "";
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && telephonyManager != null) {
+            if (PermissionUtils.checkReadPhonestatePermission(context)) {
+                imsi = telephonyManager.getSubscriberId();
+            }
+        } else {
+            imsi = telephonyManager.getSubscriberId();
+        }
+        return imsi;
     }
 
     public static boolean checkPermission(Context context, String permission) {
@@ -59,7 +150,7 @@ public class DeviceUtils {
     }
 
     //{"device_id": "your_device_id", "mac": "your_device_mac"}
-    public static String getDeviceInfo(Context context) {
+    public static String getDeviceInfoS(Context context) {
         try {
             org.json.JSONObject json = new org.json.JSONObject();
             android.telephony.TelephonyManager tm = (android.telephony.TelephonyManager) context
