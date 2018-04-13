@@ -32,7 +32,6 @@ public class SkinActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_skin);
-
 //        ff4f02503199d45211906ffb428100e5
 //        skins.add(new Skin("e0893ca73a972d82bcfc3a5a7a83666d", "1111111.skin", "app-skin-debug" +
 //                ".apk"));

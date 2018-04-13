@@ -77,7 +77,7 @@ public class SkinManager extends Observable {
                 //保存当前使用的皮肤包
                 SkinPreference.getInstance().setSkin(path);
             } catch (Exception e) {
-                e.printStackTrace();
+//                e.printStackTrace();
             }
         }
         //应用皮肤包

@@ -3,4 +3,10 @@
     <string name="title_activity_binary_tree">BinaryTreeActivity</string>
     <string name="typeface"/>
     <string name="typeface2"/>
+
+    <!-- BlockCanary
+    Monitor app's label and icon can be configured by
+    placing a block_canary_icon drawable in your xhdpi drawable directory and in strings.xml:
+    -->
+    <string name="block_canary_display_activity_label">Blocks</string>
 </resources>

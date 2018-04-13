@@ -3,6 +3,7 @@ package com.jeremy.demo.app;
 import android.app.ActivityManager;
 import android.content.Context;
 
+import com.github.moduth.blockcanary.BlockCanary;
 import com.jeremy.demo.skin.SkinManager;
 import com.jeremy.library.utils.CrashHandler;
 
@@ -36,6 +37,10 @@ public class MyApplication extends BaseApplication {
 
     private void mainProcessInit() {
         if (isMainProcess()) {
+            // Do it on main process
+            BlockCanary.install(this, new AppBlockCanaryContext()).start();
+
+
             //友盟
 //            MobclickAgent.setDebugMode(true);
 //            MobclickAgent.setScenarioType(getApplicationContext(), MobclickAgent.EScenarioType.E_UM_NORMAL);

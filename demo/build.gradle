@@ -188,8 +188,8 @@ configurations.all {
 }
 dependencies {
 //    compile fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation project(':library')
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 
     //android support
     implementation "com.android.support:design:27.1.0"
@@ -198,6 +198,8 @@ dependencies {
     //butterknife
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    implementation 'com.github.markzhai:blockcanary-android:1.5.0'
 
 //    compile project(':viewinject-annotation')
 //    compile project(':inject')
