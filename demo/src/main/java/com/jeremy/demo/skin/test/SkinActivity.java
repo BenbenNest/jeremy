@@ -36,7 +36,7 @@ public class SkinActivity extends Activity {
 //        ff4f02503199d45211906ffb428100e5
 //        skins.add(new Skin("e0893ca73a972d82bcfc3a5a7a83666d", "1111111.skin", "app-skin-debug" +
 //                ".apk"));
-        skins.add(new Skin("ff4f02503199d45211906ffb428100e5", "1111111.skin", "app-skin-debug" +
+        skins.add(new Skin("1b2f2c216fa46226158f7845b16b126b", "1111111.skin", "app-skin-debug" +
                 ".apk"));
     }
 
