@@ -32,17 +32,25 @@ public class StorageUtils {
     public static final String ROOT_SD_CARD = Environment.getExternalStorageDirectory().getAbsolutePath();
 
     //Android使用了权限组，所以申请了READ_EXTERNAL_STORAGE，也自动会申请WRITE_EXTERNAL_STORAGE
-    private static boolean hasExternalStoragePermission(Context context) {
+    private static boolean hasExternalStoragePermission(@Nullable Context context) {
         int permission = context.checkCallingOrSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
         return permission == PackageManager.PERMISSION_GRANTED;
     }
 
-    public static boolean isSDCardAvailable(Context context) {
+    public static boolean isSDCardAvailable(@Nullable Context context) {
         if (MEDIA_MOUNTED.equals(Environment.getExternalStorageState()) && hasExternalStoragePermission(context)) {
             return true;
         }
         return false;
     }
+
+    public static File getFilesDir(@Nullable Context context) {
+        //得到/data/user/0/com.jeremy.demo.pro/files  映射为 /data/data/com.jeremy.demo.pro/files，即 user/0就是第二个data
+        return context.getFilesDir();
+    }
+
+
+
 
     /**
      * 图片存储目录

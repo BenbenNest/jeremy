@@ -32,9 +32,9 @@ android {
     def gitTag = 'git describe --tags'.execute([], project.rootDir).text.trim()
     def gitCommitCount = 100 +
             Integer.parseInt('git rev-list --count HEAD'.execute([], project.rootDir).text.trim())
-    println("gitSha="+gitSha)
-    println("gitTag="+gitTag)
-    println("gitCommitCount="+gitCommitCount)
+    println("gitSha=" + gitSha)
+    println("gitTag=" + gitTag)
+    println("gitCommitCount=" + gitCommitCount)
 
     def buildTime = new Date().format("yyyy-MM-dd'T'HH:mm:ss'Z'", TimeZone.getTimeZone("UTC"))
     println(buildTime)
@@ -186,6 +186,19 @@ android {
 configurations.all {
 //    exclude group: 'com.android.support', module: 'cardview-v7'
 }
+// Ensure the no-op dependency is always used in JVM tests.
+configurations.all {
+        //disable LeakCanary in unit tests
+    config ->
+        if (config.name.contains('UnitTest')) {
+            config.resolutionStrategy.eachDependency { details ->
+                if (details.requested.group == 'com.squareup.leakcanary' && details.requested.name == 'leakcanary-android') {
+                    details.useTarget(group: details.requested.group, name: 'leakcanary-android-no-op', version: details.requested.version)
+                }
+            }
+        }
+}
+
 dependencies {
 //    compile fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':library')
@@ -199,6 +212,9 @@ dependencies {
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
+    //leakcanary and blockcanary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
     implementation 'com.github.markzhai:blockcanary-android:1.5.0'
 
 //    compile project(':viewinject-annotation')

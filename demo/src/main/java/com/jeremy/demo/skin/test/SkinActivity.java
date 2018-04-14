@@ -11,6 +11,7 @@ import com.jeremy.demo.R;
 import com.jeremy.demo.skin.SkinManager;
 import com.jeremy.demo.skin.test.skin.Skin;
 import com.jeremy.demo.skin.test.skin.SkinUtils;
+import com.jeremy.library.utils.StorageUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -32,9 +33,6 @@ public class SkinActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_skin);
-//        ff4f02503199d45211906ffb428100e5
-//        skins.add(new Skin("e0893ca73a972d82bcfc3a5a7a83666d", "1111111.skin", "app-skin-debug" +
-//                ".apk"));
         skins.add(new Skin("1b2f2c216fa46226158f7845b16b126b", "1111111.skin", "app-skin-debug" +
                 ".apk"));
     }
@@ -43,7 +41,7 @@ public class SkinActivity extends Activity {
      * 下载皮肤包
      */
     private void selectSkin(Skin skin) {
-        File theme = new File(getFilesDir(), "theme");
+        File theme = new File(StorageUtils.getFilesDir(this), "theme");
         if (theme.exists() && theme.isFile()) {
             theme.delete();
 //            Files.delete(theme.getAbsolutePath());
@@ -52,7 +50,8 @@ public class SkinActivity extends Activity {
         File skinFile = skin.getSkinFile(theme);
         if (skinFile.exists()) {
             Log.e(TAG, "皮肤已存在,开始换肤");
-            return;
+            skinFile.delete();
+//            return;
         }
         Log.e(TAG, "皮肤不存在,开始下载");
         //临时文件

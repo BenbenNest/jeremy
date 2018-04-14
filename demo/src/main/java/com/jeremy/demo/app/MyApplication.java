@@ -6,6 +6,7 @@ import android.content.Context;
 import com.github.moduth.blockcanary.BlockCanary;
 import com.jeremy.demo.skin.SkinManager;
 import com.jeremy.library.utils.CrashHandler;
+import com.squareup.leakcanary.LeakCanary;
 
 /**
  * Created by benbennest on 17/2/11.
@@ -32,6 +33,12 @@ public class MyApplication extends BaseApplication {
 //            PluginHelper.getInstance().applicationOnCreate(getBaseContext());
 //        }
         SkinManager.init(this);
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        LeakCanary.install(this);
         mainProcessInit();
     }
 
