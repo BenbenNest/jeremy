@@ -2,17 +2,20 @@ package com.jeremy.demo.app;
 
 import android.app.ActivityManager;
 import android.content.Context;
+import android.support.annotation.Nullable;
 
 import com.github.moduth.blockcanary.BlockCanary;
 import com.jeremy.demo.skin.SkinManager;
 import com.jeremy.library.utils.CrashHandler;
 import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
 
 /**
  * Created by benbennest on 17/2/11.
  */
 public class MyApplication extends BaseApplication {
     public static Context sContext;
+    private static RefWatcher refWatcher;//LeakCanary只能够检测Activity的内存泄漏，需要使用RefWatcher来进行监控其他类的内存泄漏
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -36,9 +39,10 @@ public class MyApplication extends BaseApplication {
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.
+            refWatcher = RefWatcher.DISABLED;
             return;
         }
-        LeakCanary.install(this);
+        refWatcher = LeakCanary.install(this);
         mainProcessInit();
     }
 
@@ -89,6 +93,15 @@ public class MyApplication extends BaseApplication {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public static RefWatcher getRefWatcher() {
+        return refWatcher;
+    }
+
+    public static RefWatcher getRefWatcher(@Nullable Context context) {
+        MyApplication myApplication = (MyApplication) context.getApplicationContext();
+        return myApplication.refWatcher;
     }
 
 }

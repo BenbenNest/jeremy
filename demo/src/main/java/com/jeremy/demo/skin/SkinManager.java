@@ -67,7 +67,7 @@ public class SkinManager extends Observable {
                 addAssetPath.invoke(assetManager, path);
 
                 Resources resources = application.getResources();
-                // 横竖、语言
+                // 横竖、语言等
                 Resources skinResource = new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
                 //获取外部Apk(皮肤包) 包名
                 PackageManager mPm = application.getPackageManager();
