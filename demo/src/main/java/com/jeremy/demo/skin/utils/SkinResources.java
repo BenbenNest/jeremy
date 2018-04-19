@@ -84,6 +84,14 @@ public class SkinResources {
         return mSkinResources.getColorStateList(skinId);
     }
 
+    /**
+     * 参数 resId是App中的资源ID，如果使用了默认皮肤，可以直接使用，但是如果不是默认皮肤，则需要获取皮肤包中的对应资源ID
+     * 获取步骤为：
+     * 1.获取资源ID对应的资源类型和资源名称，
+     * 2.根据资源类型和资源名称通过皮肤包的ResourceManager获取皮肤包中该资源类型和名称对应的资源ID
+     * @param resId
+     * @return
+     */
     public Drawable getDrawable(int resId) {
         //如果有皮肤  isDefaultSkin false 没有就是true
         if (isDefaultSkin) {

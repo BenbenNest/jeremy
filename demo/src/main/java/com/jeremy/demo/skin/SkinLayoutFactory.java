@@ -28,7 +28,7 @@ public class SkinLayoutFactory implements LayoutInflater.Factory2, Observer {
     private static final Class<?>[] mConstructorSignature = new Class[]{
             Context.class, AttributeSet.class};
     private static final HashMap<String, Constructor<? extends View>> sConstructorMap =
-            new HashMap<String, Constructor<? extends View>>();
+            new HashMap<>();
     private Activity activity;
 
     // 属性处理类
@@ -55,7 +55,7 @@ public class SkinLayoutFactory implements LayoutInflater.Factory2, Observer {
 
     private View createViewFromTag(String name, Context context, AttributeSet attrs) {
         //包含了 . 自定义控件
-        if (-1 != name.indexOf(".")) {
+        if (-1 != name.indexOf('.')) {
             return null;
         }
         View view = null;
@@ -72,17 +72,18 @@ public class SkinLayoutFactory implements LayoutInflater.Factory2, Observer {
         Constructor<? extends View> constructor = sConstructorMap.get(name);
         if (null == constructor) {
             try {
-                Class<? extends View> aClass = context.getClassLoader().loadClass(name).asSubclass
-                        (View.class);
+                Class<? extends View> aClass = context.getClassLoader().loadClass(name).asSubclass(View.class);
                 constructor = aClass.getConstructor(mConstructorSignature);
                 sConstructorMap.put(name, constructor);
             } catch (Exception e) {
+                e.printStackTrace();
             }
         }
         if (null != constructor) {
             try {
                 return constructor.newInstance(context, attrs);
             } catch (Exception e) {
+                e.printStackTrace();
             }
         }
         return null;

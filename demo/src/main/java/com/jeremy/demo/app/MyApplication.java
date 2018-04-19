@@ -73,7 +73,7 @@ public class MyApplication extends BaseApplication {
                 return true;
             }
             return processName.equals(getPackageName());
-        } catch (Throwable e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return true;
         }
@@ -89,7 +89,7 @@ public class MyApplication extends BaseApplication {
                 }
             }
             return null;
-        } catch (Throwable e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
@@ -99,6 +99,7 @@ public class MyApplication extends BaseApplication {
         return refWatcher;
     }
 
+    //下面这个方法是通过非静态变量的方式引用
     public static RefWatcher getRefWatcher(@Nullable Context context) {
         MyApplication myApplication = (MyApplication) context.getApplicationContext();
         return myApplication.refWatcher;
