@@ -10,8 +10,10 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.jeremy.demo.R;
+import com.jeremy.demo.skin.SkinViewSupport;
+import com.jeremy.demo.skin.utils.SkinResources;
 
-public class CircleView extends View  {
+public class CircleView extends View implements SkinViewSupport {
     private AttributeSet attrs;
     //画笔
     private Paint mTextPain;
@@ -66,11 +68,11 @@ public class CircleView extends View  {
     }
 
 
-//    @Override
-//    public void applySkin() {
-//        if (corcleColorResId != 0) {
-//            int color = SkinResources.getInstance().getColor(corcleColorResId);
-//            setCorcleColor(color);
-//        }
-//    }
+    @Override
+    public void applySkin() {
+        if (corcleColorResId != 0) {
+            int color = SkinResources.getInstance().getColor(corcleColorResId);
+            setCorcleColor(color);
+        }
+    }
 }

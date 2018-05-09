@@ -1,11 +1,17 @@
 package com.jeremy.demo.skin.test.widget;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
 import android.support.design.widget.TabLayout;
 import android.util.AttributeSet;
 
+import com.jeremy.demo.R;
+import com.jeremy.demo.skin.SkinViewSupport;
+import com.jeremy.demo.skin.utils.SkinResources;
 
-public class MyTabLayout extends TabLayout {
+
+public class MyTabLayout extends TabLayout implements SkinViewSupport {
     int tabIndicatorColorResId;
     int tabTextColorResId;
 
@@ -19,24 +25,24 @@ public class MyTabLayout extends TabLayout {
 
     public MyTabLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-//        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.TabLayout,
-//                defStyleAttr, 0);
-//        tabIndicatorColorResId = a.getResourceId(R.styleable.TabLayout_tabIndicatorColor, 0);
-//        tabTextColorResId = a.getResourceId(R.styleable.TabLayout_tabTextColor, 0);
-//        a.recycle();
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.TabLayout,
+                defStyleAttr, 0);
+        tabIndicatorColorResId = a.getResourceId(R.styleable.TabLayout_tabIndicatorColor, 0);
+        tabTextColorResId = a.getResourceId(R.styleable.TabLayout_tabTextColor, 0);
+        a.recycle();
     }
 
-//    @Override
-//    public void applySkin() {
-//        if (tabIndicatorColorResId != 0) {
-//            int tabIndicatorColor = SkinResources.getInstance().getColor(tabIndicatorColorResId);
-//            setSelectedTabIndicatorColor(tabIndicatorColor);
-//        }
-//
-//        if (tabTextColorResId != 0) {
-//            ColorStateList tabTextColor = SkinResources.getInstance().getColorStateList
-//                    (tabTextColorResId);
-//            setTabTextColors(tabTextColor);
-//        }
-//    }
+    @Override
+    public void applySkin() {
+        if (tabIndicatorColorResId != 0) {
+            int tabIndicatorColor = SkinResources.getInstance().getColor(tabIndicatorColorResId);
+            setSelectedTabIndicatorColor(tabIndicatorColor);
+        }
+
+        if (tabTextColorResId != 0) {
+            ColorStateList tabTextColor = SkinResources.getInstance().getColorStateList
+                    (tabTextColorResId);
+            setTabTextColors(tabTextColor);
+        }
+    }
 }

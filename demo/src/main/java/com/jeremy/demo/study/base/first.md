@@ -7,3 +7,8 @@
 
 
 
+任何class如果覆写了equals()方法，就必须覆写hashCode(),负责你的类就不能很好的与java的集合框架协同工作。
+
+在程序执行期间，同一个对象调用hashCode()必须返回同一个值（同一个应用执行期）
+如果两个对象equals，那么他们的hashCode()必须相等
+如果两个对象equals不相等，那么他们的hashCode()不必产生不同的结果，程序员应该注意到，对不同的对象产生不同的hashCode()，有可能提升 hash table(哈希表)的效率

@@ -1,8 +1,11 @@
 package com.jeremy.library.utils;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -18,6 +21,73 @@ import java.util.List;
  */
 
 public class FileUtils {
+
+
+    public byte[] getContent(String filePath) {
+        File file = new File(filePath);
+        if (file == null) {
+            return null;
+        }
+        long fileSize = file.length();
+        byte[] buffer = new byte[(int) fileSize];
+        if (fileSize > Integer.MAX_VALUE) {
+            System.out.println("file too big...; path=" + filePath);
+            return null;
+        }
+        try (FileInputStream fileInputStream = new FileInputStream(file)) {
+            int offset = 0;
+            int numRead ;
+            while (offset < buffer.length && (numRead = fileInputStream.read(buffer, offset, buffer.length - offset)) >= 0) {
+                offset += numRead;
+            }
+            // 确保所有数据均被读取
+            if (offset != buffer.length) {
+                throw new IOException("Could not completely read file " + file.getName());
+            }
+        } catch (Exception e) {
+
+        }
+        return buffer;
+    }
+
+    /**
+     * the traditional io way
+     *
+     * @param filename
+     * @return
+     * @throws IOException
+     */
+    public static byte[] toByteArray(String filename) throws IOException {
+        File f = new File(filename);
+        if (!f.exists()) {
+            throw new FileNotFoundException(filename);
+        }
+        ByteArrayOutputStream bos = new ByteArrayOutputStream((int) f.length());
+        BufferedInputStream in = null;
+        try {
+            in = new BufferedInputStream(new FileInputStream(f));
+            int buf_size = 1024;
+            byte[] buffer = new byte[buf_size];
+            int len = 0;
+            while (-1 != (len = in.read(buffer, 0, buf_size))) {
+                bos.write(buffer, 0, len);
+            }
+            return bos.toByteArray();
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw e;
+        } finally {
+            try {
+                in.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            bos.close();
+        }
+    }
+
+
+
 
     /**
      * 文件排序:按文件最后一次被修改的时间排序

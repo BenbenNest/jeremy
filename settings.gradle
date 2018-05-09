@@ -3,7 +3,7 @@
 //        ':hotfix'
 //, ':buildsrc', ':hack'
 
-include ':demo', ':library', ':plugin', ':app-skin'
+include ':demo', ':library', ':plugin', ':app-skin', ':bannerview'
 
 
 //判断系统变量并输出系统变量值
