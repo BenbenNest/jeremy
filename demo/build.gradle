@@ -202,6 +202,7 @@ configurations.all {
 dependencies {
 //    compile fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':library')
+    implementation project(':bannerview')
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 
     //android support

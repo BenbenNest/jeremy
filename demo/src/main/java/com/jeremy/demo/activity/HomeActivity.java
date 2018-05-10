@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.jeremy.bannerview.BannerView;
 import com.jeremy.demo.R;
 import com.jeremy.demo.algorithm.HeapSort;
 import com.jeremy.demo.algorithm.LinkListActivity;
@@ -37,7 +38,10 @@ import butterknife.ButterKnife;
 public class HomeActivity extends AppCompatActivity implements FunctionListView, CommonRecyclerView.OnRefreshLoadMoreListener {
     @BindView(R.id.common_recyclerview)
     CommonRecyclerView commonRecyclerView;
-
+    @BindView(R.id.banner)
+    BannerView bannerView;
+    private int[] imgs = {R.drawable.splash,R.drawable.splash};
+    private List<View> viewList;
     private FunctionListPresenter presenter;
 
     @Override
@@ -49,6 +53,7 @@ public class HomeActivity extends AppCompatActivity implements FunctionListView,
         ButterKnife.bind(this);
 //        test();
         init();
+
         HeapSort.testHeapSort();
         System.out.print("jni:"+MyJNI.getStringFromC());
     }
@@ -99,11 +104,29 @@ public class HomeActivity extends AppCompatActivity implements FunctionListView,
 
 
     private void init() {
+        initBanner();
         commonRecyclerView.setOnRefreshLoadMoreListener(this);
         commonRecyclerView.disableRefresh();
         presenter = new FunctionListPresenter();
         presenter.attachView(this);
         presenter.getData();
+    }
+
+    private void initBanner(){
+        viewList = new ArrayList<View>();
+        for (int i = 0; i < imgs.length; i++) {
+            ImageView image = new ImageView(this);
+            image.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            //设置显示格式
+            image.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            image.setImageResource(imgs[i]);
+            viewList.add(image);
+        }
+        bannerView = (BannerView) findViewById(R.id.banner);
+        bannerView.startLoop(true);
+
+        bannerView.setViewList(viewList);
+//        bannerView.setTransformAnim(true);
     }
 
     @Override
