@@ -40,7 +40,7 @@ public class HomeActivity extends AppCompatActivity implements FunctionListView,
     CommonRecyclerView commonRecyclerView;
     @BindView(R.id.banner)
     BannerView bannerView;
-    private int[] imgs = {R.drawable.splash,R.drawable.splash};
+    private int[] imgs = {R.drawable.banner_1,R.drawable.banner_2};
     private List<View> viewList;
     private FunctionListPresenter presenter;
 
