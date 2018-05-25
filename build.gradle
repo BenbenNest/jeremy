@@ -24,7 +24,7 @@ buildscript {
 //        jcenter() {
 //            url 'http://jcenter.bintray.com/'
 //        }
-//        mavenCentral()
+        mavenCentral()
 //        maven {
 //            url 'https://maven.google.com/'
 //            name 'Google'
@@ -113,7 +113,7 @@ allprojects {
 //        jcenter() {
 //            url 'http://jcenter.bintray.com/'
 //        }
-//        mavenCentral()
+        mavenCentral()
 //        mavenLocal()
 //        maven {
 //            url 'https://maven.google.com/'

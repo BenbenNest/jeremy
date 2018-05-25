@@ -21,6 +21,7 @@ import com.jeremy.demo.jni.MyJNI;
 import com.jeremy.demo.mvp.bean.FunctionData;
 import com.jeremy.demo.mvp.presenter.FunctionListPresenter;
 import com.jeremy.demo.mvp.view.FunctionListView;
+import com.jeremy.library.aspect.annotation.ExecTime;
 import com.jeremy.library.recycler_view.CommonRecyclerView;
 import com.jeremy.library.utils.DateUtil;
 import com.jeremy.library.utils.ToastUtils;
@@ -44,6 +45,7 @@ public class HomeActivity extends AppCompatActivity implements FunctionListView,
     private List<View> viewList;
     private FunctionListPresenter presenter;
 
+    @ExecTime
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +59,6 @@ public class HomeActivity extends AppCompatActivity implements FunctionListView,
         HeapSort.testHeapSort();
         System.out.print("jni:"+MyJNI.getStringFromC());
     }
-
 
     private void test() {
         LinkListActivity.test();
