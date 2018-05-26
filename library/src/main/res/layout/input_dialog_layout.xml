@@ -19,7 +19,7 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <cn.com.weilaihui3.widgets.ChatEditText
+            <com.jeremy.library.widget.ChatEditText
                 android:id="@+id/live_chat_room_send_edit"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

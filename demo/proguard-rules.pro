@@ -183,11 +183,6 @@
 
 
 
-
-
-
-
-
 # for v4, v7
 -dontwarn android.support.v4.**
 -keep class android.support.v4.** { *; }
@@ -242,11 +237,11 @@
 ##---------------End: proguard configuration for OkHttp and Okio  ----------
 
 # 友盟自动更新
--keepclassmembers class * { public (org.json.JSONObject); }
--keep public class cn.irains.parking.cloud.pub.R$*{ public static final int *; }
--keep public class * extends com.umeng.**
--keep class com.umeng.** { *; }
--dontwarn com.umeng.**
+#-keepclassmembers class * { public (org.json.JSONObject); }
+#-keep public class cn.irains.parking.cloud.pub.R$*{ public static final int *; }
+#-keep public class * extends com.umeng.**
+#-keep class com.umeng.** { *; }
+#-dontwarn com.umeng.**
 
 
 ## For live cloud sdk

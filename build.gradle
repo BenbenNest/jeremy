@@ -81,6 +81,19 @@ buildscript {
         // in the individual module build.gradle files
     }
 //    configurations.classpath.exclude group: 'com.android.tools.external.lombok'
+
+
+    subprojects {
+        project.configurations.all {
+            resolutionStrategy.eachDependency { details ->
+                if (details.requested.group == 'com.android.support'
+                        && !details.requested.name.contains('multidex') ) {
+                    details.useVersion "27.1.0"
+                }
+            }
+        }
+    }
+
 }
 
 //if (gradle.gradleVersion >= "2.2") {
