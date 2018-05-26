@@ -28,7 +28,8 @@ def getDate() {
     def formattedDate = date.format('yyyyMMddHHmm')
     return formattedDate
 }
-
+def flavorDimensionChannel = "channel"
+def flavorDimensionVersion = "version"
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
 //    buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -124,19 +125,26 @@ android {
      有些定制软件可能会出很多版本，通过 productFlavors 就非常方便， 比如某某输入法就经常出各种定制版，这样以后管理代码和发版就方便多了。
      */
 
+    flavorDimensions flavorDimensionChannel, flavorDimensionVersion  //纬度
     productFlavors {
         //free和pro就是variants，可以单独只为某一个variants添加一些依赖，只需要在Compile加上对应的variant名字前缀就可以了
+        huawei {
+            dimension flavorDimensionChannel
+        }
+        xiaomi {
+            dimension flavorDimensionChannel
+        }
         free {
             applicationId = "com.jeremy.demo.free"
             buildConfigField "String", "CHANNEL", '"YOUMI"'
             resValue "string", "app_name", "Jeremy free"
-            dimension "color"
+            dimension flavorDimensionVersion
         }
         pro {
             applicationId = "com.jeremy.demo.pro"
             buildConfigField "String", "CHANNEL", '"OTHER"'
             resValue "string", "app_name", "Jeremy pro"
-            dimension "color"
+            dimension flavorDimensionVersion
         }
     }
 
@@ -246,7 +254,6 @@ dependencies {
     implementation 'org.aspectj:aspectjrt:1.8.1'
 
 //    proImplementation 'com.android.support:appcompat-v7:22.2.0'//只为variants pro添加这个依赖
-
 
 //    compile project(':viewinject-annotation')
 //    compile project(':inject')
