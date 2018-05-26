@@ -49,7 +49,8 @@ android {
     println("gitTag=" + gitTag)
     println("gitCommitCount=" + gitCommitCount)
 
-    def buildTime = new Date().format("yyyy-MM-dd'T'HH:mm:ss'Z'", TimeZone.getTimeZone("UTC"))
+//    def buildTime = new Date().format("yyyy-MM-dd'T'HH:mm:ss'Z'", TimeZone.getTimeZone("UTC"))
+    def buildTime = new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
     println(buildTime)
 
     defaultConfig {
@@ -57,7 +58,7 @@ android {
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode gitCommitCount
-        versionName gitTag
+        versionName "1.0"
         archivesBaseName = "jeremy-${versionName}"
         buildConfigField "String", "GIT_SHA", "\"${gitSha}\""
         multiDexEnabled true
@@ -124,6 +125,7 @@ android {
      */
 
     productFlavors {
+        //free和pro就是variants，可以单独只为某一个variants添加一些依赖，只需要在Compile加上对应的variant名字前缀就可以了
         free {
             applicationId = "com.jeremy.demo.free"
             buildConfigField "String", "CHANNEL", '"YOUMI"'
@@ -170,6 +172,17 @@ android {
     }
 
     //修改生成的apk名字及输出文件夹
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+//                    if (output.outputFile != null && output.outputFile.name.endsWith('.apk')
+//                            &&'release'.equals(variant.buildType.name)) {
+            def apkFile = new File(
+                    output.outputFile.getParent(),
+                    "jeremy_${variant.flavorName}_v${variant.versionName}_${buildTime}.apk")
+            outputFileName = "jeremy_${variant.flavorName}_v${variant.versionName}_${buildTime}_${variant.buildType.name}.apk"
+//                    }
+        }
+    }
 //    applicationVariants.all { variant ->
 //        variant.outputs.each { output ->
 //            //新名字
@@ -231,6 +244,9 @@ dependencies {
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
     implementation 'com.github.markzhai:blockcanary-android:1.5.0'
     implementation 'org.aspectj:aspectjrt:1.8.1'
+
+//    proImplementation 'com.android.support:appcompat-v7:22.2.0'//只为variants pro添加这个依赖
+
 
 //    compile project(':viewinject-annotation')
 //    compile project(':inject')
