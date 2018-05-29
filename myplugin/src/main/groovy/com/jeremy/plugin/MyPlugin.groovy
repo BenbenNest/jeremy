@@ -9,5 +9,9 @@ public class MyPlugin implements Plugin<Project> {
         System.out.println("========================");
         System.out.println("hello my first gradle plugin!");
         System.out.println("========================");
+        //在Demo（引用工程）中可以执行 ./gradlew MyPluginTask
+        project.task('MyPluginTask') << {
+            println "This is a gradle task defined in MyGradlePlugin"
+        }
     }
 }
