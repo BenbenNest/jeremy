@@ -8,5 +8,6 @@ class MyCustomTask extends DefaultTask {
     void output() {
         println "This is MyCustomTask"
         println "Sender is ${project.myArgs.sender},\nmessage: ${project.myArgs.message}"
+        println "Receiver is ${project.myArgs.nestArgs.receiver} \nemail: ${project.myArgs.nestArgs.email}"
     }
 }

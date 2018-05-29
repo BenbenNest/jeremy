@@ -25,7 +25,12 @@ apply plugin: 'com.jeremy.gradle'
 myArgs {
     sender='Jeremy zhao'
     message='This is a test of grale plugin parameter.'
+    nestArgs {
+        receiver='Jenny Shi'
+        email='jennyshi@126.com'
+    }
 }
+
 
 //retrolambda {
 //    javaVersion JavaVersion.VERSION_1_6
