@@ -13,5 +13,14 @@ public class MyPlugin implements Plugin<Project> {
         project.task('MyPluginTask') << {
             println "This is a gradle task defined in MyGradlePlugin"
         }
+
+        project.extensions.create('myArgs', MyGradlePluginExtension)
+        project.task('myCustomTask', type: MyCustomTask)
+
     }
+}
+
+class MyGradlePluginExtension {
+    def message = "From MyGradlePluginExtention"
+    def sender = "MyGradlePlugin"
 }

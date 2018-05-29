@@ -22,6 +22,11 @@ apply plugin: 'com.jeremy.gradle'
 //apply plugin: 'com.tencent.tinker.patch'
 //apply plugin: 'me.tatarka.retrolambda'
 
+myArgs {
+    sender='Jeremy zhao'
+    message='This is a test of grale plugin parameter.'
+}
+
 //retrolambda {
 //    javaVersion JavaVersion.VERSION_1_6
 //}
