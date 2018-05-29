@@ -48,7 +48,7 @@ public class ExecTimeAspect {
         stopWatch.stop();
         long timeConsume=stopWatch.getTotalTimeMillis();
 //        if(timeConsume>1000)//当方法耗时大于某个值时打印Log
-        Log.d(className, buildLogMessage(methodName, timeConsume));
+        Log.w(className, buildLogMessage(methodName, timeConsume));
         return result;
     }
 
