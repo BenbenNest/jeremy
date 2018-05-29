@@ -21,6 +21,7 @@ import com.jeremy.demo.jni.MyJNI;
 import com.jeremy.demo.mvp.bean.FunctionData;
 import com.jeremy.demo.mvp.presenter.FunctionListPresenter;
 import com.jeremy.demo.mvp.view.FunctionListView;
+import com.jeremy.library.aspect.annotation.CheckNet;
 import com.jeremy.library.aspect.annotation.ExecTime;
 import com.jeremy.library.recycler_view.CommonRecyclerView;
 import com.jeremy.library.utils.DateUtil;
@@ -41,7 +42,7 @@ public class HomeActivity extends AppCompatActivity implements FunctionListView,
     CommonRecyclerView commonRecyclerView;
     @BindView(R.id.banner)
     BannerView bannerView;
-    private int[] imgs = {R.drawable.banner_1,R.drawable.banner_2};
+    private int[] imgs = {R.drawable.banner_1, R.drawable.banner_2};
     private List<View> viewList;
     private FunctionListPresenter presenter;
 
@@ -57,7 +58,7 @@ public class HomeActivity extends AppCompatActivity implements FunctionListView,
         init();
 
         HeapSort.testHeapSort();
-        System.out.print("jni:"+MyJNI.getStringFromC());
+        System.out.print("jni:" + MyJNI.getStringFromC());
     }
 
     private void test() {
@@ -110,10 +111,15 @@ public class HomeActivity extends AppCompatActivity implements FunctionListView,
         commonRecyclerView.disableRefresh();
         presenter = new FunctionListPresenter();
         presenter.attachView(this);
+        initData();
+    }
+
+    @CheckNet
+    private void initData() {
         presenter.getData();
     }
 
-    private void initBanner(){
+    private void initBanner() {
         viewList = new ArrayList<View>();
         for (int i = 0; i < imgs.length; i++) {
             ImageView image = new ImageView(this);
