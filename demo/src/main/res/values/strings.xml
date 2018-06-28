@@ -1,8 +1,8 @@
 <resources>
     <!--<string name="app_name">Demo</string>-->
     <string name="title_activity_binary_tree">BinaryTreeActivity</string>
-    <string name="typeface"/>
-    <string name="typeface2"/>
+    <string name="typeface" />
+    <string name="typeface2" />
 
     <!-- BlockCanary
     Monitor app's label and icon can be configured by

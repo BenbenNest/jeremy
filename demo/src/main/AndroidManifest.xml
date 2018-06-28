@@ -72,7 +72,7 @@
             android:name="com.amap.api.v2.apikey"
             android:value="958f1354b22879c8736e9abc8d42e89b" />
         <!-- 定位需要的服务 -->
-        <!--<service android:name="com.amap.api.location.APSService" />-->
+        <!-- <service android:name="com.amap.api.location.APSService" /> -->
         <!-- <meta-data -->
         <!-- android:name="UMENG_APPKEY" -->
         <!-- android:value="590201725312dd82ac002192" /> -->
@@ -171,21 +171,21 @@
             android:name=".widget.sortedview.SortedViewActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".plugin.PluginActivity"></activity>
+        <activity android:name=".plugin.PluginActivity" />
         <activity android:name=".plugin.ProxyActivity">
             <intent-filter>
                 <action android:name="com.jeremy.plugin.VIEW" />
-                <category android:name="android.intent.category.DEFAULT"></category>
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
         </activity>
-
         //换肤
         <activity android:name=".skin.test.MainActivity" />
         <activity
             android:name=".skin.test.SkinActivity"
             android:theme="@style/AppThemeSkin" />
-
+        <activity android:name=".activity.plugin.ProxyActivity"></activity>
+        <activity android:name=".activity.plugin.PluginTestActivity"></activity>
     </application>
 
 </manifest>

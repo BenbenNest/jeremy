@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -51,6 +52,7 @@ public class HomeActivity extends AppCompatActivity implements FunctionListView,
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         //崩溃日志记录测试代码
 //        commonRecyclerView.setVisibility(View.VISIBLE);
         ButterKnife.bind(this);

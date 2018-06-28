@@ -1,4 +1,3 @@
-
 buildscript {
     repositories {
         mavenCentral()
@@ -23,14 +22,13 @@ apply plugin: 'com.jeremy.gradle'
 //apply plugin: 'me.tatarka.retrolambda'
 
 myArgs {
-    sender='Jeremy zhao'
-    message='This is a test of grale plugin parameter.'
+    sender = 'Jeremy zhao'
+    message = 'This is a test of grale plugin parameter.'
     nestArgs {
-        receiver='Jenny Shi'
-        email='jennyshi@126.com'
+        receiver = 'Jenny Shi'
+        email = 'jennyshi@126.com'
     }
 }
-
 
 //retrolambda {
 //    javaVersion JavaVersion.VERSION_1_6
@@ -44,6 +42,7 @@ def getDate() {
     def formattedDate = date.format('yyyyMMddHHmm')
     return formattedDate
 }
+
 def flavorDimensionChannel = "channel"
 def flavorDimensionVersion = "version"
 android {
@@ -253,6 +252,7 @@ dependencies {
 //    compile fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':library')
     implementation project(':bannerview')
+    implementation project(':lycheeplugin')
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 
     //android support
