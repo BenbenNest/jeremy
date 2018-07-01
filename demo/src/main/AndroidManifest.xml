@@ -184,8 +184,9 @@
         <activity
             android:name=".skin.test.SkinActivity"
             android:theme="@style/AppThemeSkin" />
-        <activity android:name=".activity.plugin.ProxyActivity"></activity>
-        <activity android:name=".activity.plugin.PluginTestActivity"></activity>
+        <activity android:name=".activity.plugin.ProxyActivity" />
+        <activity android:name=".activity.plugin.PluginTestActivity" />
+        <activity android:name=".client.IPCByBinderActivity"></activity>
     </application>
 
 </manifest>

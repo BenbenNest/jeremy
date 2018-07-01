@@ -51,8 +51,8 @@ public class HomeActivity extends AppCompatActivity implements FunctionListView,
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.activity_home);
         //崩溃日志记录测试代码
 //        commonRecyclerView.setVisibility(View.VISIBLE);
         ButterKnife.bind(this);
