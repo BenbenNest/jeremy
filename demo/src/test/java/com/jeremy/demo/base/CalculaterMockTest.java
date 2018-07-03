@@ -3,7 +3,10 @@ package com.jeremy.demo.base;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
+import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.List;
 
 import static org.junit.Assert.assertArrayEquals;
@@ -14,13 +17,17 @@ import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.atMost;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 /**
  * Created by changqing on 2018/7/2.
@@ -79,7 +86,74 @@ public class CalculaterMockTest {
         verify(list, atLeast(2)).add(2);
         //验证至多调用3次
         verify(list, atMost(3)).add(3);
+
+
+        // you can mock concrete classes, not only interfaces
+        LinkedList mockedList = mock(LinkedList.class);
+
+// stubbing appears before the actual execution
+        when(mockedList.get(0)).thenReturn("first");
+        when(mockedList.get(1)).thenReturn(null);//预设结果为null
+
+// the following prints "first"
+        System.out.println(mockedList.get(0));
+
+// the following prints null
+        System.out.println(mockedList.get(1));
+
+// the following prints "null" because get(999) was not stubbed
+        System.out.println(mockedList.get(999));
+
+
+        // mock creation
+        List mockedList2 = mock(List.class);
+        // using mock object - it does not throw any "unexpected interaction" exception
+        mockedList2.add("one");
+        //预设当List清空自身时抛出空指针异常
+        doThrow(new NullPointerException()).when(mockedList2).clear();
+        mockedList2.clear();
+
+        Comparable comparable = mock(Comparable.class);
+        //预设根据不同的参数返回不同的结果
+        when(comparable.compareTo("Test")).thenReturn(1);
+        when(comparable.compareTo("Omg")).thenReturn(2);
+        assertEquals(1, comparable.compareTo("Test"));
+        assertEquals(2, comparable.compareTo("Omg"));
+        //对于没有预设的情况会返回默认值
+        assertEquals(0, comparable.compareTo("Not stub"));
+
+
+        Comparator comparator = mock(Comparator.class);
+        comparator.compare("nihao","hello");
+        //如果你使用了参数匹配，那么所有的参数都必须通过matchers来匹配
+        verify(comparator).compare(anyString(),eq("hello"));
+//        下面的代码报错： Invalid use of argument matchers!
+//        verify(comparator).compare(anyString(),"hello");
     }
+
+    @Test
+    public void calculatorMockTest() {
+        Calculater mCalculator = mock(Calculater.class);//模拟创建一个Calculater对象
+        when(mCalculator.substract(3,1)).thenReturn(3);//预设substract的返回值为3
+        System.out.println(mCalculator.substract(3,1));//输出3
+        assertEquals(3, mCalculator.substract(3,1));//3==3测试通过
+
+        when(mCalculator.substract(3, 1)).thenCallRealMethod();  //通过thenCallRealMethod来调用真实的api
+        System.out.println(mCalculator.substract(3, 1));//输出2
+        assertEquals(2, mCalculator.substract(3, 1));
+
+        //反复调用，我们希望对于每次调用都返回不同的mock值
+        Calculater demo = mock(Calculater.class);//模拟创建一个Calculater对象
+        //Mockito.anyInt()表示传入任何整数值，返回值都是预设值
+        Mockito.when(demo.substract(Mockito.anyInt(), Mockito.anyInt())).thenReturn(12).thenReturn(1024).thenReturn(2048);
+        System.out.println(demo.substract(2,3));//12
+        System.out.println(demo.substract(2,3));//1024
+        System.out.println(demo.substract(2,3));//2048
+
+
+
+    }
+
 
 //    @Test
 //    public void sum() throws Exception {
