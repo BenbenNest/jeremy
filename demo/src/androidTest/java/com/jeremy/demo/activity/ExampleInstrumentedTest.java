@@ -20,6 +20,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.yangge.myapplication", appContext.getPackageName());
+        assertEquals("com.jeremy.demo", appContext.getPackageName());
     }
 }

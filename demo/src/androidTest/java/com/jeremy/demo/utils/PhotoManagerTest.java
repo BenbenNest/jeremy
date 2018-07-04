@@ -4,7 +4,7 @@ import android.os.Environment;
 import android.support.test.rule.ActivityTestRule;
 import android.test.InstrumentationTestCase;
 
-import com.jeremy.demo.activity.MainActivity;
+import com.jeremy.demo.activity.HomeActivity;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -18,7 +18,7 @@ import java.io.File;
 public class PhotoManagerTest extends InstrumentationTestCase {
 
     @Rule
-    public ActivityTestRule<MainActivity> mainActivity = new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<HomeActivity> mainActivity = new ActivityTestRule<>(HomeActivity.class);
 
     @Test
     public void testsortFile() {

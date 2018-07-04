@@ -43,6 +43,8 @@ public class HomeActivity extends AppCompatActivity implements FunctionListView,
     CommonRecyclerView commonRecyclerView;
     @BindView(R.id.banner)
     BannerView bannerView;
+//    @BindView(R.id.recycler_view)
+//    RecyclerView recyclerView;
     private int[] imgs = {R.drawable.banner_1, R.drawable.banner_2};
     private List<View> viewList;
     private FunctionListPresenter presenter;
@@ -109,6 +111,7 @@ public class HomeActivity extends AppCompatActivity implements FunctionListView,
 
     private void init() {
         initBanner();
+//        initRecyclerView();
         commonRecyclerView.setOnRefreshLoadMoreListener(this);
         commonRecyclerView.disableRefresh();
         presenter = new FunctionListPresenter();
@@ -138,10 +141,21 @@ public class HomeActivity extends AppCompatActivity implements FunctionListView,
 //        bannerView.setTransformAnim(true);
     }
 
+    private void initRecyclerView(){
+//        recyclerView.setHasFixedSize(true);
+//        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+////        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+//
+//        recyclerView.setLayoutManager(layoutManager);
+//        CustomDecoration customDecoration = new CustomDecoration(this, CustomDecoration.VERTICAL_LIST);
+//        recyclerView.addItemDecoration(customDecoration);
+    }
+
     @Override
     public void onGetDataSuccess(ArrayList<FunctionData> list) {
         FunctionListAdapter adapter = new FunctionListAdapter(HomeActivity.this, list);
         commonRecyclerView.setAdapter(adapter);
+//        recyclerView.setAdapter(adapter);
     }
 
     @Override
