@@ -13,6 +13,7 @@ import com.jeremy.library.common.Constants;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -44,12 +45,47 @@ public class StorageUtils {
         return false;
     }
 
+    /**
+     * Jacoco代码覆盖文件存储地址
+     *
+     * @param context
+     * @return
+     */
+    public static File getCoverageFile(Context context) {
+        File dir = null;
+        if (MEDIA_MOUNTED.equals(Environment.getExternalStorageState()) && hasExternalStoragePermission(context)) {
+            dir = Environment.getExternalStorageDirectory();
+        } else {
+            dir = context.getFilesDir();
+        }
+        dir = new File(dir, "coverage");
+        if (dir == null) {
+            Log.w(TAG, "Can't define system cache directory! The app should be re-installed.");
+            return null;
+        }
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        return new File(dir, "coverage.ec");
+    }
+
+    public static void deleteFile(File file) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            try {
+                Files.delete(file.toPath());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            file.delete();
+        }
+    }
+
+
     public static File getFilesDir(@Nullable Context context) {
         //得到/data/user/0/com.jeremy.demo.pro/files  映射为 /data/data/com.jeremy.demo.pro/files，即 user/0就是第二个data
         return context.getFilesDir();
     }
-
-
 
 
     /**

@@ -20,13 +20,20 @@ apply plugin: 'com.jeremy.gradle'
 //apply plugin: 'com.neenbedankt.android-apt'
 //apply plugin: 'com.tencent.tinker.patch'
 //apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'jacoco'
 
+jacoco {
+    toolVersion = "0.7.9"
+//    toolVersion = "0.7.4+"
+//    toolVersion = "0.8.1"
+//    reportsDir = file("$buildDir/customJacocoReportDir")
+}
 myArgs {
     sender = 'Jeremy zhao'
     message = 'This is a test of grale plugin parameter.'
     nestArgs {
-        receiver = 'Jenny Shi'
-        email = 'jennyshi@126.com'
+        receiver = 'mumu'
+        email = 'email of mumu'
     }
 }
 
@@ -119,6 +126,7 @@ android {
      */
     buildTypes {
         release {
+            testCoverageEnabled = true
             buildConfigField("boolean", "LOG_DEBUG", "false")
             buildConfigField("String", "SERVER_HOST", "\"jeremy.demo.api/\"")
             minifyEnabled true//最小化资源包
@@ -128,6 +136,7 @@ android {
         }
 
         debug {
+            testCoverageEnabled = true
             buildConfigField("boolean", "LOG_DEBUG", "true")
             buildConfigField("String", "SERVER_HOST", "\"test.jeremy.demo.api/\"")
             minifyEnabled false
@@ -140,28 +149,28 @@ android {
      有些定制软件可能会出很多版本，通过 productFlavors 就非常方便， 比如某某输入法就经常出各种定制版，这样以后管理代码和发版就方便多了。
      */
 
-    flavorDimensions flavorDimensionChannel, flavorDimensionVersion  //纬度
-    productFlavors {
-        //free和pro就是variants，可以单独只为某一个variants添加一些依赖，只需要在Compile加上对应的variant名字前缀就可以了
-        huawei {
-            dimension flavorDimensionChannel
-        }
-        xiaomi {
-            dimension flavorDimensionChannel
-        }
-        free {
-            applicationId = "com.jeremy.demo.free"
-            buildConfigField "String", "CHANNEL", '"YOUMI"'
-            resValue "string", "app_name", "Jeremy free"
-            dimension flavorDimensionVersion
-        }
-        pro {
-            applicationId = "com.jeremy.demo.pro"
-            buildConfigField "String", "CHANNEL", '"OTHER"'
-            resValue "string", "app_name", "Jeremy pro"
-            dimension flavorDimensionVersion
-        }
-    }
+//    flavorDimensions flavorDimensionChannel, flavorDimensionVersion  //纬度
+//    productFlavors {
+//        //free和pro就是variants，可以单独只为某一个variants添加一些依赖，只需要在Compile加上对应的variant名字前缀就可以了
+//        huawei {
+//            dimension flavorDimensionChannel
+//        }
+//        xiaomi {
+//            dimension flavorDimensionChannel
+//        }
+//        free {
+////            applicationId = "com.jeremy.demo.free"
+//            buildConfigField "String", "CHANNEL", '"YOUMI"'
+//            resValue "string", "app_name", "Jeremy free"
+//            dimension flavorDimensionVersion
+//        }
+//        pro {
+////            applicationId = "com.jeremy.demo.pro"
+//            buildConfigField "String", "CHANNEL", '"OTHER"'
+//            resValue "string", "app_name", "Jeremy pro"
+//            dimension flavorDimensionVersion
+//        }
+//    }
 
     sourceSets {
         main {
@@ -249,14 +258,15 @@ configurations.all {
 }
 
 dependencies {
-//    compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':library')
     implementation project(':bannerview')
     implementation project(':lycheeplugin')
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 
     //android support
-    implementation "com.android.support:design:27.1.0"
+    implementation 'com.android.support:design:27.1.0'
     implementation 'com.android.support:cardview-v7:27.1.0'
 
     //butterknife
@@ -271,7 +281,7 @@ dependencies {
 
     //for test
     testCompile 'junit:junit:4.12'
-    testImplementation "org.mockito:mockito-core:2.+"
+    testImplementation 'org.mockito:mockito-core:2.+'
     androidTestCompile('com.android.support.test:runner:0.5') {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
@@ -295,66 +305,110 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-v4'
         exclude module: 'recyclerview-v7'
     }
+//    compile 'org.jacoco:org.jacoco.core:0.7.4+'
+    compile 'org.jacoco:org.jacoco.core:0.7.9'
 
-//    proImplementation 'com.android.support:appcompat-v7:22.2.0'//只为variants pro添加这个依赖
+    //    proImplementation 'com.android.support:appcompat-v7:22.2.0'//只为variants pro添加这个依赖
 
-//    compile project(':viewinject-annotation')
-//    compile project(':inject')
-//    apt project(':viewinject_compiler')
-//    compile project(':crop')
-//    compile project(':DroidPlugin')
-//    compile project(':camera')
+    //    compile project(':viewinject-annotation')
 
-//    compile rootProject.ext.dependencies["design"]
-//    compile rootProject.ext.dependencies["appcompat-v7"]
-//    compile rootProject.ext.dependencies["recyclerview-v7"]
+    //    compile project(':inject')
 
-//    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-//    compile('com.android.support:appcompat-v7:25.3.1') {
-//        exclude group: 'com.android.support', module: 'animated-vector-drawable'
-//        exclude group: 'com.android.support', module: 'cardview-v7'
-//    }
+    //    apt project(':viewinject_compiler')
+
+    //    compile project(':crop')
+
+    //    compile project(':DroidPlugin')
+
+    //    compile project(':camera')
+
+    //    compile rootProject.ext.dependencies["design"]
+
+    //    compile rootProject.ext.dependencies["appcompat-v7"]
+
+    //    compile rootProject.ext.dependencies["recyclerview-v7"]
+
+    //    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    //    compile('com.android.support:appcompat-v7:25.3.1') {
+
+    //        exclude group: 'com.android.support', module: 'animated-vector-drawable'
+
+    //        exclude group: 'com.android.support', module: 'cardview-v7'
+
+    //    }
 
     //可选，用于生成application类
-    //    provided('com.tencent.tinker:tinker-android-anno:1.7.5')
-    //tinker的核心库
-    //    compile('com.tencent.tinker:tinker-android-lib:1.7.5')
-    //    compile 'com.android.support:design:25.3.0'
-    //    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    //    compile 'com.android.support:appcompat-v7:23.4.0'
-    //    compile 'com.facebook.stetho:stetho:1.5.0'
-//    def okhttp3Version = '3.9.1'
-//    compile('com.squareup.okhttp3:okhttp:' + okhttp3Version)
-//    compile('com.squareup.okhttp3:logging-interceptor:' + okhttp3Version)
-//    testCompile('com.squareup.okhttp3:mockwebserver:' + okhttp3Version)
-//    compile files('libs/AMap3DMap_5.0.0_AMapNavi_5.0.1_AMapSearch_5.0.0_AMapLocation_3.4.0_20170427.jar')
-//    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-//    compile 'io.reactivex.rxjava2:rxjava:2.0.5'
-//    compile 'org.reactivestreams:reactive-streams:1.0.0'
-//    compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
-//    compile 'com.facebook.stetho:stetho-okhttp3:1.5.0'
-//    compile 'com.bartoszlipinski:recyclerviewheader2:2.0.1'
-//    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-//    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 
-//    compile 'com.umeng.analytics:analytics:latest.integration'
+    //    provided('com.tencent.tinker:tinker-android-anno:1.7.5')
+
+    //tinker的核心库
+
+    //    compile('com.tencent.tinker:tinker-android-lib:1.7.5')
+
+    //    compile 'com.android.support:design:25.3.0'
+
+    //    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    //    compile 'com.android.support:appcompat-v7:23.4.0'
+
+    //    compile 'com.facebook.stetho:stetho:1.5.0'
+
+    //    def okhttp3Version = '3.9.1'
+
+    //    compile('com.squareup.okhttp3:okhttp:' + okhttp3Version)
+
+    //    compile('com.squareup.okhttp3:logging-interceptor:' + okhttp3Version)
+
+    //    testCompile('com.squareup.okhttp3:mockwebserver:' + okhttp3Version)
+
+    //    compile files('libs/AMap3DMap_5.0.0_AMapNavi_5.0.1_AMapSearch_5.0.0_AMapLocation_3.4.0_20170427.jar')
+
+    //    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
+    //    compile 'io.reactivex.rxjava2:rxjava:2.0.5'
+
+    //    compile 'org.reactivestreams:reactive-streams:1.0.0'
+
+    //    compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+
+    //    compile 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+
+    //    compile 'com.bartoszlipinski:recyclerviewheader2:2.0.1'
+
+    //    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+
+    //    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+    //    compile 'com.umeng.analytics:analytics:latest.integration'
 
     //单元测试
-//
-//    androidTestCompile 'com.android.support:support-annotations:25.3.1'
-//    androidTestCompile "org.mockito:mockito-core:2.+"
 
-//    androidTestCompile 'com.android.support:support-annotations:24.0.0'
+    //
+
+    //    androidTestCompile 'com.android.support:support-annotations:25.3.1'
+
+    //    androidTestCompile "org.mockito:mockito-core:2.+"
+
+    //    androidTestCompile 'com.android.support:support-annotations:24.0.0'
+
     // Optional -- Hamcrest library
-//    androidTestCompile 'org.hamcrest:hamcrest-library:1.3'
-    // Optional -- UI testing with Espresso
-//    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
-    // Optional -- UI testing with UI Automator
-//    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
 
-//    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-//        exclude group: 'com.android.support', module: 'support-annotations'
-//    })
+    //    androidTestCompile 'org.hamcrest:hamcrest-library:1.3'
+
+    // Optional -- UI testing with Espresso
+
+    //    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
+
+    // Optional -- UI testing with UI Automator
+
+    //    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
+
+    //    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+
+    //        exclude group: 'com.android.support', module: 'support-annotations'
+
+    //    })
 }
 
 //task compile << {
@@ -426,4 +480,35 @@ variants.all { variant ->
         }
     }
 }
+
+def coverageSourceDirs = [
+        'src/main/java'
+]
+
+task jacocoTestReport(type: JacocoReport) {
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports after running tests."
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+    classDirectories = fileTree(
+            dir: './build/intermediates/classes/debug',
+            excludes: ['**/R*.class',
+                       '**/*$InjectAdapter.class',
+                       '**/*$ModuleAdapter.class',
+                       '**/*$ViewInjector*.class'
+            ])
+    sourceDirectories = files(coverageSourceDirs)
+    executionData = files("$buildDir/outputs/code-coverage/connected/coverage.ec")
+
+    doFirst {
+        new File("$buildDir/intermediates/classes/").eachFileRecurse { file ->
+            if (file.name.contains('$$')) {
+                file.renameTo(file.path.replace('$$', '$'))
+            }
+        }
+    }
+}
+
 

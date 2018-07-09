@@ -2,17 +2,19 @@ package com.jeremy.demo.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 
 import com.jeremy.demo.R;
+import com.jeremy.library.utils.StorageUtils;
+
+import java.io.File;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends BaseActivity {
     private String TAG = "SplashActivity";
     private static final float START_SCALE = 1.0f;
     private static final float END_SCALE = 1.2f;
@@ -27,7 +29,15 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
         init();
+//        deleteCoverageReport();
 //        String deviceInfo = DeviceUtils.getDeviceInfo(this);
+    }
+
+    public void deleteCoverageReport() {
+        File file = StorageUtils.getCoverageFile(this);
+        if (file != null && file.exists()) {
+            StorageUtils.deleteFile(file);
+        }
     }
 
     @Override
