@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.jeremy.demo.utils.CoverageUtils;
+import com.jeremy.demo.jacoco.CoverageUtils;
 
 /**
  * Created by changqing on 2018/7/4.
