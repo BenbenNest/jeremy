@@ -482,9 +482,11 @@ variants.all { variant ->
 }
 
 def coverageSourceDirs = [
-        'src/main/java'
+        'src/main/java',
+        '../library/src/main/java'
 ]
-
+//additionalSourceDirs
+//jacoco gradle : https://docs.gradle.org/current/userguide/jacoco_plugin.html
 task jacocoTestReport(type: JacocoReport) {
     group = "Reporting"
     description = "Generate Jacoco coverage reports after running tests."
@@ -501,6 +503,24 @@ task jacocoTestReport(type: JacocoReport) {
             ])
     sourceDirectories = files(coverageSourceDirs)
     executionData = files("$buildDir/outputs/code-coverage/connected/coverage.ec")
+
+
+    //additionalClassDirs 只能指定一个，后面的会覆盖前面的
+    additionalClassDirs = fileTree(
+            dir: '../library/build/intermediates/classes/debug',
+            excludes: ['**/R*.class',
+                       '**/*$InjectAdapter.class',
+                       '**/*$ModuleAdapter.class',
+                       '**/*$ViewInjector*.class'
+            ])
+
+//    additionalClassDirs = fileTree(
+//            dir: '../lycheeserver/build/intermediates/classes/debug',
+//            excludes: ['**/R*.class',
+//                       '**/*$InjectAdapter.class',
+//                       '**/*$ModuleAdapter.class',
+//                       '**/*$ViewInjector*.class'
+//            ])
 
     doFirst {
         new File("$buildDir/intermediates/classes/").eachFileRecurse { file ->
