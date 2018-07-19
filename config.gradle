@@ -1,4 +1,5 @@
 ext {
+    isModule = false;//false 组件模式 true：集成模式(library)
     android_support_version_appcompat = '25.0.3'
     android_support_version_design = '25.3.1'
 
