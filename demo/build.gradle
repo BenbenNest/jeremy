@@ -263,6 +263,7 @@ dependencies {
     implementation project(':library')
     implementation project(':bannerview')
     implementation project(':lycheeplugin')
+    annotationProcessor project(':processor')
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 
     //android support

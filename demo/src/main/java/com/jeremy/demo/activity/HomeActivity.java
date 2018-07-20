@@ -18,11 +18,11 @@ import com.jeremy.bannerview.BannerView;
 import com.jeremy.demo.R;
 import com.jeremy.demo.algorithm.HeapSort;
 import com.jeremy.demo.algorithm.LinkListActivity;
-import com.jeremy.demo.jacoco.JacocoInstrumentation;
 import com.jeremy.demo.jni.MyJNI;
 import com.jeremy.demo.mvp.bean.FunctionData;
 import com.jeremy.demo.mvp.presenter.FunctionListPresenter;
 import com.jeremy.demo.mvp.view.FunctionListView;
+import com.jeremy.library.apt.Route;
 import com.jeremy.library.aspect.annotation.CheckNet;
 import com.jeremy.library.aspect.annotation.ExecTime;
 import com.jeremy.library.recycler_view.CommonRecyclerView;
@@ -39,6 +39,7 @@ import java.util.Random;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+@Route(path = "Route test")
 public class HomeActivity extends AppCompatActivity implements FunctionListView, CommonRecyclerView.OnRefreshLoadMoreListener {
     @BindView(R.id.common_recyclerview)
     CommonRecyclerView commonRecyclerView;
@@ -61,7 +62,6 @@ public class HomeActivity extends AppCompatActivity implements FunctionListView,
         ButterKnife.bind(this);
 //        test();
         init();
-
         HeapSort.testHeapSort();
         System.out.print("jni:" + MyJNI.getStringFromC());
     }
