@@ -260,9 +260,11 @@ configurations.all {
 dependencies {
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation project(':library')
-    implementation project(':bannerview')
-    implementation project(':lycheeplugin')
+    if(isModule) {
+        implementation project(':library')
+        implementation project(':bannerview')
+        implementation project(':lycheeplugin')
+    }
     annotationProcessor project(':processor')
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 
