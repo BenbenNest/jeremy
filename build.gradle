@@ -48,11 +48,6 @@ buildscript {
          jcenter性能方面比mavenCentral更优
          mavenCentral会自动下载很多与IDE相关的index，而这些用到的少，且不是必需
 
-         作者：某学姐
-         链接：https://www.jianshu.com/p/bce437eeb3d3
-         來源：简书
-         著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-
          */
 //        0.7.7.201606060606
     }

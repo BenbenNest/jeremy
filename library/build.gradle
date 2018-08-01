@@ -20,6 +20,9 @@ if(isModule) {
     apply plugin: 'com.android.application'
 }
 
+def cfg = rootProject.ext.android
+def appId = rootProject.ext.appId
+
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
 //    buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -31,6 +34,37 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+                printf "jeremy2"
+                printf project.getName()
+            }
+        }
+
+        buildConfigField("boolean","isModule",String.valueOf(isModule))
+        if (!isModule){
+            applicationId appId['library']
+        }
+
+        sourceSets{
+            main{
+                //在组件模式下 使用不同的manifest文件
+                if(!isModule){
+                    manifest.srcFile 'src/main/module/AndroidManifest.xml'
+                    java.srcDirs 'src/main/module/java','src/main/java'
+                    res.srcDirs 'src/main/module/res'
+                    res{
+                        exclude 'src/main/res'
+                    }
+                }else{
+                    manifest.srcFile 'src/main/AndroidManifest.xml'
+                    res.srcDirs 'src/main/res'
+                }
+            }
+        }
+
     }
     buildTypes {
         release {
