@@ -3,7 +3,8 @@
 //        ':hotfix'
 //, ':buildsrc', ':hack'
 
-include ':demo', ':library', ':plugin', ':app-skin', ':bannerview', ':myplugin', ':lycheeplugin', ':plugintest', ':lycheeserver', ':processor'
+include ':demo', ':library', ':plugin', ':app-skin', ':bannerview', ':myplugin', ':lycheeplugin',
+        ':plugintest', ':lycheeserver', ':processor', ':router_annotation'
 
 
 //判断系统变量并输出系统变量值
