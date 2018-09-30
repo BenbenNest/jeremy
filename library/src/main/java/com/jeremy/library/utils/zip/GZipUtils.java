@@ -45,7 +45,6 @@ public class GZipUtils {
         compress(file, true);
     }
 
-
     /**
      * 数据压缩
      *
@@ -85,7 +84,7 @@ public class GZipUtils {
 
     /**
      * 数据压缩
-     *
+     * 这个压缩方法有问题，具体原因不知道
      * @param is
      * @param os
      * @throws Exception

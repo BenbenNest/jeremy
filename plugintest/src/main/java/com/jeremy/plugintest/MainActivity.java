@@ -19,7 +19,6 @@ public class MainActivity extends  BaseActivity{
 //                    startService(new Intent(that, OneService.class));
 
 //                IntentFilter intentFilter = new IntentFilter();
-//                intentFilter.addAction("com.dongnao.alvin.taopiaopiao.MainActivity");
 //                registerReceiver(new MyReceiver(), intentFilter);
             }
         });
@@ -28,7 +27,6 @@ public class MainActivity extends  BaseActivity{
             @Override
             public void onClick(View view) {
 //                Intent intent = new Intent();
-//                intent.setAction("com.dongnao.alvin.taopiaopiao.MainActivity");
 //                sendBroadcast(intent);
             }
         });

@@ -3,7 +3,7 @@
 //        ':hotfix'
 //, ':buildsrc', ':hack'
 
-include ':demo', ':library', ':plugin', ':app-skin', ':bannerview', ':myplugin', ':lycheeplugin',
+include ':demo', ':library', ':plugin', ':app-skin', ':bannerview', ':myplugin', ':lycheeplugin', ':router_compiler', ':router_core',
         ':plugintest', ':lycheeserver', ':processor', ':router_annotation'
 
 
