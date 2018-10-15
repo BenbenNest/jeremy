@@ -3,10 +3,12 @@ package com.jeremy.demo.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Keep;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ import com.jeremy.bannerview.BannerView;
 import com.jeremy.demo.R;
 import com.jeremy.demo.algorithm.HeapSort;
 import com.jeremy.demo.algorithm.LinkListActivity;
+import com.jeremy.demo.jni.HelloWorld;
 import com.jeremy.demo.jni.MyJNI;
 import com.jeremy.demo.mvp.bean.FunctionData;
 import com.jeremy.demo.mvp.presenter.FunctionListPresenter;
@@ -63,7 +66,13 @@ public class HomeActivity extends AppCompatActivity implements FunctionListView,
 //        test();
         init();
         HeapSort.testHeapSort();
-        System.out.print("jni:" + MyJNI.getStringFromC());
+        testJNI();
+
+    }
+
+    private void testJNI(){
+        Log.v("jni:" ,MyJNI.helloworld());
+        Log.v("jni:" ,MyJNI.getStringFromC());
     }
 
     @Override

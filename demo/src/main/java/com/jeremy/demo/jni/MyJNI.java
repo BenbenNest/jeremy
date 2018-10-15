@@ -17,4 +17,6 @@ public class MyJNI {
 
     public static native String getStringFromC();
 
+    public static native String helloworld();
+
 }

@@ -163,7 +163,7 @@
         <activity
             android:name=".activity.plugin.HookActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.jni.MyFirstJniActivity" />
+        <activity android:name=".activity.jni.MyJniActivity" />
         <activity
             android:name=".activity.camera.IDCardUploadActivity"
             android:screenOrientation="portrait" />

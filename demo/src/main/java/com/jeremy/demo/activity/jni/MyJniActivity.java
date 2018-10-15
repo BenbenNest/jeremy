@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.jeremy.demo.R;
 import com.jeremy.demo.jni.MyJNI;
 
-public class MyFirstJniActivity extends AppCompatActivity {
+public class MyJniActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +15,7 @@ public class MyFirstJniActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_first_jni);
 
         TextView textView = new TextView(this);
-        textView.setText(MyJNI.getStringFromC());
+        textView.setText(MyJNI.getStringFromC()+"\n"+MyJNI.helloworld());
         System.out.print("jni:" + MyJNI.getStringFromC());
         setContentView(textView);
     }

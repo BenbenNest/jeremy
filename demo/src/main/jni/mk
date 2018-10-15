@@ -1,0 +1,1 @@
+在该目录下执行ndk-build就可以生成.so（也可以把ndk-build配置到gradle任务中）
