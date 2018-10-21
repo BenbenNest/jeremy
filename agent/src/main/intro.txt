@@ -1,0 +1,29 @@
+
+javac -d ../classes com/jeremy/agent/*.java
+
+cd ../classes/
+
+jar -cvmf manifest.mf my.jar com
+
+java -jar my.jar
+
+
+
+javac -d ../classes com/jeremy/agent/MyAgent.java
+
+cd ../classes/
+
+jar -cvmf agent.mf MyAgent.jar com
+
+
+java -javaagent:/Users/didi/benben/jeremy/agent/src/main/classes/MyAgent.jar=Hello -jar my.jar
+
+
+java -javaagent:MyAgent.jar=hello -javaagent:MyAgent.jar=hello2 -jar my.jar
+
+
+生成带引用外部jar的class，否则编译通不过
+javac -cp /Users/didi/benben/jeremy/agent/libs/javassist.jar -d ../classes com/jeremy/agent/*.java
+
+
+
