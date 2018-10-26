@@ -25,5 +25,6 @@ java -javaagent:MyAgent.jar=hello -javaagent:MyAgent.jar=hello2 -jar my.jar
 生成带引用外部jar的class，否则编译通不过
 javac -cp /Users/didi/benben/jeremy/agent/libs/javassist.jar -d ../classes com/jeremy/agent/*.java
 
+如果是引用外部class，可以指定class所在文件的路径
 
 
