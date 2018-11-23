@@ -28,3 +28,17 @@ javac -cp /Users/didi/benben/jeremy/agent/libs/javassist.jar -d ../classes com/j
 如果是引用外部class，可以指定class所在文件的路径
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
