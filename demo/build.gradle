@@ -22,6 +22,8 @@ apply plugin: 'com.jeremy.gradle'
 //apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'jacoco'
 
+description = 'this is build.gradle of demo'
+
 jacoco {
     toolVersion = "0.7.9"
 //    toolVersion = "0.7.4+"
