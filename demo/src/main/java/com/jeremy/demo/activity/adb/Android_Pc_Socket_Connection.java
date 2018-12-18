@@ -14,6 +14,20 @@ import java.io.DataOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+
+/**
+ * 实际开发中的问题
+ *
+ * Android端的程序 有可能被干掉
+ * adb forward 有可能会被干掉
+ *
+ * 由于连接不稳定性，判断真正连接成功的方法，只有轮询收发握手数据包：
+ * C发送一个数据包，等待S回复；
+ * C如果收到了S的回复包，说明连通。
+ * 如果接收超时，则认为没有连通.
+ * 在没有连通的情况下，需要重新建立Socket，并Connect()，然后再尝试握手。
+ *
+ */
 public class Android_Pc_Socket_Connection extends Activity {
     private static final String TAG = "Android_Pc_Socket_Con";
 
