@@ -31,6 +31,9 @@ public class FunctionListModel {
     private void initData() {
         FunctionData data;
 
+        data = new FunctionData("Android adb forward实现PC和App的Socket通讯", "com.jeremy.demo.activity.adb.Android_Pc_Socket_Connection", "Android adb forward实现PC和App的Socket通讯", 0);
+        list.add(data);
+
         data = new FunctionData("通过Binder直接跨进程通信", "com.jeremy.demo.client.IPCByBinderActivity", "通过Binder直接跨进程通信", 0);
         list.add(data);
 

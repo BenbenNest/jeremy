@@ -187,6 +187,7 @@
         <activity android:name=".activity.plugin.ProxyActivity" />
         <activity android:name=".activity.plugin.PluginTestActivity" />
         <activity android:name=".client.IPCByBinderActivity"></activity>
+        <activity android:name=".activity.adb.Android_Pc_Socket_Connection"/>
     </application>
 
 </manifest>
