@@ -40,7 +40,7 @@ public class MonkeyNumberOffActivity extends AppCompatActivity {
         }
         for (int i = 0; i < people.length; i++) {
             if (people[i]) {
-                System.out.println("最后退出的人的顺序是：" + (i + 1) % 3);
+
             }
         }
     }

@@ -1,5 +1,6 @@
-package com.jeremy.demo.algorithm;
+package com.jeremy.algorithm;
 
+import java.util.ArrayDeque;
 import java.util.LinkedList;
 
 /**
@@ -8,12 +9,12 @@ import java.util.LinkedList;
 
 public class BinaryTree {
 
-    public static class BinaryTreeNode<T> {
+    public static class BTNode<T> {
         public T value;
-        public BinaryTreeNode left;
-        public BinaryTreeNode right;
+        public BTNode left;
+        public BTNode right;
 
-        public BinaryTreeNode(T val) {
+        public BTNode(T val) {
             value = val;
         }
     }
@@ -23,18 +24,17 @@ public class BinaryTree {
      * 堆的话一般都是用完全二叉树来实现的，比如大堆和小堆。依据二叉树的性质，完全二叉树和满二叉树采用顺序存储比较合适
      * 数组构造完全二叉树
      * 若设二叉树的深度为h，除第 h 层外，其它各层 (1～h-1) 的结点数都达到最大个数，第 h 层所有的结点都连续集中在最左边，这就是完全二叉树。
-     * @param root
      * @param nums
      * @param index
      * @return
      */
-    public BinaryTreeNode<Integer> buildTree(BinaryTreeNode<Integer> root, int[] nums, int index) {
+    public static BTNode<Integer> buildTree(int[] nums, int index) {
         if (index >= nums.length) {
             return null;
         }
-        root = new BinaryTreeNode(nums[index]);
-        root.left = buildTree(root.left, nums, 2 * index + 1);
-        root.right = buildTree(root.right, nums, 2 * index + 2);
+        BTNode<Integer> root = new BTNode(nums[index]);
+        root.left = buildTree(nums, 2 * index + 1);
+        root.right = buildTree( nums, 2 * index + 2);
         return root;
     }
 
@@ -42,21 +42,24 @@ public class BinaryTree {
      * 分层遍历二叉树（按层次从上往下，从左往右）
      * 相当于广度优先搜索，使用队列实现。队列初始化，将根节点压入队列。当队列不为空，进行如下操作：
      * 弹出一个节点，访问，若左子节点或右子节点不为空，将其压入队列。
-     *
+     * Push() and pop() are by convention operations related to Stacks (Deque, more specifically in this context) and that's why you should expect your LinkedList to work that way when you use those method. If you want your LinkedList to work as a Queue instead (it implements the Queue interface) the methods you want to use (as stated in the Documentation) are add() and remove().
+     * Push() and pop() 是使用栈的模式实现
+     * offer() and poll 是使用队列的模式实现的，
+     * 这里的LinkedList可以替换为ArrayDeque，考虑到性能问题，换成了ArrayDeque
      * @param root
      */
-    public static void levelTraverse(BinaryTreeNode root) {
+    public static void levelTraverse(BTNode root) {
         if (null == root)
             return;
-        LinkedList<BinaryTreeNode> list = new LinkedList<>();
-        list.push(root);
+        ArrayDeque<BTNode> list = new ArrayDeque<>();
+        list.offer(root);
         while (!list.isEmpty()) {
-            BinaryTreeNode node = list.poll();
+            BTNode node = list.poll();
             visit(node);
-            if (null != node.left)
-                list.push(node);
-            if (null != node.right)
-                list.push(node.right);
+                if (null != node.left)
+                    list.offer(node.left);
+                if (null != node.right)
+                    list.offer(node.right);
         }
         return;
     }
@@ -72,7 +75,7 @@ public class BinaryTree {
      * @param k
      * @return
      */
-    int GetNodeNumKthLevel(BinaryTreeNode root, int k) {
+    int GetNodeNumKthLevel(BTNode root, int k) {
         if (null == root || k < 1)
             return 0;
         if (k == 1)
@@ -86,7 +89,7 @@ public class BinaryTree {
     //    递归解法：
     //   （1）如果二叉树为空，节点个数为0
     //   （2）如果二叉树不为空，二叉树节点个数 = 左子树节点个数 + 右子树节点个数 + 1
-    public static int getTreeNodeCount(BinaryTreeNode root) {
+    public static int getTreeNodeCount(BTNode root) {
         if (null == root)
             return 0;
         return getTreeNodeCount(root.left) + getTreeNodeCount(root.right) + 1;
@@ -96,7 +99,7 @@ public class BinaryTree {
 //    递归解法：
 //            （1）如果二叉树为空，二叉树的深度为0
 //（2）如果二叉树不为空，二叉树的深度 = max(左子树深度， 右子树深度) + 1
-    public static int GetDepth(BinaryTreeNode root) {
+    public static int GetDepth(BTNode root) {
         if (null != root)
             return 0;
         int depthLeft = GetDepth(root.left);
@@ -104,11 +107,11 @@ public class BinaryTree {
         return depthLeft > depthRight ? (depthLeft + 1) : (depthRight + 1);
     }
 
-    public static void visit(BinaryTreeNode node) {
-        System.out.println(node.value + "/n");
+    public static void visit(BTNode node) {
+        System.out.println(node.value + "\n");
     }
 
-    void PreOrderTraverse(BinaryTreeNode root) {
+    void PreOrderTraverse(BTNode root) {
         if (null == root)
             return;
         visit(root); // 访问根节点
@@ -116,7 +119,7 @@ public class BinaryTree {
         PreOrderTraverse(root.right); // 前序遍历右子树
     }
 
-    void InOrderTraverse(BinaryTreeNode root) {
+    void InOrderTraverse(BTNode root) {
         if (null == root)
             return;
         InOrderTraverse(root.left); // 中序遍历左子树
@@ -124,7 +127,7 @@ public class BinaryTree {
         InOrderTraverse(root.right); // 中序遍历右子树
     }
 
-    void PostOrderTraverse(BinaryTreeNode root) {
+    void PostOrderTraverse(BTNode root) {
         if (null == root)
             return;
         PostOrderTraverse(root.left); // 后序遍历左子树

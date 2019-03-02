@@ -215,6 +215,7 @@ android {
 
     sourceSets {
         main {
+            //java.srcDirs = ['src/main/java', 'src/main/aidl']
             java.srcDirs = ['src/main/java']
             assets.srcDirs = ['src/main/assets']
 //            if (build_jni) {
@@ -324,24 +325,24 @@ dependencies {
     implementation 'org.aspectj:aspectjrt:1.8.1'
 
     //for test
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
     testImplementation 'org.mockito:mockito-core:2.+'
-    androidTestCompile('com.android.support.test:runner:0.5') {
+    androidTestApi('com.android.support.test:runner:0.5') {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
-    androidTestCompile('com.android.support.test:rules:0.5') {
+    androidTestApi('com.android.support.test:rules:0.5') {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2') {
+    androidTestApi('com.android.support.test.espresso:espresso-core:2.2.2') {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
-    androidTestCompile('com.android.support.test.espresso:espresso-idling-resource:2.2.2') {
+    androidTestApi('com.android.support.test.espresso:espresso-idling-resource:2.2.2') {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
-    androidTestCompile('com.android.support.test.espresso:espresso-intents:2.2.2') {
+    androidTestApi('com.android.support.test.espresso:espresso-intents:2.2.2') {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
-    androidTestCompile('com.android.support.test.espresso:espresso-contrib:2.2.2') {
+    androidTestApi('com.android.support.test.espresso:espresso-contrib:2.2.2') {
         exclude group: 'com.android.support', module: 'support-annotations'
         exclude group: 'com.android.support', module: 'appcompat'
         exclude group: 'com.android.support', module: 'appcompat-v7'

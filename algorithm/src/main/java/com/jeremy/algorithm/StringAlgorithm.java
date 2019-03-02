@@ -1,10 +1,8 @@
-package com.jeremy.demo.algorithm;
+package com.jeremy.algorithm;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-
-import com.jeremy.demo.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +13,7 @@ import java.util.Stack;
 /**
  * 常见的字符串算法集合
  */
-public class StringAlgorithmActivity extends AppCompatActivity {
+public class StringAlgorithm {
 
 
     //#############  start  #############
@@ -24,7 +22,7 @@ public class StringAlgorithmActivity extends AppCompatActivity {
      * 题目1：翻转句子
      题目： 给定一个英文句子，每个单词之间都是由一个或多个空格隔开，请翻转句子中的单词顺序（包括空格的顺序），但单词内字符的顺序保持不变。例如输入"www google com "，则应输出" com google www"。
      */
-    private char[] reverse(char[] chars, int start, int end) {
+    private static char[] reverse(char[] chars, int start, int end) {
         // str 判断null， 索引有效值判断
         if (chars == null || start < 0 || end >= chars.length || start >= end) {
             return chars;
@@ -41,15 +39,16 @@ public class StringAlgorithmActivity extends AppCompatActivity {
         return chars;
     }
 
-    public String reverse_suite1(String sentence) {
+    public static String reverse_suite(String sentence) {
         if (sentence == null || sentence.isEmpty()) {
             return sentence;
         }
 
         int length = sentence.length();
         // 第一步翻转所有字符
+        System.out.println(sentence+"\n");
         char[] chars = reverse(sentence.toCharArray(), 0, length - 1);
-        System.out.println(new String(chars));
+        System.out.println(new String(chars)+"\n");
 
         // 第二步翻转每个单词（重点：怎么找到单词）
         int start = 0, end = 0;
@@ -61,7 +60,6 @@ public class StringAlgorithmActivity extends AppCompatActivity {
             } else if (end == length || chars[end] == ' ') {
                 // 遇到空格或者已经到了字符串末尾，此时翻转找到的单词内部字符，这里需要注意end-1
                 chars = reverse(chars, start, end - 1);
-                System.out.println(new String(chars));
                 // 重新制定检查索引start
                 start = end++;
             } else {
@@ -75,16 +73,6 @@ public class StringAlgorithmActivity extends AppCompatActivity {
 
     ///#############  end  #############
 
-
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_string_algorithm);
-
-
-
-    }
 
     /**
      * 求字符串中最长的无重复子串
@@ -181,7 +169,7 @@ public class StringAlgorithmActivity extends AppCompatActivity {
      * 顺序输入字符，输出每个字母第一次出现的顺序，例如，输入abacbedgb,输出：abcedg
      */
     public static String stringFilter(String s) {
-        if (TextUtils.isEmpty(s)) return "";
+        if (s==null || s.length() ==0) return "";
         StringBuffer sb = new StringBuffer();
         int[] arr = new int[26];
         for (int i = 0; i < s.length(); i++) {
@@ -205,7 +193,9 @@ public class StringAlgorithmActivity extends AppCompatActivity {
 //        for (Character ch : set) {
 //            sb.append(ch);
 //        }
-        return sb.toString();
+        String result = sb.toString();
+        System.out.println(result);
+        return result;
     }
 
     /**
