@@ -3,7 +3,7 @@
 //        ':hotfix'
 //, ':buildsrc', ':hack'
 
-include ':demo', ':library', ':plugin', ':app-skin', ':bannerview', ':myplugin', ':lycheeplugin', ':router_compiler', ':router_core', ':agent', ':AndroidPcSocketConnection', ':algorithm',
+include ':demo', ':library', ':plugin', ':app-skin', ':bannerview', ':myplugin', ':lycheeplugin', ':router_compiler', ':router_core', ':agent', ':AndroidPcSocketConnection', ':algorithm', ':lychee',
         ':plugintest', ':lycheeserver', ':processor', ':router_annotation'
 
 

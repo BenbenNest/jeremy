@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -67,7 +68,18 @@ public class HomeActivity extends AppCompatActivity implements FunctionListView,
         init();
         HeapSort.testHeapSort();
         testJNI();
+        testClassloader();
+    }
 
+    private void testClassloader(){
+        String str = new String("abc");
+        System.out.println(str.getClass().getClassLoader());
+        ClassLoader classLoader = HomeActivity.this.getClassLoader();
+        do {
+            System.out.println(classLoader);
+            classLoader = classLoader.getParent();
+        } while (classLoader != null);
+        System.out.println(Button.class.getClassLoader());
     }
 
     private void testJNI(){

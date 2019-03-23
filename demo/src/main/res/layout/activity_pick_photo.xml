@@ -20,8 +20,8 @@
         android:layout_height="@dimen/pick_photo_avatar_size"
         android:layout_marginTop="@dimen/pick_photo_item_margin_top"
         android:scaleType="centerInside"
-        android:src="@drawable/default_avatar"
         android:visibility="gone"/>
 
+    <!--android:src="@drawable/default_avatar"-->
 
 </LinearLayout>

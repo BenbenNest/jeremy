@@ -46,7 +46,6 @@ public class AidlInnerAppActivity extends Activity {
                     }catch (Exception e){
                         e.printStackTrace();
                     }
-                    ActivityManagerService
                 }
             }
         });

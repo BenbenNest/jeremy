@@ -133,7 +133,7 @@ public class ProducerConsumerPatern {
 
     //使用阻塞队列实现
     //创建一个阻塞队列
-    final BlockingQueue blockingQueue = new ArrayBlockingQueue<>(10);
+    final BlockingQueue<Integer> blockingQueue = new ArrayBlockingQueue<>(10);
     class ProducerByBQ implements Runnable {
         @Override
         public void run() {
